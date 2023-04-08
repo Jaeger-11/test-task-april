@@ -3,6 +3,7 @@ const orders = document.querySelector('.orders');
 const checkmarks = document.querySelectorAll('.approve');
 const cancelbuttons = document.querySelectorAll('.reject'); 
 
+// WARRANTS DATA
 const warrantsData = [
     {
         name: "John Oils",
@@ -50,7 +51,7 @@ const warrantsData = [
         status: 'pending approval'
     },
 ]
-
+// ORDERS DATA
 const ordersData = [
     {
         name: "John Oils",

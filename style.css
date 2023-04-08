@@ -201,6 +201,9 @@ aside{
     display: flex;
     align-items: center;
 }
+.status-div .pointer:hover{
+    transform: scale(1.1);
+}
 .mr{
     margin-right: 0.2rem;
 }
