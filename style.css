@@ -34,7 +34,7 @@ body{
     margin: 0 0.5rem;
 }
 .container{
-    padding: 2rem;
+    padding: 2rem 1rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 header{
@@ -161,7 +161,7 @@ aside{
     margin: 0.3rem 0;
 }
 .warrants{
-    height: 610px;
+    height: 605px;
     overflow-y: scroll;
 }
 .warrant{
@@ -242,6 +242,28 @@ aside{
 @media screen and (min-width:1200px) {
     .container{
         width: 95%;
+        margin: auto;
+    }
+    body{
+        display: flex;
+        align-items: center;
+    }
+}
+@media screen and (min-width:1400px) {
+    .container{
+        width: 90%;
+        margin: auto;
+    }
+}
+@media screen and (min-width:1600px) {
+    .container{
+        width: 85%;
+        margin: auto;
+    }
+}
+@media screen and (min-width:1800px) {
+    .container{
+        width: 80%;
         margin: auto;
     }
 }
