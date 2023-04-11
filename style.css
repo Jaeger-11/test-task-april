@@ -19,12 +19,12 @@ body{
 }
 .small{
     color: rgba(255, 255, 255, 0.3);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
 }
 .bold{
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
 }
 .dot{
     width: 6px;
@@ -44,7 +44,7 @@ header{
 }
 /* logo container styling */
 .logo-text{
-    font-size: 20px;
+    font-size: 16px;
 }
 .logo-text span{
     font-size: 0.8em;
@@ -54,7 +54,6 @@ header{
     gap: 2rem;
     align-items: center;
 }
-
 .duty-container{
     display: flex;
     align-items: center;
@@ -68,11 +67,12 @@ header{
                 linear-gradient(0deg, rgba(101, 255, 144, 0.1), rgba(101, 255, 144, 0.1));
     border: 1px solid rgba(101, 255, 144, 0.25);
     padding: 5px;
-    font-size: 0.8em;
+    font-size: 14px;
 }
 .duty-name{
     display: flex;
     align-items: center;
+    font-size: 14px;
 }
 .main-container{
     display: flex;
@@ -98,11 +98,11 @@ aside{
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: all 1s ease;
+    transition: all 0.3s ease;
     /* border-image-source: linear-gradient(338.21deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 72.22%); */
 }
 .side-menu:hover{
-    transform: scale(0.9);
+    transform: scale(0.95);
 }
 .dashboard{
     background: rgba(255, 255, 255, 0.15);
@@ -118,6 +118,7 @@ aside{
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    margin-top: 1rem;
 }
 .header-text{
     display: flex;
@@ -137,7 +138,7 @@ aside{
     border: none;
     max-width: 300px;
     font-family: 'Outfit', sans-serif;
-    font-size: 15px;
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.65);
     line-height: 20px;
     font-weight: 500;
@@ -152,25 +153,25 @@ aside{
     margin: 2rem 0;
 }
 .order{
-    padding: 1rem;
+    padding: 0.5rem;
     border: 1px solid rgba(241, 51, 51, 0.25);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     background: rgba(241, 51, 51, 0.05);
-    margin: 0.3rem 0;
+    margin: 0.3rem;
 }
 .warrants{
-    height: 605px;
+    height: 590px;
     overflow-y: scroll;
 }
 .warrant{
-    padding: 1rem;
+    padding: 0.5rem;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     position: relative;
     margin: 0.3rem;
 }
@@ -189,7 +190,7 @@ aside{
     border: 1px solid rgba(241, 51, 51, 0.25);
 }
 .information{
-    font-size: 14px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.46);
     display: flex;
     align-items: center;
@@ -202,32 +203,28 @@ aside{
     align-items: center;
 }
 .status-div .pointer:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 .mr{
     margin-right: 0.2rem;
 }
-.red{
-    color: #F13333;
-    border:  1px solid rgba(241, 51, 51, 0.25);
-    background: rgba(241, 51, 51, 0.02);
+.funcBtns{
     padding: 0.5rem;
     font-family: 'Outfit', sans-serif;
     font-size: 12px;
     font-weight: 600;
     margin-right: 0.5rem;
     text-transform: uppercase;
+} 
+.red{
+    color: #F13333;
+    border:  1px solid rgba(241, 51, 51, 0.25);
+    background: rgba(241, 51, 51, 0.02);
 }
 .blue{
     color: #63B4FF;
     background: rgba(99, 180, 255, 0.02);
     border: 1px solid rgba(99, 180, 255, 0.25);
-    padding: 0.5rem;
-    font-family: 'Outfit', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 0.5rem;
-    text-transform: uppercase;
 }
 
 ::-webkit-scrollbar {
@@ -256,6 +253,12 @@ aside{
     .container{
         width: 90%;
         margin: auto;
+    }
+    .information, .small {
+        font-size: 14px;
+    }
+    .logo-text, .bold{
+        font-size: 18px;
     }
 }
 @media screen and (min-width:1600px) {

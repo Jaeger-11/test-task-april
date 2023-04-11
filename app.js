@@ -2,6 +2,8 @@ const warrants = document.querySelector('.warrants');
 const orders = document.querySelector('.orders');
 const checkmarks = document.querySelectorAll('.approve');
 const cancelbuttons = document.querySelectorAll('.reject'); 
+const warrantsearch = document.querySelector('#warrantsearch');
+const ordersearch = document/querySelector('#ordersearch');
 
 // WARRANTS DATA
 const warrantsData = [
@@ -60,50 +62,57 @@ const ordersData = [
     },
 ]
 
-const createWarrant = (name, id, status) => {
-    var statusClass = 'blue'
-    if (status !== "pending approval"){
-        statusClass = 'red'
-    }
-    warrants.innerHTML += `
-        <div class="warrant">
-            <img src="/images/character.png" alt="profile-image" class="warrant-image">
-            <div class="info-section">
-                <p>${name}</p>
-                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
-                <section class="status-div">
-                    <button class="${statusClass}">${status}</button>
-                    <img src="images/checkmark.png" alt="checkmark" class="pointer mr approve">
-                    <img src="images/cancel.png" alt="close" class="pointer reject">
-                </section>
+const pushWarrant = (warrantData) => {
+    warrantData.map((item) => {
+        const {name, status, id} = item;
+        var statusClass = 'blue'
+        if (status !== "pending approval"){
+            statusClass = 'red'
+        }
+        warrants.innerHTML += `
+            <div class="warrant">
+                <img src="/images/character.png" alt="profile-image" class="warrant-image">
+                <div class="info-section">
+                    <p>${name}</p>
+                    <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
+                    <section class="status-div">
+                        <button class="${statusClass} funcBtns">${status}</button>
+                        <img src="images/checkmark.png" alt="checkmark" class="pointer  mr approve">
+                        <img src="images/cancel.png" alt="close" class="pointer reject">
+                    </section>
+                </div>
+                <div class="days-left">IN 6 DAYS</div>
             </div>
-            <div class="days-left">IN 6 DAYS</div>
-        </div>
-    `
+        `
+    })
 }
 
-const addOrder = (name, id) => {
-    orders.innerHTML += `
+const pushOrder = (ordersData) => {
+    ordersData.map((item) => {
+        const { name, id } = item;
+        orders.innerHTML += `
         <div class="order">
             <img src="/images/character.png" alt="profile-image" class="order-image">
             <div class="info-section">
                 <p>${name}</p>
                 <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
-                <button class="red">WANTED</button>
+                <button class="red funcBtns">WANTED</button>
             </div>
         </div>
     `
+    })
 }
 
-warrantsData.map((item) => {
-    const {name, status, id} = item;
-    return createWarrant(name, id, status)
-})
+const searchWarrants = () => {
 
-ordersData.map((item) => {
-    const { name, id } = item;
-    return addOrder(name, id)
-})
+}
+
+const searchOrders = () => {
+
+}
+
+pushWarrant(warrantsData);
+pushOrder(ordersData);
 
 checkmarks.forEach((checkmark) => {
     checkmark.addEventListener('click', () => {
