@@ -3,7 +3,7 @@ const orders = document.querySelector('.orders');
 const checkmarks = document.querySelectorAll('.approve');
 const cancelbuttons = document.querySelectorAll('.reject'); 
 const warrantsearch = document.querySelector('#warrantsearch');
-const ordersearch = document/querySelector('#ordersearch');
+const ordersearch = document.querySelector('#ordersearch');
 
 // WARRANTS DATA
 const warrantsData = [
@@ -103,16 +103,17 @@ const pushOrder = (ordersData) => {
     })
 }
 
-const searchWarrants = () => {
-
-}
-
-const searchOrders = () => {
-
-}
-
 pushWarrant(warrantsData);
 pushOrder(ordersData);
+
+warrantsearch.addEventListener('change', () => {
+
+})
+
+ordersearch.addEventListener('change', () => {
+
+})
+
 
 checkmarks.forEach((checkmark) => {
     checkmark.addEventListener('click', () => {
