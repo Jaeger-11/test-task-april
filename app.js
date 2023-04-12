@@ -106,12 +106,12 @@ const pushOrder = (ordersData) => {
 pushWarrant(warrantsData);
 pushOrder(ordersData);
 
-warrantsearch.addEventListener('change', () => {
-
+warrantsearch.addEventListener('change', (e) => {
+    console.log(e.target.value)
 })
 
-ordersearch.addEventListener('change', () => {
-
+ordersearch.addEventListener('change', (e) => {
+    console.log(e.target.value)
 })
 
 

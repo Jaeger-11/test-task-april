@@ -1,6 +1,9 @@
 *{
     padding: 0;
     margin: 0;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
 }
 body{
     background: url(/images/blurred-bg-image.png), radial-gradient(56.61% 137.86% at 6.3% 11.85%, rgba(32, 94, 255, 0.15) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(56.61% 137.86% at 6.3% 11.85%, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(57.55% 87.41% at 92.24% -16.34%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(88.47% 88.47% at 12.32% 122.55%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, rgba(0, 0, 0, 0.95);
@@ -10,6 +13,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 /* GENERAL STYLES */
 .grey{
     color: rgba(255, 255, 255, 0.46);
@@ -34,7 +38,7 @@ body{
     margin: 0 0.5rem;
 }
 .container{
-    padding: 2rem 1rem;
+    padding: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 header{
@@ -239,17 +243,11 @@ aside{
     border-radius: 5px;
 }
 
-@media screen and (min-width:1200px) {
-    .container{
-        width: 95%;
-        margin: auto;
-    }
+@media screen and (min-width:1400px) {
     body{
         display: flex;
         align-items: center;
     }
-}
-@media screen and (min-width:1400px) {
     .container{
         width: 90%;
         margin: auto;
