@@ -73,12 +73,12 @@ const pushWarrant = (warrantData) => {
             <div class="warrant">
                 <img src="/images/character.png" alt="profile-image" class="warrant-image">
                 <div class="info-section">
-                    <p>${name}</p>
+                    <p class='suspectname'>${name}</p>
                     <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
                     <section class="status-div">
                         <button class="${statusClass} funcBtns">${status}</button>
                         <img src="images/checkmark.png" alt="checkmark" class="pointer  mr approve">
-                        <img src="images/cancel.png" alt="close" class="pointer reject">
+                        <img src="images/cancel.svg" alt="close" class="pointer reject">
                     </section>
                 </div>
                 <div class="days-left">IN 6 DAYS</div>
@@ -94,7 +94,7 @@ const pushOrder = (ordersData) => {
         <div class="order">
             <img src="/images/character.png" alt="profile-image" class="order-image">
             <div class="info-section">
-                <p>${name}</p>
+                <p class='suspectname'>${name}</p>
                 <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
                 <button class="red funcBtns">WANTED</button>
             </div>

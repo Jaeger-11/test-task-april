@@ -7,15 +7,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" href="images/pcpd-logo.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
     <title>PCPD</title>
 </head>
 <body>
-    <div>
+    <div class="megacontainer">
         <section class="container">
             <header>
                 <section class="logo-container">
-                    <img src="images/pcpd-logo.png" alt="logo" class="logo">
+                    <img src="images/logo.svg" alt="logo" class="logo">
                     <div class="logo-text"> 
                         <p>Parallel City <br> <span class="grey">POLICE DEPARTMENT</span></p>     
                     </div>
@@ -24,9 +24,9 @@
                 <section class="duty-container">
                     <p class="duty">ON DUTY</p>
                     <div class="duty-name"> JOHN OILS <p class="dot"></p> <span class="grey">SERGEANT II</span>  </div>
-                    <div>
-                        <img src="images/checkmark.png" alt="checkmark" class="pointer">
-                        <img src="images/cancel.png" alt="close" class="pointer">
+                    <div class="icon-cont">
+                        <img src="images/setting.svg" alt="checkmark" class="pointer icons">
+                        <img src="images/cancel.svg" alt="close" class="pointer icons">
                     </div>
                 </section>
             </header>
@@ -63,7 +63,7 @@
                     <section class="warrants-container">
                         <div class="header">
                             <section class="header-text">
-                                <img src="images/tasks-solid-warrants.png" alt="warrants icon">
+                                <img src="images/warrants.svg" alt="warrants icon">
                                 <div > 
                                     <p class="bold">WARRANTS <br> <span class="small">WARRANTS</span></p>     
                                 </div>
@@ -71,15 +71,13 @@
                 
                             <section class="search-input">
                                 <img src="/images/search-icon.png" alt="search">
-                                <input type="search" name="search" id="warrantsearch" placeholder="Search">
+                                <input type="text" name="search" id="warrantsearch" placeholder="Search">
                             </section>
                         </div>
 
-                        <div class="w-cont">
-                            <section class="warrants">
-                                <!-- FUNCTION IN JS HANDLES CONTENT -->
-                            </section>
-                        </div>
+                        <section class="warrants">
+                            <!-- FUNCTION IN JS HANDLES CONTENT -->
+                        </section>
         
                     </section>
         
@@ -94,7 +92,7 @@
                 
                             <section class="search-input">
                                 <img src="/images/search-icon.png" alt="search">
-                                <input type="search" name="search" id="ordersearch" placeholder="Search">
+                                <input type="text" name="search" id="ordersearch" placeholder="Search">
                             </section>
                         </div>
         
