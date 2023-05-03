@@ -225,6 +225,8 @@ aside{
     margin-bottom: 0.3rem;
     gap: var(--gap); 
     flex: 1;
+    text-decoration: none;
+    color: inherit;
 }
 .last-side-menu{
     margin-bottom: 0;
@@ -390,7 +392,6 @@ main{
 }
 .status-div{
     display: flex;
-    align-items: center;
 }
 .statusbtn{
     padding: var(--padlittle);
