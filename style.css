@@ -165,10 +165,13 @@ aside{
 }
 /* MAIN INFO */
 main{
+    flex: 1;
+}
+.dashboardcontent{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    flex: 1;
     gap: var(--gap);
+    height: 100%;
 }
 .warrants-container, .order-container{
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -186,7 +189,6 @@ main{
     justify-content: space-between;
     align-items: center;
     margin-top: var(--padlittle);
-    /* padding: var(--padlittle); */
     flex: auto;
 }
 .header img{
@@ -288,6 +290,7 @@ main{
 .suspectname{
     line-height: 120%;
     font-size: var(--fontmedium);
+    text-transform: capitalize;
 }
 .information{
     font-size: var(--fontsmall);
