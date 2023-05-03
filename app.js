@@ -151,7 +151,7 @@ const pushWarrant = (warrantData) => {
                         <button class="${statusClass} funcBtns">${status === 'pending' ? 'pending approval' : 'approval rejected'}</button>
                         <div>
                             <button class="statusbtn approve"><img src="images/checkmark.svg" alt="checkmark"></button>
-                            <button class="statusbtn reject"><img src="images/cancelicon.svg" alt="close"> </button>
+                            <button class="statusbtn reject"><img src="images/cancel-icon.svg" alt="close"> </button>
                         </div>
                     </section>
                 </div>
