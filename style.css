@@ -22,7 +22,7 @@
 *{
     padding: 0;
     margin: 0;
-    line-height: 105%;
+    line-height: 100%;
     -webkit-user-select: none; 
     -ms-user-select: none; 
     user-select: none; 
@@ -56,7 +56,7 @@ body{
 .bold{
     font-weight: 700;
     font-size: var(--fontmedium);
-    line-height: 130%;
+    line-height: 100%;
 }
 .dot{
     width: 6px;
