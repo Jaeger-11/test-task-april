@@ -20,55 +20,55 @@ let warrantsData = [
     {
         name: "john oils",
         id: '155',
-        status: 'pending ',
+        status: 'pending',
         imageUrl: 'images/character1.png'
     },
     {
         name: "james bond",
         id: '156',
-        status: ' rejected',
+        status: 'rejected',
         imageUrl: 'images/character.svg'
     },
     {
         name: "oliver twist",
         id: '157',
-        status: ' rejected',
+        status: 'rejected',
         imageUrl: 'images/character2.png'
     },
     {
         name: "idris albak",
         id: '158',
-        status: ' rejected',
+        status: 'rejected',
         imageUrl: ''
     },
     {
         name: "stoney christon",
         id: '159',
-        status: ' rejected',
+        status: 'rejected',
         imageUrl: 'images/character1.png'
     },
     {
         name: "daniel greals",
         id: '160',
-        status: 'pending ',
+        status: 'pending',
         imageUrl: 'images/character.svg'
     },
     {
         name: "josh kennedy",
         id: '161',
-        status: 'pending ',
+        status: 'pending',
         imageUrl: 'images/character2.png'
     },
     {
         name: "jerry sheamus",
         id: '162',
-        status: ' rejected',
+        status: 'rejected',
         imageUrl: 'images/character.svg'
     },
     {
         name: "apollo creed",
         id: '163',
-        status: 'pending ',
+        status: 'pending',
         imageUrl: 'images/character1.png'
     },
 ]
@@ -136,7 +136,7 @@ const pushWarrant = (warrantData) => {
     warrantData.map((item) => {
         const {name, status, id, imageUrl} = item;
         var statusClass = 'blue'
-        if (status !== "pending "){
+        if (status !== "pending"){
             statusClass = 'red'
         }
         warrants.innerHTML += `
