@@ -162,6 +162,7 @@ aside{
 }
 .side-menu:hover{
     transform: scale(0.95);
+    background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.05) 5.34%, rgba(255, 255, 255, 0) 89.63%), rgba(255, 255, 255, 0.05);
 }
 /* MAIN INFO */
 main{
