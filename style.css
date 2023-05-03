@@ -22,7 +22,7 @@
 *{
     padding: 0;
     margin: 0;
-    line-height: 110%;
+    line-height: 105%;
     -webkit-user-select: none; 
     -ms-user-select: none; 
     user-select: none; 
@@ -211,6 +211,9 @@ main{
     padding: clamp(5px, 0.2vw, 1rem);
     width: 50%;
 }
+.search-input img{
+    width: 2vw;
+}
 .search-input input{
     background: transparent;
     border: none;
@@ -261,21 +264,26 @@ main{
 }
 .warrant .imagecont{
     min-width: 20%;
-    /* height: 100%; */
     background-image: url(images/darkbg.svg);
+    background-size: cover;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 1px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-content: center;
+    padding: 2px;
 }
 .order .imagecont{
     min-width: 20%;
-    height: 100%;
+    background-size: cover;
     background-image: url(images/redbg.svg);
     border: 1px solid rgba(241, 51, 51, 0.3);
-    padding: 1px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-content: center;
+    padding: 2px;
 }
 .warrant-image, .order-image{
     width: 100%;
-    height: 100%;
 }
 .days-left{
     position: absolute;
@@ -358,6 +366,9 @@ main{
     .imagecont{
         max-width: 20%;
     }
+    .days-left{
+        padding: var(--padmedium);
+    }
 }
 @media screen and (min-width:1600px) {
     .container{
@@ -367,15 +378,14 @@ main{
     .funcBtns, .statusbtn{
         padding: var(--padmedium);
     } 
-    
+    .days-left{
+        padding: var(--padlittle) var(--padmedium);
+    }
 }
 @media screen and (min-width:1800px) {
     .container{
         width: 80vw;
         margin: auto;
-    }
-    .days-left{
-        padding: var(--padmedium);
     }
 }
 

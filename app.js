@@ -21,55 +21,64 @@ let warrantsData = [
         name: "john oils",
         id: '155',
         status: 'pending',
-        imageUrl: 'images/character1.png'
+        imageUrl: 'images/character1.png',
+        expires: '6'
     },
     {
         name: "james bond",
         id: '156',
         status: 'rejected',
-        imageUrl: 'images/character.svg'
+        imageUrl: 'images/character.svg',
+        expires: '3'
     },
     {
         name: "oliver twist",
         id: '157',
         status: 'rejected',
-        imageUrl: 'images/character2.png'
+        imageUrl: 'images/character2.png',
+        expires: '4'
     },
     {
         name: "idris albak",
         id: '158',
         status: 'rejected',
-        imageUrl: ''
+        imageUrl: '',
+        expires: '6'
     },
     {
         name: "stoney christon",
         id: '159',
         status: 'rejected',
-        imageUrl: 'images/character1.png'
+        imageUrl: 'images/character1.png',
+        expires: '6'
     },
     {
         name: "daniel greals",
         id: '160',
         status: 'pending',
-        imageUrl: 'images/character.svg'
+        imageUrl: 'images/character.svg',
+        expires: '5'
     },
     {
         name: "josh kennedy",
         id: '161',
         status: 'pending',
-        imageUrl: 'images/character2.png'
+        imageUrl: 'images/character2.png',
+        expires: '6'
     },
     {
         name: "jerry sheamus",
         id: '162',
         status: 'rejected',
-        imageUrl: 'images/character.svg'
+        imageUrl: 'images/character.svg',
+        expires: '7'
     },
     {
         name: "apollo creed",
         id: '163',
         status: 'pending',
-        imageUrl: 'images/character1.png'
+        imageUrl: 'images/character1.png',
+        expires: '6'
     },
 ]
 // ORDERS DATA
@@ -134,7 +143,7 @@ const pushDashboardContents = () => {
 const pushWarrant = (warrantData) => {
     warrants.innerHTML=''
     warrantData.map((item) => {
-        const {name, status, id, imageUrl} = item;
+        const {name, status, id, imageUrl, expires} = item;
         var statusClass = 'blue'
         if (status !== "pending"){
             statusClass = 'red'
@@ -155,7 +164,7 @@ const pushWarrant = (warrantData) => {
                         </div>
                     </section>
                 </div>
-                <div class="days-left">IN 6 DAYS</div>
+                <div class="days-left">IN ${expires} DAYS</div>
             </div>
         `
     })
