@@ -1,10 +1,10 @@
 :root{
-    --fontsmall: clamp(12px, 0.8vw, 3rem);
-    --fontmedium: clamp(14px, 1vw, 5rem);
+    --fontsmall: clamp(10px, 0.8vw, 3rem);
+    --fontmedium: clamp(15px, 1vw, 5rem);
     --fontlarge: clamp(18px, 1.2vw, 7rem);
     --padlittle: clamp(5px, 0.3vw, 15px);
     --padmedium: clamp(10px, 0.5vw, 20px);
-    --padlarge: clamp(12px, 1vw, 50px);
+    --padlarge: clamp(15px, 1vw, 50px);
     --gap: clamp(0.5rem, 0.5vw, 1rem);
     --gaplarge: clamp(1rem, 1vw, 2rem);
 }
@@ -186,7 +186,7 @@ header{
 .duty-name{
     display: flex;
     align-items: center;
-    font-size: var(--fontmedium);
+    font-size: clamp(13px, 0.9vw, 4rem);
     margin: 0 2rem;
 }
 .icon-cont{
@@ -227,6 +227,7 @@ aside{
     flex: 1;
     text-decoration: none;
     color: inherit;
+    text-transform: uppercase;
 }
 .last-side-menu{
     margin-bottom: 0;
@@ -279,6 +280,7 @@ main{
     display: flex;
     align-items: center;
     gap: var(--gap);
+    text-transform: uppercase;
 }
 .header-text img{
     height: 2vw;
@@ -288,18 +290,26 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
-    padding: clamp(5px, 0.2vw, 1rem);
+    padding: clamp(7px, 0.2vw, 1rem);
     width: 50%;
 }
+.search-input:hover{
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.search-input:active{
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
 .search-input img{
-    width: 2vw;
+    width: 1.5vw;
 }
 .search-input input{
     background: transparent;
     border: none;
     width: 100%;
     font-family: 'Outfit', sans-serif;
-    font-size: var(--fontsmall);
+    font-size: clamp(14px, 0.9vw, 3rem);
     color: rgba(255, 255, 255, 0.65);
     line-height: 20px;
     font-weight: 500;
@@ -308,7 +318,7 @@ main{
     margin-left: 0.5rem;
 }
 .search-input input::placeholder{
-    font-size: var(--fontsmall);
+    font-size: clamp(14px, 0.9vw, 3rem);
     font-weight: 500;
     color: rgba(255, 255, 255, 0.65);
 }
@@ -475,4 +485,59 @@ main{
     .warrants, .orders{
         height: 58vh;
     }
+}
+
+/* PROFILES STYLING */
+.profilescontent{
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    height: 100%;
+    padding: var(--padlarge) var(--padlarge) 0 var(--padlarge);
+}
+.profiles-header, .profiles-header-filtering{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.profiles-header-filtering{
+    gap: var(--gaplarge);
+}
+.profiles-header-filters{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.profiles-header-filters p{
+    flex: 1;
+    font-size: var(--fontsmall);
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.3;
+}
+.profiles-header-filters p:hover{
+    opacity: 0.6;
+}
+.profiles-header-filters .active{
+    opacity: 1;
+}
+.profiles-filter-all{
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.profiles-filter-wanted{
+    background: rgba(241, 51, 51, 0.1);
+    border: 1px solid rgba(241, 51, 51, 0.25);
+    color: #F13333;
+}
+.profiles-filter-clean{
+    background: rgba(101, 255, 144, 0.1);
+    border: 1px solid rgba(101, 255, 144, 0.25);
+    color: #65FF90;
+}
+.profiles-search-input{
+    width: 100%;
 }

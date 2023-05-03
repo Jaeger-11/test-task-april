@@ -91,55 +91,6 @@ let ordersData = [
     },
 ]
 
-const pushDashboardContents = () => {
-    main.innerHTML = `
-    <section class="dashboardcontent">
-        <section class="warrants-container">
-            <div class="header">
-                <section class="header-text">
-                    <img src="images/warrants.svg" alt="warrants icon">
-                    <div > 
-                        <p class="bold">WARRANTS <br> <span class="small">WARRANTS</span></p>     
-                    </div>
-                </section>
-    
-                <section class="search-input">
-                    <img src="/images/search-icon.png" alt="search">
-                    <input type="text" name="search" id="warrantsearch" placeholder="Search">
-                </section>
-            </div>
-
-            <section class="warrants">
-                <!-- FUNCTION IN JS HANDLES CONTENT -->
-            </section>
-
-        </section>
-
-        <section class="order-container">
-            <div class="header">
-                <section class="header-text">
-                    <img src="images/orderaccount.svg" alt="order icon">
-                    <div > 
-                        <p class="bold">ORDERS <br> <span class="small">ORDERS</span></p>     
-                    </div>
-                </section>
-    
-                <section class="search-input">
-                    <img src="/images/search-icon.png" alt="search">
-                    <input type="text" name="search" id="ordersearch" placeholder="Search">
-                </section>
-            </div>
-
-            <section class="orders">
-                <!-- FUNCTION IN JS HANDLES CONTENT -->
-            </section>
-        </section>
-    </section>
-    `
-    // pushOrder(orders)
-    // pushWarrant(warrants)
-}
-
 const pushWarrant = (warrantData) => {
     warrants.innerHTML=''
     warrantData.map((item) => {
@@ -187,7 +138,6 @@ const pushOrder = (ordersData) => {
     })
 }
 
-// pushDashboardContents(ordersData, warrantsData);
 pushWarrant(warrantsData);
 pushOrder(ordersData);
 
