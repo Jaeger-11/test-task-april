@@ -1,5 +1,5 @@
 :root{
-    --fontsmall: clamp(12px, 0.6vw, 3rem);
+    --fontsmall: clamp(12px, 0.8vw, 3rem);
     --fontmedium: clamp(14px, 1vw, 5rem);
     --fontlarge: clamp(18px, 1.2vw, 7rem);
     --padlittle: clamp(5px, 0.3vw, 15px);
@@ -179,8 +179,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* display: grid;
-    grid-template-rows: auto 1fr; */
+    background: rgba(255, 255, 255, 0.02);
 }
 .header{
     display: flex;
@@ -198,6 +197,9 @@ main{
     align-items: center;
     gap: var(--gap);
 }
+.header-text img{
+    height: 2vw;
+}
 .search-input{
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 100%);
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -211,13 +213,18 @@ main{
     border: none;
     width: 100%;
     font-family: 'Outfit', sans-serif;
-    font-size: 14px;
+    font-size: var(--fontsmall);
     color: rgba(255, 255, 255, 0.65);
     line-height: 20px;
     font-weight: 500;
     border-left: 1px solid  rgba(255, 255, 255, 0.25);
     padding-left: 0.5rem;
     margin-left: 0.5rem;
+}
+.search-input input::placeholder{
+    font-size: var(--fontsmall);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
 }
 .search-input input:focus{
     outline: none;
@@ -226,7 +233,7 @@ main{
     flex: 1;
 }
 .orders, .warrants{
-    margin-top: var(--padmedium);
+    margin-top: var(--padlittle);
     padding-right: 0.3rem;
     display: flex;
     flex-direction: column;
@@ -237,8 +244,8 @@ main{
 .order, .warrant{
     display: flex;
     align-items: center;
-    padding: var(--padmedium);
-    gap: var(--gaplarge);
+    padding: var(--padlittle);
+    gap: var(--gap);
 }
 .order{
     border: 1px solid rgba(241, 51, 51, 0.25);
@@ -249,11 +256,23 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
 }
-.warrant-image, .order-image{
+.warrant .imagecont{
     min-width: 20%;
+    /* height: 100%; */
+    background-image: url(images/darkbg.svg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1px;
 }
-.warrant-image{
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.order .imagecont{
+    min-width: 20%;
+    height: 100%;
+    background-image: url(images/redbg.svg);
+    border: 1px solid rgba(241, 51, 51, 0.3);
+    padding: 1px;
+}
+.warrant-image, .order-image{
+    width: 100%;
+    height: 100%;
 }
 .days-left{
     position: absolute;
@@ -261,7 +280,7 @@ main{
     bottom: 0;
     padding: var(--padlittle);
     background: rgba(255, 255, 255, 0.1);
-    font-size: clamp(10px, 0.3vw, 20px);
+    font-size: clamp(10px, 0.6vw, 20px);
 }
 .order-image{
     border: 1px solid rgba(241, 51, 51, 0.25);
@@ -276,20 +295,21 @@ main{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--gap);
     text-transform: uppercase;
 }
 .status-div{
     display: flex;
     align-items: center;
 }
-.status-div img{
-    height: 2vw;
+.statusbtn{
+    padding: var(--padlittle);
+    cursor: pointer;
 }
-.mr{
-    margin-right: 0.2rem;
+.statusbtn img{
+    height: var(--fontsmall);
 }
-.status-div .pointer:hover{
+.statusbtn:hover{
     transform: scale(1.05);
 }
 .funcBtns{
@@ -300,6 +320,14 @@ main{
     margin-right: 0.5rem;
     text-transform: uppercase;
 } 
+.approve{
+    background: rgba(101, 255, 144, 0.25);
+    border: 1px solid rgba(101, 255, 144, 0.45);
+}
+.reject{
+    background: rgba(255, 101, 101, 0.25);
+    border: 1px solid rgba(255, 101, 101, 0.45);
+}
 .red{
     color: #F13333;
     border:  1px solid rgba(241, 51, 51, 0.25);
@@ -311,7 +339,7 @@ main{
     border: 1px solid rgba(99, 180, 255, 0.25);
 }
 
-@media screen and (min-width:1400px) {
+@media screen and (min-width:1300px) {
     .container{
         width: 90vw;
         margin: auto;
@@ -319,27 +347,31 @@ main{
     .days-left{
         padding: var(--padlittle);
     }
-    .funcBtns{
+    .order, .warrant{
         padding: var(--padmedium);
-    } 
+        gap: var(--gaplarge);
+    }
+    .imagecont{
+        max-width: 20%;
+    }
 }
 @media screen and (min-width:1600px) {
     .container{
         width: 85vw;
         margin: auto;
     }
-    .main-container{
-        height: 70vh;
-    }
-    .warrants, .orders{
-        height: 58vh;
-    }
+    .funcBtns, .statusbtn{
+        padding: var(--padmedium);
+    } 
     
 }
 @media screen and (min-width:1800px) {
     .container{
         width: 80vw;
         margin: auto;
+    }
+    .days-left{
+        padding: var(--padmedium);
     }
 }
 

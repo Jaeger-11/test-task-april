@@ -9,77 +9,89 @@ const ordersearch = document.querySelector('#ordersearch');
 const warrantsData = [
     {
         name: "John Oils",
-        id: 'id.155',
-        status: 'pending approval'
+        id: '155',
+        status: 'pending ',
+        imageUrl: 'images/character1.png'
     },
     {
         name: "James Bond",
-        id: 'id.156',
-        status: 'approval rejected'
+        id: '156',
+        status: ' rejected',
+        imageUrl: 'images/character.svg'
     },
     {
         name: "Oliver Twist",
-        id: 'id.157',
-        status: 'approval rejected'
+        id: '157',
+        status: ' rejected',
+        imageUrl: 'images/character2.png'
     },
     {
         name: "Idris Albak",
-        id: 'id.158',
-        status: 'approval rejected'
+        id: '158',
+        status: ' rejected',
+        imageUrl: ''
     },
     {
         name: "Stoney Christon",
-        id: 'id.159',
-        status: 'approval rejected'
+        id: '159',
+        status: ' rejected',
+        imageUrl: 'images/character1.png'
     },
     {
         name: "Daniel Greals",
-        id: 'id.160',
-        status: 'pending approval'
+        id: '160',
+        status: 'pending ',
+        imageUrl: 'images/character.svg'
     },
     {
         name: "Josh Kennedy",
-        id: 'id.161',
-        status: 'pending approval'
+        id: '161',
+        status: 'pending ',
+        imageUrl: 'images/character2.png'
     },
     {
         name: "Jerry Sheamus",
-        id: 'id.162',
-        status: 'approval rejected'
+        id: '162',
+        status: ' rejected',
+        imageUrl: 'images/character.svg'
     },
     {
         name: "Apollo Creed",
-        id: 'id.163',
-        status: 'pending approval'
+        id: '163',
+        status: 'pending ',
+        imageUrl: 'images/character1.png'
     },
 ]
 // ORDERS DATA
 const ordersData = [
     {
         name: "John Oils",
-        id: 'id.154',
-        status: 'pending approval'
+        id: '154',
+        status: 'pending ',
+        imageUrl: ''
     },
 ]
 
 const pushWarrant = (warrantData) => {
     warrantData.map((item) => {
-        const {name, status, id} = item;
+        const {name, status, id, imageUrl} = item;
         var statusClass = 'blue'
-        if (status !== "pending approval"){
+        if (status !== "pending "){
             statusClass = 'red'
         }
         warrants.innerHTML += `
             <div class="warrant">
-                <img src="/images/character.png" alt="profile-image" class="warrant-image">
+                <div class='imagecont'>
+                    <img src="${imageUrl ? imageUrl : 'images/nophotoblack.png'}" alt="profile-image" class="warrant-image">
+                </div>
                 <div class="info-section">
                     <p class='suspectname'>${name}</p>
-                    <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
+                    <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
                     <section class="status-div">
-                        <button class="${statusClass} funcBtns">${status}</button>
+                        <button class="${statusClass} funcBtns">${status === 'pending' ? 'pending approval' : 'approval rejected'}</button>
                         <div>
-                        <img src="images/checkmark.png" alt="checkmark" class="pointer  mr approve">
-                        <img src="images/cancel.svg" alt="close" class="pointer reject">
+                            <button class="statusbtn approve"><img src="images/checkmark.svg" alt="checkmark"></button>
+                            <button class="statusbtn reject"><img src="images/cancelicon.svg" alt="close"> </button>
                         </div>
                     </section>
                 </div>
@@ -91,13 +103,13 @@ const pushWarrant = (warrantData) => {
 
 const pushOrder = (ordersData) => {
     ordersData.map((item) => {
-        const { name, id } = item;
+        const { name, id, imageUrl } = item;
         orders.innerHTML += `
         <div class="order">
-            <img src="/images/character.png" alt="profile-image" class="order-image">
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : 'images/nophotored.png'}" alt="profile-image" class="order-image"></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
-                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
+                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
                 <button class="red funcBtns">WANTED</button>
             </div>
         </div>
