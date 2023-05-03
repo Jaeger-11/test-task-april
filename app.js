@@ -77,8 +77,10 @@ const pushWarrant = (warrantData) => {
                     <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> ${id} </div>
                     <section class="status-div">
                         <button class="${statusClass} funcBtns">${status}</button>
+                        <div>
                         <img src="images/checkmark.png" alt="checkmark" class="pointer  mr approve">
                         <img src="images/cancel.svg" alt="close" class="pointer reject">
+                        </div>
                     </section>
                 </div>
                 <div class="days-left">IN 6 DAYS</div>

@@ -1,19 +1,46 @@
+:root{
+    --fontsmall: clamp(12px, 0.6vw, 3rem);
+    --fontmedium: clamp(14px, 1vw, 5rem);
+    --fontlarge: clamp(18px, 1.2vw, 7rem);
+    --padlittle: clamp(5px, 0.3vw, 15px);
+    --padmedium: clamp(10px, 0.5vw, 20px);
+    --padlarge: clamp(12px, 1vw, 50px);
+    --gap: clamp(0.5rem, 0.5vw, 1rem);
+    --gaplarge: clamp(1rem, 1vw, 2rem);
+}
+::-webkit-scrollbar {
+    width: 3px;
+}
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #FFFFFF;
+    border-radius: 5px;
+}
 *{
     padding: 0;
     margin: 0;
+    line-height: 110%;
     -webkit-user-select: none; 
     -ms-user-select: none; 
     user-select: none; 
+    font-family: 'Outfit', sans-serif;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
 }
 body{
-    background: url(/images/blurred-bg-image.png), radial-gradient(56.61% 137.86% at 6.3% 11.85%, rgba(32, 94, 255, 0.15) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(56.61% 137.86% at 6.3% 11.85%, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(57.55% 87.41% at 92.24% -16.34%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, radial-gradient(88.47% 88.47% at 12.32% 122.55%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */, rgba(0, 0, 0, 0.95);
+    background: url(/images/blurred-bg-image.png);
     color: #FFFFFF;
     padding: 1rem;
-    font-family: 'Outfit', sans-serif;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
 /* GENERAL STYLES */
 .grey{
     color: rgba(255, 255, 255, 0.46);
@@ -23,12 +50,13 @@ body{
 }
 .small{
     color: rgba(255, 255, 255, 0.3);
-    font-size: 12px;
-    font-weight: 600;
+    font-size: var(--fontsmall);
+    font-weight: 500;
 }
 .bold{
     font-weight: 700;
-    font-size: 16px;
+    font-size: var(--fontmedium);
+    line-height: 130%;
 }
 .dot{
     width: 6px;
@@ -38,25 +66,30 @@ body{
     margin: 0 0.5rem;
 }
 .container{
-    padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 95vw;
+    margin: auto;
 }
+/* Header Styling */
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--gap);
 }
-/* logo container styling */
-.logo-text{
-    font-size: 16px;
-    margin-left: 2rem;
-}
-.logo-text span{
-    font-size: 0.8em;
+.logo{
+    width: 2vw;
 }
 .logo-container{
     display: flex;
     align-items: center;
+    gap: var(--gap);
+}
+.logo-text{
+    font-size: var(--fontmedium);
+    line-height: 120%;
+}
+.logo-text span{
+    font-size: var(--fontsmall);
 }
 .duty-container{
     display: flex;
@@ -69,88 +102,114 @@ header{
     background: linear-gradient(0deg, rgba(101, 255, 144, 0.25), rgba(101, 255, 144, 0.25)),
                 linear-gradient(0deg, rgba(101, 255, 144, 0.1), rgba(101, 255, 144, 0.1));
     border: 1px solid rgba(101, 255, 144, 0.25);
-    padding: 5px;
-    font-size: 14px;
+    padding: var(--padlittle);
+    font-size: var(--fontsmall);
 }
 .duty-name{
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: var(--fontmedium);
     margin: 0 2rem;
 }
+.icon-cont{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+.duty-container .icons{
+    width: 2vw;
+}
+.duty-container .icons:hover{
+    transform: scale(1.05);
+}
+
+/* Main Container Styling */
 .main-container{
     display: flex;
-    margin: 2rem 0;
+    margin-top: 1rem;
+    gap: 1rem;
+    height: 80vh;
 }
-main{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    flex: 1;
-}
+/* sidebar */
 aside{
     display: flex;
     flex-direction: column;
-    margin-right: 1rem;
-}
-aside div{
-    margin-bottom: 1rem;
-}
-.last-side-menu{
-    margin: 0;
+    /* grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; */
+    /* gap: var(--gap); */
 }
 .side-menu{
     display: flex;
     align-items: center;
-    padding: 1rem;
+    padding: 0 var(--padmedium);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
-    transition: all 0.3s ease;
-    /* border-image-source: linear-gradient(338.21deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 72.22%); */
+    margin-bottom: 0.3rem;
+    gap: var(--gap); 
+    flex: 1;
+}
+.last-side-menu{
+    margin-bottom: 0;
+}
+.sidebarimage{
+    flex: 0.4;
+}
+.bold{
+    flex: 0.6;
 }
 .side-menu img{
-    margin-right: 1rem;
+    max-width: 100%;
 }
 .side-menu:hover{
     transform: scale(0.95);
 }
-.dashboard{
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.65);
+/* MAIN INFO */
+main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex: 1;
+    gap: var(--gap);
 }
-
 .warrants-container, .order-container{
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 1rem 1rem 0 1rem;
-}
-.warrants-container{
-    margin-right: 0.2rem;
+    padding-top: var(--padlarge);
+    padding-left: var(--padlarge);
+    padding-bottom: 0;
+    padding-right: var(--padlarge);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* display: grid;
+    grid-template-rows: auto 1fr; */
 }
 .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    margin-top: var(--padlittle);
+    /* padding: var(--padlittle); */
+    flex: auto;
+}
+.header img{
+    width: 2vw;
 }
 .header-text{
     display: flex;
     align-items: center;
-}
-.header-text img{
-    margin-right: 1rem;
+    gap: var(--gap);
 }
 .search-input{
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0) 100%);
     border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
-    padding: 0.5rem;
-    width: max-content;
+    padding: clamp(5px, 0.2vw, 1rem);
+    width: 50%;
 }
 .search-input input{
     background: transparent;
     border: none;
-    max-width: 300px;
+    width: 100%;
     font-family: 'Outfit', sans-serif;
     font-size: 14px;
     color: rgba(255, 255, 255, 0.65);
@@ -163,48 +222,56 @@ aside div{
 .search-input input:focus{
     outline: none;
 }
+.content{
+    flex: 1;
+}
 .orders, .warrants{
-    margin: 2rem 0;
-}
-.order{
-    padding: 0.5rem;
-    border: 1px solid rgba(241, 51, 51, 0.25);
+    margin-top: var(--padmedium);
+    padding-right: 0.3rem;
     display: flex;
-    align-items: center;
-    background: rgba(241, 51, 51, 0.05);
-    margin: 0.3rem;
-}
-.warrants{
-    height: 590px;
+    flex-direction: column;
+    gap: var(--gap);
+    height: 67vh; 
     overflow-y: scroll;
 }
-.warrant{
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.order, .warrant{
     display: flex;
     align-items: center;
+    padding: var(--padmedium);
+    gap: var(--gaplarge);
+}
+.order{
+    border: 1px solid rgba(241, 51, 51, 0.25);
+    background: rgba(241, 51, 51, 0.05);
+}
+.warrant{
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
-    margin: 0.3rem;
+}
+.warrant-image, .order-image{
+    min-width: 20%;
 }
 .warrant-image{
     border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-right: 0.5rem;
 }
 .days-left{
     position: absolute;
     right: 0;
     bottom: 0;
-    padding: 0.5rem 0.7rem;
+    padding: var(--padlittle);
     background: rgba(255, 255, 255, 0.1);
-    font-size: 10px;
+    font-size: clamp(10px, 0.3vw, 20px);
 }
 .order-image{
     border: 1px solid rgba(241, 51, 51, 0.25);
-    margin-right: 0.5rem;
+}
+.suspectname{
+    line-height: 120%;
+    font-size: var(--fontmedium);
 }
 .information{
-    font-size: 12px;
+    font-size: var(--fontsmall);
     color: rgba(255, 255, 255, 0.46);
     display: flex;
     align-items: center;
@@ -216,16 +283,19 @@ aside div{
     display: flex;
     align-items: center;
 }
-.status-div .pointer:hover{
-    transform: scale(1.05);
+.status-div img{
+    height: 2vw;
 }
 .mr{
     margin-right: 0.2rem;
 }
+.status-div .pointer:hover{
+    transform: scale(1.05);
+}
 .funcBtns{
-    padding: 0.5rem;
+    padding: var(--padlittle);
     font-family: 'Outfit', sans-serif;
-    font-size: 12px;
+    font-size: var(--fontsmall);
     font-weight: 600;
     margin-right: 0.5rem;
     text-transform: uppercase;
@@ -241,43 +311,43 @@ aside div{
     border: 1px solid rgba(99, 180, 255, 0.25);
 }
 
-::-webkit-scrollbar {
-    width: 5px;
-}
-::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-}
-::-webkit-scrollbar-thumb {
-    background: #FFFFFF;
-    border-radius: 5px;
-}
-
 @media screen and (min-width:1400px) {
-    body{
-        display: flex;
-        align-items: center;
-    }
     .container{
-        width: 90%;
+        width: 90vw;
         margin: auto;
     }
-    .information, .small {
-        font-size: 14px;
+    .days-left{
+        padding: var(--padlittle);
     }
-    .logo-text, .bold{
-        font-size: 18px;
-    }
+    .funcBtns{
+        padding: var(--padmedium);
+    } 
 }
 @media screen and (min-width:1600px) {
     .container{
-        width: 85%;
+        width: 85vw;
         margin: auto;
     }
+    .main-container{
+        height: 70vh;
+    }
+    .warrants, .orders{
+        height: 58vh;
+    }
+    
 }
 @media screen and (min-width:1800px) {
     .container{
-        width: 80%;
+        width: 80vw;
         margin: auto;
+    }
+}
+
+@media screen and (min-height:1000px) {
+    .main-container{
+        height: 70vh;
+    }
+    .warrants, .orders{
+        height: 58vh;
     }
 }
