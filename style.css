@@ -5,6 +5,7 @@
     --padlittle: clamp(5px, 0.3vw, 15px);
     --padmedium: clamp(10px, 0.5vw, 20px);
     --padlarge: clamp(15px, 1vw, 50px);
+    --padlarger: clamp(20px, 1.2vw, 60px);
     --gap: clamp(0.5rem, 0.5vw, 1rem);
     --gaplarge: clamp(1rem, 1vw, 2rem);
 }
@@ -120,6 +121,12 @@ body{
     background-image: linear-gradient(to top, transparent, rgba(255, 255, 255, 0.07), #00d9b24d);
 }
 /* GENERAL STYLES */
+.hidden{
+    display: none;
+}
+.show{
+    display: block;
+}
 .grey{
     color: rgba(255, 255, 255, 0.46);
 }
@@ -250,6 +257,9 @@ main{
     flex: 1;
 }
 .dashboardcontent{
+    height: 100%;
+}
+.minidashboardcontent{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--gap);
@@ -302,7 +312,7 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .search-input img{
-    width: 1.5vw;
+    width: 1vw;
 }
 .search-input input{
     background: transparent;
@@ -492,11 +502,14 @@ main{
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: 100%;
-    padding: var(--padlarge) var(--padlarge) 0 var(--padlarge);
+    padding: var(--padlarger) var(--padlarger) 0 var(--padlarger);
 }
 .profiles-header, .profiles-header-filtering{
     display: grid;
     grid-template-columns: 1fr 1fr;
+}
+.profiles-header img{
+    width: 2vw;
 }
 .profiles-header-filtering{
     gap: var(--gaplarge);
@@ -540,4 +553,7 @@ main{
 }
 .profiles-search-input{
     width: 100%;
+}
+.profiles-search-input img{
+    width: 1vw;
 }

@@ -8,12 +8,56 @@ const vehicles = document.querySelector('#vehicles');
 const reports = document.querySelector('#reports');
 const misc = document.querySelector('#misc');
 // dashboard selectors
+const dashboardcontent = document.querySelector('.dashboardcontent');
+const profilescontent = document.querySelector('.profilescontent');
+const vehiclescontent = document.querySelector('.vehiclescontent');
+const reportscontent = document.querySelector('.reportscontent');
+const misccontent = document.querySelector('.misccontent');
+const incidentscontent = document.querySelector('.incidentscontent');
 const warrants = document.querySelector('.warrants');
 const orders = document.querySelector('.orders');
 const checkmarks = document.querySelectorAll('.approve');
 const cancelbuttons = document.querySelectorAll('.reject'); 
 
-const clickLinks = [ dashboard, incidents, profiles, vehicles, reports, misc ];
+const clickLinks = [ 
+    {
+        tab: dashboard, 
+        content : dashboardcontent,
+    },
+    {
+        tab: incidents,
+        content: incidentscontent,
+    },
+    {
+        tab: profiles,
+        content:profilescontent,
+    },
+    {
+        tab: vehicles,
+        content:vehiclescontent,
+    },
+    {
+        tab: reports,
+        content:reportscontent,
+    },
+    {
+        tab: misc,
+        content:misccontent,
+    }
+];
+
+clickLinks.map((link) => {
+    link.tab.addEventListener('click', () => {
+        link.content.classList.remove('hidden')
+        link.content.classList.add('show')
+        let restLinks = clickLinks.filter((i) => i.tab !== link.tab)
+        restLinks.map((i) => {
+            i.content.classList.remove('show')
+            i.content.classList.add('hidden')
+        });
+    })
+})
+
 // DASHBOARD FUNCTIONALITY
 // WARRANTS DATA
 let warrantsData = [
@@ -160,3 +204,66 @@ checkmarks.forEach((checkmark) => {
 
     })
 })
+
+// PROFILES
+
+let profilesData = [
+    {
+        name: "john oils",
+        id: '155',
+        status: 'clean',
+        imageUrl: 'images/character1.png',
+    },
+    {
+        name: "james bond",
+        id: '156',
+        status: 'wanted',
+        imageUrl: 'images/character.svg',
+    },
+    {
+        name: "oliver twist",
+        id: '157',
+        status: 'clean',
+        imageUrl: 'images/character2.png',
+    },
+    {
+        name: "idris albak",
+        id: '158',
+        status: 'clean',
+        imageUrl: '',
+    },
+    {
+        name: "stoney christon",
+        id: '159',
+        status: 'clean',
+        imageUrl: 'images/character1.png',
+    },
+    {
+        name: "daniel greals",
+        id: '160',
+        status: 'clean',
+        imageUrl: 'images/character.svg',
+    },
+    {
+        name: "josh kennedy",
+        id: '161',
+        status: 'clean',
+        imageUrl: 'images/character2.png',
+    },
+    {
+        name: "jerry sheamus",
+        id: '162',
+        status: 'clean',
+        imageUrl: 'images/character.svg',
+    },
+    {
+        name: "apollo creed",
+        id: '163',
+        status: 'clean',
+        imageUrl: 'images/character1.png',
+    },
+]
+
+const pushProfiles = () => {
+    
+}

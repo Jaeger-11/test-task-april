@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
     <title>PCPD - Dashboard</title>
 </head>
-<body>
+<body id="dashboardbody">
     <figure class="outline">
         <span></span>
         <span></span>
@@ -41,34 +41,36 @@
             
             <div class="main-container">
                 <aside>
-                    <a class="side-menu dashboard" id="dashboard" href="/">
+                    <div class="side-menu dashboard" id="dashboard" href="/">
                         <div class="sidebarimage"><img src="/images/dashboard.png" alt="dashboard"></div>
                         <p class="bold">DASHBOARD <br> <span class="small">DASHBOARD</span> </p>
-                    </a>
-                    <a class="side-menu" href="incidents.html">
-                        <div class="sidebarimage" id="incidents"><img src="/images/incidents.png" alt="dashboard"></div>
+                    </div>
+                    <div class="side-menu" id="incidents">
+                        <div class="sidebarimage" ><img src="/images/incidents.png" alt="dashboard"></div>
                         <p class="bold">INCIDENTS <br> <span class="small">INCIDENTS</span> </p>
-                    </a>
-                    <a class="side-menu" href="profiles.html">
-                        <div class="sidebarimage" id="profiles"><img src="/images/profiles.png" alt="dashboard"></div>
+                    </div>
+                    <div class="side-menu" id="profiles">
+                        <div class="sidebarimage" ><img src="/images/profiles.png" alt="dashboard"></div>
                         <p class="bold">PROFILES <br> <span class="small">PROFILES</span> </p>
-                    </a>
-                    <a class="side-menu" href="veehicles.html">
-                        <div class="sidebarimage" id="vehicles"><img src="/images/vehicles.png" alt="dashboard"></div>
+                    </div>
+                    <div class="side-menu" id="vehicles">
+                        <div class="sidebarimage" ><img src="/images/vehicles.png" alt="dashboard"></div>
                         <p class="bold">VEHICLES <br> <span class="small">VEHICLES</span> </p>
-                    </a>
-                    <a class="side-menu" href="reports.html">
-                        <div class="sidebarimage" id="reports"><img src="/images/reports.png" alt="dashboard"></div>
+                    </div>
+                    <div class="side-menu" id="reports">
+                        <div class="sidebarimage" ><img src="/images/reports.png" alt="dashboard"></div>
                         <p class="bold">REPORTS <br> <span class="small">REPORTS</span> </p>
-                    </a>
-                    <a class="side-menu last-side-menu"  href="misc.html">
-                        <div class="sidebarimage" id="misc"><img src="/images/misc.png" alt="dashboard"></div>
+                    </div>
+                    <div class="side-menu last-side-menu"  id="misc">
+                        <div class="sidebarimage" ><img src="/images/misc.png" alt="dashboard"></div>
                         <p class="bold">MISC <br> <span class="small">MISC</span> </p>
-                    </a>
+                    </div>
                 </aside>
 
                 <main id="main">
-                    <section class="dashboardcontent">
+                    <!-- DASHBOARD CONTENT -->
+                    <div class="dashboardcontent">
+                    <section class="minidashboardcontent">
                         <section class="warrants-container">
                             <div class="header">
                                 <section class="header-text">
@@ -79,7 +81,7 @@
                                 </section>
                     
                                 <section class="search-input">
-                                    <img src="/images/search-icon.png" alt="search">
+                                    <img src="/images/search.svg" alt="search">
                                     <input type="text" name="search" id="warrantsearch" placeholder="Search">
                                 </section>
                             </div>
@@ -100,7 +102,7 @@
                                 </section>
                     
                                 <section class="search-input">
-                                    <img src="/images/search-icon.png" alt="search">
+                                    <img src="/images/search.svg" alt="search">
                                     <input type="text" name="search" id="ordersearch" placeholder="Search">
                                 </section>
                             </div>
@@ -109,6 +111,55 @@
                                 
                             </section>
                         </section>
+                    </section>
+                </div>
+
+                    <!-- INCIDENTS CONTENT -->
+                    <section class="incidentscontent">
+
+                    </section>
+
+                    <!-- PROFILES CONTENT -->
+                    <section class="profilescontent">
+                        <div class="profiles-header">
+                            <section class="header-text">
+                                <img src="images/profiles.svg" alt="warrants icon">
+                                <div > 
+                                    <p class="bold">PROFILES <br> <span class="small">PROFILES</span></p>     
+                                </div>
+                            </section>
+
+                            <div class="profiles-header-filtering">
+                                <section class="profiles-header-filters">
+                                    <p class="profiles-filter-all">ALL</p>
+                                    <p class="profiles-filter-wanted">WANTED</p>
+                                    <p class="profiles-filter-clean">CLEAN</p>
+                                </section>
+                                <section class="search-input profiles-search-input">
+                                    <img src="/images/search.svg" alt="search">
+                                    <input type="text" name="search" id="ordersearch" placeholder="Search">
+                                </section>
+                            </div>
+                        </div>
+
+                        <div class="profiles-main">
+
+                        </div>
+                    </section>
+
+                    <!-- VEHICLES CONTENT -->
+                    <section class="vehiclescontent">
+
+                    </section>
+
+                    <!-- REPORTS CONTENT -->
+                    <section class="reportscontent">
+
+                    </section>
+
+                    <!-- MISC CONTENT -->
+                    <section class="misccontent">
+
                     </section>
                 </main>
 
