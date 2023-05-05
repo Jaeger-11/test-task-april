@@ -502,8 +502,8 @@ main{
     }
 }
 
-/* PROFILES STYLING */
-.profilescontent{
+/* PROFILES STYLING // VEHICLES STYLING*/
+.profilescontent, .vehiclescontent{
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: 100%;
@@ -580,16 +580,16 @@ main{
     background: #65FF90;
 }
 
-.profiles-filter-all{
+.vehicles-filter-all{
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
-.profiles-filter-wanted{
+.vehicles-filter-wanted{
     background: rgba(241, 51, 51, 0.1);
     border: 1px solid rgba(241, 51, 51, 0.25);
     color: #F13333;
 }
-.profiles-filter-clean{
+.vehicles-filter-clean{
     background: rgba(101, 255, 144, 0.1);
     border: 1px solid rgba(101, 255, 144, 0.25);
     color: #65FF90;
@@ -600,17 +600,16 @@ main{
 .profiles-search-input img{
     width: 1vw;
 }
-.profiles-main-container{
+.profiles-main-container, .vehicles-main-container{
     height: 67vh;
     overflow-y: scroll;
     padding-right: var(--padlittle);
 }
-.profiles-main{
+.profiles-main, .vehicles-main{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: max-content;
     gap: clamp(5px, 0.3vh, 1rem);
 }
-.profiles-main section{
-    /* height: max-content; */
-}
+
+/* VEHICLES STYLING */
