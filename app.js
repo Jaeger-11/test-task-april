@@ -1,4 +1,5 @@
-const main = document.querySelector('#main')
+const main = document.querySelector('#main');
+const maincontainer = document.querySelector('.main-container');
 const dashboardcontent = document.querySelector('.dashboardcontent');
 const profilescontent = document.querySelector('.profilescontent');
 const vehiclescontent = document.querySelector('.vehiclescontent');
@@ -55,6 +56,11 @@ clickLinks.map((link) => {
             i.content.classList.remove('show')
             i.content.classList.add('hidden')
         });
+        if( link.tab == vehicles ) {
+            maincontainer.classList.add('main-container-reverse');
+        } else {
+            maincontainer.classList.remove('main-container-reverse');
+        }
     })
 })
 
@@ -248,8 +254,8 @@ let profilesData = [
     {
         name: "daniel greals",
         id: '160',
-        status: 'clean',
-        imageUrl: 'images/character.svg',
+        status: 'wanted',
+        imageUrl: '',
     },
     {
         name: "josh kennedy",
@@ -278,7 +284,7 @@ const pushProfiles = (data) => {
         
         profilesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}">
-            <div class='imagecont'><img src="${imageUrl ? imageUrl : 'images/nophotoblack.png'}" alt="profile-image" class=""></div>
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png' }" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
                 <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
@@ -371,14 +377,14 @@ let vehiclesData = [
     {
         name: "sedan",
         id: '158',
-        status: 'clean',
+        status: 'wanted',
         imageUrl: '',
     },
     {
         name: "mercedes",
         id: '159',
         status: 'clean',
-        imageUrl: 'images/vehicleimage.png',
+        imageUrl: '',
     },
     {
         name: "mitsubishi",
@@ -414,7 +420,7 @@ const pushVehicles = (data) => {
         
         vehiclesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}">
-            <div class='imagecont'><img src="${imageUrl ? imageUrl : 'images/nophotoblack.png'}" alt="profile-image" class=""></div>
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png' }" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
                 <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
