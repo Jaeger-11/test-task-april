@@ -340,3 +340,138 @@ profilefilters.map((item) => {
 })
 
 pushProfiles(profilesData);
+
+// VEHICLES FUNCTIONALITY
+const vehiclesContainer = document.querySelector('.vehicles-main');
+const vehiclesearch = document.querySelector('#vehiclesearch');
+const allvehicles = document.querySelector(".vehicles-filter-all");
+const wantedvehicles = document.querySelector(".vehicles-filter-wanted");
+const cleanvehicles = document.querySelector(".vehicles-filter-clean");
+const vehiclesfilters = [ allvehicles, wantedvehicles, cleanvehicles ];
+
+let vehiclesData = [
+    {
+        name: "camry",
+        id: '155',
+        status: 'clean',
+        imageUrl: 'images/vehicleimage.png',
+    },
+    {
+        name: "bugatti",
+        id: '156',
+        status: 'wanted',
+        imageUrl: 'images/vehicleimage.png',
+    },
+    {
+        name: "tesla",
+        id: '157',
+        status: 'clean',
+        imageUrl: 'images/vehicleimage.png',
+    },
+    {
+        name: "sedan",
+        id: '158',
+        status: 'clean',
+        imageUrl: '',
+    },
+    {
+        name: "mercedes",
+        id: '159',
+        status: 'clean',
+        imageUrl: 'images/vehicleimage.png',
+    },
+    {
+        name: "mitsubishi",
+        id: '160',
+        status: 'clean',
+        imageUrl: 'images/vehicleimage.png',
+    },
+    {
+        name: "chevrolet camaro",
+        id: '161',
+        status: 'clean',
+        imageUrl: 'images/vehicleimage.png',
+    },
+    {
+        name: "volkswagen",
+        id: '162',
+        status: 'clean',
+        imageUrl: 'images/vehicleimage.png',
+    },
+    {
+        name: "cadillac",
+        id: '163',
+        status: 'clean',
+        imageUrl: 'images/vehicleimage.png',
+    },
+]
+
+// fetch / render profiles to html
+const pushVehicles = (data) => {
+    vehiclesContainer.innerHTML = ''
+    data.map((obj) => {
+        const { name, id, status, imageUrl } = obj;
+        
+        vehiclesContainer.innerHTML += `
+        <section class="${status === 'clean' ? 'warrant' : 'order'}">
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : 'images/nophotoblack.png'}" alt="profile-image" class=""></div>
+            <div class="info-section">
+                <p class='suspectname'>${name}</p>
+                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
+                <button class="${status === 'clean' ? 'green' : 'red'} funcBtns">${status}</button>
+            </div>
+        </section>
+        `
+    })
+}
+pushVehicles(vehiclesData);
+
+let currentvehiclefilter = 'all';
+
+// Search through profiles
+vehiclesearch.addEventListener('input', (e) => {
+    let searchvalue = vehiclesearch.value
+    let searchdata;
+    if (currentvehiclefilter === 'all'){
+        searchdata = vehiclesData;
+    } else if ( currentvehiclefilter === 'wanted' ){
+        searchdata = vehiclesData.filter((item) => item.status === 'wanted');
+    } else if (currentvehiclefilter === 'clean'){
+        searchdata = vehiclesData.filter((item) => item.status === 'clean');
+    } else {
+        searchdata = vehiclesData.filter((item) => item.status.includes(currentvehiclefilter))
+    }
+    searchdata = searchdata.filter((profile) => profile.name.includes(searchvalue.toLowerCase()));
+    pushVehicles(searchdata);
+})
+// filters profile based on status( wanted, clean and all )
+
+const applyCurrentVehicleFilter = () => {
+    let data;
+    if (currentvehiclefilter === 'all'){
+        data = vehiclesData;
+    } else if ( currentvehiclefilter === 'wanted' ){
+        data = vehiclesData.filter((item) => item.status === 'wanted');
+    } else if (currentvehiclefilter === 'clean'){
+        data = vehiclesData.filter((item) => item.status === 'clean');
+    }
+    pushVehicles(data);
+}
+
+vehiclesfilters.map((item) => {
+    item.addEventListener('click', () => {
+        vehiclesearch.value = ''
+        item.classList.add(`active-${item.textContent}`)
+        if( item == allprofiles ) {
+            currentvehiclefilter = 'all'
+            applyCurrentVehicleFilter()
+            const restFilters = vehiclesfilters.filter((filt) => filt !== item)
+            restFilters.map((i) => i.classList.remove(`active-${i.textContent}`))
+        } else {
+            currentvehiclefilter = item.textContent
+            applyCurrentVehicleFilter()
+            const restFilters = vehiclesfilters.filter((filt) => filt !== item)
+            restFilters.map((i) => i.classList.remove(`active-${i.textContent}`))
+        }
+    })
+})
