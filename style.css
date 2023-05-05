@@ -1,13 +1,13 @@
 :root{
-    --fontsmall: clamp(10px, 0.8vw, 3rem);
-    --fontmedium: clamp(15px, 1vw, 5rem);
-    --fontlarge: clamp(18px, 1.2vw, 7rem);
-    --padlittle: clamp(5px, 0.3vw, 15px);
-    --padmedium: clamp(10px, 0.5vw, 20px);
-    --padlarge: clamp(15px, 1vw, 50px);
-    --padlarger: clamp(20px, 1.2vw, 60px);
-    --gap: clamp(0.5rem, 0.5vw, 1rem);
-    --gaplarge: clamp(1rem, 1vw, 2rem);
+    --fontsmall: clamp(10px, 0.8vw, 5rem);
+    --fontmedium: clamp(15px, 1vw, 7rem);
+    --fontlarge: clamp(18px, 1.2vw, 9rem);
+    --padlittle: clamp(5px, 0.3vw, 35px);
+    --padmedium: clamp(10px, 0.5vw, 50px);
+    --padlarge: clamp(15px, 1vw, 100px);
+    --padlarger: clamp(20px, 1.2vw, 150px);
+    --gap: clamp(0.5rem, 0.5vw, 2rem);
+    --gaplarge: clamp(1rem, 1vw, 4rem);
 }
 ::-webkit-scrollbar {
     width: 3px;
@@ -122,7 +122,7 @@ body{
 }
 /* GENERAL STYLES */
 .hidden{
-    display: none;
+    display: none !important; 
 }
 .show{
     display: block;
@@ -449,6 +449,11 @@ main{
     background: rgba(99, 180, 255, 0.02);
     border: 1px solid rgba(99, 180, 255, 0.25);
 }
+.green{
+    color: #65FF90;
+    background: rgba(101, 255, 144, 0.02);
+    border: 1px solid rgba(101, 255, 144, 0.25);
+}
 
 @media screen and (min-width:1300px) {
     .container{
@@ -503,6 +508,9 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: 100%;
     padding: var(--padlarger) var(--padlarger) 0 var(--padlarger);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 .profiles-header, .profiles-header-filtering{
     display: grid;
@@ -530,13 +538,48 @@ main{
     justify-content: center;
     cursor: pointer;
     opacity: 0.3;
+    position: relative;
 }
 .profiles-header-filters p:hover{
     opacity: 0.6;
 }
-.profiles-header-filters .active{
-    opacity: 1;
+.active-all, .active-wanted, .active-clean{
+    opacity: 1 !important; 
 }
+.active-all::after{
+    content: "";
+    display: block;
+    max-width: 100%;
+    right: 15%;
+    left: 15%;
+    height: 1px;
+    position: absolute;
+    bottom: -1px;
+    background: #fff;
+}
+.active-wanted::after{
+    content: "";
+    display: block;
+    max-width: 100%;
+    right: 15%;
+    left: 15%;
+    height: 1px;
+    position: absolute;
+    bottom: -1px;
+    background: #F13333;
+}
+.active-clean::after{
+    content: "";
+    display: block;
+    max-width: 100%;
+    right: 15%;
+    left: 15%;
+    height: 1px;
+    position: absolute;
+    bottom: -1px;
+    background: #65FF90;
+}
+
 .profiles-filter-all{
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -556,4 +599,18 @@ main{
 }
 .profiles-search-input img{
     width: 1vw;
+}
+.profiles-main-container{
+    height: 67vh;
+    overflow-y: scroll;
+    padding-right: var(--padlittle);
+}
+.profiles-main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: max-content;
+    gap: clamp(5px, 0.3vh, 1rem);
+}
+.profiles-main section{
+    /* height: max-content; */
 }

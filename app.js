@@ -1,6 +1,10 @@
 const main = document.querySelector('#main')
-const warrantsearch = document.querySelector('#warrantsearch');
-const ordersearch = document.querySelector('#ordersearch');
+const dashboardcontent = document.querySelector('.dashboardcontent');
+const profilescontent = document.querySelector('.profilescontent');
+const vehiclescontent = document.querySelector('.vehiclescontent');
+const reportscontent = document.querySelector('.reportscontent');
+const misccontent = document.querySelector('.misccontent');
+const incidentscontent = document.querySelector('.incidentscontent');
 const dashboard = document.querySelector('#dashboard');
 const incidents = document.querySelector('#incidents');
 const profiles = document.querySelector('#profiles');
@@ -8,12 +12,8 @@ const vehicles = document.querySelector('#vehicles');
 const reports = document.querySelector('#reports');
 const misc = document.querySelector('#misc');
 // dashboard selectors
-const dashboardcontent = document.querySelector('.dashboardcontent');
-const profilescontent = document.querySelector('.profilescontent');
-const vehiclescontent = document.querySelector('.vehiclescontent');
-const reportscontent = document.querySelector('.reportscontent');
-const misccontent = document.querySelector('.misccontent');
-const incidentscontent = document.querySelector('.incidentscontent');
+const warrantsearch = document.querySelector('#warrantsearch');
+const ordersearch = document.querySelector('#ordersearch');
 const warrants = document.querySelector('.warrants');
 const orders = document.querySelector('.orders');
 const checkmarks = document.querySelectorAll('.approve');
@@ -134,7 +134,7 @@ let ordersData = [
         imageUrl: ''
     },
 ]
-
+// push / fetch warrants to html screen
 const pushWarrant = (warrantData) => {
     warrants.innerHTML=''
     warrantData.map((item) => {
@@ -164,7 +164,7 @@ const pushWarrant = (warrantData) => {
         `
     })
 }
-
+// renders orders to html
 const pushOrder = (ordersData) => {
     orders.innerHTML = ''
     ordersData.map((item) => {
@@ -184,14 +184,14 @@ const pushOrder = (ordersData) => {
 
 pushWarrant(warrantsData);
 pushOrder(ordersData);
-
+// Search through warrants
 warrantsearch.addEventListener('input', () => {
     let searchvalue = warrantsearch.value
     if(!searchvalue) pushWarrant(warrantsData)
     let data = warrantsData.filter((warrant) => warrant.name.includes(searchvalue.toLowerCase()));
     pushWarrant(data)
 })
-
+// Search through orders
 ordersearch.addEventListener('input', (e) => {
     let searchvalue = ordersearch.value
     if(!searchvalue) pushOrder(ordersData)
@@ -206,6 +206,13 @@ checkmarks.forEach((checkmark) => {
 })
 
 // PROFILES
+// profiles selectors
+const profilesContainer = document.querySelector('.profiles-main');
+const profilesearch = document.querySelector('#profilesearch');
+const allprofiles = document.querySelector(".profiles-filter-all");
+const wantedprofiles = document.querySelector(".profiles-filter-wanted");
+const cleanprofiles = document.querySelector(".profiles-filter-clean");
+const profilefilters = [ allprofiles, wantedprofiles, cleanprofiles ];
 
 let profilesData = [
     {
@@ -263,7 +270,73 @@ let profilesData = [
         imageUrl: 'images/character1.png',
     },
 ]
-
-const pushProfiles = () => {
-    
+// fetch / render profiles to html
+const pushProfiles = (data) => {
+    profilesContainer.innerHTML = ''
+    data.map((obj) => {
+        const { name, id, status, imageUrl } = obj;
+        
+        profilesContainer.innerHTML += `
+        <section class="${status === 'clean' ? 'warrant' : 'order'}">
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : 'images/nophotoblack.png'}" alt="profile-image" class=""></div>
+            <div class="info-section">
+                <p class='suspectname'>${name}</p>
+                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
+                <button class="${status === 'clean' ? 'green' : 'red'} funcBtns">${status}</button>
+            </div>
+        </section>
+        `
+    })
 }
+
+let currentprofilefilter = 'all';
+
+// Search through profiles
+profilesearch.addEventListener('input', (e) => {
+    let searchvalue = profilesearch.value
+    let searchdata;
+    if (currentprofilefilter === 'all'){
+        searchdata = profilesData;
+    } else if ( currentprofilefilter === 'wanted' ){
+        searchdata = profilesData.filter((item) => item.status === 'wanted');
+    } else if (currentprofilefilter === 'clean'){
+        searchdata = profilesData.filter((item) => item.status === 'clean');
+    } else {
+        searchdata = profilesData.filter((item) => item.status.includes(currentprofilefilter))
+    }
+    searchdata = searchdata.filter((profile) => profile.name.includes(searchvalue.toLowerCase()));
+    pushProfiles(searchdata);
+})
+// filters profile based on status( wanted, clean and all )
+
+const applyCurrentProfileFilter = () => {
+    let data;
+    if (currentprofilefilter === 'all'){
+        data = profilesData;
+    } else if ( currentprofilefilter === 'wanted' ){
+        data = profilesData.filter((item) => item.status === 'wanted');
+    } else if (currentprofilefilter === 'clean'){
+        data = profilesData.filter((item) => item.status === 'clean');
+    }
+    pushProfiles(data);
+}
+
+profilefilters.map((item) => {
+    item.addEventListener('click', () => {
+        profilesearch.value = ''
+        item.classList.add(`active-${item.textContent}`)
+        if( item == allprofiles ) {
+            currentprofilefilter = 'all'
+            applyCurrentProfileFilter()
+            const restFilters = profilefilters.filter((filt) => filt !== item)
+            restFilters.map((i) => i.classList.remove(`active-${i.textContent}`))
+        } else {
+            currentprofilefilter = item.textContent
+            applyCurrentProfileFilter()
+            const restFilters = profilefilters.filter((filt) => filt !== item)
+            restFilters.map((i) => i.classList.remove(`active-${i.textContent}`))
+        }
+    })
+})
+
+pushProfiles(profilesData);
