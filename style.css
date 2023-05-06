@@ -1,5 +1,5 @@
 :root{
-    --fontsmall: clamp(10px, 0.8vw, 5rem);
+    --fontsmall: clamp(12px, 0.8vw, 5rem);
     --fontmedium: clamp(15px, 1vw, 7rem);
     --fontlarge: clamp(18px, 1.2vw, 9rem);
     --padlittle: clamp(5px, 0.3vw, 35px);
@@ -282,7 +282,7 @@ main{
     justify-content: space-between;
     align-items: center;
     margin-top: var(--padlittle);
-    flex: auto;
+    /* flex: auto; */
 }
 .header img{
     width: 2vw;
@@ -301,7 +301,7 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
-    padding: clamp(7px, 0.2vw, 1rem);
+    padding: var(--padmedium);
     width: 50%;
 }
 .search-input:hover{
@@ -339,13 +339,13 @@ main{
 .content{
     flex: 1;
 }
-.orders, .warrants{
+.orders, .warrants, .incidents-main, .newincident-main{
     margin-top: var(--padlittle);
     padding-right: 0.3rem;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
-    height: 67vh; 
+    height: 65vh; 
     overflow-y: scroll;
 }
 .order, .warrant{
@@ -365,11 +365,19 @@ main{
 }
 .warrant:hover{
     background: rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.warrantactive{
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.21);
 }
 .order:hover{
     background: rgba(241, 51, 51, 0.12);
-border: 1px solid rgba(241, 51, 51, 0.41);
+    border: 1px solid rgba(241, 51, 51, 0.41);
+}
+.orderactive{
+    background: rgba(241, 51, 51, 0.25);
+    border: 1px solid rgba(241, 51, 51, 0.35);
 }
 .warrant .imagecont{
     min-width: 20%;
@@ -635,4 +643,122 @@ border: 1px solid rgba(241, 51, 51, 0.41);
     background: rgba(101, 255, 144, 0.1);
     border: 1px solid rgba(101, 255, 144, 0.25);
     color: #65FF90;
+}
+
+/* INCIDENTS STYLING */
+.incidentscontent{
+    height: 100%;
+    display: flex;
+    gap: var(--gap);
+}
+.subsection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--padlarge);
+    flex: 1;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.subsection .header{
+    margin-top: 0;
+}
+.paddedicon{
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+.paddedicon img{
+    width: 50%;
+}
+.flexicons{
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+.flexicons img{
+    height: 2vw;
+}
+.addcriminal{
+    color: rgba(255, 255, 255, 0.9);
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--padmedium);
+}
+.addcriminal:hover{
+    background: rgba(255, 255, 255, 0.15);
+}
+.addicon{
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    cursor: pointer;
+}
+.addicon:hover{
+    background: rgba(255, 255, 255, 0.25);
+}
+.addicon img{
+    width: 50%;
+}
+.addcriminal p{
+    font-size: var(--fontmedium);
+    text-transform: capitalize;
+}
+.newincident-main{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.5 * var(--gap)) ;
+}
+.incident{
+    padding: var(--padmedium);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.incident-title{
+    font-weight: 600;
+    color: #ffffff;
+    font-size: var(--fontmedium);
+    line-height: 120%;
+    text-transform: capitalize;
+}
+.timebox{
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--padlittle) var(--padmedium);
+    width: max-content;
+    font-size: clamp(10px, 0.6vw, 20px);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.timebox p {
+    line-height: 120%;
+}
+.incidentinputbox{
+    padding: var(--padmedium);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: var(--gap);
+}
+.inputone{
+    align-items: center;
+}
+.inputtwo{
+    align-items: flex-start;
+}
+.incidentinputtitle, .incidenttextarea{
+    width: 100%;
+    resize: none;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: var(--fontmedium);
+}
+.incidentinputtitle{
+height: max-content;
+}
+.incidenttextarea::placeholder, .incidentinputtitle::placeholder{
+    color: rgba(255, 255, 255, 0.35);
+}
+.incidenttextarea:focus, .incidentinputtitle:focus{
+    outline: none;
 }

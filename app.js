@@ -72,63 +72,72 @@ let warrantsData = [
         id: '155',
         status: 'pending',
         imageUrl: 'images/character1.png',
-        expires: '6'
+        expires: '6',
+        information: 'some information'
     },
     {
         name: "james bond",
         id: '156',
         status: 'rejected',
         imageUrl: 'images/character.svg',
-        expires: '3'
+        expires: '3',
+        information: 'some information'
     },
     {
         name: "oliver twist",
         id: '157',
         status: 'rejected',
         imageUrl: 'images/character2.png',
-        expires: '4'
+        expires: '4',
+        information: 'some information'
     },
     {
         name: "idris albak",
         id: '158',
         status: 'rejected',
         imageUrl: '',
-        expires: '6'
+        expires: '6',
+        information: 'some information'
     },
     {
         name: "stoney christon",
         id: '159',
         status: 'rejected',
         imageUrl: 'images/character1.png',
-        expires: '6'
+        expires: '6',
+        information: 'some information'
     },
     {
         name: "daniel greals",
         id: '160',
         status: 'pending',
         imageUrl: 'images/character.svg',
-        expires: '5'
+        expires: '5',
+        information: 'some information'
     },
     {
         name: "josh kennedy",
         id: '161',
         status: 'pending',
         imageUrl: 'images/character2.png',
-        expires: '6'
+        expires: '6',
+        information: 'some information'
     },
     {
         name: "jerry sheamus",
         id: '162',
         status: 'rejected',
         imageUrl: 'images/character.svg',
-        expires: '7'
+        expires: '7',
+        information: 'some information'
     },
     {
         name: "apollo creed",
         id: '163',
         status: 'pending',
         imageUrl: 'images/character1.png',
-        expires: '6'
+        expires: '6',
+        information: 'some information'
     },
 ]
 // ORDERS DATA
@@ -137,14 +146,15 @@ let ordersData = [
         name: "John Oils",
         id: '154',
         status: 'pending ',
-        imageUrl: ''
+        imageUrl: '',
+        information: 'some information'
     },
 ]
 // push / fetch warrants to html screen
 const pushWarrant = (warrantData) => {
     warrants.innerHTML=''
     warrantData.map((item) => {
-        const {name, status, id, imageUrl, expires} = item;
+        const {name, status, id, imageUrl, expires, information} = item;
         var statusClass = 'blue'
         if (status !== "pending"){
             statusClass = 'red'
@@ -156,7 +166,7 @@ const pushWarrant = (warrantData) => {
                 </div>
                 <div class="info-section">
                     <p class='suspectname'>${name}</p>
-                    <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
+                    <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
                     <section class="status-div">
                         <button class="${statusClass} funcBtns">${status === 'pending' ? 'pending approval' : 'approval rejected'}</button>
                         <div>
@@ -174,13 +184,13 @@ const pushWarrant = (warrantData) => {
 const pushOrder = (ordersData) => {
     orders.innerHTML = ''
     ordersData.map((item) => {
-        const { name, id, imageUrl } = item;
+        const { name, id, imageUrl, information } = item;
         orders.innerHTML += `
         <div class="order">
             <div class='imagecont'><img src="${imageUrl ? imageUrl : 'images/nophotored.png'}" alt="profile-image" class="order-image"></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
-                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
+                <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
                 <button class="red funcBtns">WANTED</button>
             </div>
         </div>
@@ -226,68 +236,77 @@ let profilesData = [
         id: '155',
         status: 'clean',
         imageUrl: 'images/character1.png',
+        information: 'some information'
     },
     {
         name: "james bond",
         id: '156',
         status: 'wanted',
         imageUrl: 'images/character.svg',
+        information: 'some information'
     },
     {
         name: "oliver twist",
         id: '157',
         status: 'clean',
         imageUrl: 'images/character2.png',
+        information: 'some information'
     },
     {
         name: "idris albak",
         id: '158',
         status: 'clean',
         imageUrl: '',
+        information: 'some information'
     },
     {
         name: "stoney christon",
         id: '159',
         status: 'clean',
         imageUrl: 'images/character1.png',
+        information: 'some information'
     },
     {
         name: "daniel greals",
         id: '160',
         status: 'wanted',
         imageUrl: '',
+        information: 'some information'
     },
     {
         name: "josh kennedy",
         id: '161',
         status: 'clean',
         imageUrl: 'images/character2.png',
+        information: 'some information'
     },
     {
         name: "jerry sheamus",
         id: '162',
         status: 'clean',
         imageUrl: 'images/character.svg',
+        information: 'some information'
     },
     {
         name: "apollo creed",
         id: '163',
         status: 'clean',
         imageUrl: 'images/character1.png',
+        information: 'some information'
     },
 ]
 // fetch / render profiles to html
 const pushProfiles = (data) => {
     profilesContainer.innerHTML = ''
     data.map((obj) => {
-        const { name, id, status, imageUrl } = obj;
+        const { name, id, status, imageUrl, information } = obj;
         
         profilesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}">
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png' }" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
-                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
+                <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
                 <button class="${status === 'clean' ? 'green' : 'red'} funcBtns">${status}</button>
             </div>
         </section>
@@ -361,54 +380,63 @@ let vehiclesData = [
         id: '155',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
+        information: 'some information'
     },
     {
         name: "bugatti",
         id: '156',
         status: 'wanted',
         imageUrl: 'images/vehicleimage.png',
+        information: 'some information'
     },
     {
         name: "tesla",
         id: '157',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
+        information: 'some information'
     },
     {
         name: "sedan",
         id: '158',
         status: 'wanted',
         imageUrl: '',
+        information: 'some information'
     },
     {
         name: "mercedes",
         id: '159',
         status: 'clean',
         imageUrl: '',
+        information: 'some information'
     },
     {
         name: "mitsubishi",
         id: '160',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
+        information: 'some information'
     },
     {
         name: "chevrolet camaro",
         id: '161',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
+        information: 'some information'
     },
     {
         name: "volkswagen",
         id: '162',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
+        information: 'some information'
     },
     {
         name: "cadillac",
         id: '163',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
+        information: 'some information'
     },
 ]
 
@@ -416,14 +444,13 @@ let vehiclesData = [
 const pushVehicles = (data) => {
     vehiclesContainer.innerHTML = ''
     data.map((obj) => {
-        const { name, id, status, imageUrl } = obj;
-        
+        const { name, id, status, imageUrl, information } = obj;
         vehiclesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}">
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png' }" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
-                <div class="information"> SOME INFORMATION <p class="dot"></p> SOME INFORMATION <p class="dot"></p> id.${id} </div>
+                <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
                 <button class="${status === 'clean' ? 'green' : 'red'} funcBtns">${status}</button>
             </div>
         </section>
@@ -481,3 +508,42 @@ vehiclesfilters.map((item) => {
         }
     })
 })
+
+// INCIDENTS FUNCTIONALITIES
+const incidentsmain = document.querySelector('.incidents-main');
+
+let incidentsData = [
+    {
+        id: '155',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '156',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+]
+
+const pushIncidents = (data) => {
+    incidentsmain.innerHTML = '';
+    data.map((item) => {
+        const { id, title, description, time, name } = item;
+        incidentsmain.innerHTML += `
+        <section  class="incident">
+            <h4 class="incident-title">${title}</h4>
+            <div class="information">${description} <p class="dot"></p> id: ${id}</div>
+            <div class="timebox"> 
+                <p> <img src="images/smalledit.svg" alt="edit"> </p> 
+                <p> ${name} - ${time} </p> 
+            </div>
+        </section>
+        `
+    })
+}
+
+pushIncidents(incidentsData);
