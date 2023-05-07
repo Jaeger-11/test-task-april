@@ -547,3 +547,42 @@ const pushIncidents = (data) => {
 }
 
 pushIncidents(incidentsData);
+
+// REPORTS FUNCTIONALITIES
+const reportsmain = document.querySelector('.reports-main');
+
+let reportsData = [
+    {
+        id: '155',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '156',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+]
+
+const pushReports = (data) => {
+    reportsmain.innerHTML = '';
+    data.map((item) => {
+        const { id, title, description, time, name } = item;
+        reportsmain.innerHTML += `
+        <section  class="incident">
+            <h4 class="incident-title">${title}</h4>
+            <div class="information">${description} <p class="dot"></p> id: ${id}</div>
+            <div class="timebox"> 
+                <p> <img src="images/smalledit.svg" alt="edit"> </p> 
+                <p> ${name} - ${time} </p> 
+            </div>
+        </section>
+        `
+    })
+}
+
+pushReports(reportsData);

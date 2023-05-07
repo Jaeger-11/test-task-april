@@ -301,7 +301,7 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
-    padding: var(--padmedium);
+    padding: calc(1.5 * var(--padlittle));
     width: 50%;
 }
 .search-input:hover{
@@ -339,13 +339,13 @@ main{
 .content{
     flex: 1;
 }
-.orders, .warrants, .incidents-main, .newincident-main{
+.orders, .warrants{
     margin-top: var(--padlittle);
     padding-right: 0.3rem;
     display: flex;
     flex-direction: column;
     gap: var(--gap);
-    height: 65vh; 
+    height: 67vh; 
     overflow-y: scroll;
 }
 .order, .warrant{
@@ -646,7 +646,7 @@ main{
 }
 
 /* INCIDENTS STYLING */
-.incidentscontent{
+.incidentscontent, .reportscontent{
     height: 100%;
     display: flex;
     gap: var(--gap);
@@ -655,7 +655,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: var(--padlarge);
+    padding: var(--padlarge) var(--padlarge) 0 var(--padlarge);
     flex: 1;
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -702,13 +702,16 @@ main{
     font-size: var(--fontmedium);
     text-transform: capitalize;
 }
-.newincident-main{
+.newincident-main, .incidents-main, .reports-main{
     display: flex;
     flex-direction: column;
-    gap: calc(0.5 * var(--gap)) ;
+    gap: calc(0.5 * var(--gap));
+    padding-right: 0.3rem;
+    height: 67vh; 
+    overflow-y: scroll;
 }
 .incident{
-    padding: var(--padmedium);
+    padding: var(--padlarge);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -723,11 +726,12 @@ main{
     background: rgba(255, 255, 255, 0.1);
     padding: var(--padlittle) var(--padmedium);
     width: max-content;
-    font-size: clamp(10px, 0.6vw, 20px);
+    font-size: clamp(11px, 0.6vw, 20px);
     text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 5px;
+    color: rgba(255, 255, 255, 0.9);
 }
 .timebox p {
     line-height: 120%;
@@ -754,11 +758,25 @@ main{
     font-size: var(--fontmedium);
 }
 .incidentinputtitle{
-height: max-content;
+    height: var(--fontmedium);
 }
 .incidenttextarea::placeholder, .incidentinputtitle::placeholder{
     color: rgba(255, 255, 255, 0.35);
 }
 .incidenttextarea:focus, .incidentinputtitle:focus{
     outline: none;
+}
+.incidentvehicles{
+    padding: var(--padmedium);
+    background: rgba(255, 255, 255, 0.05);
+}
+.incidentvehicle{
+    display: flex;
+    align-content: center;
+    padding: var(--padlittle);
+    font-size: var(--fontsmall);
+    background: rgba(255, 255, 255, 0.1);
+    width: max-content;
+    gap: var(--gap);
+    text-transform: uppercase;
 }
