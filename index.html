@@ -201,7 +201,27 @@
                                 <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
                             </section>
                         </div>
+
+                        <div class="modalbody" id="evidencemodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Evidence to Incident </p> 
+                                    <div class="cancelicon pointer"><img src="images/greyclose.svg" alt="incident icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <input type="text" name="evidence-type" id="evidence-type">
+                                    <input type="text" name="imageURL" id="evidence-imageURL" placeholder="Image URL">
+                                    <textarea name="description" id="evidence-description" rows="4" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer savebutton" id="evidencesave">SAVE</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
                     </section>
+
 
                     <!-- PROFILES CONTENT -->
                     <section class="profilescontent hidden">
@@ -321,7 +341,7 @@
                             </div>
                         </div>
                         <div class='subsection'>
-                            <section class="newincident-main">
+                            <section class="newincident-main reports-last">
                                 <div>
                                     <section class='addcriminal header-text'> 
                                         <p>Officers Involved </p> 
