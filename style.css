@@ -821,6 +821,12 @@ main{
     background: rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: var(--padlittle);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cancelicon:hover{
+    transform: scale(1.05);
 }
 .cancelicon img{
     width: 1vw;
@@ -851,14 +857,16 @@ main{
 .center{
     text-align: center;
 }
-.savebutton{
+.incidentbutton{
     width: 50%;
     margin: 0 auto;
-    background: rgba(101, 255, 144, 0.15);
-    color: rgba(101, 255, 144, 0.9);
     padding: var(--padmedium);
     border: none;
     font-weight: 600;
+}
+.savebutton{
+    background: rgba(101, 255, 144, 0.15);
+    color: rgba(101, 255, 144, 0.9);
 }
 .savebutton:hover{
     background: rgba(101, 255, 144, 0.2);
@@ -866,6 +874,15 @@ main{
 .savebutton:active{
     background: rgba(101, 255, 144, 0.25);
 }
+.findbutton{
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+}
+.findbutton:hover{
+    background: rgba(255, 255, 255, 0.15);
+}
+/* .findbutton:active{
+} */
 .reports-last{
     height: 100%;
 }

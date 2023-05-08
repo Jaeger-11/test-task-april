@@ -165,25 +165,25 @@
                                     <div>
                                         <section class='addcriminal header-text'> 
                                             <p>Evidence </p> 
-                                            <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
+                                            <div class="addicon pointer" id="addevidence"><img src="images/add.svg" alt="add icon" ></div>
                                         </section>
                                     </div>
                                     <div>
                                         <section class='addcriminal header-text'> 
                                             <p>Officers Involved </p> 
-                                            <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
+                                            <div class="addicon pointer"><img src="images/add.svg" alt="add icon" ></div>
                                         </section>
                                     </div>
                                     <div>
                                         <section class='addcriminal header-text'> 
                                             <p>Person Involved </p> 
-                                            <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
+                                            <div class="addicon pointer" id="addperson"><img src="images/add.svg" alt="add icon" ></div>
                                         </section>
                                     </div>
                                     <div>
                                         <section class='addcriminal header-text'> 
                                             <p>Vehicle Involved </p> 
-                                            <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
+                                            <div class="addicon pointer"><img src="images/add.svg" alt="add icon" ></div>
                                         </section>
                                         <section class="incidentvehicles">
                                             <div class="incidentvehicle">
@@ -202,20 +202,36 @@
                             </section>
                         </div>
 
-                        <div class="modalbody" id="evidencemodal">
+                        <div class="modalbody hidden" id="evidencemodal">
                             <section class="addevidencemodal ">
                                 <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
                                 <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
                                 <section class='header'> 
                                     <p>Add Evidence to Incident </p> 
-                                    <div class="cancelicon pointer"><img src="images/greyclose.svg" alt="incident icon" ></div>
+                                    <div class="cancelicon pointer" id="cancelevidence"><img src="images/greyclose.svg" alt="cancel icon" ></div>
                                 </section>
                                 <section class="content">
                                     <input type="text" name="evidence-type" id="evidence-type">
                                     <input type="text" name="imageURL" id="evidence-imageURL" placeholder="Image URL">
                                     <textarea name="description" id="evidence-description" rows="4" placeholder="Description"></textarea>
                                     <div class="center">
-                                        <button class="pointer savebutton" id="evidencesave">SAVE</button>
+                                        <button class="pointer incidentbutton savebutton" id="evidencesave">SAVE</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        <div class="modalbody hidden" id="personmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Person </p> 
+                                    <div class="cancelicon pointer" id="cancelperson"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <input type="text" name="personname" id="personname" placeholder="Name">
+                                    <div class="center">
+                                        <button class="pointer incidentbutton findbutton" id="personfind">FIND</button>
                                     </div>
                                 </section>
                             </section>

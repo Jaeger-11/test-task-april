@@ -511,6 +511,17 @@ vehiclesfilters.map((item) => {
 
 // INCIDENTS FUNCTIONALITIES
 const incidentsmain = document.querySelector('.incidents-main');
+const evidencemodal = document.querySelector('#evidencemodal');
+const cancelevidence = document.querySelector("#cancelevidence");
+const saveevidence = document.querySelector("#evidencesave");
+const addevidence = document.querySelector("#addevidence");
+const evidenceImageUrl = document.querySelector("#evidence-ImageURL");
+const evidenceDescription = document.querySelector("#evidence-description");
+const personmodal = document.querySelector('#personmodal');
+const addperson = document.querySelector('#addperson');
+const cancelperson = document.querySelector('#cancelperson');
+const findperson = document.querySelector('#personfind');
+const personname = document.querySelector("#personname");
 
 let incidentsData = [
     {
@@ -545,8 +556,28 @@ const pushIncidents = (data) => {
         `
     })
 }
-
 pushIncidents(incidentsData);
+// EVIDENCE
+addevidence.addEventListener('click', () => {
+    evidencemodal.classList.remove('hidden')
+})
+cancelevidence.addEventListener('click', () => {
+    evidencemodal.classList.add('hidden')
+})
+saveevidence.addEventListener('click', () => {
+// YET TO WORK ON IT
+})
+// PERSON
+addperson.addEventListener('click', () => {
+    console.log('working');
+    personmodal.classList.remove('hidden')
+})
+cancelperson.addEventListener('click', () => {
+    personmodal.classList.add('hidden')
+})
+findperson.addEventListener('click', () => {
+    // YET TO WORK
+})
 
 // REPORTS FUNCTIONALITIES
 const reportsmain = document.querySelector('.reports-main');
