@@ -836,7 +836,7 @@ main{
     background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.08) 5.34%, rgba(255, 255, 255, 0) 89.63%), linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07)), rgba(0, 0, 0, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
-.content input, .content textarea{
+.content input, .content textarea, .evidencetypeselect{
     font-size: var(--fontmedium);
     color: rgba(255, 255, 255, 0.65);
     background: rgba(255, 255, 255, 0.05);
@@ -848,6 +848,24 @@ main{
     resize: none;
     font-weight: 500;
     outline: none;
+}
+#evidencetype, #reportevidencetype{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: var(--fontmedium);
+}
+#evidencetype option, #reportevidencetype option{
+    width: 100%;
+    background: black;
+    font-size: var(--fontmedium);
+}
+.typelabel{
+    font-size: var(--fontsmall);
+    font-weight: 700;
+    padding: var(--padlittle);
 }
 .content input::placeholder , .content textarea::placeholder{
     font-size: var(--fontmedium);

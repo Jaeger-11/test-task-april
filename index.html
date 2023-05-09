@@ -201,7 +201,7 @@
                                 <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
                             </section>
                         </div>
-
+                        <!-- INCIDENTS MODALS -->
                         <div class="modalbody hidden" id="evidencemodal">
                             <section class="addevidencemodal ">
                                 <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
@@ -211,7 +211,14 @@
                                     <div class="cancelicon pointer" id="cancelevidence"><img src="images/greyclose.svg" alt="cancel icon" ></div>
                                 </section>
                                 <section class="content">
-                                    <input type="text" name="evidence-type" id="evidence-type">
+                                    <div class="evidencetypeselect">
+                                        <label for="evidencetype" class="typelabel"> EVIDENCE TYPE </label> <br>
+                                        <select name="evidence-type" id="evidencetype">
+                                            <option value="photo">Photo</option>
+                                            <option value="image">Image</option>
+                                            <option value="video">Video</option>
+                                        </select>
+                                    </div>
                                     <input type="text" name="imageURL" id="evidence-imageURL" placeholder="Image URL">
                                     <textarea name="description" id="evidence-description" rows="4" placeholder="Description"></textarea>
                                     <div class="center">
@@ -339,6 +346,14 @@
 
                             <div class="newincident-main-container">
                                 <section class="newincident-main">
+                                    <div class="evidencetypeselect">
+                                        <label for="evidencetype" class="typelabel"> REPORT TYPE </label> <br>
+                                        <select name="evidence-type" id="evidencetype">
+                                            <option value="investigative">Investigative Report</option>
+                                            <option value="crime">Crime Report</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
                                     <div class="incidentinputbox inputone">
                                         <img src="images/greyedit.svg" alt="edit" class="editabsolute">
                                         <input type="text" name="title" id="newincidenttitle" placeholder="Title" class="incidentinputtitle">
@@ -348,7 +363,7 @@
                                         <textarea name="" id="" cols="30" rows="10"  placeholder="Your Description" class="incidenttextarea"></textarea>
                                     </div>
                                     <div>
-                                        <section class='addcriminal header-text'> 
+                                        <section class='addcriminal header-text' id="addreportevidence"> 
                                             <p>Evidence </p> 
                                             <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
                                         </section>
@@ -382,6 +397,48 @@
                                         </div>
                                     </section>
                                 </div>
+                            </section>
+                        </div>
+                        <!-- REPORTS MODALS -->
+                        <div class="modalbody hidden" id="reportsevidence">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Evidence to Reports </p> 
+                                    <div class="cancelicon pointer" id="cancelreportsevidence"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="evidencetypeselect">
+                                        <label for="reportevidencetype" class="typelabel"> EVIDENCE TYPE </label> <br>
+                                        <select name="evidence-type" id="reportevidencetype">
+                                            <option value="photo">Photo</option>
+                                            <option value="image">Image</option>
+                                            <option value="video">Video</option>
+                                        </select>
+                                    </div>
+                                    <input type="text" name="imageURL" id="evidence-imageURL" placeholder="Image URL">
+                                    <textarea name="description" id="evidence-description" rows="4" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton" id="reportevidencesave">SAVE</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        <div class="modalbody hidden" id="personmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Person </p> 
+                                    <div class="cancelicon pointer" id="cancelperson"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <input type="text" name="personname" id="personname" placeholder="Name">
+                                    <div class="center">
+                                        <button class="pointer incidentbutton findbutton" id="personfind">FIND</button>
+                                    </div>
+                                </section>
                             </section>
                         </div>
                     </section>

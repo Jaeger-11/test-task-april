@@ -581,6 +581,10 @@ findperson.addEventListener('click', () => {
 
 // REPORTS FUNCTIONALITIES
 const reportsmain = document.querySelector('.reports-main');
+const reportsevidence = document.querySelector('#reportsevidence');
+const cancelreportsevidence = document.querySelector('#cancelreportsevidence');
+const savereportevidence = document.querySelector('#reportevidencesave');
+const addreportevidence = document.querySelector('#addreportevidence');
 
 let reportsData = [
     {
@@ -615,5 +619,13 @@ const pushReports = (data) => {
         `
     })
 }
-
 pushReports(reportsData);
+addreportevidence.addEventListener('click', () => {
+    reportsevidence.classList.remove('hidden')
+})
+cancelreportsevidence.addEventListener('click', () => {
+    reportsevidence.classList.add('hidden')
+})
+savereportevidence.addEventListener('click', () => {
+    // YET TO WORK
+})
