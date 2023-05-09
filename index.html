@@ -363,9 +363,9 @@
                                         <textarea name="" id="" cols="30" rows="10"  placeholder="Your Description" class="incidenttextarea"></textarea>
                                     </div>
                                     <div>
-                                        <section class='addcriminal header-text' id="addreportevidence"> 
+                                        <section class='addcriminal header-text' > 
                                             <p>Evidence </p> 
-                                            <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
+                                            <div class="addicon pointer" id="addreportevidence"><img src="images/add.svg" alt="incident icon" ></div>
                                         </section>
                                     </div>
                                 </section>
@@ -382,7 +382,7 @@
                                 <div>
                                     <section class='addcriminal header-text'> 
                                         <p>Person Involved </p> 
-                                        <div class="addicon pointer"><img src="images/add.svg" alt="incident icon" ></div>
+                                        <div class="addicon pointer" id="addreportperson"><img src="images/add.svg" alt="incident icon" ></div>
                                     </section>
                                 </div>
                                 <div>
@@ -425,18 +425,18 @@
                                 </section>
                             </section>
                         </div>
-                        <div class="modalbody hidden" id="personmodal">
+                        <div class="modalbody hidden" id="reportspersonmodal">
                             <section class="addevidencemodal ">
                                 <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
                                 <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
                                 <section class='header'> 
                                     <p>Add Person </p> 
-                                    <div class="cancelicon pointer" id="cancelperson"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                    <div class="cancelicon pointer" id="cancelreportsperson"><img src="images/greyclose.svg" alt="cancel icon" ></div>
                                 </section>
                                 <section class="content">
                                     <input type="text" name="personname" id="personname" placeholder="Name">
                                     <div class="center">
-                                        <button class="pointer incidentbutton findbutton" id="personfind">FIND</button>
+                                        <button class="pointer incidentbutton findbutton" id="reportspersonfind">FIND</button>
                                     </div>
                                 </section>
                             </section>
@@ -445,7 +445,44 @@
 
                     <!-- MISC CONTENT -->
                     <section class="misccontent hidden">
+                        <div class="header">
+                            <section class="header-text">
+                                <img src="images/miscsettings.svg" alt="warrants icon">
+                                <div > 
+                                    <p class="bold">MISC <br> <span class="small">ADDITIONAL SETTINGS</span></p>     
+                                </div>
+                            </section>
+                        </div>
+                    
+                        <div class="misc-main">
+                            <section class="settingboxone settingbox">
+                                <div class="settingheader">
+                                    <div class="linedot">
+                                        <div class="smalldot"></div>
+                                        <div class="longline"></div>
+                                    </div>
+                                    <p class="grey bold">MAIN SETTINGS</p>
+                                </div>
+                                <section class="mainsettings">
+                                    
+                                </section>
+                            </section>
 
+                            <section class="settingboxtwo settingbox">
+                                <div class="settingheader">
+                                    <div class="smalldot"></div>
+                                    <div class="longline"></div>
+                                    <p class="grey bold">MAIN SETTINGS</p>
+                                </div>
+                                <section>
+
+                                </section>
+                            </section>
+
+                            <section class="settingboxthree settingbox">
+                                <button class="pointer miscsave" id="reportspersonfind">SAVE</button>
+                            </section>
+                        </div>
                     </section>
                 </main>
 

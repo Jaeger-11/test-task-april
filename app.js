@@ -584,8 +584,11 @@ const reportsmain = document.querySelector('.reports-main');
 const reportsevidence = document.querySelector('#reportsevidence');
 const cancelreportsevidence = document.querySelector('#cancelreportsevidence');
 const savereportevidence = document.querySelector('#reportevidencesave');
-const addreportevidence = document.querySelector('#addreportevidence');
-
+const reportspersonmodal = document.querySelector('#reportspersonmodal');
+const cancelreportsperson = document.querySelector('#cancelreportsperson')
+const reportspersonfind = document.querySelector('#reportspersonfind')
+const addreportevidence = document.querySelector('#addreportevidence')
+const addreportperson = document.querySelector('#addreportperson');
 let reportsData = [
     {
         id: '155',
@@ -627,5 +630,15 @@ cancelreportsevidence.addEventListener('click', () => {
     reportsevidence.classList.add('hidden')
 })
 savereportevidence.addEventListener('click', () => {
+    // YET TO WORK
+})
+// PERSON
+addreportperson.addEventListener('click', () => {
+    reportspersonmodal.classList.remove('hidden')
+})
+cancelreportsperson.addEventListener('click', () => {
+    reportspersonmodal.classList.add('hidden')
+})
+reportspersonfind.addEventListener('click', () => {
     // YET TO WORK
 })

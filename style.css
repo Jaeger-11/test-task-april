@@ -885,6 +885,7 @@ main{
 .savebutton{
     background: rgba(101, 255, 144, 0.15);
     color: rgba(101, 255, 144, 0.9);
+    border: 1px solid rgba(101, 255, 144, 0.25);
 }
 .savebutton:hover{
     background: rgba(101, 255, 144, 0.2);
@@ -895,6 +896,7 @@ main{
 .findbutton{
     background: rgba(255, 255, 255, 0.08);
     color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.07);
 }
 .findbutton:hover{
     background: rgba(255, 255, 255, 0.15);
@@ -903,4 +905,56 @@ main{
 } */
 .reports-last{
     height: 100%;
+}
+
+/* MISC */
+.misccontent{
+    height: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--padlarge);
+    display: flex;
+    flex-direction: column;
+}
+.misc-main{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(1.5 * var(--gaplarge));
+    margin-top: var(--gaplarge);
+    flex: 1;
+}
+.settingheader, .linedot{
+    display: flex;
+    align-items: center;
+    gap: var(--gaplarge);
+}
+.linedot{
+    flex: 1;
+}
+.settingheader p{
+    font-size: var(--fontmedium);
+    flex: 1;
+    text-align: right;
+}
+.smalldot{
+    width: clamp(3px, 0.2vw, 7px);
+    height: clamp(3px, 0.2vw, 7px);
+    background: rgba(255, 255, 255, 0.25);
+}
+.longline{
+    height: clamp(1px, 0.1vw, 3px);
+    background: rgba(255, 255, 255, 0.12);
+    flex: 1;
+}
+.settingbox{
+    height: 100%;
+}
+.sectionboxthree{
+    
+}
+.miscsave{
+    padding: var(--padmedium) calc(2 * var(--padlarge));
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.07);
 }
