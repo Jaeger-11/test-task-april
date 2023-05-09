@@ -49,12 +49,14 @@ const clickLinks = [
 
 clickLinks.map((link) => {
     link.tab.addEventListener('click', () => {
+        link.tab.classList.add('side-menu-active');
         link.content.classList.remove('hidden')
         link.content.classList.add('show')
         let restLinks = clickLinks.filter((i) => i.tab !== link.tab)
         restLinks.map((i) => {
             i.content.classList.remove('show')
             i.content.classList.add('hidden')
+            i.tab.classList.remove('side-menu-active')
         });
         if( link.tab == vehicles ) {
             maincontainer.classList.add('main-container-reverse');
