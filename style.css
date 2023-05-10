@@ -41,6 +41,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 /* OUTLINE */
 .outline {
@@ -122,10 +123,19 @@ body{
 }
 /* GENERAL STYLES */
 .hidden{
-    display: none !important; 
+    opacity: 0;
+    position: absolute;
+    z-index: -100;
+}
+.hide{
+    display: none !important;
 }
 .show{
-    display: block;
+    position: absolute;
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    width: 100%;
 }
 .grey{
     color: rgba(255, 255, 255, 0.46);
@@ -229,9 +239,6 @@ header{
     width: var(--fontsmall);
     height: var(--fontsmall);
 }
-.duty-container .headericon:hover{
-    transform: scale(1.05);
-}
 
 /* Main Container Styling */
 .main-container{
@@ -279,12 +286,12 @@ aside{
     max-width: 100%;
 }
 .side-menu:hover{
-    transform: scale(0.95);
     background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.05) 5.34%, rgba(255, 255, 255, 0) 89.63%), rgba(255, 255, 255, 0.05);
 }
 /* MAIN INFO */
 main{
     flex: 1;
+    position: relative;
 }
 .dashboardcontent{
     height: 100%;
@@ -467,9 +474,6 @@ main{
     height: var(--fontsmall);
     width: var(--fontsmall);
 }
-.statusbtn:hover{
-    transform: scale(1.05);
-}
 .funcBtns{
     padding: var(--padlittle);
     font-family: 'Outfit', sans-serif;
@@ -561,7 +565,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
         height: 70vh;
     }
     .warrants, .orders, .newincident-main, .incidents-main, .reports-main{
-        height: 58vh !important;
+        height: calc(58vh - var(--gap)) !important;
     }
 }
 
@@ -692,7 +696,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 }
 
 /* INCIDENTS STYLING */
-.incidentscontent, .reportscontent{
+.incidentscont, .reportscont{
     height: 100%;
     display: flex;
     gap: var(--gap);
@@ -912,9 +916,6 @@ border: 1px solid rgba(255, 255, 255, 0.65);
     justify-content: center;
     align-items: center;
 }
-.cancelicon:hover{
-    transform: scale(1.05);
-}
 .cancelicon img{
     width: var(--fontsmall);
     height: var(--fontsmall);
@@ -1049,9 +1050,6 @@ border: 1px solid rgba(255, 255, 255, 0.65);
     width: max-content;
     font-weight: 600;
 }
-.miscsave:hover{
-    transform: scale(1.05);
-}
 .mainsettings{
     padding: var(--padlittle);
     margin: var(--padlarger) 0;
@@ -1086,7 +1084,6 @@ border: 1px solid rgba(255, 255, 255, 0.08);
 box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
 }
 .changeicon:hover{
-    transform: scale(1.05);
     background: rgba(255, 255, 255, 0.1);
 border: 1px solid rgba(255, 255, 255, 0.14);
 }
@@ -1095,9 +1092,6 @@ border: 1px solid rgba(255, 255, 255, 0.14);
     padding: var(--padlittle);
     font-weight: 600;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
-}
-.flexvalue button:hover{
-    transform: scale(1.05);
 }
 .greenbutton{
     background: rgba(101, 255, 144, 0.15);

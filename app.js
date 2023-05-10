@@ -561,10 +561,10 @@ const pushIncidents = (data) => {
 pushIncidents(incidentsData);
 // EVIDENCE
 addevidence.addEventListener('click', () => {
-    evidencemodal.classList.remove('hidden')
+    evidencemodal.classList.remove('hide')
 })
 cancelevidence.addEventListener('click', () => {
-    evidencemodal.classList.add('hidden')
+    evidencemodal.classList.add('hide')
 })
 saveevidence.addEventListener('click', () => {
 // YET TO WORK ON IT
@@ -572,10 +572,10 @@ saveevidence.addEventListener('click', () => {
 // PERSON
 addperson.addEventListener('click', () => {
     console.log('working');
-    personmodal.classList.remove('hidden')
+    personmodal.classList.remove('hide')
 })
 cancelperson.addEventListener('click', () => {
-    personmodal.classList.add('hidden')
+    personmodal.classList.add('hide')
 })
 findperson.addEventListener('click', () => {
     // YET TO WORK
@@ -626,20 +626,20 @@ const pushReports = (data) => {
 }
 pushReports(reportsData);
 addreportevidence.addEventListener('click', () => {
-    reportsevidence.classList.remove('hidden')
+    reportsevidence.classList.remove('hide')
 })
 cancelreportsevidence.addEventListener('click', () => {
-    reportsevidence.classList.add('hidden')
+    reportsevidence.classList.add('hide')
 })
 savereportevidence.addEventListener('click', () => {
     // YET TO WORK
 })
 // PERSON
 addreportperson.addEventListener('click', () => {
-    reportspersonmodal.classList.remove('hidden')
+    reportspersonmodal.classList.remove('hide')
 })
 cancelreportsperson.addEventListener('click', () => {
-    reportspersonmodal.classList.add('hidden')
+    reportspersonmodal.classList.add('hide')
 })
 reportspersonfind.addEventListener('click', () => {
     // YET TO WORK
