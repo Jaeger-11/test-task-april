@@ -28,31 +28,37 @@ const cancelbuttons = document.querySelectorAll('.reject');
 
 const clickLinks = [ 
     {
+        name: 'dashboard',
         tab: dashboard, 
         content : dashboardcontent,
         tabimage: dashboardtabimage
     },
     {
+        name: 'incidents',
         tab: incidents,
         content: incidentscontent,
         tabimage: incidentstabimage
     },
     {
+        name: 'profiles',
         tab: profiles,
         content:profilescontent,
         tabimage: profilestabimage
     },
     {
+        name: 'vehicles',
         tab: vehicles,
         content:vehiclescontent,
         tabimage: vehiclestabimage
     },
     {
+        name: 'reports',
         tab: reports,
         content:reportscontent,
         tabimage:reportstabimage
     },
     {
+        name: 'misc',
         tab: misc,
         content:misccontent,
         tabimage: misctabimage
@@ -62,13 +68,15 @@ const clickLinks = [
 clickLinks.map((link) => {
     link.tab.addEventListener('click', () => {
         link.tab.classList.add('side-menu-active');
-        link.content.classList.remove('hidden')
-        link.content.classList.add('show')
+        link.content.classList.remove('hidden');
+        link.content.classList.add('show');
+        link.tabimage.src = `images/${link.name}tabactive.svg`
         let restLinks = clickLinks.filter((i) => i.tab !== link.tab)
         restLinks.map((i) => {
             i.content.classList.remove('show')
             i.content.classList.add('hidden')
             i.tab.classList.remove('side-menu-active')
+            i.tabimage.src = `images/${link.name}tab.svg`
         });
         if( link.tab == vehicles ) {
             maincontainer.classList.add('main-container-reverse');
