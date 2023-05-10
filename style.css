@@ -1,7 +1,7 @@
 :root{
-    --fontsmall: clamp(12px, 0.8vw, 5rem);
-    --fontmedium: clamp(15px, 1vw, 7rem);
-    --fontlarge: clamp(18px, 1.2vw, 9rem);
+    --fontsmall: clamp(11px, 0.8vw, 5rem);
+    --fontmedium: clamp(14px, 1vw, 7rem);
+    --fontlarge: clamp(17px, 1.2vw, 9rem);
     --padlittle: clamp(5px, 0.3vw, 35px);
     --padmedium: clamp(10px, 0.5vw, 50px);
     --padlarge: clamp(15px, 1vw, 100px);
@@ -201,10 +201,34 @@ header{
     align-items: center;
     gap: 0.2rem;
 }
-.duty-container .icons{
-    width: 2vw;
+.headericon{
+    padding: var(--padlittle) calc( 1.5 *  var(--padlittle))  ;
 }
-.duty-container .icons:hover{
+.headersetting{
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.headersetting:hover{
+    background: rgba(255, 255, 255, 0.15);
+}
+.headersetting:active{
+    background: rgba(255, 255, 255, 0.35);
+}
+.headercancel{
+    background: rgba(255, 101, 101, 0.1);
+    border: 1px solid rgba(241, 51, 51, 0.25);
+}
+.headercancel:hover{
+    background: rgba(255, 101, 101, 0.15);
+}
+.headercancel:active{
+    background: rgba(255, 101, 101, 0.35);
+}
+.headericon img{
+    width: var(--fontsmall);
+    height: var(--fontsmall);
+}
+.duty-container .headericon:hover{
     transform: scale(1.05);
 }
 
@@ -371,7 +395,7 @@ main{
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
-.warrantactive{
+.warrant:active{
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.21);
 }
@@ -379,7 +403,7 @@ main{
     background: rgba(241, 51, 51, 0.12);
     border: 1px solid rgba(241, 51, 51, 0.41);
 }
-.orderactive{
+.order:active{
     background: rgba(241, 51, 51, 0.25);
     border: 1px solid rgba(241, 51, 51, 0.35);
 }
@@ -412,7 +436,7 @@ main{
     bottom: 0;
     padding: var(--padlittle);
     background: rgba(255, 255, 255, 0.1);
-    font-size: clamp(10px, 0.6vw, 20px);
+    font-size: clamp(9px, 0.4vw, 20px);
 }
 .order-image{
     border: 1px solid rgba(241, 51, 51, 0.25);
@@ -435,11 +459,12 @@ main{
     display: flex;
 }
 .statusbtn{
-    padding: var(--padlittle);
+    padding: var(--padlittle) calc( 1.3 * var(--padlittle));
     cursor: pointer;
 }
 .statusbtn img{
     height: var(--fontsmall);
+    width: var(--fontsmall);
 }
 .statusbtn:hover{
     transform: scale(1.05);
@@ -456,9 +481,25 @@ main{
     background: rgba(101, 255, 144, 0.25);
     border: 1px solid rgba(101, 255, 144, 0.45);
 }
+.approve:hover{
+    background: rgba(101, 255, 144, 0.35);
+border: 1px solid rgba(101, 255, 144, 0.65);
+}
+.approve:active{
+    background: rgba(101, 255, 144, 0.45);
+    border: 1px solid rgba(101, 255, 144, 0.75);
+}
 .reject{
     background: rgba(255, 101, 101, 0.25);
     border: 1px solid rgba(255, 101, 101, 0.45);
+}
+.reject:hover{
+    background: rgba(255, 101, 101, 0.35);
+border: 1px solid rgba(255, 101, 101, 0.65);
+}
+.reject:active{
+    background: rgba(255, 101, 101, 0.45);
+border: 1px solid rgba(255, 101, 101, 0.75);
 }
 .red{
     color: #F13333;
@@ -668,12 +709,29 @@ main{
 .subsection .header{
     margin-top: 0;
 }
+.padfirst{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+.padfirst img{
+    width: 50%;
+}
 .paddedicon{
     text-align: center;
     background: rgba(255, 255, 255, 0.1);
+    padding: 0 calc( 1.5 * var(--padlittle));
+}
+.paddedicon:hover{
+    background: rgba(255, 255, 255, 0.15);
+}
+.paddedicon:active{
+    background: rgba(255, 255, 255, 0.3);
 }
 .paddedicon img{
-    width: 50%;
+    width: var(--fontsmall);
+    height: var(--fontsmall);
 }
 .flexicons{
     display: flex;
@@ -691,6 +749,15 @@ main{
 }
 .addcriminal:hover{
     background: rgba(255, 255, 255, 0.15);
+}
+.addcriminal:active{
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
+}
+.addcriminal:active .addicon{
+    background: white;
+}
+.addcriminal:active .addicon img{
+    content: url(images/addblack.svg);
 }
 .addicon{
     background: rgba(255, 255, 255, 0.1);
@@ -718,6 +785,21 @@ main{
     padding: var(--padlarge);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.incident:hover{
+    background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.05) 5.34%, rgba(255, 255, 255, 0) 89.63%), rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.incident:active{
+    background: rgba(255, 255, 255, 0.15);
+border: 1px solid rgba(255, 255, 255, 0.65);
+}
+.incident:active .timebox{
+    background: #FFFFFF;
+    color: black;
+}
+.incident:active .timebox img{
+    content: url(images/smalleditblack.svg);
 }
 .incident-title{
     font-weight: 600;
@@ -833,7 +915,8 @@ main{
     transform: scale(1.05);
 }
 .cancelicon img{
-    width: 1vw;
+    width: var(--fontsmall);
+    height: var(--fontsmall);
 }
 .addevidencemodal .content{
     padding: var(--padlarge);
@@ -905,8 +988,6 @@ main{
 .findbutton:hover{
     background: rgba(255, 255, 255, 0.15);
 }
-/* .findbutton:active{
-} */
 .reports-last{
     height: 100%;
 }
