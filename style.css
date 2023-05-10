@@ -269,10 +269,10 @@ aside{
     margin-bottom: 0;
 }
 .sidebarimage{
-    flex: 0.4;
+    flex: 0.35;
 }
 .bold{
-    flex: 0.6;
+    flex: 0.65;
 }
 .side-menu img{
     max-width: 100%;
@@ -373,7 +373,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: var(--gap);
-    height: 67vh; 
+    height: 65vh; 
     overflow-y: scroll;
 }
 .order, .warrant{
@@ -436,7 +436,7 @@ main{
     bottom: 0;
     padding: var(--padlittle);
     background: rgba(255, 255, 255, 0.1);
-    font-size: clamp(9px, 0.4vw, 20px);
+    font-size: clamp(9px, 0.6vw, 50px);
 }
 .order-image{
     border: 1px solid rgba(241, 51, 51, 0.25);
@@ -559,8 +559,8 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     .main-container{
         height: 70vh;
     }
-    .warrants, .orders{
-        height: 58vh;
+    .warrants, .orders, .newincident-main, .incidents-main, .reports-main{
+        height: 58vh !important;
     }
 }
 
@@ -778,7 +778,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
     padding-right: 0.3rem;
-    height: 67vh; 
+    height: 65vh; 
     overflow-y: scroll;
 }
 .incident{
