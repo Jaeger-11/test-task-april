@@ -160,7 +160,7 @@ header{
     justify-content: space-between;
     align-items: center;
     gap: var(--gap);
-    margin-bottom: var(--gaplarge);
+    margin-bottom: calc( 1.5 * var(--gaplarge));
 }
 .logo{
     width: 2vw;
