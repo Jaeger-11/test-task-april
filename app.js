@@ -12,6 +12,12 @@ const profiles = document.querySelector('#profiles');
 const vehicles = document.querySelector('#vehicles');
 const reports = document.querySelector('#reports');
 const misc = document.querySelector('#misc');
+const dashboardtabimage = document.querySelector('.dashboardtabimage')
+const incidentstabimage = document.querySelector('.incidentstabimage')
+const profilestabimage = document.querySelector('.profilestabimage')
+const vehiclestabimage = document.querySelector('.vehiclestabimage')
+const reportstabimage = document.querySelector('.reportstabimage')
+const misctabimage = document.querySelector('.misctabimage')
 // dashboard selectors
 const warrantsearch = document.querySelector('#warrantsearch');
 const ordersearch = document.querySelector('#ordersearch');
@@ -24,26 +30,32 @@ const clickLinks = [
     {
         tab: dashboard, 
         content : dashboardcontent,
+        tabimage: dashboardtabimage
     },
     {
         tab: incidents,
         content: incidentscontent,
+        tabimage: incidentstabimage
     },
     {
         tab: profiles,
         content:profilescontent,
+        tabimage: profilestabimage
     },
     {
         tab: vehicles,
         content:vehiclescontent,
+        tabimage: vehiclestabimage
     },
     {
         tab: reports,
         content:reportscontent,
+        tabimage:reportstabimage
     },
     {
         tab: misc,
         content:misccontent,
+        tabimage: misctabimage
     }
 ];
 
@@ -550,7 +562,7 @@ const pushIncidents = (data) => {
         <section  class="incident">
             <h4 class="incident-title">${title}</h4>
             <div class="information">${description} <p class="dot"></p> id: ${id}</div>
-            <div class="timebox"> 
+            <div class="timebox pointer"> 
                 <p> <img src="images/smalledit.svg" alt="edit"> </p> 
                 <p> ${name} - ${time} </p> 
             </div>

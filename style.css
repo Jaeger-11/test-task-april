@@ -126,6 +126,7 @@ body{
     opacity: 0;
     position: absolute;
     z-index: -100;
+    pointer-events: none;
 }
 .hide{
     display: none !important;
@@ -136,6 +137,7 @@ body{
     top: 0;
     bottom: 0;
     width: 100%;
+    pointer-events: all;
 }
 .grey{
     color: rgba(255, 255, 255, 0.46);
@@ -288,6 +290,7 @@ aside{
 .side-menu:hover{
     background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.05) 5.34%, rgba(255, 255, 255, 0) 89.63%), rgba(255, 255, 255, 0.05);
 }
+
 /* MAIN INFO */
 main{
     flex: 1;
@@ -726,7 +729,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .paddedicon{
     text-align: center;
     background: rgba(255, 255, 255, 0.1);
-    padding: 0 calc( 1.5 * var(--padlittle));
+    padding: calc( 1.5 * var(--padlittle));
 }
 .paddedicon:hover{
     background: rgba(255, 255, 255, 0.15);
@@ -742,9 +745,6 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     display: flex;
     align-items: center;
     gap: 2px;
-}
-.flexicons img{
-    height: 2vw;
 }
 .addcriminal{
     color: rgba(255, 255, 255, 0.9);
@@ -799,11 +799,11 @@ border: 1px solid rgba(255, 255, 255, 0.35);
     background: rgba(255, 255, 255, 0.15);
 border: 1px solid rgba(255, 255, 255, 0.65);
 }
-.incident:active .timebox{
+.timebox:active{
     background: #FFFFFF;
     color: black;
 }
-.incident:active .timebox img{
+.timebox:active img{
     content: url(images/smalleditblack.svg);
 }
 .incident-title{
