@@ -192,7 +192,7 @@ header{
 .duty-container{
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: var(--padlittle);
     background: rgba(255, 255, 255, 0.03);
     height: max-content;
 }
@@ -340,7 +340,7 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
-    padding: calc(1.5 * var(--padlittle));
+    padding: calc(var(--padlittle));
     width: 50%;
 }
 .search-input:hover{
@@ -761,12 +761,16 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .addcriminal:active .addicon{
     background: white;
 }
-.addcriminal:active .addicon img{
-    content: url(images/addblack.svg);
+.addcriminal:active .addicon .addsvg{
+    fill: black;
+}
+.addsvg{
+    fill: white;
 }
 .addicon{
     background: rgba(255, 255, 255, 0.1);
     text-align: center;
+    padding: var(--padlittle);
 }
 .addicon:hover{
     background: rgba(255, 255, 255, 0.25);
@@ -813,6 +817,10 @@ border: 1px solid rgba(255, 255, 255, 0.65);
     line-height: 120%;
     text-transform: capitalize;
 }
+.smalledit{
+    fill: white;
+    transition: ease 0.1s fill;
+}
 .timebox{
     background: rgba(255, 255, 255, 0.1);
     padding: var(--padlittle) var(--padmedium);
@@ -823,6 +831,10 @@ border: 1px solid rgba(255, 255, 255, 0.65);
     align-items: center;
     gap: 5px;
     color: rgba(255, 255, 255, 0.9);
+    transition: ease 0.1s all;
+}
+.timebox:active .smalledit{
+    fill: black;
 }
 .timebox p {
     line-height: 120%;
@@ -1110,4 +1122,11 @@ border: 1px solid rgba(255, 255, 255, 0.14);
 .redbutton:hover{
     background: linear-gradient(262.57deg, rgba(255, 101, 101, 0.1) 0%, rgba(255, 101, 101, 0) 69.9%), rgba(255, 101, 101, 0.15);
     border: 1px solid rgba(255, 101, 101, 0.35);
+}
+.smallsvg{
+    width: var(--fontmedium);
+    height: var(--fontmedium);
+}
+.addsvg:active{
+    fill: black;
 }
