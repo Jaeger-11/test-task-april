@@ -196,10 +196,18 @@ header{
     background: rgba(255, 255, 255, 0.03);
     height: max-content;
 }
-.duty{
+.onduty{
     background: linear-gradient(0deg, rgba(101, 255, 144, 0.25), rgba(101, 255, 144, 0.25)),
                 linear-gradient(0deg, rgba(101, 255, 144, 0.1), rgba(101, 255, 144, 0.1));
     border: 1px solid rgba(101, 255, 144, 0.25);
+    padding: var(--padlittle);
+    font-size: var(--fontsmall);
+    color: #65FF90;
+}
+.offduty{
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.65);
     padding: var(--padlittle);
     font-size: var(--fontsmall);
 }
@@ -545,10 +553,6 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     }
 }
 @media screen and (min-width:1600px) {
-    .container{
-        width: 85vw;
-        margin: auto;
-    }
     .funcBtns, .statusbtn{
         padding: var(--padmedium);
     } 
@@ -558,8 +562,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 }
 @media screen and (min-width:1800px) {
     .container{
-        width: 80vw;
-        margin: auto;
+        width: 85vw;
     }
 }
 

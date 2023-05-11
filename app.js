@@ -86,6 +86,24 @@ clickLinks.map((link) => {
     })
 })
 
+// HEADER FUNCTIONALITY
+const headercancel = document.querySelector('.headercancel');
+const duty = document.querySelector('.duty');
+const headercheck = document.querySelector('.headercheck');
+
+headercancel.addEventListener('click', () => {
+    duty.className = "offduty duty"
+    duty.textContent = "OFF DUTY"
+    headercancel.classList.add("hide")
+    headercheck.classList.remove("hide")
+})
+headercheck.addEventListener('click', () => {
+    duty.className = "onduty duty"
+    duty.textContent = "ON DUTY"
+    headercancel.classList.remove("hide")
+    headercheck.classList.add("hide")
+})
+
 // DASHBOARD FUNCTIONALITY
 // WARRANTS DATA
 let warrantsData = [
