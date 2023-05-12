@@ -562,6 +562,7 @@ const addperson = document.querySelector('#addperson');
 const cancelperson = document.querySelector('#cancelperson');
 const findperson = document.querySelector('#personfind');
 const personname = document.querySelector("#personname");
+const incidentsearch = document.querySelector('#incidentsearch');
 
 let incidentsData = [
     {
@@ -601,6 +602,13 @@ const pushIncidents = (data) => {
     })
 }
 pushIncidents(incidentsData);
+// SEARCH INCIDENTS
+incidentsearch.addEventListener('input', () => {
+    let searchvalue = incidentsearch.value
+    if(!searchvalue) pushIncidents(incidentsData)
+    let data = incidentsData.filter((incident) => incident.name.includes(searchvalue.toLowerCase()));
+    pushIncidents(data)
+})
 // EVIDENCE
 addevidence.addEventListener('click', () => {
     evidencemodal.classList.remove('hide')
@@ -633,6 +641,7 @@ const cancelreportsperson = document.querySelector('#cancelreportsperson')
 const reportspersonfind = document.querySelector('#reportspersonfind')
 const addreportevidence = document.querySelector('#addreportevidence')
 const addreportperson = document.querySelector('#addreportperson');
+const reportsearch = document.querySelector('#reportsearch');
 let reportsData = [
     {
         id: '155',
@@ -669,6 +678,13 @@ const pushReports = (data) => {
     })
 }
 pushReports(reportsData);
+// search reports
+reportsearch.addEventListener('input', () => {
+    let searchvalue = reportsearch.value
+    if(!searchvalue) pushReports(reportsData)
+    let data = reportsData.filter((report) => report.name.includes(searchvalue.toLowerCase()));
+    pushReports(data)
+})
 addreportevidence.addEventListener('click', () => {
     reportsevidence.classList.remove('hide')
 })

@@ -129,7 +129,8 @@ body{
     pointer-events: none;
 }
 .hide{
-    display: none !important;
+    opacity: 0;
+    width: 0 !important;
 }
 .show{
     position: absolute;
@@ -293,7 +294,7 @@ aside{
     flex: 0.65;
 }
 .side-menu img{
-    max-width: 100%;
+    width: 100%;
 }
 .side-menu:hover{
     background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.05) 5.34%, rgba(255, 255, 255, 0) 89.63%), rgba(255, 255, 255, 0.05);
@@ -388,7 +389,7 @@ main{
 }
 .orders, .warrants{
     margin-top: var(--padlittle);
-    padding-right: 0.3rem;
+    padding-right: var(--padlittle);
     display: flex;
     flex-direction: column;
     gap: var(--gap);
@@ -409,22 +410,6 @@ main{
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
-}
-.warrant:hover{
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-}
-.warrant:active{
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.21);
-}
-.order:hover{
-    background: rgba(241, 51, 51, 0.12);
-    border: 1px solid rgba(241, 51, 51, 0.41);
-}
-.order:active{
-    background: rgba(241, 51, 51, 0.25);
-    border: 1px solid rgba(241, 51, 51, 0.35);
 }
 .warrant .imagecont{
     min-width: 20%;
@@ -571,7 +556,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
         height: 70vh;
     }
     .warrants, .orders, .newincident-main, .incidents-main, .reports-main{
-        height: calc(58vh - var(--gap)) !important;
+        height: calc(60vh - var(--gap)) !important;
     }
 }
 
@@ -700,6 +685,22 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     border: 1px solid rgba(101, 255, 144, 0.25);
     color: #65FF90;
 }
+.vehicles-main .warrant:hover{
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.vehicles-main .warrant:active{
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.21);
+}
+.vehicles-main .order:hover{
+    background: rgba(241, 51, 51, 0.12);
+    border: 1px solid rgba(241, 51, 51, 0.41);
+}
+.vehicles-main .order:active{
+    background: rgba(241, 51, 51, 0.25);
+    border: 1px solid rgba(241, 51, 51, 0.35);
+}
 
 /* INCIDENTS STYLING */
 .incidentscont, .reportscont{
@@ -789,7 +790,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     display: flex;
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
-    padding-right: 0.3rem;
+    padding-right: var(--padlittle);
     height: 67vh; 
     overflow-y: scroll;
 }
@@ -802,16 +803,19 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.05) 5.34%, rgba(255, 255, 255, 0) 89.63%), rgba(255, 255, 255, 0.05);
 border: 1px solid rgba(255, 255, 255, 0.35);
 }
-.incident:active{
-    background: rgba(255, 255, 255, 0.15);
-border: 1px solid rgba(255, 255, 255, 0.65);
-}
-.timebox:active{
-    background: #FFFFFF;
+.incident:active .timebox{
+    background: white;
     color: black;
 }
-.timebox:active img{
-    content: url(images/smalleditblack.svg);
+.incident:active .timebox .smalledit{
+    fill: black;
+}
+.incident:has(.timebox:active){
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+}
+.incident .timebox:active .smalledit{
+    fill: black;
 }
 .incident-title{
     font-weight: 600;
