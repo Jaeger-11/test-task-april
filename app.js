@@ -23,8 +23,6 @@ const warrantsearch = document.querySelector('#warrantsearch');
 const ordersearch = document.querySelector('#ordersearch');
 const warrants = document.querySelector('.warrants');
 const orders = document.querySelector('.orders');
-const checkmarks = document.querySelectorAll('.approve');
-const cancelbuttons = document.querySelectorAll('.reject'); 
 
 const clickLinks = [ 
     {
@@ -195,9 +193,17 @@ const pushWarrant = (warrantData) => {
     warrants.innerHTML=''
     warrantData.map((item) => {
         const {name, status, id, imageUrl, expires, information} = item;
-        var statusClass = 'blue'
-        if (status !== "pending"){
+        var statusClass = ''
+        var content = ""
+        if (status === "rejected"){
             statusClass = 'red'
+            content = "approval rejected"
+        } else if ( status === "approved" ){
+            statusClass ='green'
+            content ="approved"
+        } else {
+            statusClass ='blue'
+            content ='pending approval'
         }
         warrants.innerHTML += `
             <div class="warrant">
@@ -208,10 +214,10 @@ const pushWarrant = (warrantData) => {
                     <p class='suspectname'>${name}</p>
                     <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
                     <section class="status-div">
-                        <button class="${statusClass} funcBtns">${status === 'pending' ? 'pending approval' : 'approval rejected'}</button>
+                        <button class="${statusClass} funcBtns">${content}</button>
                         <div>
-                            <button class="statusbtn approve"><img src="images/checkmark.svg" alt="checkmark"></button>
-                            <button class="statusbtn reject"><img src="images/cancel-icon.svg" alt="close"> </button>
+                            <button class="statusbtn approve" onClick="approveWarrant(${id})"><img src="images/checkmark.svg" alt="checkmark"></button>
+                            <button class="statusbtn reject" onClick="rejectWarrant(${id})"><img src="images/cancel-icon.svg" alt="close"> </button>
                         </div>
                     </section>
                 </div>
@@ -237,11 +243,38 @@ const pushOrder = (ordersData) => {
     `
     })
 }
+let currentwarrantsearchfilter = ""
+const applyCurrentSearchFilter = () => {
+    let data;
+    if (currentwarrantsearchfilter === ""){
+        data = warrantsData;
+    } else {
+        data = warrantsData.filter((item) => item.name.includes(currentwarrantsearchfilter));
+    }
+    pushWarrant(data);
+};
+const approveWarrant = (id) => {
+    warrantsData = warrantsData.map((warrant) => {
+        if ( warrant.id == id ){
+            return { ...warrant, status : "approved" }
+        } else return {...warrant}
+    })
+    applyCurrentSearchFilter();
+}
 
+const rejectWarrant = (id) => {
+    warrantsData = warrantsData.map((warrant) => {
+        if ( warrant.id == id ){
+            return { ...warrant, status : "rejected" }
+        } else return {...warrant}
+    })
+    applyCurrentSearchFilter();
+}
 pushWarrant(warrantsData);
 pushOrder(ordersData);
 // Search through warrants
 warrantsearch.addEventListener('input', () => {
+    currentwarrantsearchfilter = warrantsearch.value
     let searchvalue = warrantsearch.value
     if(!searchvalue) pushWarrant(warrantsData)
     let data = warrantsData.filter((warrant) => warrant.name.includes(searchvalue.toLowerCase()));
@@ -253,12 +286,6 @@ ordersearch.addEventListener('input', (e) => {
     if(!searchvalue) pushOrder(ordersData)
     let data = ordersData.filter((order) => order.name.includes(searchvalue.toLowerCase()));
     pushOrder(data)
-})
-
-checkmarks.forEach((checkmark) => {
-    checkmark.addEventListener('click', () => {
-
-    })
 })
 
 // PROFILES
