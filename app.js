@@ -93,6 +93,7 @@ const headersetting = document.querySelector('.headersetting');
 headersetting.addEventListener('click', () => {
     clickLinks.map((link) => {
         if (link.name === 'misc'){
+            maincontainer.classList.remove('main-container-reverse');
             link.tab.classList.add('side-menu-active');
             link.content.classList.remove('hidden');
             link.content.classList.add('show');
