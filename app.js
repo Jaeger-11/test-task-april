@@ -92,14 +92,14 @@ const headercheck = document.querySelector('.headercheck');
 headercancel.addEventListener('click', () => {
     duty.className = "offduty duty"
     duty.textContent = "OFF DUTY"
-    headercancel.classList.add("hide")
-    headercheck.classList.remove("hide")
+    headercancel.classList.add("hiddenicon")
+    headercheck.classList.remove("hiddenicon")
 })
 headercheck.addEventListener('click', () => {
     duty.className = "onduty duty"
     duty.textContent = "ON DUTY"
-    headercancel.classList.remove("hide")
-    headercheck.classList.add("hide")
+    headercancel.classList.remove("hiddenicon")
+    headercheck.classList.add("hiddenicon")
 })
 
 // DASHBOARD FUNCTIONALITY

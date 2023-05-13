@@ -131,8 +131,13 @@ body{
 }
 .hide{
     opacity: 0;
-    padding: 0 !important;
     transform: translateY(100vh);
+    pointer-events: none;
+}
+.hiddenicon{
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
 }
 .show{
     position: absolute;
@@ -395,7 +400,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: var(--gap);
-    height: 67vh; 
+    height: 68vh; 
     overflow-y: scroll;
 }
 .order, .warrant{
@@ -661,7 +666,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     width: 1vw;
 }
 .profiles-main-container, .vehicles-main-container{
-    height: 67vh;
+    height: 68vh;
     overflow-y: scroll;
     padding-right: var(--padlittle);
 }
@@ -801,7 +806,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
     padding-right: var(--padlittle);
-    height: 67vh; 
+    height: 68vh; 
     overflow-y: scroll;
 }
 .incident{
