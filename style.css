@@ -770,7 +770,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .addcriminal:hover{
     background: rgba(255, 255, 255, 0.15);
 }
-.addcriminal:active{
+.addcriminal:has(.addicon:active){
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.1);
 }
 .addcriminal .addicon:active{
