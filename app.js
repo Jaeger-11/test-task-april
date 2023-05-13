@@ -731,3 +731,208 @@ cancelreportsperson.addEventListener('click', () => {
 reportspersonfind.addEventListener('click', () => {
     // YET TO WORK
 })
+
+// MISC FUNCTIONALITY
+const MINracersvalue = document.querySelector('#MINvalue');
+const decreaseMINracers = document.querySelector('#decreaseMIN');
+const increaseMINracers = document.querySelector('#increaseMIN');
+const MAXracersvalue = document.querySelector('#MAXvalue');
+const decreaseMAXracers = document.querySelector('#decreaseMAX');
+const increaseMAXracers = document.querySelector('#increaseMAX');
+const Lapsvalue = document.querySelector('#lapsvalue');
+const decreaseLaps = document.querySelector('#decreaseLaps');
+const increaseLaps = document.querySelector('#increaseLaps');
+
+let minracersvalue = 45;
+let maxracersvalue = 45;
+let lapsvalue = 45;
+MINracersvalue.textContent = minracersvalue;
+MAXracersvalue.textContent = maxracersvalue;
+Lapsvalue.textContent = lapsvalue;
+
+decreaseMINracers.addEventListener('click', () => {
+    if ( minracersvalue === 0 ) {
+        MINracersvalue.textContent = minracersvalue;
+    } else {
+        minracersvalue -= 1
+        MINracersvalue.textContent = minracersvalue;
+    }
+})
+increaseMINracers.addEventListener('click', () => {
+    if (minracersvalue === 100 ){
+        MINracersvalue.textContent = minracersvalue;
+    } else {
+        minracersvalue += 1
+        MINracersvalue.textContent = minracersvalue;
+    }
+})
+
+decreaseMAXracers.addEventListener('click', () => {
+    if ( maxracersvalue === 0 ) {
+        MINracersvalue.textContent = maxracersvalue;
+    } else {
+        maxracersvalue -= 1
+        MAXracersvalue.textContent = maxracersvalue;
+    }
+})
+increaseMAXracers.addEventListener('click', () => {
+    if (maxracersvalue === 100 ){
+        MAXracersvalue.textContent = maxracersvalue;
+    } else {
+        maxracersvalue += 1
+        MAXracersvalue.textContent = maxracersvalue;
+    }
+})
+
+decreaseLaps.addEventListener('click', () => {
+    if ( lapsvalue === 0 ) {
+        Lapsvalue.textContent = lapsvalue;
+    } else {
+        lapsvalue -= 1
+        Lapsvalue.textContent = lapsvalue;
+    }
+})
+increaseLaps.addEventListener('click', () => {
+    if (lapsvalue === 100 ){
+        Lapsvalue.textContent = lapsvalue;
+    } else {
+        lapsvalue += 1
+        Lapsvalue.textContent = lapsvalue;
+    }
+})
+
+// 
+const MINracersvaluetwo = document.querySelector('#MINvaluetwo');
+const decreaseMINracerstwo = document.querySelector('#decreaseMINtwo');
+const increaseMINracerstwo = document.querySelector('#increaseMINtwo');
+const MAXracersvaluetwo = document.querySelector('#MAXvaluetwo');
+const decreaseMAXracerstwo = document.querySelector('#decreaseMAXtwo');
+const increaseMAXracerstwo = document.querySelector('#increaseMAXtwo');
+const Lapsvaluetwo = document.querySelector('#lapsvaluetwo');
+const decreaseLapstwo = document.querySelector('#decreaseLapstwo');
+const increaseLapstwo = document.querySelector('#increaseLapstwo');
+
+let minracersvaluetwo = 45;
+let maxracersvaluetwo = 45;
+let lapsvaluetwo = 45;
+MINracersvaluetwo.textContent = minracersvaluetwo;
+MAXracersvaluetwo.textContent = maxracersvaluetwo;
+Lapsvaluetwo.textContent = lapsvaluetwo;
+decreaseMINracerstwo.addEventListener('click', () => {
+    if ( minracersvaluetwo === 0 ) {
+        MINracersvaluetwo.textContent = minracersvaluetwo;
+    } else {
+        minracersvaluetwo -= 1
+        MINracersvaluetwo.textContent = minracersvaluetwo;
+    }
+})
+increaseMINracerstwo.addEventListener('click', () => {
+    if (minracersvaluetwo === 100 ){
+        MINracersvaluetwo.textContent = minracersvaluetwo;
+    } else {
+        minracersvaluetwo += 1
+        MINracersvaluetwo.textContent = minracersvaluetwo;
+    }
+})
+
+decreaseMAXracerstwo.addEventListener('click', () => {
+    if ( maxracersvaluetwo === 0 ) {
+        MINracersvaluetwo.textContent = maxracersvaluetwo;
+    } else {
+        maxracersvaluetwo -= 1
+        MAXracersvaluetwo.textContent = maxracersvaluetwo;
+    }
+})
+increaseMAXracerstwo.addEventListener('click', () => {
+    if (maxracersvaluetwo === 100 ){
+        MAXracersvaluetwo.textContent = maxracersvaluetwo;
+    } else {
+        maxracersvaluetwo += 1
+        MAXracersvaluetwo.textContent = maxracersvaluetwo;
+    }
+})
+
+decreaseLapstwo.addEventListener('click', () => {
+    if ( lapsvaluetwo === 0 ) {
+        Lapsvaluetwo.textContent = lapsvaluetwo;
+    } else {
+        lapsvaluetwo -= 1
+        Lapsvaluetwo.textContent = lapsvaluetwo;
+    }
+})
+increaseLapstwo.addEventListener('click', () => {
+    if (lapsvaluetwo === 100 ){
+        Lapsvaluetwo.textContent = lapsvaluetwo;
+    } else {
+        lapsvaluetwo += 1
+        Lapsvaluetwo.textContent = lapsvaluetwo;
+    }
+})
+
+const toggleOnOffone = document.getElementsByClassName("toggleOnOff")[1];
+const toggleOnOfftwo = document.getElementsByClassName("toggleOnOff")[2];
+const toggleOnOffthree = document.getElementsByClassName("toggleOnOff")[3];
+const toggleOnOfffour = document.getElementsByClassName("toggleOnOff")[4];
+const toggleOnOfffive = document.getElementsByClassName("toggleOnOff")[5];
+const toggleOnOffzero = document.getElementsByClassName("toggleOnOff")[0];
+
+toggleOnOffone.addEventListener('click', () => {
+    let content = toggleOnOffone.textContent
+    if (content === 'ON'){
+        toggleOnOffone.textContent = "OFF";
+        toggleOnOffone.className = "redbutton pointer toggleOnOff"
+    } else {
+        toggleOnOffone.textContent = "ON";
+        toggleOnOffone.className = "greenbutton pointer toggleOnOff"
+    }
+})
+toggleOnOfftwo.addEventListener('click', () => {
+    let content = toggleOnOfftwo.textContent
+    if (content === 'ON'){
+        toggleOnOfftwo.textContent = "OFF";
+        toggleOnOfftwo.className = "redbutton pointer toggleOnOff"
+    } else {
+        toggleOnOfftwo.textContent = "ON";
+        toggleOnOfftwo.className = "greenbutton pointer toggleOnOff"
+    }
+})
+toggleOnOffthree.addEventListener('click', () => {
+    let content = toggleOnOffthree.textContent
+    if (content === 'ON'){
+        toggleOnOffthree.textContent = "OFF";
+        toggleOnOffthree.className = "redbutton pointer toggleOnOff"
+    } else {
+        toggleOnOffthree.textContent = "ON";
+        toggleOnOffthree.className = "greenbutton pointer toggleOnOff"
+    }
+})
+toggleOnOfffour.addEventListener('click', () => {
+    let content = toggleOnOfffour.textContent
+    if (content === 'ON'){
+        toggleOnOfffour.textContent = "OFF";
+        toggleOnOfffour.className = "redbutton pointer toggleOnOff"
+    } else {
+        toggleOnOfffour.textContent = "ON";
+        toggleOnOfffour.className = "greenbutton pointer toggleOnOff"
+    }
+})
+toggleOnOfffive.addEventListener('click', () => {
+    let content = toggleOnOfffive.textContent
+    if (content === 'ON'){
+        toggleOnOfffive.textContent = "OFF";
+        toggleOnOfffive.className = "redbutton pointer toggleOnOff"
+    } else {
+        toggleOnOfffive.textContent = "ON";
+        toggleOnOfffive.className = "greenbutton pointer toggleOnOff"
+    }
+})
+toggleOnOffzero.addEventListener('click', () => {
+    let content = toggleOnOffzero.textContent
+    if (content === 'ON'){
+        toggleOnOffzero.textContent = "OFF";
+        toggleOnOffzero.className = "redbutton pointer toggleOnOff"
+    } else {
+        toggleOnOffzero.textContent = "ON";
+        toggleOnOffzero.className = "greenbutton pointer toggleOnOff"
+    }
+})
