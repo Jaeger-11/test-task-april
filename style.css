@@ -841,7 +841,7 @@ border: 1px solid rgba(255, 255, 255, 0.35);
 }
 .smalledit{
     fill: white;
-    transition: ease 0.1s fill;
+    transition: ease 0.2s fill;
 }
 .timebox{
     background: rgba(255, 255, 255, 0.1);
@@ -853,7 +853,7 @@ border: 1px solid rgba(255, 255, 255, 0.35);
     align-items: center;
     gap: 5px;
     color: rgba(255, 255, 255, 0.9);
-    transition: ease 0.1s all;
+    transition: ease 0.2s all;
 }
 .timebox:active .smalledit{
     fill: black;
