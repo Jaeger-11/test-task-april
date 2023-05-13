@@ -88,6 +88,25 @@ clickLinks.map((link) => {
 const headercancel = document.querySelector('.headercancel');
 const duty = document.querySelector('.duty');
 const headercheck = document.querySelector('.headercheck');
+const headersetting = document.querySelector('.headersetting');
+
+headersetting.addEventListener('click', () => {
+    clickLinks.map((link) => {
+        if (link.name === 'dashboard'){
+            link.tab.classList.add('side-menu-active');
+            link.content.classList.remove('hidden');
+            link.content.classList.add('show');
+            link.tabimage.src = `images/${link.name}tabactive.svg`
+            let restLinks = clickLinks.filter((i) => i.tab !== link.tab)
+            restLinks.map((i) => {
+                i.content.classList.remove('show')
+                i.content.classList.add('hidden')
+                i.tab.classList.remove('side-menu-active')
+                i.tabimage.src = `images/${i.name}tab.svg`
+            });
+        }
+    })
+})
 
 headercancel.addEventListener('click', () => {
     duty.className = "offduty duty"
