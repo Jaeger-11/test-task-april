@@ -62,7 +62,7 @@ const clickLinks = [
         tabimage: misctabimage
     }
 ];
-
+// THIS FUNCTION CONTROLS WHAT CONTENT IS DISPLAYED FROM DASHBOARD TO MISC
 clickLinks.map((link) => {
     link.tab.addEventListener('click', () => {
         link.tab.classList.add('side-menu-active');
@@ -90,6 +90,7 @@ const duty = document.querySelector('.duty');
 const headercheck = document.querySelector('.headercheck');
 const headersetting = document.querySelector('.headersetting');
 
+// ENABLES LINKING TO THE MISC SCREEN FROM THE HEADER 
 headersetting.addEventListener('click', () => {
     clickLinks.map((link) => {
         if (link.name === 'misc'){
@@ -108,7 +109,7 @@ headersetting.addEventListener('click', () => {
         }
     })
 })
-
+// TOGGLES DUTY TO ON AND OFF IN HEADER
 headercancel.addEventListener('click', () => {
     duty.className = "offduty duty"
     duty.textContent = "OFF DUTY"
@@ -208,7 +209,7 @@ let ordersData = [
         information: 'some information'
     },
 ]
-// push / fetch warrants to html screen
+// FETCHES & PUSHES WARRANT DATA TO SCREEN
 const pushWarrant = (warrantData) => {
     warrants.innerHTML=''
     warrantData.map((item) => {
@@ -246,7 +247,7 @@ const pushWarrant = (warrantData) => {
         `
     })
 }
-// renders orders to html
+// FETCHES & PUSHES ORDER DATA TO SCREEN
 const pushOrder = (ordersData) => {
     orders.innerHTML = ''
     ordersData.map((item) => {
@@ -263,6 +264,7 @@ const pushOrder = (ordersData) => {
     `
     })
 }
+// ENABLES WARRANTS SEARCH FUNCTIONALITY
 let currentwarrantsearchfilter = ""
 const applyCurrentSearchFilter = () => {
     let data;
@@ -273,6 +275,7 @@ const applyCurrentSearchFilter = () => {
     }
     pushWarrant(data);
 };
+// CHANGES STATUS OF WARRANT TO APPROVED
 const approveWarrant = (id) => {
     warrantsData = warrantsData.map((warrant) => {
         if ( warrant.id == id ){
@@ -281,7 +284,7 @@ const approveWarrant = (id) => {
     })
     applyCurrentSearchFilter();
 }
-
+// CHANGES STATUS OF WARRANT TO REJECTED
 const rejectWarrant = (id) => {
     warrantsData = warrantsData.map((warrant) => {
         if ( warrant.id == id ){
@@ -292,15 +295,15 @@ const rejectWarrant = (id) => {
 }
 pushWarrant(warrantsData);
 pushOrder(ordersData);
-// Search through warrants
+// SEARCH THROUGH WARRANTS
 warrantsearch.addEventListener('input', () => {
-    currentwarrantsearchfilter = warrantsearch.value
+    currentwarrantsearchfilter = warrantsearch.value.toLowerCase()
     let searchvalue = warrantsearch.value
     if(!searchvalue) pushWarrant(warrantsData)
     let data = warrantsData.filter((warrant) => warrant.name.includes(searchvalue.toLowerCase()));
-    pushWarrant(data)
+    applyCurrentSearchFilter(data)
 })
-// Search through orders
+// SEARCH THROUGH ORDERS
 ordersearch.addEventListener('input', (e) => {
     let searchvalue = ordersearch.value
     if(!searchvalue) pushOrder(ordersData)
@@ -309,14 +312,14 @@ ordersearch.addEventListener('input', (e) => {
 })
 
 // PROFILES
-// profiles selectors
+// PROFILES SELECTORS
 const profilesContainer = document.querySelector('.profiles-main');
 const profilesearch = document.querySelector('#profilesearch');
 const allprofiles = document.querySelector(".profiles-filter-all");
 const wantedprofiles = document.querySelector(".profiles-filter-wanted");
 const cleanprofiles = document.querySelector(".profiles-filter-clean");
 const profilefilters = [ allprofiles, wantedprofiles, cleanprofiles ];
-
+// PROFILES DATA
 let profilesData = [
     {
         name: "john oils",
@@ -382,7 +385,7 @@ let profilesData = [
         information: 'some information'
     },
 ]
-// fetch / render profiles to html
+// FETCH AND RENDERS DATA TO SCREEN
 const pushProfiles = (data) => {
     profilesContainer.innerHTML = ''
     data.map((obj) => {
@@ -400,10 +403,10 @@ const pushProfiles = (data) => {
         `
     })
 }
-
+// ENABLES PROFILE SEARCH FUNCTIONALITY
 let currentprofilefilter = 'all';
 
-// Search through profiles
+// SEARCH THROUGH PROFILES
 profilesearch.addEventListener('input', (e) => {
     let searchvalue = profilesearch.value
     let searchdata;
@@ -419,8 +422,7 @@ profilesearch.addEventListener('input', (e) => {
     searchdata = searchdata.filter((profile) => profile.name.includes(searchvalue.toLowerCase()));
     pushProfiles(searchdata);
 })
-// filters profile based on status( wanted, clean and all )
-
+// FILTERS PROFILE BASED ON STATUS (WANTED, CLEAN AND ALL)
 const applyCurrentProfileFilter = () => {
     let data;
     if (currentprofilefilter === 'all'){
@@ -432,7 +434,6 @@ const applyCurrentProfileFilter = () => {
     }
     pushProfiles(data);
 }
-
 profilefilters.map((item) => {
     item.addEventListener('click', () => {
         profilesearch.value = ''
@@ -450,7 +451,6 @@ profilefilters.map((item) => {
         }
     })
 })
-
 pushProfiles(profilesData);
 
 // VEHICLES FUNCTIONALITY
@@ -460,7 +460,7 @@ const allvehicles = document.querySelector(".vehicles-filter-all");
 const wantedvehicles = document.querySelector(".vehicles-filter-wanted");
 const cleanvehicles = document.querySelector(".vehicles-filter-clean");
 const vehiclesfilters = [ allvehicles, wantedvehicles, cleanvehicles ];
-
+// VEHICLES DATA
 let vehiclesData = [
     {
         name: "camry",
@@ -526,8 +526,7 @@ let vehiclesData = [
         information: 'some information'
     },
 ]
-
-// fetch / render profiles to html
+// FETCH / RENDERS VEHICLES DATA TO SCREEN
 const pushVehicles = (data) => {
     vehiclesContainer.innerHTML = ''
     data.map((obj) => {
@@ -547,8 +546,7 @@ const pushVehicles = (data) => {
 pushVehicles(vehiclesData);
 
 let currentvehiclefilter = 'all';
-
-// Search through profiles
+// SEARCH THROUGH VEHICLES
 vehiclesearch.addEventListener('input', (e) => {
     let searchvalue = vehiclesearch.value
     let searchdata;
@@ -564,8 +562,7 @@ vehiclesearch.addEventListener('input', (e) => {
     searchdata = searchdata.filter((profile) => profile.name.includes(searchvalue.toLowerCase()));
     pushVehicles(searchdata);
 })
-// filters profile based on status( wanted, clean and all )
-
+// FILTERS VEHICLES BASED ON STATUS (WANTED, CLEAN AND ALL)
 const applyCurrentVehicleFilter = () => {
     let data;
     if (currentvehiclefilter === 'all'){
@@ -610,7 +607,7 @@ const cancelperson = document.querySelector('#cancelperson');
 const findperson = document.querySelector('#personfind');
 const personname = document.querySelector("#personname");
 const incidentsearch = document.querySelector('#incidentsearch');
-
+// INCIDENTS DATA
 let incidentsData = [
     {
         id: '155',
@@ -627,7 +624,7 @@ let incidentsData = [
         name: 'texda death',
     },
 ]
-
+// FETCH / RENDERS INCIDENTS DATA TO SCREEN
 const pushIncidents = (data) => {
     incidentsmain.innerHTML = '';
     data.map((item) => {
@@ -656,7 +653,7 @@ incidentsearch.addEventListener('input', () => {
     let data = incidentsData.filter((incident) => incident.name.includes(searchvalue.toLowerCase()));
     pushIncidents(data)
 })
-// EVIDENCE
+// ADD EVIDENCE FUNCTIONALITY
 addevidence.addEventListener('click', () => {
     evidencemodal.classList.remove('hide')
 })
@@ -666,7 +663,7 @@ cancelevidence.addEventListener('click', () => {
 saveevidence.addEventListener('click', () => {
 // YET TO WORK ON IT
 })
-// PERSON
+// ADD PERSON FUNCTIONALITY
 addperson.addEventListener('click', () => {
     console.log('working');
     personmodal.classList.remove('hide')
@@ -689,6 +686,7 @@ const reportspersonfind = document.querySelector('#reportspersonfind')
 const addreportevidence = document.querySelector('#addreportevidence')
 const addreportperson = document.querySelector('#addreportperson');
 const reportsearch = document.querySelector('#reportsearch');
+// REPORTS DATA
 let reportsData = [
     {
         id: '155',
@@ -705,7 +703,7 @@ let reportsData = [
         name: 'texda death',
     },
 ]
-
+// FETCH / RENDERS DATA TO HTML
 const pushReports = (data) => {
     reportsmain.innerHTML = '';
     data.map((item) => {
@@ -725,13 +723,14 @@ const pushReports = (data) => {
     })
 }
 pushReports(reportsData);
-// search reports
+// SEARCH REPORTS
 reportsearch.addEventListener('input', () => {
     let searchvalue = reportsearch.value
     if(!searchvalue) pushReports(reportsData)
     let data = reportsData.filter((report) => report.name.includes(searchvalue.toLowerCase()));
     pushReports(data)
 })
+// REPORTS ADD EVIDENCE FUNCTIONALITIES
 addreportevidence.addEventListener('click', () => {
     reportsevidence.classList.remove('hide')
 })
@@ -741,7 +740,7 @@ cancelreportsevidence.addEventListener('click', () => {
 savereportevidence.addEventListener('click', () => {
     // YET TO WORK
 })
-// PERSON
+// REPORTS ADD PERSON FUNCTIONALITY
 addreportperson.addEventListener('click', () => {
     reportspersonmodal.classList.remove('hide')
 })
