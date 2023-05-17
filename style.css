@@ -356,7 +356,7 @@ main{
     border: 1px solid rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
-    padding: calc(var(--padlittle));
+    padding: calc(1.5 * var(--padlittle));
     width: 50%;
 }
 .search-input:hover{

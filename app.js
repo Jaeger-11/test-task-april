@@ -128,7 +128,7 @@ headercheck.addEventListener('click', () => {
 let warrantsData = [
     {
         name: "john oils",
-        id: '155',
+        id: 155,
         status: 'pending',
         imageUrl: 'images/character1.png',
         expires: '6',
@@ -136,7 +136,7 @@ let warrantsData = [
     },
     {
         name: "james bond",
-        id: '156',
+        id: 156,
         status: 'rejected',
         imageUrl: 'images/character.svg',
         expires: '3',
@@ -144,7 +144,7 @@ let warrantsData = [
     },
     {
         name: "oliver twist",
-        id: '157',
+        id: 157,
         status: 'rejected',
         imageUrl: 'images/character2.png',
         expires: '4',
@@ -152,7 +152,7 @@ let warrantsData = [
     },
     {
         name: "idris albak",
-        id: '158',
+        id: 158,
         status: 'rejected',
         imageUrl: '',
         expires: '6',
@@ -160,7 +160,7 @@ let warrantsData = [
     },
     {
         name: "stoney christon",
-        id: '159',
+        id: 159,
         status: 'rejected',
         imageUrl: 'images/character1.png',
         expires: '6',
@@ -168,7 +168,7 @@ let warrantsData = [
     },
     {
         name: "daniel greals",
-        id: '160',
+        id: 160,
         status: 'pending',
         imageUrl: 'images/character.svg',
         expires: '5',
@@ -176,7 +176,7 @@ let warrantsData = [
     },
     {
         name: "josh kennedy",
-        id: '161',
+        id: 161,
         status: 'pending',
         imageUrl: 'images/character2.png',
         expires: '6',
@@ -184,7 +184,7 @@ let warrantsData = [
     },
     {
         name: "jerry sheamus",
-        id: '162',
+        id: 162,
         status: 'rejected',
         imageUrl: 'images/character.svg',
         expires: '7',
@@ -192,7 +192,7 @@ let warrantsData = [
     },
     {
         name: "apollo creed",
-        id: '163',
+        id: 163,
         status: 'pending',
         imageUrl: 'images/character1.png',
         expires: '6',
@@ -286,11 +286,9 @@ const approveWarrant = (id) => {
 }
 // CHANGES STATUS OF WARRANT TO REJECTED
 const rejectWarrant = (id) => {
-    warrantsData = warrantsData.map((warrant) => {
-        if ( warrant.id == id ){
-            return { ...warrant, status : "rejected" }
-        } else return {...warrant}
-    })
+    console.log(id)
+    warrantsData = warrantsData.filter((warrant) => warrant.id !== id)
+    // console.log(warrantsData)
     applyCurrentSearchFilter();
 }
 pushWarrant(warrantsData);
