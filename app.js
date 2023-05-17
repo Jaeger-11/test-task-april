@@ -300,14 +300,14 @@ warrantsearch.addEventListener('input', () => {
     currentwarrantsearchfilter = warrantsearch.value.toLowerCase()
     let searchvalue = warrantsearch.value
     if(!searchvalue) pushWarrant(warrantsData)
-    let data = warrantsData.filter((warrant) => warrant.name.includes(searchvalue.toLowerCase()));
+    let data = warrantsData.filter((warrant) => warrant.name.toLowerCase().includes(searchvalue.toLowerCase()));
     applyCurrentSearchFilter(data)
 })
 // SEARCH THROUGH ORDERS
 ordersearch.addEventListener('input', (e) => {
     let searchvalue = ordersearch.value
     if(!searchvalue) pushOrder(ordersData)
-    let data = ordersData.filter((order) => order.name.includes(searchvalue.toLowerCase()));
+    let data = ordersData.filter((order) => order.name.toLowerCase().includes(searchvalue.toLowerCase()));
     pushOrder(data)
 })
 
@@ -322,7 +322,7 @@ const profilefilters = [ allprofiles, wantedprofiles, cleanprofiles ];
 // PROFILES DATA
 let profilesData = [
     {
-        name: "john oils",
+        name: "joHn oils",
         id: '155',
         status: 'clean',
         imageUrl: 'images/character1.png',
@@ -419,7 +419,7 @@ profilesearch.addEventListener('input', (e) => {
     } else {
         searchdata = profilesData.filter((item) => item.status.includes(currentprofilefilter))
     }
-    searchdata = searchdata.filter((profile) => profile.name.includes(searchvalue.toLowerCase()));
+    searchdata = searchdata.filter((profile) => profile.name.toLowerCase().includes(searchvalue.toLowerCase()));
     pushProfiles(searchdata);
 })
 // FILTERS PROFILE BASED ON STATUS (WANTED, CLEAN AND ALL)
@@ -559,7 +559,7 @@ vehiclesearch.addEventListener('input', (e) => {
     } else {
         searchdata = vehiclesData.filter((item) => item.status.includes(currentvehiclefilter))
     }
-    searchdata = searchdata.filter((profile) => profile.name.includes(searchvalue.toLowerCase()));
+    searchdata = searchdata.filter((profile) => profile.name.toLowerCase().includes(searchvalue.toLowerCase()));
     pushVehicles(searchdata);
 })
 // FILTERS VEHICLES BASED ON STATUS (WANTED, CLEAN AND ALL)
@@ -650,7 +650,7 @@ pushIncidents(incidentsData);
 incidentsearch.addEventListener('input', () => {
     let searchvalue = incidentsearch.value
     if(!searchvalue) pushIncidents(incidentsData)
-    let data = incidentsData.filter((incident) => incident.name.includes(searchvalue.toLowerCase()));
+    let data = incidentsData.filter((incident) => incident.title.toLowerCase().includes(searchvalue.toLowerCase()));
     pushIncidents(data)
 })
 // ADD EVIDENCE FUNCTIONALITY
@@ -727,7 +727,7 @@ pushReports(reportsData);
 reportsearch.addEventListener('input', () => {
     let searchvalue = reportsearch.value
     if(!searchvalue) pushReports(reportsData)
-    let data = reportsData.filter((report) => report.name.includes(searchvalue.toLowerCase()));
+    let data = reportsData.filter((report) => report.title.toLowerCase().includes(searchvalue.toLowerCase()));
     pushReports(data)
 })
 // REPORTS ADD EVIDENCE FUNCTIONALITIES

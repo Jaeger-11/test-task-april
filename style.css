@@ -400,7 +400,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: var(--gap);
-    height: 68vh; 
+    height: 67vh; 
     overflow-y: scroll;
 }
 .order, .warrant{
@@ -562,7 +562,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     .main-container{
         height: 70vh;
     }
-    .warrants, .orders, .newincident-main, .incidents-main, .reports-main{
+    .warrants, .orders, .newincident-main, .incidents-main, .reports-main, .vehicles-main-container, .profiles-main-container{
         height: calc(60vh - var(--gap)) !important;
     }
 }
@@ -666,7 +666,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     width: 1vw;
 }
 .profiles-main-container, .vehicles-main-container{
-    height: 68vh;
+    height: 67vh;
     overflow-y: scroll;
     padding-right: var(--padlittle);
 }
@@ -806,7 +806,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
     padding-right: var(--padlittle);
-    height: 68vh; 
+    height: 67vh; 
     overflow-y: scroll;
 }
 .incident{
