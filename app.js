@@ -78,7 +78,13 @@ clickLinks.map((link) => {
         });
         if( link.tab == vehicles ) {
             maincontainer.classList.add('main-container-reverse');
-        } else {
+        } else if ( link.tab == incidents ) {
+            document.querySelector('.newincidentscreen').classList.add('hidden');
+            document.querySelector('.addcriminalscreen').classList.add('hidden');
+            document.querySelector('.incidents-main').classList.add('incidents-grid');
+            document.querySelector('.incidentadd').classList.remove('hidden');
+        }
+        else {
             maincontainer.classList.remove('main-container-reverse');
         }
     })
@@ -321,66 +327,210 @@ const profilefilters = [ allprofiles, wantedprofiles, cleanprofiles ];
 let profilesData = [
     {
         name: "joHn oils",
-        id: '155',
+        id: 155,
         status: 'clean',
         imageUrl: 'images/character1.png',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "james bond",
-        id: '156',
+        id: 156,
         status: 'wanted',
         imageUrl: 'images/character.svg',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "oliver twist",
-        id: '157',
+        id: 157,
         status: 'clean',
         imageUrl: 'images/character2.png',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "idris albak",
-        id: '158',
+        id: 158,
         status: 'clean',
         imageUrl: '',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "stoney christon",
-        id: '159',
+        id: 159,
         status: 'clean',
         imageUrl: 'images/character1.png',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "daniel greals",
-        id: '160',
+        id: 160,
         status: 'wanted',
         imageUrl: '',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "josh kennedy",
-        id: '161',
+        id: 161,
         status: 'clean',
         imageUrl: 'images/character2.png',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "jerry sheamus",
-        id: '162',
+        id: 162,
         status: 'clean',
         imageUrl: 'images/character.svg',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
     {
         name: "apollo creed",
-        id: '163',
+        id: 163,
         status: 'clean',
         imageUrl: 'images/character1.png',
-        information: 'some information'
+        information: 'some information',
+        warrants: [],
+        incidents: [
+            {
+                incidentid : 110,
+                incidentstatus : "suspect"
+            },
+            {
+                incidentid : 142,
+                incidentstatus : "victim"
+            },
+            {
+                incidentid : 124,
+                incidentstatus : "eyewitness"
+            },
+        ],
+        vehicles: [],
     },
 ]
 // FETCH AND RENDERS DATA TO SCREEN
@@ -390,7 +540,7 @@ const pushProfiles = (data) => {
         const { name, id, status, imageUrl, information } = obj;
         
         profilesContainer.innerHTML += `
-        <section class="${status === 'clean' ? 'warrant' : 'order'}">
+        <section class="${status === 'clean' ? 'warrant' : 'order'}" onclick="selectProfile(${id})">
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png' }" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
@@ -401,6 +551,12 @@ const pushProfiles = (data) => {
         `
     })
 }
+
+// SELECT PROFILE
+const selectProfile = ( profileId ) => {
+    let profile = profilesData.filter((prof) => prof.id == profileId);
+}
+
 // ENABLES PROFILE SEARCH FUNCTIONALITY
 let currentprofilefilter = 'all';
 
@@ -621,6 +777,132 @@ let incidentsData = [
         time: '15 minutes ago',
         name: 'texda death',
     },
+    {
+        id: '157',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '158',
+        title: 'Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '159',
+        title: 'Theft',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '160',
+        title: 'Assault',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '161',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '162',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '163',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '164',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '165',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '166',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '167',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '168',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '169',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '170',
+        title: 'Attempted Murder',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '171',
+        title: 'Murder',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '172',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
+    {
+        id: '173',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '13 minutes ago',
+        name: 'alexa death',
+    },
+    {
+        id: '174',
+        title: '10-90 | Robbery',
+        description: 'some information',
+        time: '15 minutes ago',
+        name: 'texda death',
+    },
 ]
 // FETCH / RENDERS INCIDENTS DATA TO SCREEN
 const pushIncidents = (data) => {
@@ -651,6 +933,13 @@ incidentsearch.addEventListener('input', () => {
     let data = incidentsData.filter((incident) => incident.title.toLowerCase().includes(searchvalue.toLowerCase()));
     pushIncidents(data)
 })
+// NAVIGATE TO INCIDENTS ADD SCREEN
+const incidentsAdd = () => {
+    document.querySelector('.newincidentscreen').classList.remove('hidden');
+    document.querySelector('.addcriminalscreen').classList.remove('hidden');
+    document.querySelector('.incidents-main').classList.remove('incidents-grid');
+    document.querySelector('.incidentadd').classList.add('hidden');
+}
 // ADD EVIDENCE FUNCTIONALITY
 addevidence.addEventListener('click', () => {
     evidencemodal.classList.remove('hide')

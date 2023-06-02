@@ -29,7 +29,7 @@
     user-select: none; 
     font-family: 'Outfit', sans-serif;
     box-sizing: border-box;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
 }
 body{
     background: url(images/blurred-bg-image.png);
@@ -337,7 +337,6 @@ main{
     justify-content: space-between;
     align-items: center;
     margin-top: var(--padlittle);
-    /* flex: auto; */
 }
 .header img{
     width: 2vw;
@@ -562,7 +561,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     .main-container{
         height: 70vh;
     }
-    .warrants, .orders, .newincident-main, .incidents-main, .reports-main, .vehicles-main-container, .profiles-main-container{
+    .warrants, .orders, .newincident-main, .incidents-main-container, .reports-main, .vehicles-main-container, .profiles-main-container{
         height: calc(60vh - var(--gap)) !important;
     }
 }
@@ -676,6 +675,9 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     grid-template-rows: max-content;
     gap: clamp(5px, 0.3vh, 1rem);
 }
+.profiles-main{
+    cursor: pointer;
+}
 
 /* VEHICLES STYLING */
 .vehicles-filter-all{
@@ -692,19 +694,19 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     border: 1px solid rgba(101, 255, 144, 0.25);
     color: #65FF90;
 }
-.vehicles-main .warrant:hover{
+.vehicles-main .warrant:hover, .profiles-main .warrant:hover{
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
-.vehicles-main .warrant:active{
+.vehicles-main .warrant:active, .profiles-main .warrant:active{
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.21);
 }
-.vehicles-main .order:hover{
+.vehicles-main .order:hover, .profiles-main .order:hover{
     background: rgba(241, 51, 51, 0.12);
     border: 1px solid rgba(241, 51, 51, 0.41);
 }
-.vehicles-main .order:active{
+.vehicles-main .order:active, .profiles-main .order:active{
     background: rgba(241, 51, 51, 0.25);
     border: 1px solid rgba(241, 51, 51, 0.35);
 }
@@ -801,13 +803,38 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     font-size: var(--fontmedium);
     text-transform: capitalize;
 }
-.newincident-main, .incidents-main, .reports-main{
+.newincident-main, .incidents-main-container, .reports-main{
     display: flex;
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
     padding-right: var(--padlittle);
     height: 67vh; 
     overflow-y: scroll;
+}
+.incidents-main{
+    gap: calc(0.5 * var(--gap));
+    display: flex;
+    flex-direction: column;
+}
+.incidents-search-add{
+    display: flex;
+    gap: var(--gap);
+}
+.incidents-search-add .addicon{
+    height: auto;
+    padding: 0 var(--padmedium);
+}
+.incidents-search-add .search-input{
+    flex: 1;
+}
+.incidents-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: fit-content(100);
+    gap: var(--gap);
+}
+.incidentscont .header{
+    gap: var(--gaplarge);
 }
 .incident{
     padding: var(--padlarge);

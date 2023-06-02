@@ -70,7 +70,7 @@
 
                 <main id="main">
                     <!-- DASHBOARD CONTENT -->
-                    <section class="dashboardcontent wrp">
+                    <section class="dashboardcontent ">
                     <section class="minidashboardcontent">
                         <section class="warrants-container">
                             <div class="header">
@@ -116,7 +116,7 @@
                     </section>
 
                     <!-- INCIDENTS CONTENT -->
-                    <section class="incidentscontent hidden wrp">
+                    <section class="incidentscontent hidden ">
                         <section class="incidentscont">
                         <div class="subsection">
                             <div class="header">
@@ -126,20 +126,27 @@
                                         <p class="bold">INCIDENTS <br> <span class="small">INCIDENTS</span></p>     
                                     </div>
                                 </section>
-                                <section class="search-input incidents-search-input">
-                                    <img src="images/search.svg" alt="search">
-                                    <input type="text" name="search" id="incidentsearch" placeholder="Search">
-                                </section>
+                                <div class="incidents-search-add">
+                                    <section class="search-input incidents-search-input">
+                                        <img src="images/search.svg" alt="search">
+                                        <input type="text" name="search" id="incidentsearch" placeholder="Search">
+                                    </section>
+                                    <div class="addicon pointer incidentadd" onclick="incidentsAdd()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
+                                            <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="incidents-main-container">
-                                <section class="incidents-main">
+                                <section class="incidents-main incidents-grid">
                                    
                                 </section>
                             </div>
                         </div>
 
-                        <div class="subsection">
+                        <div class="subsection newincidentscreen hidden">
                             <div class="header">
                                 <section class="header-text">
                                     <div class=" padfirst"><img src="images/incident.svg" alt="incident icon" ></div>
@@ -213,7 +220,7 @@
                                 </section>
                             </div>
                         </div>
-                        <div class='subsection'>
+                        <div class='subsection hidden addcriminalscreen'>
                             <section class='addcriminal header-text'> 
                                 <p>Add Criminal Scum </p> 
                                 <div class="addicon pointer">
@@ -272,7 +279,7 @@
                     </section>
 
                     <!-- PROFILES CONTENT -->
-                    <section class="profilescontent hidden wrp">
+                    <section class="profilescontent hidden">
                         <div class="profiles-header">
                             <section class="header-text">
                                 <img src="images/profiles.svg" alt="warrants icon">
@@ -302,7 +309,7 @@
                     </section>
 
                     <!-- VEHICLES CONTENT -->
-                    <section class="vehiclescontent hidden wrp">
+                    <section class="vehiclescontent hidden ">
                         <div class="profiles-header">
                             <section class="header-text">
                                 <img src="images/profiles.svg" alt="warrants icon">
@@ -332,7 +339,7 @@
                     </section>
 
                     <!-- REPORTS CONTENT -->
-                    <section class="reportscontent hidden wrp">
+                    <section class="reportscontent hidden ">
                         <section class="reportscont">
                         <div class="subsection">
                             <div class="header">
@@ -490,7 +497,7 @@
                 </section>
 
                     <!-- MISC CONTENT -->
-                    <section class="misccontent hidden wrp">
+                    <section class="misccontent hidden ">
                         <div class="header">
                             <section class="header-text">
                                 <img src="images/miscsettings.svg" alt="warrants icon">
