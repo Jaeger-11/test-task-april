@@ -24,11 +24,11 @@ const ordersearch = document.querySelector('#ordersearch');
 const warrants = document.querySelector('.warrants');
 const orders = document.querySelector('.orders');
 
-const clickLinks = [ 
+const clickLinks = [
     {
         name: 'dashboard',
-        tab: dashboard, 
-        content : dashboardcontent,
+        tab: dashboard,
+        content: dashboardcontent,
         tabimage: dashboardtabimage
     },
     {
@@ -40,25 +40,25 @@ const clickLinks = [
     {
         name: 'profiles',
         tab: profiles,
-        content:profilescontent,
+        content: profilescontent,
         tabimage: profilestabimage
     },
     {
         name: 'vehicles',
         tab: vehicles,
-        content:vehiclescontent,
+        content: vehiclescontent,
         tabimage: vehiclestabimage
     },
     {
         name: 'reports',
         tab: reports,
-        content:reportscontent,
-        tabimage:reportstabimage
+        content: reportscontent,
+        tabimage: reportstabimage
     },
     {
         name: 'misc',
         tab: misc,
-        content:misccontent,
+        content: misccontent,
         tabimage: misctabimage
     }
 ];
@@ -76,9 +76,9 @@ clickLinks.map((link) => {
             i.tab.classList.remove('side-menu-active')
             i.tabimage.src = `images/${i.name}tab.svg`
         });
-        if( link.tab == vehicles ) {
+        if (link.tab == vehicles) {
             maincontainer.classList.add('main-container-reverse');
-        } else if ( link.tab == incidents ) {
+        } else if (link.tab == incidents) {
             document.querySelector('.newincidentscreen').classList.add('hidden');
             document.querySelector('.addcriminalscreen').classList.add('hidden');
             document.querySelector('.incidents-main').classList.add('incidents-grid');
@@ -99,7 +99,7 @@ const headersetting = document.querySelector('.headersetting');
 // ENABLES LINKING TO THE MISC SCREEN FROM THE HEADER 
 headersetting.addEventListener('click', () => {
     clickLinks.map((link) => {
-        if (link.name === 'misc'){
+        if (link.name === 'misc') {
             maincontainer.classList.remove('main-container-reverse');
             link.tab.classList.add('side-menu-active');
             link.content.classList.remove('hidden');
@@ -217,20 +217,20 @@ let ordersData = [
 ]
 // FETCHES & PUSHES WARRANT DATA TO SCREEN
 const pushWarrant = (warrantData) => {
-    warrants.innerHTML=''
+    warrants.innerHTML = ''
     warrantData.map((item) => {
-        const {name, status, id, imageUrl, expires, information} = item;
+        const { name, status, id, imageUrl, expires, information } = item;
         var statusClass = ''
         var content = ""
-        if (status === "rejected"){
+        if (status === "rejected") {
             statusClass = 'red'
             content = "approval rejected"
-        } else if ( status === "approved" ){
-            statusClass ='green'
-            content ="approved"
+        } else if (status === "approved") {
+            statusClass = 'green'
+            content = "approved"
         } else {
-            statusClass ='blue'
-            content ='pending approval'
+            statusClass = 'blue'
+            content = 'pending approval'
         }
         warrants.innerHTML += `
             <div class="warrant">
@@ -274,7 +274,7 @@ const pushOrder = (ordersData) => {
 let currentwarrantsearchfilter = ""
 const applyCurrentSearchFilter = () => {
     let data;
-    if (currentwarrantsearchfilter === ""){
+    if (currentwarrantsearchfilter === "") {
         data = warrantsData;
     } else {
         data = warrantsData.filter((item) => item.name.includes(currentwarrantsearchfilter));
@@ -284,9 +284,9 @@ const applyCurrentSearchFilter = () => {
 // CHANGES STATUS OF WARRANT TO APPROVED
 const approveWarrant = (id) => {
     warrantsData = warrantsData.map((warrant) => {
-        if ( warrant.id == id ){
-            return { ...warrant, status : "approved" }
-        } else return {...warrant}
+        if (warrant.id == id) {
+            return { ...warrant, status: "approved" }
+        } else return { ...warrant }
     })
     applyCurrentSearchFilter();
 }
@@ -303,14 +303,14 @@ pushOrder(ordersData);
 warrantsearch.addEventListener('input', () => {
     currentwarrantsearchfilter = warrantsearch.value.toLowerCase()
     let searchvalue = warrantsearch.value
-    if(!searchvalue) pushWarrant(warrantsData)
+    if (!searchvalue) pushWarrant(warrantsData)
     let data = warrantsData.filter((warrant) => warrant.name.toLowerCase().includes(searchvalue.toLowerCase()));
     applyCurrentSearchFilter(data)
 })
 // SEARCH THROUGH ORDERS
 ordersearch.addEventListener('input', (e) => {
     let searchvalue = ordersearch.value
-    if(!searchvalue) pushOrder(ordersData)
+    if (!searchvalue) pushOrder(ordersData)
     let data = ordersData.filter((order) => order.name.toLowerCase().includes(searchvalue.toLowerCase()));
     pushOrder(data)
 })
@@ -322,7 +322,7 @@ const profilesearch = document.querySelector('#profilesearch');
 const allprofiles = document.querySelector(".profiles-filter-all");
 const wantedprofiles = document.querySelector(".profiles-filter-wanted");
 const cleanprofiles = document.querySelector(".profiles-filter-clean");
-const profilefilters = [ allprofiles, wantedprofiles, cleanprofiles ];
+const profilefilters = [allprofiles, wantedprofiles, cleanprofiles];
 // PROFILES DATA
 let profilesData = [
     {
@@ -334,16 +334,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -357,16 +357,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -380,16 +380,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -403,16 +403,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -426,16 +426,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -449,16 +449,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -472,16 +472,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -495,16 +495,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -518,16 +518,16 @@ let profilesData = [
         warrants: [],
         incidents: [
             {
-                incidentid : 110,
-                incidentstatus : "suspect"
+                incidentid: 110,
+                incidentstatus: "suspect"
             },
             {
-                incidentid : 142,
-                incidentstatus : "victim"
+                incidentid: 142,
+                incidentstatus: "victim"
             },
             {
-                incidentid : 124,
-                incidentstatus : "eyewitness"
+                incidentid: 124,
+                incidentstatus: "eyewitness"
             },
         ],
         vehicles: [],
@@ -538,10 +538,10 @@ const pushProfiles = (data) => {
     profilesContainer.innerHTML = ''
     data.map((obj) => {
         const { name, id, status, imageUrl, information } = obj;
-        
+
         profilesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}" onclick="selectProfile(${id})">
-            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png' }" alt="profile-image" class=""></div>
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
                 <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
@@ -553,7 +553,7 @@ const pushProfiles = (data) => {
 }
 
 // SELECT PROFILE
-const selectProfile = ( profileId ) => {
+const selectProfile = (profileId) => {
     let profile = profilesData.filter((prof) => prof.id == profileId);
 }
 
@@ -564,11 +564,11 @@ let currentprofilefilter = 'all';
 profilesearch.addEventListener('input', (e) => {
     let searchvalue = profilesearch.value
     let searchdata;
-    if (currentprofilefilter === 'all'){
+    if (currentprofilefilter === 'all') {
         searchdata = profilesData;
-    } else if ( currentprofilefilter === 'wanted' ){
+    } else if (currentprofilefilter === 'wanted') {
         searchdata = profilesData.filter((item) => item.status === 'wanted');
-    } else if (currentprofilefilter === 'clean'){
+    } else if (currentprofilefilter === 'clean') {
         searchdata = profilesData.filter((item) => item.status === 'clean');
     } else {
         searchdata = profilesData.filter((item) => item.status.includes(currentprofilefilter))
@@ -579,11 +579,11 @@ profilesearch.addEventListener('input', (e) => {
 // FILTERS PROFILE BASED ON STATUS (WANTED, CLEAN AND ALL)
 const applyCurrentProfileFilter = () => {
     let data;
-    if (currentprofilefilter === 'all'){
+    if (currentprofilefilter === 'all') {
         data = profilesData;
-    } else if ( currentprofilefilter === 'wanted' ){
+    } else if (currentprofilefilter === 'wanted') {
         data = profilesData.filter((item) => item.status === 'wanted');
-    } else if (currentprofilefilter === 'clean'){
+    } else if (currentprofilefilter === 'clean') {
         data = profilesData.filter((item) => item.status === 'clean');
     }
     pushProfiles(data);
@@ -592,7 +592,7 @@ profilefilters.map((item) => {
     item.addEventListener('click', () => {
         profilesearch.value = ''
         item.classList.add(`active-${item.textContent}`)
-        if( item == allprofiles ) {
+        if (item == allprofiles) {
             currentprofilefilter = 'all'
             applyCurrentProfileFilter()
             const restFilters = profilefilters.filter((filt) => filt !== item)
@@ -613,7 +613,7 @@ const vehiclesearch = document.querySelector('#vehiclesearch');
 const allvehicles = document.querySelector(".vehicles-filter-all");
 const wantedvehicles = document.querySelector(".vehicles-filter-wanted");
 const cleanvehicles = document.querySelector(".vehicles-filter-clean");
-const vehiclesfilters = [ allvehicles, wantedvehicles, cleanvehicles ];
+const vehiclesfilters = [allvehicles, wantedvehicles, cleanvehicles];
 // VEHICLES DATA
 let vehiclesData = [
     {
@@ -687,7 +687,7 @@ const pushVehicles = (data) => {
         const { name, id, status, imageUrl, information } = obj;
         vehiclesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}">
-            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png' }" alt="profile-image" class=""></div>
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
                 <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
@@ -704,11 +704,11 @@ let currentvehiclefilter = 'all';
 vehiclesearch.addEventListener('input', (e) => {
     let searchvalue = vehiclesearch.value
     let searchdata;
-    if (currentvehiclefilter === 'all'){
+    if (currentvehiclefilter === 'all') {
         searchdata = vehiclesData;
-    } else if ( currentvehiclefilter === 'wanted' ){
+    } else if (currentvehiclefilter === 'wanted') {
         searchdata = vehiclesData.filter((item) => item.status === 'wanted');
-    } else if (currentvehiclefilter === 'clean'){
+    } else if (currentvehiclefilter === 'clean') {
         searchdata = vehiclesData.filter((item) => item.status === 'clean');
     } else {
         searchdata = vehiclesData.filter((item) => item.status.includes(currentvehiclefilter))
@@ -719,11 +719,11 @@ vehiclesearch.addEventListener('input', (e) => {
 // FILTERS VEHICLES BASED ON STATUS (WANTED, CLEAN AND ALL)
 const applyCurrentVehicleFilter = () => {
     let data;
-    if (currentvehiclefilter === 'all'){
+    if (currentvehiclefilter === 'all') {
         data = vehiclesData;
-    } else if ( currentvehiclefilter === 'wanted' ){
+    } else if (currentvehiclefilter === 'wanted') {
         data = vehiclesData.filter((item) => item.status === 'wanted');
-    } else if (currentvehiclefilter === 'clean'){
+    } else if (currentvehiclefilter === 'clean') {
         data = vehiclesData.filter((item) => item.status === 'clean');
     }
     pushVehicles(data);
@@ -733,7 +733,7 @@ vehiclesfilters.map((item) => {
     item.addEventListener('click', () => {
         vehiclesearch.value = ''
         item.classList.add(`active-${item.textContent}`)
-        if( item == allprofiles ) {
+        if (item == allprofiles) {
             currentvehiclefilter = 'all'
             applyCurrentVehicleFilter()
             const restFilters = vehiclesfilters.filter((filt) => filt !== item)
@@ -761,6 +761,8 @@ const cancelperson = document.querySelector('#cancelperson');
 const findperson = document.querySelector('#personfind');
 const personname = document.querySelector("#personname");
 const incidentsearch = document.querySelector('#incidentsearch');
+const vehiclesevidence = document.querySelector('.vehicleincidents');
+
 // INCIDENTS DATA
 let incidentsData = [
     {
@@ -769,6 +771,16 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes ago',
         name: 'alexa death',
+        suspect: {
+            name: "john oils",
+            description: "Lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id."
+        },
+        victim: {},
+        eyewitness: {},
+        evidences: {},
+        vehicles: {},
+        officers: {},
+        citizens: {}
     },
     {
         id: '156',
@@ -929,7 +941,7 @@ pushIncidents(incidentsData);
 // SEARCH INCIDENTS
 incidentsearch.addEventListener('input', () => {
     let searchvalue = incidentsearch.value
-    if(!searchvalue) pushIncidents(incidentsData)
+    if (!searchvalue) pushIncidents(incidentsData)
     let data = incidentsData.filter((incident) => incident.title.toLowerCase().includes(searchvalue.toLowerCase()));
     pushIncidents(data)
 })
@@ -948,11 +960,12 @@ cancelevidence.addEventListener('click', () => {
     evidencemodal.classList.add('hide')
 })
 saveevidence.addEventListener('click', () => {
-// YET TO WORK ON IT
+    // YET TO WORK ON IT
+    evidencemodal.classList.add('hide')
 })
+
 // ADD PERSON FUNCTIONALITY
 addperson.addEventListener('click', () => {
-    console.log('working');
     personmodal.classList.remove('hide')
 })
 cancelperson.addEventListener('click', () => {
@@ -960,7 +973,24 @@ cancelperson.addEventListener('click', () => {
 })
 findperson.addEventListener('click', () => {
     // YET TO WORK
+    personmodal.classList.add('hide')
 })
+
+// ADD VEHICLE TO INCIDENT
+const addIncidentVehicle = () => {
+    document.querySelector('.incidentvehicles').classList.toggle('hidevehicle')
+    document.querySelector('#addincidentvehicle').classList.toggle('addiconactive')
+}
+const addVehicle = () => {
+    document.querySelector('#vehiclemodal').classList.remove('hide')
+}
+const cancelVehicle = () => {
+    document.querySelector('#vehiclemodal').classList.add('hide')
+}
+const vehicleButtonAdd = () => {
+    // YET TO WORK
+    document.querySelector('#vehiclemodal').classList.add('hide')
+}
 
 // REPORTS FUNCTIONALITIES
 const reportsmain = document.querySelector('.reports-main');
@@ -1013,7 +1043,7 @@ pushReports(reportsData);
 // SEARCH REPORTS
 reportsearch.addEventListener('input', () => {
     let searchvalue = reportsearch.value
-    if(!searchvalue) pushReports(reportsData)
+    if (!searchvalue) pushReports(reportsData)
     let data = reportsData.filter((report) => report.title.toLowerCase().includes(searchvalue.toLowerCase()));
     pushReports(data)
 })
@@ -1057,7 +1087,7 @@ MAXracersvalue.textContent = maxracersvalue;
 Lapsvalue.textContent = lapsvalue;
 
 decreaseMINracers.addEventListener('click', () => {
-    if ( minracersvalue === 0 ) {
+    if (minracersvalue === 0) {
         MINracersvalue.textContent = minracersvalue;
     } else {
         minracersvalue -= 1
@@ -1065,7 +1095,7 @@ decreaseMINracers.addEventListener('click', () => {
     }
 })
 increaseMINracers.addEventListener('click', () => {
-    if (minracersvalue === 100 ){
+    if (minracersvalue === 100) {
         MINracersvalue.textContent = minracersvalue;
     } else {
         minracersvalue += 1
@@ -1074,7 +1104,7 @@ increaseMINracers.addEventListener('click', () => {
 })
 
 decreaseMAXracers.addEventListener('click', () => {
-    if ( maxracersvalue === 0 ) {
+    if (maxracersvalue === 0) {
         MINracersvalue.textContent = maxracersvalue;
     } else {
         maxracersvalue -= 1
@@ -1082,7 +1112,7 @@ decreaseMAXracers.addEventListener('click', () => {
     }
 })
 increaseMAXracers.addEventListener('click', () => {
-    if (maxracersvalue === 100 ){
+    if (maxracersvalue === 100) {
         MAXracersvalue.textContent = maxracersvalue;
     } else {
         maxracersvalue += 1
@@ -1091,7 +1121,7 @@ increaseMAXracers.addEventListener('click', () => {
 })
 
 decreaseLaps.addEventListener('click', () => {
-    if ( lapsvalue === 0 ) {
+    if (lapsvalue === 0) {
         Lapsvalue.textContent = lapsvalue;
     } else {
         lapsvalue -= 1
@@ -1099,7 +1129,7 @@ decreaseLaps.addEventListener('click', () => {
     }
 })
 increaseLaps.addEventListener('click', () => {
-    if (lapsvalue === 100 ){
+    if (lapsvalue === 100) {
         Lapsvalue.textContent = lapsvalue;
     } else {
         lapsvalue += 1
@@ -1125,7 +1155,7 @@ MINracersvaluetwo.textContent = minracersvaluetwo;
 MAXracersvaluetwo.textContent = maxracersvaluetwo;
 Lapsvaluetwo.textContent = lapsvaluetwo;
 decreaseMINracerstwo.addEventListener('click', () => {
-    if ( minracersvaluetwo === 0 ) {
+    if (minracersvaluetwo === 0) {
         MINracersvaluetwo.textContent = minracersvaluetwo;
     } else {
         minracersvaluetwo -= 1
@@ -1133,7 +1163,7 @@ decreaseMINracerstwo.addEventListener('click', () => {
     }
 })
 increaseMINracerstwo.addEventListener('click', () => {
-    if (minracersvaluetwo === 100 ){
+    if (minracersvaluetwo === 100) {
         MINracersvaluetwo.textContent = minracersvaluetwo;
     } else {
         minracersvaluetwo += 1
@@ -1142,7 +1172,7 @@ increaseMINracerstwo.addEventListener('click', () => {
 })
 
 decreaseMAXracerstwo.addEventListener('click', () => {
-    if ( maxracersvaluetwo === 0 ) {
+    if (maxracersvaluetwo === 0) {
         MINracersvaluetwo.textContent = maxracersvaluetwo;
     } else {
         maxracersvaluetwo -= 1
@@ -1150,7 +1180,7 @@ decreaseMAXracerstwo.addEventListener('click', () => {
     }
 })
 increaseMAXracerstwo.addEventListener('click', () => {
-    if (maxracersvaluetwo === 100 ){
+    if (maxracersvaluetwo === 100) {
         MAXracersvaluetwo.textContent = maxracersvaluetwo;
     } else {
         maxracersvaluetwo += 1
@@ -1159,7 +1189,7 @@ increaseMAXracerstwo.addEventListener('click', () => {
 })
 
 decreaseLapstwo.addEventListener('click', () => {
-    if ( lapsvaluetwo === 0 ) {
+    if (lapsvaluetwo === 0) {
         Lapsvaluetwo.textContent = lapsvaluetwo;
     } else {
         lapsvaluetwo -= 1
@@ -1167,7 +1197,7 @@ decreaseLapstwo.addEventListener('click', () => {
     }
 })
 increaseLapstwo.addEventListener('click', () => {
-    if (lapsvaluetwo === 100 ){
+    if (lapsvaluetwo === 100) {
         Lapsvaluetwo.textContent = lapsvaluetwo;
     } else {
         lapsvaluetwo += 1
@@ -1184,7 +1214,7 @@ const toggleOnOffzero = document.getElementsByClassName("toggleOnOff")[0];
 
 toggleOnOffone.addEventListener('click', () => {
     let content = toggleOnOffone.textContent
-    if (content === 'ON'){
+    if (content === 'ON') {
         toggleOnOffone.textContent = "OFF";
         toggleOnOffone.className = "redbutton pointer toggleOnOff"
     } else {
@@ -1194,7 +1224,7 @@ toggleOnOffone.addEventListener('click', () => {
 })
 toggleOnOfftwo.addEventListener('click', () => {
     let content = toggleOnOfftwo.textContent
-    if (content === 'ON'){
+    if (content === 'ON') {
         toggleOnOfftwo.textContent = "OFF";
         toggleOnOfftwo.className = "redbutton pointer toggleOnOff"
     } else {
@@ -1204,7 +1234,7 @@ toggleOnOfftwo.addEventListener('click', () => {
 })
 toggleOnOffthree.addEventListener('click', () => {
     let content = toggleOnOffthree.textContent
-    if (content === 'ON'){
+    if (content === 'ON') {
         toggleOnOffthree.textContent = "OFF";
         toggleOnOffthree.className = "redbutton pointer toggleOnOff"
     } else {
@@ -1214,7 +1244,7 @@ toggleOnOffthree.addEventListener('click', () => {
 })
 toggleOnOfffour.addEventListener('click', () => {
     let content = toggleOnOfffour.textContent
-    if (content === 'ON'){
+    if (content === 'ON') {
         toggleOnOfffour.textContent = "OFF";
         toggleOnOfffour.className = "redbutton pointer toggleOnOff"
     } else {
@@ -1224,7 +1254,7 @@ toggleOnOfffour.addEventListener('click', () => {
 })
 toggleOnOfffive.addEventListener('click', () => {
     let content = toggleOnOfffive.textContent
-    if (content === 'ON'){
+    if (content === 'ON') {
         toggleOnOfffive.textContent = "OFF";
         toggleOnOfffive.className = "redbutton pointer toggleOnOff"
     } else {
@@ -1234,7 +1264,7 @@ toggleOnOfffive.addEventListener('click', () => {
 })
 toggleOnOffzero.addEventListener('click', () => {
     let content = toggleOnOffzero.textContent
-    if (content === 'ON'){
+    if (content === 'ON') {
         toggleOnOffzero.textContent = "OFF";
         toggleOnOffzero.className = "redbutton pointer toggleOnOff"
     } else {

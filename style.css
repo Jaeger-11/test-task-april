@@ -170,6 +170,11 @@ body{
     background-color: rgba(255, 255, 255, 0.46);
     margin: 0 0.5rem;
 }
+.flexsmall{
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+}
 .container{
     width: 95vw;
     margin: auto;
@@ -810,6 +815,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     padding-right: var(--padlittle);
     height: 67vh; 
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 .incidents-main{
     gap: calc(0.5 * var(--gap));
@@ -921,16 +927,46 @@ border: 1px solid rgba(255, 255, 255, 0.35);
 .incidentvehicles{
     padding: var(--padmedium);
     background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(0.5 * var(--gap));
+    align-items: center;
+}
+.incidentvehicles .addicon{
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.hidevehicle{
+    opacity: 0;
+    transform: translateX(-10vh);
+    pointer-events: none;
+}
+.addiconactive{
+    background: white;
+}
+.addiconactive .addsvg{
+    fill: black;
 }
 .incidentvehicle{
     display: flex;
     align-content: center;
-    padding: var(--padlittle);
+    padding: var(--padmedium);
     font-size: var(--fontsmall);
     background: rgba(255, 255, 255, 0.1);
     width: max-content;
     gap: var(--gap);
     text-transform: uppercase;
+}
+.choosevehiclecont{
+    align-items: initial;
+}
+.choosevehiclecont .addicon{
+    height: auto;
+    margin-bottom: var(--gap);
+    padding: 0 var(--padmedium);
+}
+.incidentback{
+    padding: 0 1rem;
+    border-left: 2px rgba(255, 255, 255, 0.25) solid;
 }
 .modalbody{
     position: absolute;
@@ -992,7 +1028,7 @@ border: 1px solid rgba(255, 255, 255, 0.35);
     color: rgba(255, 255, 255, 0.65);
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: var(--padlittle);
+    padding: var(--padmedium);
     line-height: var(--fontmedium);
     margin-bottom: var(--gap);
     width: 100%;
