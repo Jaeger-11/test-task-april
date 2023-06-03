@@ -723,6 +723,11 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     gap: var(--gap);
     position: relative;
 }
+.singleincident{
+    padding: var(--padlarge);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 .subsection{
     display: flex;
     flex-direction: column;
@@ -964,9 +969,23 @@ border: 1px solid rgba(255, 255, 255, 0.35);
     margin-bottom: var(--gap);
     padding: 0 var(--padmedium);
 }
+.incidentbackbox{
+    background: rgba(255, 255, 255, 0.07);
+border: 1px solid rgba(255, 255, 255, 0.05);
+padding: var(--padmedium);
+}
+.incidentbackbox:hover{
+    background: rgba(255, 255, 255, 0.12);
+border: 1px solid rgba(255, 255, 255, 0.15);
+}
 .incidentback{
     padding: 0 1rem;
     border-left: 2px rgba(255, 255, 255, 0.25) solid;
+}
+.incidentdetailscont{
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 2fr;
+    gap: var(--gap);
 }
 .modalbody{
     position: absolute;

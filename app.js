@@ -762,6 +762,8 @@ const findperson = document.querySelector('#personfind');
 const personname = document.querySelector("#personname");
 const incidentsearch = document.querySelector('#incidentsearch');
 const vehiclesevidence = document.querySelector('.vehicleincidents');
+const incidentsview = document.querySelector('.incidentscont');
+const singleincident = document.querySelector('.singleincident');
 
 // INCIDENTS DATA
 let incidentsData = [
@@ -773,6 +775,7 @@ let incidentsData = [
         name: 'alexa death',
         suspect: {
             name: "john oils",
+            imageUrl: "images/character1.png",
             description: "Lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id."
         },
         victim: {},
@@ -925,7 +928,7 @@ const pushIncidents = (data) => {
         <section  class="incident">
             <h4 class="incident-title">${title}</h4>
             <div class="information">${description} <p class="dot"></p> id: ${id}</div>
-            <div class="timebox pointer"> 
+            <div class="timebox pointer" onclick="viewIncident(${id})"> 
                 <p> 
                 <svg  xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />
@@ -990,6 +993,22 @@ const cancelVehicle = () => {
 const vehicleButtonAdd = () => {
     // YET TO WORK
     document.querySelector('#vehiclemodal').classList.add('hide')
+}
+
+// VIEW SINGLE INCIDENT SWITCH
+const viewIncident = (incidentId) => {
+    singleincident.classList.add('show');
+    singleincident.classList.remove('hidden');
+    incidentsview.classList.add('hidden');
+    let incident = incidentsData.filter((incd) => incd.id == incidentId);
+    const { id, description } = incident[0]
+    document.querySelector('.incidentId').textContent = id;
+    document.querySelector('.incidentInfo').textContent = description;
+}
+const viewAllIncidents = () => {
+    singleincident.classList.remove('show');
+    singleincident.classList.add('hidden');
+    incidentsview.classList.remove('hidden');
 }
 
 // REPORTS FUNCTIONALITIES
