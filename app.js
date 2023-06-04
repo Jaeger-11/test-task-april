@@ -772,7 +772,7 @@ let incidentsData = [
         id: '155',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
         suspect: {
             name: "john oils",
@@ -794,119 +794,119 @@ let incidentsData = [
         id: '156',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '157',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
     },
     {
         id: '158',
         title: 'Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '159',
         title: 'Theft',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
     },
     {
         id: '160',
         title: 'Assault',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '161',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
     },
     {
         id: '162',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '163',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
     },
     {
         id: '164',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '165',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
     },
     {
         id: '166',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '167',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
     },
     {
         id: '168',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '169',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '170',
         title: 'Attempted Murder',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
     },
     {
         id: '171',
         title: 'Murder',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
         id: '172',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
     },
     {
@@ -939,7 +939,7 @@ const pushIncidents = (data) => {
                     <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />
                 </svg>
                 </p> 
-                <p> ${name} - ${time} </p> 
+                <p> ${name} - ${time} ago</p> 
             </div>
         </section>
         `
@@ -1006,9 +1006,16 @@ const viewIncident = (incidentId) => {
     singleincident.classList.remove('hidden');
     incidentsview.classList.add('hidden');
     let incident = incidentsData.filter((incd) => incd.id == incidentId);
-    const { id, description } = incident[0]
+    const { id, description, time } = incident[0]
     document.querySelector('.incidentId').textContent = id;
     document.querySelector('.incidentInfo').textContent = description;
+    document.querySelector('.last-modified').innerHTML = `
+        <svg  xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />
+        </svg>
+        ${time} ago
+    `
+
 }
 const viewAllIncidents = () => {
     singleincident.classList.remove('show');

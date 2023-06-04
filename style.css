@@ -1016,14 +1016,37 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     grid-template-rows: 1fr 1fr 1fr;
     gap: var(--gap);
 }
-.first-detail .warrants .imagebox{
-    width: 30%;
-    background: rgba(255, 255, 255, 0.04);
+.first-detail .warrant{
+    background: rgba(255, 255, 255, 0.02);
+}
+.first-detail .warrant .information::first-letter{
+    text-transform: capitalize !important;
+}
+.first-detail .warrant .information{
+    text-transform: none;
+}
+.first-detail .warrant .imagecont{
+    min-width: 30%;
     border: 1px solid rgba(255, 255, 255, 0.15);
-    aspect-ratio: 1/1;
-    display: flex;
-    align-content: center;
-    padding: 2px;
+}
+.first-detail .funcBtns{
+    width: calc( 6 * var(--fontlarge));
+    padding: var(--padmedium) 0;
+}
+.first-detail .suspectbtn{
+    background: rgba(241, 51, 51, 0.1);
+    border: 1px solid rgba(241, 51, 51, 0.35);
+    color: #F13333;
+}
+.first-detail .victimbtn{
+    background: rgba(99, 180, 255, 0.1);
+    border: 1px solid rgba(99, 180, 255, 0.35);
+    color: #63B4FF;
+}
+.first-detail .eyewitnessbtn{
+    background: rgba(101, 255, 144, 0.1);
+    border: 1px solid rgba(101, 255, 144, 0.35);
+    color: #65FF90;
 }
 .second-detail{
     display: flex;
