@@ -83,6 +83,7 @@ clickLinks.map((link) => {
             document.querySelector('.addcriminalscreen').classList.add('hidden');
             document.querySelector('.incidents-main').classList.add('incidents-grid');
             document.querySelector('.incidentadd').classList.remove('hidden');
+            maincontainer.classList.remove('main-container-reverse');
         }
         else {
             maincontainer.classList.remove('main-container-reverse');
@@ -777,6 +778,10 @@ let incidentsData = [
             name: "john oils",
             imageUrl: "images/character1.png",
             description: "Lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id."
+        },
+        maininformation: {
+            title: "",
+            information: ""
         },
         victim: {},
         eyewitness: {},

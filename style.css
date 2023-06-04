@@ -1,5 +1,5 @@
 :root{
-    --fontsmall: clamp(11px, 0.8vw, 5rem);
+    --fontsmall: clamp(12px, 0.8vw, 5rem);
     --fontmedium: clamp(14px, 1vw, 7rem);
     --fontlarge: clamp(17px, 1.2vw, 9rem);
     --padlittle: clamp(5px, 0.3vw, 35px);
@@ -727,6 +727,10 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     padding: var(--padlarge);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: calc(1.5 * var(--gaplarge));
 }
 .subsection{
     display: flex;
@@ -981,11 +985,136 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 .incidentback{
     padding: 0 1rem;
     border-left: 2px rgba(255, 255, 255, 0.25) solid;
+    font-size: var(--fontmedium);
 }
 .incidentdetailscont{
     display: grid;
     grid-template-columns: 2fr 1.5fr 2fr;
     gap: var(--gap);
+    flex: 1;
+}
+.incident-trash{
+    padding: var(--padmedium);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.incident-trash:hover{
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.incident-save{
+    padding: var(--padmedium);
+    background: rgba(241, 51, 51, 0.14);
+    border: 1px solid rgba(241, 51, 51, 0.25);
+}
+.incident-save:hover{
+    background: rgba(241, 51, 51, 0.25);
+    border: 1px solid rgba(241, 51, 51, 0.35);
+}
+.first-detail{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: var(--gap);
+}
+.first-detail .warrants .imagebox{
+    width: 30%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    aspect-ratio: 1/1;
+    display: flex;
+    align-content: center;
+    padding: 2px;
+}
+.second-detail{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+.second-detail div{
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: var(--padlarge);
+    cursor: pointer;
+    flex-direction: column;
+    gap: var(--gap);
+}
+.second-detail  div h4{
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+.second-detail div p{
+    padding: var(--padlittle);
+    background: rgba(255, 255, 255, 0.1);
+    width: max-content;
+    font-size: var(--fontsmall);
+}
+.second-detail svg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+.second-detail div:hover{
+    background: rgba(255, 255, 255, 0.03);
+}
+.second-detail div:hover svg{
+    stroke-width: 2px;
+    stroke-opacity: 1;
+    stroke: black;
+}
+.third-detail{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+.third-detail .main-info-header{
+    font-weight: 500;
+    padding: var(--padlarge);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0px 4px 27px rgba(0, 0, 0, 0.15);
+    font-size: var(--fontmedium);
+}
+.third-detail .main-info{
+    background: rgba(255, 255, 255, 0.01);
+    padding: var(--padmedium);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--gap);
+}
+.third-detail .main-info-title{
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: var(--padlarge);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--fontmedium);
+    font-weight: 500;
+}
+.third-detail .main-info-text{
+    padding: var(--padlarge);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--fontmedium);
+    font-weight: 500;
+    line-height: 130%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+}
+.third-detail .main-info-text::first-letter{
+    text-transform: capitalize;
+}
+.last-modified{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: var(--padmedium);
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--fontsmall);
 }
 .modalbody{
     position: absolute;
