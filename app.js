@@ -780,8 +780,8 @@ let incidentsData = [
             description: "Lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id."
         },
         maininformation: {
-            title: "",
-            information: ""
+            title: "Suspect Is An Ex-convict",
+            information: "Apparently has been charged with murder, terrorism and grevious financial crimes"
         },
         victim: {
             name: "",
@@ -793,10 +793,28 @@ let incidentsData = [
             imageUrl: "",
             description: ""
         },
-        evidences: {},
-        vehicles: {},
-        officers: {},
-        citizens: {}
+        evidences: [
+            {
+                evidencename: 'cucumber',
+                count: 5
+            },
+            {
+                evidencename: 'gun',
+                count: 1
+            }
+        ],
+        vehicles: [
+            {
+                vehiclename: "Audi R8",
+                vehicleid: "PC236127FFI"
+            },
+            {
+                vehiclename: "Audi R8",
+                vehicleid: "PC236127FFI"
+            },
+        ],
+        officers: [],
+        citizens: []
     },
     {
         id: '156',
@@ -1078,12 +1096,30 @@ const vehicleButtonAdd = () => {
 }
 
 // VIEW SINGLE INCIDENT SWITCH
+const incidentEvidences = document.querySelector('.evidences');
+const incidentVehicles = document.querySelector('.vehicles');
+const incidentOfficers = document.querySelector('.officers');
+const incidentCitizens = document.querySelector('.citizens');
+
+const secondDetail = [ incidentCitizens,incidentEvidences, incidentVehicles, incidentOfficers ];
+
+secondDetail.map((detail) => {
+    detail.addEventListener('click', () => {
+        detail.classList.add('detailactive');
+        const restDetails = secondDetail.filter((item) => item !== detail);
+        restDetails.map((item) => item.classList.remove('detailactive'))
+    })
+})
+
 const viewIncident = (incidentId) => {
+    document.querySelector('.suspectbox').innerHTML = ''
+    document.querySelector('.victimbox').innerHTML = ''
+    document.querySelector('.eyewitnessbox').innerHTML =''
     singleincident.classList.add('show');
     singleincident.classList.remove('hidden');
     incidentsview.classList.add('hidden');
     let incident = incidentsData.filter((incd) => incd.id == incidentId);
-    const { id, description, time, vehicles, victim, evidences, eyewitness, citizens, suspect } = incident[0]
+    const { id, description, time, vehicles, victim, evidences, eyewitness, citizens, suspect, officers, maininformation } = incident[0]
     document.querySelector('.incidentId').textContent = id;
     document.querySelector('.incidentInfo').textContent = description;
     document.querySelector('.last-modified').innerHTML = `
@@ -1153,7 +1189,16 @@ const viewIncident = (incidentId) => {
             </section>
         </div>
     `
+
+    document.querySelector('.evidences-records').textContent = evidences.length;
+    document.querySelector('.vehicles-records').textContent = vehicles.length;
+    document.querySelector('.officers-records').textContent = officers.length;
+    document.querySelector('.citizens-records').textContent = citizens.length;
+
+    document.querySelector('.main-info-title').textContent = maininformation.title;
+    document.querySelector('.main-info-text').textContent = maininformation.information;
 }
+
 const viewAllIncidents = () => {
     singleincident.classList.remove('show');
     singleincident.classList.add('hidden');

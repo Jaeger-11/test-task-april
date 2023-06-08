@@ -1103,6 +1103,12 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     stroke-width: 2px;
     stroke-opacity: 0.25;
 }
+.detailactive{
+    background: rgba(255, 255, 255, 0.06) !important;
+}
+.detailactive .second-detail-svg{
+    fill: white;
+}
 .third-detail{
     
 }
