@@ -1025,9 +1025,21 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 .first-detail .warrant .information{
     text-transform: none;
 }
-.first-detail .warrant .imagecont{
+.first-detail .warrant .imagecont, .addeyewitness, .addsuspect, .addvictim{
     min-width: 30%;
     border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.addeyewitness, .addsuspect, .addvictim{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.04) ;
+    cursor: pointer;
+}
+.addeyewitness:hover, .addsuspect:hover, .addvictim:hover{
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.1);
 }
 .first-detail .funcBtns{
     width: calc( 6 * var(--fontlarge));
@@ -1080,19 +1092,25 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     top: 0;
     right: 0;
     height: 100%;
+    stroke-width: 2px;
+    stroke-opacity: 0.15;
+    stroke: white;
 }
 .second-detail div:hover{
     background: rgba(255, 255, 255, 0.03);
 }
-.second-detail div:hover svg{
+.second-detail div:hover .second-detail-svg{
     stroke-width: 2px;
-    stroke-opacity: 1;
-    stroke: black;
+    stroke-opacity: 0.25;
 }
 .third-detail{
+    
+}
+.main-information{
     display: flex;
     flex-direction: column;
     gap: var(--gap);
+    height: 100%;
 }
 .third-detail .main-info-header{
     font-weight: 500;

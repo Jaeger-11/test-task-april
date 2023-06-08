@@ -347,84 +347,53 @@
                             </div>
                             <div class="incidentdetailscont">
                                 <section class="first-detail">
-                                    <div class="warrant">
-                                        <div class='imagecont'>
-                                            <img src='images/character.png' alt="profile-image" class="warrant-image">
-                                        </div>
-                                        <div class=""> 
-                                            <p class='suspectname'>John Oils</p>
-                                            <div class="information"> lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id.</div>
-                                            <section class="status-div">
-                                                <button class="suspectbtn funcBtns">suspect</button>
-                                            </section>
-                                        </div>
-                                    </div>
-                                    <div class="warrant">
-                                        <div class='imagecont'>
-                                            <img src='images/nophotoblack.png' alt="profile-image" class="warrant-image">
-                                        </div>
-                                        <div class="">
-                                            <p class='suspectname'>john oils</p>
-                                            <div class="information"> information </div>
-                                            <section class="status-div">
-                                                <button class="victimbtn funcBtns">victim</button>
-                                            </section>
-                                        </div>
-                                    </div>
-                                    <div class="warrant">
-                                        <div class='imagecont'>
-                                            <img src='images/nophotoblack.png' alt="profile-image" class="warrant-image">
-                                        </div>
-                                        <div class="">
-                                            <p class='suspectname'>empty</p>
-                                            <div class="information"> You can add person from list by cllick on plus near  </div>
-                                            <section class="status-div">
-                                                <button class="eyewitnessbtn funcBtns">eyewitness</button>
-                                            </section>
-                                        </div>
-                                    </div>
+                                    <div class="warrant suspectbox"></div>
+                                    <div class="warrant victimbox"></div>
+                                    <div class="warrant eyewitnessbox"></div>
                                 </section>
 
                                 <section class="second-detail">
                                     <div class="evidences">
                                         <h4>Evidences</h4>
-                                        <p><span>4</span> records</p>
-                                        <svg viewBox="0 0 144 111" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M59.8 8.0625C59.8 2.50416 64.2938 -2 69.825 -2H135.975C141.506 -2 146 2.50416 146 8.0625V103.938C146 109.496 141.506 114 135.975 114H88.9086C89.1036 113.131 89.2 112.23 89.2 111.312V56.0605C93.51 54.2281 96.55 49.9365 96.55 44.9375V37.5625C96.55 30.906 91.1672 25.5 84.525 25.5H59.8V8.0625ZM131.929 77.7477C133.742 75.9285 133.742 72.9465 131.929 71.1273L117.229 56.3773C115.414 54.5563 112.436 54.5563 110.621 56.3773L95.9212 71.1273C94.1082 72.9465 94.1082 75.9285 95.9212 77.7477C97.7361 79.5687 100.714 79.5687 102.529 77.7477L109.25 71.0036V96.5625C109.25 99.1397 111.348 101.25 113.925 101.25C116.502 101.25 118.6 99.1397 118.6 96.5625V71.0036L125.321 77.7477C127.136 79.5687 130.114 79.5687 131.929 77.7477ZM1 37.5625C1 36.0835 2.20923 34.875 3.675 34.875H84.525C85.9908 34.875 87.2 36.0835 87.2 37.5625V44.9375C87.2 46.4165 85.9908 47.625 84.525 47.625H3.675C2.20923 47.625 1 46.4165 1 44.9375V37.5625ZM79.85 57V107.625C79.85 111.155 77.01 114 73.5 114H14.7C11.19 114 8.35 111.155 8.35 107.625V57H79.85ZM33.075 69.75C30.4983 69.75 28.4 71.8603 28.4 74.4375C28.4 77.0147 30.4983 79.125 33.075 79.125H55.125C57.7017 79.125 59.8 77.0147 59.8 74.4375C59.8 71.8603 57.7017 69.75 55.125 69.75H33.075Z" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
+                                        <p><span class="evidences-records">4</span> records</p>
+                                        <svg viewBox="0 0 144 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M59.8 8.0625C59.8 2.50416 64.2938 -2 69.825 -2H135.975C141.506 -2 146 2.50416 146 8.0625V103.938C146 109.496 141.506 114 135.975 114H88.9086C89.1036 113.131 89.2 112.23 89.2 111.312V56.0605C93.51 54.2281 96.55 49.9365 96.55 44.9375V37.5625C96.55 30.906 91.1672 25.5 84.525 25.5H59.8V8.0625ZM131.929 77.7477C133.742 75.9285 133.742 72.9465 131.929 71.1273L117.229 56.3773C115.414 54.5563 112.436 54.5563 110.621 56.3773L95.9212 71.1273C94.1082 72.9465 94.1082 75.9285 95.9212 77.7477C97.7361 79.5687 100.714 79.5687 102.529 77.7477L109.25 71.0036V96.5625C109.25 99.1397 111.348 101.25 113.925 101.25C116.502 101.25 118.6 99.1397 118.6 96.5625V71.0036L125.321 77.7477C127.136 79.5687 130.114 79.5687 131.929 77.7477ZM1 37.5625C1 36.0835 2.20923 34.875 3.675 34.875H84.525C85.9908 34.875 87.2 36.0835 87.2 37.5625V44.9375C87.2 46.4165 85.9908 47.625 84.525 47.625H3.675C2.20923 47.625 1 46.4165 1 44.9375V37.5625ZM79.85 57V107.625C79.85 111.155 77.01 114 73.5 114H14.7C11.19 114 8.35 111.155 8.35 107.625V57H79.85ZM33.075 69.75C30.4983 69.75 28.4 71.8603 28.4 74.4375C28.4 77.0147 30.4983 79.125 33.075 79.125H55.125C57.7017 79.125 59.8 77.0147 59.8 74.4375C59.8 71.8603 57.7017 69.75 55.125 69.75H33.075Z"/>
                                         </svg>
                                     </div>
                                     <div class="vehicles">
                                         <h4>Vehicles</h4>
-                                        <p><span>4</span> records</p>
-                                        <svg viewBox="0 0 128 111" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M106.75 -21.958C87.315 -21.958 71.5417 -6.18467 71.5417 13.2503C71.5417 32.6853 87.315 48.4587 106.75 48.4587C126.185 48.4587 141.958 32.6853 141.958 13.2503C141.958 -6.18467 126.185 -21.958 106.75 -21.958ZM110.271 20.292H103.229V-7.87467H110.271V20.292ZM110.271 27.3337V34.3753H103.229V27.3337H110.271ZM106.116 62.542C106.539 63.6687 106.75 64.8657 106.75 66.0628C106.75 71.9074 102.032 76.6253 96.1875 76.6253C90.3429 76.6253 85.625 71.9074 85.625 66.0628C85.625 63.3166 86.6813 60.852 88.3713 58.9507C76.898 54.3114 67.5778 45.544 62.2467 34.3753H20.9121L28.2354 13.2503H57.4583C57.4583 8.39158 58.1625 3.60324 59.5004 -0.833007H18.0954L1.125 48.4587V111.834H22.25V97.7503H106.75V111.834H127.875V57.7537C120.481 61.3449 112.665 62.6124 106.116 62.542ZM32.8125 76.6253C26.9679 76.6253 22.25 71.9074 22.25 66.0628C22.25 60.2182 26.9679 55.5003 32.8125 55.5003C38.6571 55.5003 43.375 60.2182 43.375 66.0628C43.375 71.9074 38.6571 76.6253 32.8125 76.6253Z" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
+                                        <p><span class="vehicles-records">4</span> records</p>
+                                        <svg viewBox="0 0 128 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M106.75 -21.958C87.315 -21.958 71.5417 -6.18467 71.5417 13.2503C71.5417 32.6853 87.315 48.4587 106.75 48.4587C126.185 48.4587 141.958 32.6853 141.958 13.2503C141.958 -6.18467 126.185 -21.958 106.75 -21.958ZM110.271 20.292H103.229V-7.87467H110.271V20.292ZM110.271 27.3337V34.3753H103.229V27.3337H110.271ZM106.116 62.542C106.539 63.6687 106.75 64.8657 106.75 66.0628C106.75 71.9074 102.032 76.6253 96.1875 76.6253C90.3429 76.6253 85.625 71.9074 85.625 66.0628C85.625 63.3166 86.6813 60.852 88.3713 58.9507C76.898 54.3114 67.5778 45.544 62.2467 34.3753H20.9121L28.2354 13.2503H57.4583C57.4583 8.39158 58.1625 3.60324 59.5004 -0.833007H18.0954L1.125 48.4587V111.834H22.25V97.7503H106.75V111.834H127.875V57.7537C120.481 61.3449 112.665 62.6124 106.116 62.542ZM32.8125 76.6253C26.9679 76.6253 22.25 71.9074 22.25 66.0628C22.25 60.2182 26.9679 55.5003 32.8125 55.5003C38.6571 55.5003 43.375 60.2182 43.375 66.0628C43.375 71.9074 38.6571 76.6253 32.8125 76.6253Z"/>
                                         </svg>
                                     </div>
                                     <div class="officers">
                                         <h4>Officers</h4>
-                                        <p><span>4</span> records</p>
-                                        <svg viewBox="0 0 141 111" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M80.5166 113.864L79.9999 113.552L79.4832 113.864L32.5872 142.169L45.0321 88.8227L45.1692 88.2349L44.713 87.8397L3.27942 51.9457L57.8386 47.3169L58.4395 47.266L58.6748 46.7107L79.9999 -3.6044L101.325 46.7107L101.56 47.266L102.161 47.3169L156.72 51.9457L115.287 87.8397L114.831 88.2349L114.968 88.8227L127.413 142.169L80.5166 113.864Z" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
+                                        <p><span class="officers-records">4</span> records</p>
+                                        <svg viewBox="0 0 141 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M80.5166 113.864L79.9999 113.552L79.4832 113.864L32.5872 142.169L45.0321 88.8227L45.1692 88.2349L44.713 87.8397L3.27942 51.9457L57.8386 47.3169L58.4395 47.266L58.6748 46.7107L79.9999 -3.6044L101.325 46.7107L101.56 47.266L102.161 47.3169L156.72 51.9457L115.287 87.8397L114.831 88.2349L114.968 88.8227L127.413 142.169L80.5166 113.864Z"/>
                                         </svg>
                                     </div>
                                     <div class="citizens">
                                         <h4>Citizens</h4>
-                                        <p><span>4</span> records</p>
-                                        <svg viewBox="0 0 144 111" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M84.3125 34.0781C84.3125 48.6705 72.483 60.5 57.8906 60.5C43.2982 60.5 31.4688 48.6705 31.4688 34.0781C31.4688 19.4857 43.2982 7.65625 57.8906 7.65625C72.483 7.65625 84.3125 19.4857 84.3125 34.0781Z" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
-                                            <path d="M57.8906 70.1172C65.9423 70.1172 76.8047 72.0258 86.8905 76.758C80.2935 80.2696 74.8499 84.4833 70.8512 89.0226C65.3864 95.2213 62.2227 102.704 62.2227 110.223V115.344H7.09375V100.348C7.09375 90.5577 15.2986 83.0002 26.0585 77.827C36.7529 72.6853 49.5543 70.1172 57.8906 70.1172Z" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
-                                            <path d="M71.0781 110.25C71.0781 98.6979 80.4947 89.8105 92.7906 83.7479C105.03 77.7132 119.732 74.6875 129.492 74.6875C139.252 74.6875 153.954 77.7132 166.194 83.7479C178.49 89.8105 187.906 98.6979 187.906 110.25V127.531H71.0781V110.25Z" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
-                                            <path d="M162.008 27.9844C162.008 45.9423 147.45 60.5 129.492 60.5C111.534 60.5 96.9766 45.9423 96.9766 27.9844C96.9766 10.0265 111.534 -4.53125 129.492 -4.53125C147.45 -4.53125 162.008 10.0265 162.008 27.9844Z" stroke="white" stroke-opacity="0.15" stroke-width="2"/>
+                                        <p><span class="citizens-records">4</span> records</p>
+                                        <svg viewBox="0 0 144 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M84.3125 34.0781C84.3125 48.6705 72.483 60.5 57.8906 60.5C43.2982 60.5 31.4688 48.6705 31.4688 34.0781C31.4688 19.4857 43.2982 7.65625 57.8906 7.65625C72.483 7.65625 84.3125 19.4857 84.3125 34.0781Z"/>
+                                            <path d="M57.8906 70.1172C65.9423 70.1172 76.8047 72.0258 86.8905 76.758C80.2935 80.2696 74.8499 84.4833 70.8512 89.0226C65.3864 95.2213 62.2227 102.704 62.2227 110.223V115.344H7.09375V100.348C7.09375 90.5577 15.2986 83.0002 26.0585 77.827C36.7529 72.6853 49.5543 70.1172 57.8906 70.1172Z" />
+                                            <path d="M71.0781 110.25C71.0781 98.6979 80.4947 89.8105 92.7906 83.7479C105.03 77.7132 119.732 74.6875 129.492 74.6875C139.252 74.6875 153.954 77.7132 166.194 83.7479C178.49 89.8105 187.906 98.6979 187.906 110.25V127.531H71.0781V110.25Z"/>
+                                            <path d="M162.008 27.9844C162.008 45.9423 147.45 60.5 129.492 60.5C111.534 60.5 96.9766 45.9423 96.9766 27.9844C96.9766 10.0265 111.534 -4.53125 129.492 -4.53125C147.45 -4.53125 162.008 10.0265 162.008 27.9844Z" />
                                         </svg>
                                     </div>
                                 </section>
 
                                 <section class="third-detail">
-                                    <div class="main-info-header">Main Information</div>
-                                    <article class="main-info">
-                                        <div class="main-info-title">Title</div>
-                                        <div class="main-info-text">lorem ipsum dolor sit amet consectetur. Luctus sed egestas eleifend habitant fermentum pellentesque egestas. Nunc lectus molestie nam vel massa. Turpis penatibus lacus egestas pretium congue sit turpis diam. Ultrices turpis enim pulvinar lobortis urna ut sit. Magna enim tristique porta sit velit. Morbi odio consequat aenean non. Nunc at tortor massa platea nullam tempus. Curabitur viverra nam cursus pellentesque aliquam eu. Eu auctor porttitor enim praesent.</div>
-                                    </article>
+                                    <div class="main-information">
+                                        <div class="main-info-header">Main Information</div>
+                                        <article class="main-info">
+                                            <div class="main-info-title">Title</div>
+                                            <div class="main-info-text">lorem ipsum dolor sit amet consectetur. Luctus sed egestas eleifend habitant fermentum pellentesque egestas. Nunc lectus molestie nam vel massa. Turpis penatibus lacus egestas pretium congue sit turpis diam. Ultrices turpis enim pulvinar lobortis urna ut sit. Magna enim tristique porta sit velit. Morbi odio consequat aenean non. Nunc at tortor massa platea nullam tempus. Curabitur viverra nam cursus pellentesque aliquam eu. Eu auctor porttitor enim praesent.</div>
+                                        </article>
+                                    </div>
                                 </section>
                             </div>
                             <div class="flexsmall">

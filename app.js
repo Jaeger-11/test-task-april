@@ -783,8 +783,16 @@ let incidentsData = [
             title: "",
             information: ""
         },
-        victim: {},
-        eyewitness: {},
+        victim: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        eyewitness: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
         evidences: {},
         vehicles: {},
         officers: {},
@@ -796,6 +804,29 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        suspect: {
+            name: "john oils",
+            imageUrl: "images/character1.png",
+            description: "Lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id."
+        },
+        maininformation: {
+            title: "statement",
+            information: "Long talk"
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        evidences: {},
+        vehicles: {},
+        officers: {},
+        citizens: {}
     },
     {
         id: '157',
@@ -803,6 +834,29 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        suspect: {
+            name: "",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        evidences: {},
+        vehicles: {},
+        officers: {},
+        citizens: {}
     },
     {
         id: '158',
@@ -810,6 +864,29 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        suspect: {
+            name: "",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "John Looker",
+            imageUrl: "images/character.png",
+            description: "lorem ipsum in jusbt time"
+        },
+        evidences: {},
+        vehicles: {},
+        officers: {},
+        citizens: {}
     },
     {
         id: '159',
@@ -930,7 +1007,7 @@ const pushIncidents = (data) => {
     data.map((item) => {
         const { id, title, description, time, name } = item;
         incidentsmain.innerHTML += `
-        <section  class="incident">
+        <section class="incident">
             <h4 class="incident-title">${title}</h4>
             <div class="information">${description} <p class="dot"></p> id: ${id}</div>
             <div class="timebox pointer" onclick="viewIncident(${id})"> 
@@ -1006,7 +1083,7 @@ const viewIncident = (incidentId) => {
     singleincident.classList.remove('hidden');
     incidentsview.classList.add('hidden');
     let incident = incidentsData.filter((incd) => incd.id == incidentId);
-    const { id, description, time } = incident[0]
+    const { id, description, time, vehicles, victim, evidences, eyewitness, citizens, suspect } = incident[0]
     document.querySelector('.incidentId').textContent = id;
     document.querySelector('.incidentInfo').textContent = description;
     document.querySelector('.last-modified').innerHTML = `
@@ -1015,7 +1092,67 @@ const viewIncident = (incidentId) => {
         </svg>
         ${time} ago
     `
-
+    // SUSPECT DATA PUSH   
+    document.querySelector('.suspectbox').innerHTML = `
+    ${suspect.name ? 
+        `<div class='imagecont'>
+            <img src=${suspect.imageUrl ? suspect.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
+        </div>` :
+        `<div class='addsuspect'>
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+            </svg>
+        </div>`
+    }
+        <div class=""> 
+            <p class='suspectname'>${suspect.name ? suspect.name : 'empty'}</p>
+            <div class="information"> ${suspect.description ? suspect.description : 'You can add person from list by click on plus near'}</div>
+            <section class="status-div">
+                <button class="suspectbtn funcBtns">suspect</button>
+            </section>
+        </div>
+    `
+    // VICTIM DATA PUSH
+    document.querySelector('.victimbox').innerHTML = `
+    ${victim.name ? 
+        `<div class='imagecont'>
+            <img src=${victim.imageUrl ? victim.imageUrl : 'images/nophotoblack.png'} alt="victim-image" class="warrant-image"></img>  
+        </div>` :
+        `<div class='addvictim'>
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+            </svg>
+        </div>`
+    }
+        <div class="">
+            <p class='suspectname'>${victim.name ? victim.name : 'empty'}</p>
+            <div class="information"> ${victim.description ? victim.description : 'You can add person from list by click on plus near'} </div>
+            <section class="status-div">
+                <button class="victimbtn funcBtns">victim</button>
+            </section>
+        </div>
+    `
+    // EYEWITNESS DATA PUSH
+    document.querySelector('.eyewitnessbox').innerHTML = `
+        ${eyewitness.name ? 
+            `<div class='imagecont'>
+                <img src=${eyewitness.imageUrl ? eyewitness.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
+            </div>` :
+            `<div class='addeyewitness'>
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                </svg>
+            </div>`
+        }
+        
+        <div class="">
+            <p class='suspectname'>${eyewitness.name ? eyewitness.name : 'empty'}</p>
+            <div class="information"> ${eyewitness.description ? eyewitness.description : 'You can add person from list by click on plus near'}  </div>
+            <section class="status-div">
+                <button class="eyewitnessbtn funcBtns">eyewitness</button>
+            </section>
+        </div>
+    `
 }
 const viewAllIncidents = () => {
     singleincident.classList.remove('show');
