@@ -1082,7 +1082,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     font-weight: 500;
 }
 .second-detail div p{
-    padding: var(--padlittle);
+    padding: var(--padlittle) var(--padmedium);
     background: rgba(255, 255, 255, 0.1);
     width: max-content;
     font-size: var(--fontsmall);
@@ -1109,6 +1109,9 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 .detailactive .second-detail-svg{
     fill: white;
 }
+.detailactive p{
+    background: rgba(255, 255, 255, 0.25) !important;
+}
 .third-detail{
     
 }
@@ -1119,13 +1122,26 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     height: 100%;
 }
 .third-detail .main-info-header{
-    font-weight: 500;
     padding: var(--padlarge);
     background: rgba(255, 255, 255, 0.12);
     box-shadow: 0px 4px 27px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.third-detail .main-info-header h4{
+    font-weight: 500;
     font-size: var(--fontmedium);
 }
-.third-detail .main-info{
+.third-detail .main-info-header p{
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--padlittle) var(--padmedium);
+    font-size: var(--fontsmall);
+}
+.third-detail .main-info-header p:hover{
+    background: rgba(255, 255, 255, 0.12);
+}
+.third-detail .main-info, .detail-records{
     background: rgba(255, 255, 255, 0.01);
     padding: var(--padmedium);
     display: flex;
@@ -1153,6 +1169,16 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .third-detail .main-info-text::first-letter{
     text-transform: capitalize;
+}
+.third-detail .detail-records .addnew{
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px dashed rgba(255, 255, 255, 0.25);
+    width: 100%;
+    justify-content: center;
+    padding: var(--padmedium);
+}
+.elementhidden{
+    display: none;
 }
 .last-modified{
     position: absolute;

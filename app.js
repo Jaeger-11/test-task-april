@@ -1103,14 +1103,6 @@ const incidentCitizens = document.querySelector('.citizens');
 
 const secondDetail = [ incidentCitizens,incidentEvidences, incidentVehicles, incidentOfficers ];
 
-secondDetail.map((detail) => {
-    detail.addEventListener('click', () => {
-        detail.classList.add('detailactive');
-        const restDetails = secondDetail.filter((item) => item !== detail);
-        restDetails.map((item) => item.classList.remove('detailactive'))
-    })
-})
-
 const viewIncident = (incidentId) => {
     document.querySelector('.suspectbox').innerHTML = ''
     document.querySelector('.victimbox').innerHTML = ''
@@ -1128,6 +1120,18 @@ const viewIncident = (incidentId) => {
         </svg>
         ${time} ago
     `
+
+    secondDetail.map((detail) => {
+        detail.addEventListener('click', () => {
+            detail.classList.add('detailactive');
+            let restDetails = secondDetail.filter((item) => item !== detail);
+            restDetails.map((item) => item.classList.remove('detailactive'));
+            document.querySelector('.main-info').classList.add('hidden');
+            document.querySelector('.detail-records').classList.remove('hidden');
+            document.querySelector('.backtomaininfo').classList.remove('elementhidden');
+        })
+    })
+
     // SUSPECT DATA PUSH   
     document.querySelector('.suspectbox').innerHTML = `
     ${suspect.name ? 
@@ -1197,6 +1201,12 @@ const viewIncident = (incidentId) => {
 
     document.querySelector('.main-info-title').textContent = maininformation.title;
     document.querySelector('.main-info-text').textContent = maininformation.information;
+}
+
+const backToMainInfo = () => {
+    document.querySelector('.main-info').classList.remove('hidden');
+    document.querySelector('.detail-records').classList.add('hidden');
+    document.querySelector('.backtomaininfo').classList.add('elementhidden');
 }
 
 const viewAllIncidents = () => {
