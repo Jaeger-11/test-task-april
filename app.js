@@ -1301,7 +1301,7 @@ const viewIncident = (incidentId) => {
         `<div class='imagecont'>
             <img src=${suspect.imageUrl ? suspect.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
         </div>` :
-        `<div class='addsuspect'>
+        `<div class='addsuspect'  onclick="addSuspect()">
             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
             </svg>
@@ -1321,7 +1321,7 @@ const viewIncident = (incidentId) => {
         `<div class='imagecont'>
             <img src=${victim.imageUrl ? victim.imageUrl : 'images/nophotoblack.png'} alt="victim-image" class="warrant-image"></img>  
         </div>` :
-        `<div class='addvictim'>
+        `<div class='addvictim' onclick="addVictim()">
             <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
             </svg>
@@ -1341,7 +1341,7 @@ const viewIncident = (incidentId) => {
             `<div class='imagecont'>
                 <img src=${eyewitness.imageUrl ? eyewitness.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
             </div>` :
-            `<div class='addeyewitness'>
+            `<div class='addeyewitness' onclick="addWitness()">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
                 </svg>
@@ -1366,6 +1366,17 @@ const viewIncident = (incidentId) => {
     document.querySelector('.main-info-text').textContent = maininformation.information;
 }
 
+const backToMainInfo = () => {
+    document.querySelector('.main-info').classList.remove('hidden');
+    document.querySelector('.detail-records').classList.add('hidden');
+    document.querySelector('.backtomaininfo').classList.add('elementhidden');
+    document.querySelector('.main-title').textContent = 'Main Information';
+    secondDetail.map((detail) => {
+        detail.classList.remove('detailactive')
+    })
+}
+
+// DELETE INCIDENT FUNCTIONS
 const deleteIncident = () => {
     incidentsData = incidentsData.filter((incident) => incident.id != currentIncident)
     pushIncidents(incidentsData);
@@ -1381,14 +1392,37 @@ const openIncidentDelete = () => {
     document.querySelector('#incidentdeletemodal').classList.remove('hide')
 }
 
-const backToMainInfo = () => {
-    document.querySelector('.main-info').classList.remove('hidden');
-    document.querySelector('.detail-records').classList.add('hidden');
-    document.querySelector('.backtomaininfo').classList.add('elementhidden');
-    document.querySelector('.main-title').textContent = 'Main Information';
-    secondDetail.map((detail) => {
-        detail.classList.remove('detailactive')
-    })
+// ADD VICTIM TO INCIDENT
+const addVictim = () => {
+    document.querySelector('#victimmodal').classList.remove('hide')
+}
+const cancelVictim = () => {
+    document.querySelector('#victimmodal').classList.add('hide')
+}
+const victimButtonAdd = () => {
+    document.querySelector('#victimmodal').classList.add('hide')
+}
+
+// ADD EYEWITNESS TO INCIDENT
+const addWitness = () => {
+    document.querySelector('#witnessmodal').classList.remove('hide')
+}
+const cancelWitness = () => {
+    document.querySelector('#witnessmodal').classList.add('hide')
+}
+const witnessButtonAdd = () => {
+    document.querySelector('#witnessmodal').classList.add('hide')
+}
+
+// ADD SUSPECT TO INCIDENT
+const addSuspect = () => {
+    document.querySelector('#suspectmodal').classList.remove('hide')
+}
+const cancelSuspect = () => {
+    document.querySelector('#suspectmodal').classList.add('hide')
+}
+const suspectButtonAdd = () => {
+    document.querySelector('#suspectmodal').classList.add('hide')
 }
 
 const viewAllIncidents = () => {

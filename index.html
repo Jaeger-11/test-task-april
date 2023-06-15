@@ -306,30 +306,6 @@
                                 </section>
                             </section>
                         </div>
-                        <div class="hide modalbody" id="victimmodal">
-                            <section class="addevidencemodal ">
-                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
-                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
-                                <section class='header'> 
-                                    <p>Add Victim </p> 
-                                    <div class="cancelicon pointer" onclick="cancelVictim()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
-                                </section>
-                                <section class="content">
-                                    <div class="choosevehiclecont flexsmall">
-                                        <input type="text" name="chooseprofile" id="chooseprofile" placeholder="Choose Profile">
-                                        <div class="addicon pointer">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
-                                                <path d="M8.75 12.5L15 18.75L21.25 12.5H8.75Z" fill="white" fill-opacity="0.45"/>
-                                            </svg>
-                                        </div>
-                                    </div>
-                                    <textarea name="description" id="victim-description" rows="8" placeholder="Description"></textarea>
-                                    <div class="center">
-                                        <button class="pointer incidentbutton savebutton" onclick="victimButtonAdd()">ADD</button>
-                                    </div>
-                                </section>
-                            </section>
-                        </div>
                     </section>
                         <!-- VIEW INCIDENT -->
                         <div class="singleincident hidden">
@@ -441,6 +417,81 @@
                                     <div class="btnscontainer">
                                         <button class="incident-delete pointer suspectbtn" onclick="deleteIncident()">DELETE</button>
                                         <button class="incident-cancel pointer" onclick="cancelIncidentDelete()">CANCEL</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        <!-- ADD VICTIM -->
+                        <div class="hide modalbody" id="victimmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Victim </p> 
+                                    <div class="cancelicon pointer" onclick="cancelVictim()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="choosevehiclecont flexsmall">
+                                        <input type="text" name="victimname" id="victimname" placeholder="Choose profile">
+                                        <div class="addicon pointer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                                <path d="M8.75 12.5L15 18.75L21.25 12.5H8.75Z" fill="white" fill-opacity="0.45"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <textarea name="description" id="victim-description" rows="8" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton" onclick="victimButtonAdd()">ADD</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        <!-- ADD EYEWITNESS -->
+                        <div class="hide modalbody" id="witnessmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Eyewitness </p> 
+                                    <div class="cancelicon pointer" onclick="cancelWitness()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="choosevehiclecont flexsmall">
+                                        <input type="text" name="witnessname" id="witnessname" placeholder="Choose profile">
+                                        <div class="addicon pointer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                                <path d="M8.75 12.5L15 18.75L21.25 12.5H8.75Z" fill="white" fill-opacity="0.45"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <textarea name="description" id="witness-description" rows="8" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton" onclick="witnessButtonAdd()">ADD</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        <!-- ADD SUSPECT -->
+                        <div class="hide modalbody" id="suspectmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Suspect </p> 
+                                    <div class="cancelicon pointer" onclick="cancelSuspect()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="choosevehiclecont flexsmall">
+                                        <input type="text" name="suspectname" id="suspectname" placeholder="Choose profile">
+                                        <div class="addicon pointer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                                <path d="M8.75 12.5L15 18.75L21.25 12.5H8.75Z" fill="white" fill-opacity="0.45"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <textarea name="description" id="suspect-description" rows="8" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton" onclick="suspectButtonAdd()">ADD</button>
                                     </div>
                                 </section>
                             </section>
