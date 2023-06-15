@@ -1178,8 +1178,9 @@ const incidentOfficers = document.querySelector('.officers');
 const incidentCitizens = document.querySelector('.citizens');
 
 const secondDetail = [ incidentCitizens,incidentEvidences, incidentVehicles, incidentOfficers ];
-
+let currentIncident;
 const viewIncident = (incidentId) => {
+    currentIncident = incidentId
     document.querySelector('.suspectbox').innerHTML = ''
     document.querySelector('.victimbox').innerHTML = ''
     document.querySelector('.eyewitnessbox').innerHTML =''
@@ -1365,8 +1366,19 @@ const viewIncident = (incidentId) => {
     document.querySelector('.main-info-text').textContent = maininformation.information;
 }
 
-const deleteIncident = (incidentId) => {
-
+const deleteIncident = () => {
+    incidentsData = incidentsData.filter((incident) => incident.id != currentIncident)
+    pushIncidents(incidentsData);
+    singleincident.classList.remove('show');
+    singleincident.classList.add('hidden');
+    incidentsview.classList.remove('hidden');
+    document.querySelector('#incidentdeletemodal').classList.add('hide')
+}
+const cancelIncidentDelete = () => {
+    document.querySelector('#incidentdeletemodal').classList.add('hide')
+}
+const openIncidentDelete = () => {
+    document.querySelector('#incidentdeletemodal').classList.remove('hide')
 }
 
 const backToMainInfo = () => {
