@@ -175,6 +175,12 @@ body{
     align-items: center;
     gap: var(--gap);
 }
+.fontsmall{
+    font-size: var(--fontsmall);
+}
+.fontmedium{
+    font-size: var(--fontmedium);
+}
 .container{
     width: 95vw;
     margin: auto;
@@ -728,9 +734,9 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
-    gap: calc(1.5 * var(--gaplarge));
+    gap: calc(1.1 * var(--gaplarge));
 }
 .subsection{
     display: flex;
@@ -991,7 +997,6 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     display: grid;
     grid-template-columns: 2fr 1.5fr 2fr;
     gap: var(--gap);
-    flex: 1;
 }
 .incident-save{
     padding: var(--padmedium);
@@ -1027,6 +1032,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .first-detail .warrant .imagecont, .addeyewitness, .addsuspect, .addvictim{
     min-width: 30%;
+    max-width: 30%;
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .addeyewitness, .addsuspect, .addvictim{
@@ -1045,7 +1051,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     width: calc( 6 * var(--fontlarge));
     padding: var(--padmedium) 0;
 }
-.first-detail .suspectbtn{
+.suspectbtn{
     background: rgba(241, 51, 51, 0.1);
     border: 1px solid rgba(241, 51, 51, 0.35);
     color: #F13333;
@@ -1162,7 +1168,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 .third-detail .main-info-text{
     padding: var(--padlarge);
     color: rgba(255, 255, 255, 0.65);
-    font-size: var(--fontmedium);
+    font-size: var(--fontsmall);
     font-weight: 500;
     line-height: 130%;
     background: rgba(255, 255, 255, 0.02);
@@ -1332,6 +1338,22 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
     padding-right: var(--padlittle);
+}
+.btnscontainer{
+    width: 70%;
+    margin: var(--gaplarge) auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+}
+.incident-delete, .incident-cancel{
+    padding: var(--padmedium);
+    font-weight: 600;
+}
+.incident-cancel{
+    color: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.65);
 }
 
 /* MISC */
