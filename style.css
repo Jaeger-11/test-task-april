@@ -429,7 +429,7 @@ main{
     position: relative;
 }
 .warrant .imagecont{
-    min-width: 20%;
+    width: 20%;
     background-image: url(images/darkbg.svg);
     background-size: cover;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -439,7 +439,7 @@ main{
     padding: 2px;
 }
 .order .imagecont{
-    min-width: 20%;
+    width: 20%;
     background-size: cover;
     background-image: url(images/redbg.svg);
     border: 1px solid rgba(241, 51, 51, 0.3);
@@ -864,7 +864,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 }
 .incident:hover{
     background: linear-gradient(163.92deg, rgba(255, 255, 255, 0.05) 5.34%, rgba(255, 255, 255, 0) 89.63%), rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.35);
 }
 .incident .timebox:active{
     background: white;

@@ -807,26 +807,31 @@ let incidentsData = [
         ],
         vehicles: [
             {
+                id: 1,
                 vehiclename: "Audi R8",
                 vehicleid: "PC236127FFI"
             },
             {
+                id: 2,
                 vehiclename: "Audi R8",
                 vehicleid: "PC23612678I"
             },
         ],
         officers: [
             {
+                id: 1,
                 officername: "adams ressler",
                 officerid : "5678jkl",
             },
         ],
         citizens: [
             {
+                id: 1,
                 citizenname: "John Doe",
                 citizenid: "234ghyi"
             },
             {
+                id: 2,
                 citizenname: "Jane Doe",
                 citizenid: "237ghyi"
             }
@@ -871,10 +876,12 @@ let incidentsData = [
         ],
         vehicles: [
             {
+                id: 1,
                 vehiclename: "Audi R8",
                 vehicleid: "PC236127FFI"
             },
             {
+                id: 2,
                 vehiclename: "Audi R8",
                 vehicleid: "PC23612678I"
             },
@@ -921,10 +928,12 @@ let incidentsData = [
         ],
         vehicles: [
             {
+                id: 1,
                 vehiclename: "Audi R8",
                 vehicleid: "PC236127FFI"
             },
             {
+                id: 2,
                 vehiclename: "Audi R8",
                 vehicleid: "PC23612678I"
             },
@@ -971,10 +980,12 @@ let incidentsData = [
         ],
         vehicles: [
             {
+                id: 1,
                 vehiclename: "Audi R8",
                 vehicleid: "PC236127FFI"
             },
             {
+                id: 2,
                 vehiclename: "Audi R8",
                 vehicleid: "PC23612678I"
             },
@@ -1249,9 +1260,9 @@ const viewIncident = (incidentId) => {
                     </div>
                 `
                 vehicles.map((vehic) => {
-                    const { vehiclename, vehicleid } = vehic;
+                    const { vehiclename, vehicleid, id } = vehic;
                     document.querySelector('.details').innerHTML += `
-                        <section class='detail ${'vehicle'+vehicleid}'>
+                        <section class='detail ${'vehicle'+id}'>
                             <div class='flexsmall'>
                                 ${vehiclename}
                                 <p> ${vehicleid} </p>
@@ -1260,7 +1271,7 @@ const viewIncident = (incidentId) => {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
                                     <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
                                 </svg>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteVehicleFromIncident(${vehicleid})">
+                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteVehicleFromIncident(${id})">
                                     <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                 </svg>
                             </div>
@@ -1279,9 +1290,9 @@ const viewIncident = (incidentId) => {
                     </div>
                 `
                 citizens.map((citizen) => {
-                    const { citizenname, citizenid } = citizen;
+                    const { citizenname, citizenid, id } = citizen;
                     document.querySelector('.details').innerHTML += `
-                        <section class='detail ${'citizen'+citizenid}'>
+                        <section class='detail ${'citizen'+id}'>
                             <div class='flexsmall'>
                                 ${citizenname}
                                 <p> ${citizenid} </p>
@@ -1290,7 +1301,7 @@ const viewIncident = (incidentId) => {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
                                     <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
                                 </svg>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteCitizenFromIncident(${citizenid})">
+                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteCitizenFromIncident(${id})">
                                     <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                 </svg>
                             </div>
