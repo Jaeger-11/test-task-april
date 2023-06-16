@@ -1461,15 +1461,19 @@ const suspectButtonAdd = () => {
     document.querySelector('#suspectmodal').classList.add('hide')
 }
 
-// ADD EVIDENCE TO INCIDENT
+// ADD EVIDENCE TO SINGLE INCIDENT
 const addEvidenceToIncident = () => {
     document.querySelector('.evidencemodal').classList.remove('hide')
 }
 const cancelAddEvidenceModal = () => {
     document.querySelector('.evidencemodal').classList.add('hide')
 }
+// ADD VEHICLE TO SINGLE INCIDENT
 const addVehicleToIncident = () => {
-    
+    document.querySelector('.vehiclemodal').classList.remove('hide')
+}
+const cancelAddVehicleModal = () => {
+    document.querySelector('.vehiclemodal').classList.add('hide')
 }
 const addOfficerToIncident = () => {
     
