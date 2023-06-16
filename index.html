@@ -496,6 +496,35 @@
                                 </section>
                             </section>
                         </div>
+                        <!-- ADD EVIDENCE TO INCIDENT -->
+                        <div class="hide modalbody evidencemodal">
+                            <section class="addevidencemodal">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Evidence to Incident </p> 
+                                    <div class="cancelicon pointer" onclick="cancelAddEvidenceModal()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="evidencetypeselect">
+                                        <label for="evidencetype" class="typelabel"> EVIDENCE TYPE </label> <br>
+                                        <select name="evidence-type" id="evidencetype">
+                                            <option value="photo">Photo</option>
+                                            <option value="blood">Blood</option>
+                                            <option value="bullets">Bullets</option>
+                                            <option value="vehicle">Vehicle</option>
+                                            <option value="video">Video</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <input type="text" name="imageURL" id="evidence-imageURL" placeholder="Image URL">
+                                    <textarea name="description" id="evidence-description" rows="4" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton evidencesave">SAVE</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
                     </section>
 
                     <!-- PROFILES CONTENT -->
