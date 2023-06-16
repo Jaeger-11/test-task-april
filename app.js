@@ -1184,6 +1184,7 @@ const viewIncident = (incidentId) => {
     document.querySelector('.suspectbox').innerHTML = ''
     document.querySelector('.victimbox').innerHTML = ''
     document.querySelector('.eyewitnessbox').innerHTML = ''
+    // document.querySelector('.details').innerHTML = ''
     singleincident.classList.add('show');
     singleincident.classList.remove('hidden');
     incidentsview.classList.add('hidden');
@@ -1469,7 +1470,17 @@ const cancelAddEvidenceModal = () => {
     document.querySelector('.evidencemodal').classList.add('hide')
 }
 const deleteEvidenceFromIncident = (id) => {
-
+    incidentsData = incidentsData.map((incd) => {
+        if (incd.id == currentIncident){
+            let newincd = incd.evidences.filter((evid) => evid.id  !== id)
+            return {...incd, evidences:newincd}
+        } else{
+            return {...incd}
+        }
+    })
+    console.log(incidentsData)
+    pushIncidents(incidentsData)
+    viewIncident(currentIncident)
 }
 // VEHICLE ADD/DELETE/EDIT 
 const addVehicleToIncident = () => {
