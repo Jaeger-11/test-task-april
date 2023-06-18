@@ -1190,7 +1190,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     flex-direction: column;
     gap: var(--gap);
 }
-.third-detail .details .detail{
+.third-detail .detail{
     display: flex;
     justify-content: space-between;
     padding: var(--padmedium);
@@ -1199,6 +1199,63 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.08);
     font-size: var(--fontsmall);
     text-transform: capitalize;
+}
+.detail .flexsmall{
+    font-weight: 500;
+}
+.flexdivs{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    flex: 1;
+}
+.flexfull{
+    display: flex;
+    height: 100%;
+}
+.flexheading{
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+}
+.flexheading p{
+    font-size: var(--fontmedium);
+    font-weight: 500;
+}
+.flexheading-div{
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.25);
+}
+.leadingofficersdetails, .officersdetails{
+    height: calc( 2.7 * var(--fontlarge)  );
+    overflow-y: scroll;
+    padding-right: var(--padlittle);
+    gap: calc( 0.5 * var(--gap)) ;
+    display: flex;
+    flex-direction: column;
+}
+.incidentcreator{
+    background-color: rgba(99, 180, 255, 0.15);
+    color: rgba(99, 180, 255, 0.9);
+    padding: var(--padlittle) var(--padlarge);
+}
+.allstyle{
+    padding: var(--padlittle) var(--padlarge);
+    font-size: var(--fontsmall);
+    font-weight: 500;
+}
+.eyewitnessstyle{
+    color: rgba(101, 255, 144, 0.9);
+    background-color: rgba(101, 255, 144, 0.15);
+}
+.suspectstyle{
+    color: rgba(241, 51, 51, 0.9);
+    background-color: rgba(241, 51, 51, 0.15);
+}
+.victimstyle{
+    color: rgba(99, 180, 255, 0.9);
+    background-color: rgba(99, 180, 255, 0.15);
 }
 .elementhidden{
     opacity: 0 !important;

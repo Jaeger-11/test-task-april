@@ -817,23 +817,46 @@ let incidentsData = [
                 vehicleid: "PC23612678I"
             },
         ],
-        officers: [
-            {
-                id: 1,
-                officername: "adams ressler",
-                officerid : "5678jkl",
-            },
-        ],
+        officers: {
+            leadingOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "567",
+                    incidentcreator: true
+                },
+            ],
+            otherOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "545",
+                },
+                {
+                    id: 2,
+                    officername: "adams ressler",
+                    officerid : "548",
+                },
+            ]
+        },
         citizens: [
             {
                 id: 1,
                 citizenname: "John Doe",
-                citizenid: "234ghyi"
+                citizenid: 156,
+                status: "victim"
             },
             {
                 id: 2,
                 citizenname: "Jane Doe",
-                citizenid: "237ghyi"
+                citizenid: 157,
+                status: "eyewitness"
+            },
+            {
+                id: 3,
+                citizenname: "Achmaad",
+                citizenid: 267,
+                status: "suspect"
             }
         ]
     },
@@ -1290,12 +1313,13 @@ const viewIncident = (incidentId) => {
                     </div>
                 `
                 citizens.map((citizen) => {
-                    const { citizenname, citizenid, id } = citizen;
+                    const { citizenname, citizenid, id, status } = citizen;
                     document.querySelector('.details').innerHTML += `
                         <section class='detail ${'citizen'+id}'>
                             <div class='flexsmall'>
                                 ${citizenname}
-                                <p> ${citizenid} </p>
+                                <span> (ID:${citizenid}) </span>
+                                <span class='${status}style allstyle'> ${status} </span>
                             </div>
                             <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
@@ -1311,26 +1335,61 @@ const viewIncident = (incidentId) => {
             } else if ( detail == incidentOfficers ){
                 document.querySelector('.main-title').textContent = `Involved Officers List`;
                 document.querySelector('.detail-records').innerHTML = `
-                    <div class="details"></div>
-                    <div class="flexsmall grey pointer addnew" onclick="addOfficerToIncident()">
-                        <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-                        </svg>
-                        Add new
+                    <div class="details flexfull">
+                        <section class="flexdivs">
+                            <div class="flexheading">
+                                <p>Leading Officers</p>
+                                <div class="flexheading-div"></div>
+                            </div>
+                            <div class="leadingofficersdetails"></div>
+                            <div class="flexsmall grey pointer addnew" onclick="addLeadingOfficerToIncident()">
+                                <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                                </svg>
+                                Add new
+                            </div>
+                        </section>
+                        <section class="flexdivs">
+                            <div class="flexheading" >
+                                <p>Officers</p>
+                                <div class="flexheading-div"></div>
+                            </div>
+                            <div class="officersdetails"></div>
+                            <div class="flexsmall grey pointer addnew" onclick="addOfficerToIncident()">
+                                <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                                </svg>
+                                Add new
+                            </div>
+                        </section>
                     </div>
                 `
-                officers.map((officer) => {
+                officers.leadingOfficers.map((officer) => {
                     const { officername, officerid, id } = officer;
-                    document.querySelector('.details').innerHTML += `
+                    document.querySelector('.leadingofficersdetails').innerHTML += `
                         <section class='detail ${'officer'+id}'>
                             <div class='flexsmall'>
                                 ${officername}
-                                <p> ${officerid} </p>
+                                <span> (ID:${officerid}) </span>
+                                ${ officer.incidentcreator && `<div class="incidentcreator">Incident Creator</div>` }
                             </div>
                             <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
-                                    <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
+                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromIncident(${id})">
+                                    <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                 </svg>
+                            </div>
+                        </section>
+                    `
+                })
+                officers.otherOfficers.map((officer) => {
+                    const { officername, officerid, id } = officer;
+                    document.querySelector('.officersdetails').innerHTML += `
+                        <section class='detail ${'officer'+id}'>
+                            <div class='flexsmall'>
+                                ${officername}
+                                <span> (ID:${officerid}) </span>
+                            </div>
+                            <div>
                                 <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromIncident(${id})">
                                     <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                 </svg>
@@ -1406,7 +1465,7 @@ const viewIncident = (incidentId) => {
 
     document.querySelector('.evidences-records').textContent = evidences.length;
     document.querySelector('.vehicles-records').textContent = vehicles.length;
-    document.querySelector('.officers-records').textContent = officers.length;
+    document.querySelector('.officers-records').textContent = officers.leadingOfficers.length + officers.otherOfficers.length;
     document.querySelector('.citizens-records').textContent = citizens.length;
 
     document.querySelector('.main-info-title').textContent = maininformation.title;
