@@ -356,7 +356,7 @@ let profilesData = [
         imageUrl: 'images/character.svg',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -379,7 +379,7 @@ let profilesData = [
         imageUrl: 'images/character2.png',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -402,7 +402,7 @@ let profilesData = [
         imageUrl: '',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -425,7 +425,7 @@ let profilesData = [
         imageUrl: 'images/character1.png',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -448,7 +448,7 @@ let profilesData = [
         imageUrl: '',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -471,7 +471,7 @@ let profilesData = [
         imageUrl: 'images/character2.png',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -494,7 +494,7 @@ let profilesData = [
         imageUrl: 'images/character.svg',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -517,7 +517,7 @@ let profilesData = [
         imageUrl: 'images/character1.png',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -539,7 +539,6 @@ const pushProfiles = (data) => {
     profilesContainer.innerHTML = ''
     data.map((obj) => {
         const { name, id, status, imageUrl, information } = obj;
-
         profilesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}" onclick="selectProfile(${id})">
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image" class=""></div>
@@ -555,8 +554,15 @@ const pushProfiles = (data) => {
 
 // SELECT PROFILE
 const selectProfile = (profileId) => {
+    document.querySelector('.allprofilescontent').classList.add("hidden");
+    document.querySelector('.profilecontent').classList.remove('hidden');
     let profile = profilesData.filter((prof) => prof.id == profileId);
-    const {  } = profile
+    const { id, name, criminalhistory, warrants, vehicles } = profile
+}
+
+const viewAllProfiles = () => {
+    document.querySelector('.allprofilescontent').classList.remove("hidden");
+    document.querySelector('.profilecontent').classList.add('hidden');
 }
 
 // ENABLES PROFILE SEARCH FUNCTIONALITY
