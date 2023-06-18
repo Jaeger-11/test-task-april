@@ -583,9 +583,12 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.1);
     height: 100%;
     padding: var(--padlarger) var(--padlarger) 0 var(--padlarger);
+}
+.allprofilescontent{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    height: 100%;
 }
 .profiles-header, .profiles-header-filtering{
     display: grid;
@@ -1184,6 +1187,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     width: 100%;
     justify-content: center;
     padding: var(--padmedium);
+    font-size: var(--fontsmall);
 }
 .third-detail .details{
     display: flex;
@@ -1228,7 +1232,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.25);
 }
 .leadingofficersdetails, .officersdetails{
-    height: calc( 2.7 * var(--fontlarge)  );
+    max-height: calc( 2.7 * var(--fontlarge)  );
     overflow-y: scroll;
     padding-right: var(--padlittle);
     gap: calc( 0.5 * var(--gap)) ;
@@ -1317,7 +1321,6 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .cancelicon img{
     width: 50%;
-    /* height: var(--fontsmall); */
 }
 .addevidencemodal .content{
     padding: var(--padlarge);

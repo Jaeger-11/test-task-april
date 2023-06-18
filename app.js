@@ -333,7 +333,7 @@ let profilesData = [
         imageUrl: 'images/character1.png',
         information: 'some information',
         warrants: [],
-        incidents: [
+        criminalhistory: [
             {
                 incidentid: 110,
                 incidentstatus: "suspect"
@@ -556,6 +556,7 @@ const pushProfiles = (data) => {
 // SELECT PROFILE
 const selectProfile = (profileId) => {
     let profile = profilesData.filter((prof) => prof.id == profileId);
+    const {  } = profile
 }
 
 // ENABLES PROFILE SEARCH FUNCTIONALITY
@@ -1367,14 +1368,14 @@ const viewIncident = (incidentId) => {
                 officers.leadingOfficers.map((officer) => {
                     const { officername, officerid, id } = officer;
                     document.querySelector('.leadingofficersdetails').innerHTML += `
-                        <section class='detail ${'officer'+id}'>
+                        <section class='detail ${'leadingofficer'+id}'>
                             <div class='flexsmall'>
                                 ${officername}
                                 <span> (ID:${officerid}) </span>
                                 ${ officer.incidentcreator && `<div class="incidentcreator">Incident Creator</div>` }
                             </div>
                             <div>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromIncident(${id})">
+                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteLeadingOfficerFromIncident(${id})">
                                     <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                 </svg>
                             </div>
@@ -1575,15 +1576,34 @@ const deleteVehicleFromIncident = (id) => {
 const addOfficerToIncident = () => {
     document.querySelector('.officermodal').classList.remove('hide')
 }
+const addLeadingOfficerToIncident = () => {
+    document.querySelector('.officermodal').classList.remove('hide')
+}
 const cancelAddOfficerModal = () => {
     document.querySelector('.officermodal').classList.add('hide')
 }
+const deleteLeadingOfficerFromIncident = (id) => {
+    document.querySelector(`.leadingofficer${id}`).classList.add('hidden');
+    incidentsData = incidentsData.map((incd) => {
+        if (incd.id == currentIncident) {
+            let incdofficer = incd.officers
+            let newincd = incd.officers.leadingOfficers.filter((i) => i.id != id);
+            return {...incd, officers:{...incdofficer, leadingOfficers: newincd}}
+        } else{
+            return {...incd}
+        }
+    })
+    console.log(incidentsData)
+    pushIncidents(incidentsData)
+    viewIncident(currentIncident)
+}
 const deleteOfficerFromIncident = (id) => {
-    document.querySelector(`.officer${id}`).classList.add('hidden')
+    document.querySelector(`.officer${id}`).classList.add('hidden');
     incidentsData = incidentsData.map((incd) => {
         if (incd.id == currentIncident){
-            let newincd = incd.officers.filter((veh) => veh.id != id)
-            return {...incd, officers:newincd}
+            let incdofficer = incd.officers
+            let newincd = incd.officers.otherOfficers.filter((veh) => veh.id != id)
+            return {...incd, officers: {...incdofficer, otherOfficers: newincd} }
         } else{
             return {...incd}
         }
