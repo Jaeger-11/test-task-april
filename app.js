@@ -336,11 +336,11 @@ let profilesData = [
         warrants: [
             {
                 active: true,
-                incidentid: 2346571261
+                incidentid: 46571261
             },
             {
                 active: false,
-                incidentid: 2346571261,
+                incidentid: 23465711,
                 closed: "02/05/2022"
             },
         ],
@@ -380,11 +380,11 @@ let profilesData = [
         warrants: [
             {
                 active: true,
-                incidentid: 2346571261
+                incidentid: 23571261
             },
             {
                 active: false,
-                incidentid: 2346571261,
+                incidentid: 23465261,
                 closed: "02/05/2022"
             },
         ],
@@ -474,11 +474,11 @@ let profilesData = [
         warrants: [
             {
                 active: true,
-                incidentid: 2346571261
+                incidentid: 23465712
             },
             {
                 active: false,
-                incidentid: 2346571261,
+                incidentid: 23465761,
                 closed: "02/05/2022"
             },
         ],
@@ -633,6 +633,7 @@ const selectProfile = (profileId) => {
     document.querySelector('.profilecontent').classList.remove('hidden');
     document.querySelector('.criminalhistory').innerHTML = "";
     document.querySelector('.profilevehicles').innerHTML = "";
+    document.querySelector('.profilewarrants').innerHTML = "";
     let profile = profilesData.filter((prof) => prof.id == profileId);
     const { id, name, criminalhistory, warrants, vehicles, information, lastmodified, surname } = profile[0]
     document.querySelector('.profilename').innerHTML = name + ' ' + surname;
@@ -665,9 +666,10 @@ const selectProfile = (profileId) => {
         `
     warrants.length > 0 ? 
         warrants.map(( warr) => {
-            document.querySelector('.profilewarrants').innerHTML += `
-            
-            `
+            document.querySelector('.profilewarrants').innerHTML += warr.active ? `
+            <div class="fontsmall flexsmall active">Incident #${warr.incidentid} <span class="fontsmall suspectstyle">Active</span> </div>
+            ` : 
+            `<div class="fontsmall flexsmall">Incident #${warr.incidentid} <span class="fontsmall greybox">Closed ${warr.closed}</span> </div>`
         }) 
         :
         document.querySelector('.profilewarrants').innerHTML = `
