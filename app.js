@@ -333,7 +333,17 @@ let profilesData = [
         status: 'clean',
         imageUrl: 'images/character1.png',
         information: 'some information',
-        warrants: [],
+        warrants: [
+            {
+                active: true,
+                incidentid: 2346571261
+            },
+            {
+                active: false,
+                incidentid: 2346571261,
+                closed: "02/05/2022"
+            },
+        ],
         criminalhistory: [
             {
                 incidentid: 110,
@@ -348,7 +358,16 @@ let profilesData = [
                 incidentstatus: "eyewitness"
             },
         ],
-        vehicles: [],
+        vehicles: [
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
+        ],
         lastmodified: "12 minutes"
     },
     {
@@ -358,7 +377,17 @@ let profilesData = [
         status: 'wanted',
         imageUrl: 'images/character.svg',
         information: 'some information',
-        warrants: [],
+        warrants: [
+            {
+                active: true,
+                incidentid: 2346571261
+            },
+            {
+                active: false,
+                incidentid: 2346571261,
+                closed: "02/05/2022"
+            },
+        ],
         criminalhistory: [
             {
                 incidentid: 110,
@@ -373,7 +402,16 @@ let profilesData = [
                 incidentstatus: "eyewitness"
             },
         ],
-        vehicles: [],
+        vehicles: [
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
+        ],
         lastmodified: "12 minutes"
     },
     {
@@ -433,7 +471,17 @@ let profilesData = [
         status: 'clean',
         imageUrl: 'images/character1.png',
         information: 'some information',
-        warrants: [],
+        warrants: [
+            {
+                active: true,
+                incidentid: 2346571261
+            },
+            {
+                active: false,
+                incidentid: 2346571261,
+                closed: "02/05/2022"
+            },
+        ],
         criminalhistory: [
             {
                 incidentid: 110,
@@ -473,7 +521,16 @@ let profilesData = [
                 incidentstatus: "eyewitness"
             },
         ],
-        vehicles: [],
+        vehicles: [
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
+        ],
         lastmodified: "12 minutes"
     },
     {
@@ -574,13 +631,51 @@ const pushProfiles = (data) => {
 const selectProfile = (profileId) => {
     document.querySelector('.allprofilescontent').classList.add("hidden");
     document.querySelector('.profilecontent').classList.remove('hidden');
+    document.querySelector('.criminalhistory').innerHTML = "";
+    document.querySelector('.profilevehicles').innerHTML = "";
     let profile = profilesData.filter((prof) => prof.id == profileId);
     const { id, name, criminalhistory, warrants, vehicles, information, lastmodified, surname } = profile[0]
     document.querySelector('.profilename').innerHTML = name + ' ' + surname;
     document.querySelector('.profileinfo').innerHTML = information;
     document.querySelector('.profilefirstname').innerHTML = name;
     document.querySelector('.profilesurname').innerHTML = surname;
-    document.querySelector('.profilewarrants').innerHTML = warrants.length + " WARRANTS";
+    document.querySelector('.totalwarrants').innerHTML = warrants.length + " WARRANTS";
+    document.querySelector('.totalprofilevehicles').innerHTML = vehicles.length
+    document.querySelector('.totalprofilewarrants').innerHTML = warrants.length
+    document.querySelector('.totalprofilecrimehistory').innerHTML = criminalhistory.length
+    let activewarrant = warrants.filter((warr) => warr.active == true);
+    document.querySelector('.totalprofilewarrantsactive').innerHTML = activewarrant.length
+    criminalhistory.map((history) => {
+        document.querySelector('.criminalhistory').innerHTML += `
+            <div class="fontsmall flexsmall"> Incident #${history.incidentid} <span class="fontsmall ${history.incidentstatus+'style'}">${history.incidentstatus}</span> </div>
+        `
+    })
+    vehicles.length > 0 ?
+        vehicles.map((veh) => {
+            document.querySelector('.profilevehicles').innerHTML += `
+                <div class="fontsmall flexsmall"> ${veh.vehiclename} <span class="fontsmall greybox">${veh.vehicleid}</span> </div>
+            `
+        })
+        : 
+        document.querySelector('.profilevehicles').innerHTML = `
+            <section class="novehiclerecord">
+                <img src="images/noprofilevehiclebg.png" alt="no vehicle"/>
+                <p class="grey fontsmall center">This person haven’t any vehicles in his own</p>
+            </section>
+        `
+    warrants.length > 0 ? 
+        warrants.map(( warr) => {
+            document.querySelector('.profilewarrants').innerHTML += `
+            
+            `
+        }) 
+        :
+        document.querySelector('.profilewarrants').innerHTML = `
+        <section class="novehiclerecord">
+            <img src="images/noprofilewarrantsbg.png" alt="no vehicle"/>
+            <p class="grey fontsmall center">This person haven’t any active warrants</p>
+        </section>
+        `
     document.querySelector('.profile-last-modified').innerHTML = `
         <svg  xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
             <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />

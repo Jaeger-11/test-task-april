@@ -1,4 +1,5 @@
 :root{
+    --fontsmaller: clamp(11px, 0.6vw, 3rem);
     --fontsmall: clamp(12px, 0.8vw, 5rem);
     --fontmedium: clamp(14px, 1vw, 7rem);
     --fontlarge: clamp(17px, 1.2vw, 9rem);
@@ -180,6 +181,9 @@ body{
     display: flex;
     align-items: center;
     gap: var(--gap);
+}
+.fontsmaller{
+    font-size: var(--fontsmaller);
 }
 .fontsmall{
     font-size: var(--fontsmall);
@@ -599,6 +603,9 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     flex-direction: column;
     height: 100%;
 }
+.profilecontent{
+    padding-bottom: var(--padlarger);
+}
 .profiles-header, .profiles-header-filtering{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -704,6 +711,9 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .profilemain{
     flex: 1;
     margin-top: var(--gap);
+    gap: var(--gaplarge);
+    display: flex;
+    flex-direction: column;
 }
 .profilemain .firstsection{
     display: flex;
@@ -717,7 +727,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     gap: var(--gap);
     margin-right: calc(2 * var(--fontlarge));
 }
-.profilewarrants{
+.totalwarrants{
     padding: var(--padmedium);
     color: #65FF90;
     background: rgba(101, 255, 144, 0.07);
@@ -747,6 +757,65 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 }
 .profilemain .incidentbackbox{
     width: max-content;
+}
+.profilemain .secondsection{
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.3fr;
+    gap: var(--gaplarge);
+    height: 100%;
+}
+.profilemain .secondsection .main-info-header{
+    padding: var(--padmedium);
+}
+.profilemain .secondsection .main-info-header .suspectstyle{
+    background: rgba(241, 51, 51, 0.25);
+    border: 1px solid rgba(241, 51, 51, 0.15);
+    color: rgba(241, 51, 51, 0.9);
+}
+.profilemain .secondsection .main-info-header h4{
+    color: #FFFFFFE5;
+}
+.profilemain .secondsection .main-info-header p, .greybox{
+    padding: var(--padlittle) var(--padmedium);
+    background: rgba(255, 255, 255, 0.1);
+}
+.profilemain .subsub{
+    padding: var(--padmedium);
+    background: rgba(255, 255, 255, 0.02);
+    flex: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+.profilemain .subsub div{
+    padding: var(--padmedium);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 500;
+}
+.profilemain .subsub div span{
+    padding: var(--padlittle) var(--padmedium);
+}
+.novehiclerecord{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.novehiclerecord img{
+    z-index: -1;
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+}
+.novehiclerecord p{
+    width: 50%;
 }
 
 /* VEHICLES STYLING */
@@ -1205,7 +1274,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     gap: var(--gap);
     height: 100%;
 }
-.third-detail .main-info-header{
+.main-info-header{
     padding: var(--padlarge);
     background: rgba(255, 255, 255, 0.12);
     box-shadow: 0px 4px 27px rgba(0, 0, 0, 0.15);
