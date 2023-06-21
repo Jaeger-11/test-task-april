@@ -150,6 +150,12 @@ body{
 .grey{
     color: rgba(255, 255, 255, 0.46);
 }
+.smallbold{
+    font-weight: 500;
+}
+.mediumbold{
+    font-weight: 600;
+}
 .pointer{
     cursor: pointer;
 }
@@ -180,6 +186,9 @@ body{
 }
 .fontmedium{
     font-size: var(--fontmedium);
+}
+.capitalize{
+    text-transform: capitalize;
 }
 .container{
     width: 95vw;
@@ -692,6 +701,53 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .profiles-main{
     cursor: pointer;
 }
+.profilemain{
+    flex: 1;
+    margin-top: var(--gap);
+}
+.profilemain .firstsection{
+    display: flex;
+    gap: var(--gaplarge);
+    width: 100%;
+    align-items: center;
+}
+.profilenameswarrant{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    margin-right: calc(2 * var(--fontlarge));
+}
+.profilewarrants{
+    padding: var(--padmedium);
+    color: #65FF90;
+    background: rgba(101, 255, 144, 0.07);
+    border: 1px solid rgba(101, 255, 144, 0.25);
+    margin-top: var(--padlittle);
+    width: max-content;
+}
+.profilenames{
+    display: flex;
+    justify-content: space-between;
+    gap: var(--gaplarge);
+}
+.profilebuttons{
+    display: flex;
+    gap: var(--gap);
+    flex-direction: column;
+}
+.profilepic{
+    background-image: url(images/darkbg.svg);
+    background-size: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    aspect-ratio: 1/1;
+    width: 9%;
+    display: flex;
+    align-content: center;
+    padding: 2px;
+}
+.profilemain .incidentbackbox{
+    width: max-content;
+}
 
 /* VEHICLES STYLING */
 .vehicles-filter-all{
@@ -984,17 +1040,36 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 }
 .incidentbackbox{
     background: rgba(255, 255, 255, 0.07);
-border: 1px solid rgba(255, 255, 255, 0.05);
-padding: var(--padmedium);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: var(--padmedium);
 }
 .incidentbackbox:hover{
     background: rgba(255, 255, 255, 0.12);
 border: 1px solid rgba(255, 255, 255, 0.15);
 }
+.incidentbackbox:hover .incidentback{
+    color: #FFFFFF;
+}
+.redbox{
+    background: rgba(241, 51, 51, 0.14);
+    border: 1px solid rgba(241, 51, 51, 0.15);
+}
+.redbox .incidentback{
+    color: rgba(241, 51, 51, 0.65);
+    border-left: 1px  rgba(241, 51, 51, 0.25) solid;
+}
+.redbox:hover{
+    background-color: rgba(241, 51, 51, 0.2);
+    border: 1px solid rgba(241, 51, 51, 0.25);
+}
+.redbox:hover .incidentback{
+    color: #F13333;
+}
 .incidentback{
-    padding: 0 1rem;
-    border-left: 2px rgba(255, 255, 255, 0.25) solid;
+    padding: 0 0.5rem;
+    border-left: 1px rgba(255, 255, 255, 0.25) solid;
     font-size: var(--fontmedium);
+    color: #FFFFFFA6;
 }
 .incidentdetailscont{
     display: grid;
@@ -1264,7 +1339,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 .elementhidden{
     opacity: 0 !important;
 }
-.last-modified{
+.last-modified, .profile-last-modified{
     position: absolute;
     bottom: 0;
     right: 0;

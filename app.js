@@ -327,7 +327,8 @@ const profilefilters = [allprofiles, wantedprofiles, cleanprofiles];
 // PROFILES DATA
 let profilesData = [
     {
-        name: "joHn oils",
+        name: "joHn",
+        surname: "oils",
         id: 155,
         status: 'clean',
         imageUrl: 'images/character1.png',
@@ -348,9 +349,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "james bond",
+        name: "james",
+        surname: "bonds",
         id: 156,
         status: 'wanted',
         imageUrl: 'images/character.svg',
@@ -371,9 +374,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "oliver twist",
+        name: "oliver",
+        surname: "twist",
         id: 157,
         status: 'clean',
         imageUrl: 'images/character2.png',
@@ -394,9 +399,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "idris albak",
+        name: "idris",
+        surname: "albak",
         id: 158,
         status: 'clean',
         imageUrl: '',
@@ -417,9 +424,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "stoney christon",
+        name: "stoney",
+        surname: "christon",
         id: 159,
         status: 'clean',
         imageUrl: 'images/character1.png',
@@ -440,9 +449,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "daniel greals",
+        name: "daniel",
+        surname: "greals",
         id: 160,
         status: 'wanted',
         imageUrl: '',
@@ -463,9 +474,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "josh kennedy",
+        name: "josh",
+        surname: "kennedy",
         id: 161,
         status: 'clean',
         imageUrl: 'images/character2.png',
@@ -486,9 +499,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "jerry sheamus",
+        name: "jerry",
+        surname: "sheamus",
         id: 162,
         status: 'clean',
         imageUrl: 'images/character.svg',
@@ -509,9 +524,11 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
     {
-        name: "apollo creed",
+        name: "apollo",
+        surname: "creed",
         id: 163,
         status: 'clean',
         imageUrl: 'images/character1.png',
@@ -532,18 +549,19 @@ let profilesData = [
             },
         ],
         vehicles: [],
+        lastmodified: "12 minutes"
     },
 ]
 // FETCH AND RENDERS DATA TO SCREEN
 const pushProfiles = (data) => {
     profilesContainer.innerHTML = ''
     data.map((obj) => {
-        const { name, id, status, imageUrl, information } = obj;
+        const { name, id, status, imageUrl, information, surname } = obj;
         profilesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}" onclick="selectProfile(${id})">
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image" class=""></div>
             <div class="info-section">
-                <p class='suspectname'>${name}</p>
+                <p class='suspectname'>${name} ${surname}</p>
                 <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
                 <button class="${status === 'clean' ? 'green' : 'red'} funcBtns">${status}</button>
             </div>
@@ -557,7 +575,18 @@ const selectProfile = (profileId) => {
     document.querySelector('.allprofilescontent').classList.add("hidden");
     document.querySelector('.profilecontent').classList.remove('hidden');
     let profile = profilesData.filter((prof) => prof.id == profileId);
-    const { id, name, criminalhistory, warrants, vehicles } = profile
+    const { id, name, criminalhistory, warrants, vehicles, information, lastmodified, surname } = profile[0]
+    document.querySelector('.profilename').innerHTML = name + ' ' + surname;
+    document.querySelector('.profileinfo').innerHTML = information;
+    document.querySelector('.profilefirstname').innerHTML = name;
+    document.querySelector('.profilesurname').innerHTML = surname;
+    document.querySelector('.profilewarrants').innerHTML = warrants.length + " WARRANTS";
+    document.querySelector('.profile-last-modified').innerHTML = `
+        <svg  xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />
+        </svg>
+        ${lastmodified} ago
+    `
 }
 
 const viewAllProfiles = () => {
