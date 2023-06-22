@@ -343,6 +343,24 @@ let profilesData = [
                 incidentid: 23465711,
                 closed: "02/05/2022"
             },
+            {
+                active: true,
+                incidentid: 46571261
+            },
+            {
+                active: false,
+                incidentid: 23465711,
+                closed: "02/05/2022"
+            },
+            {
+                active: true,
+                incidentid: 46571261
+            },
+            {
+                active: false,
+                incidentid: 23465711,
+                closed: "02/05/2022"
+            },
         ],
         criminalhistory: [
             {
@@ -367,8 +385,16 @@ let profilesData = [
                 vehiclename: "BMW X5 2018",
                 vehicleid: "jsd56uidf"
             },
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
+            {
+                vehiclename: "BMW X5 2018",
+                vehicleid: "jsd56uidf"
+            },
         ],
-        lastmodified: "12 minutes"
+        lastmodified: "2 minutes"
     },
     {
         name: "james",
