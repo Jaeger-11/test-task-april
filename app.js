@@ -474,18 +474,7 @@ let profilesData = [
         information: 'some information',
         warrants: [],
         criminalhistory: [
-            {
-                incidentid: 110,
-                incidentstatus: "suspect"
-            },
-            {
-                incidentid: 142,
-                incidentstatus: "victim"
-            },
-            {
-                incidentid: 124,
-                incidentstatus: "eyewitness"
-            },
+            
         ],
         vehicles: [],
         lastmodified: "12 minutes"
@@ -667,23 +656,36 @@ const selectProfile = (profileId) => {
     document.querySelector('.profilefirstname').innerHTML = name;
     document.querySelector('.profilesurname').innerHTML = surname;
     document.querySelector('.totalwarrants').innerHTML = warrants.length + " WARRANTS";
-    document.querySelector('.totalprofilevehicles').innerHTML = vehicles.length
-    document.querySelector('.totalprofilewarrants').innerHTML = warrants.length
-    document.querySelector('.totalprofilecrimehistory').innerHTML = criminalhistory.length
+    document.querySelector('.totalprofilevehicles').innerHTML = vehicles.length ? vehicles.length + ' records' : 'No data'
+    document.querySelector('.totalprofilewarrants').innerHTML = warrants.length ? warrants.length + ' records' : 'No data'
+    document.querySelector('.totalprofilecrimehistory').innerHTML = criminalhistory.length ? criminalhistory.length + ' records' : 'No data'
     let activewarrant = warrants.filter((warr) => warr.active == true);
-    document.querySelector('.totalprofilewarrantsactive').innerHTML = activewarrant.length
+    document.querySelector('.totalprofilewarrantsactive').innerHTML = activewarrant.length + ' records'
+    warrants.length ? 
+    document.querySelector('.totalprofilewarrantsactive').classList.remove('hide') 
+    : document.querySelector('.totalprofilewarrantsactive').classList.add('hide')
+    criminalhistory.length > 0 ?
     criminalhistory.map((history) => {
         document.querySelector('.criminalhistory').innerHTML += `
             <div class="fontsmall flexsmall"> Incident #${history.incidentid} <span class="fontsmall ${history.incidentstatus+'style'}">${history.incidentstatus}</span> </div>
         `
     })
+    :
+        document.querySelector('.criminalhistory').innerHTML += `
+        <section class="novehiclerecord">
+            <img src="images/nocriminalhistorybg.png" alt="no vehicle"/>
+            <p class="grey fontsmall center">This person haven’t
+            any criminal records</p>
+        </section>
+        `
+    
     vehicles.length > 0 ?
         vehicles.map((veh) => {
             document.querySelector('.profilevehicles').innerHTML += `
                 <div class="fontsmall flexsmall"> ${veh.vehiclename} <span class="fontsmall greybox">${veh.vehicleid}</span> </div>
             `
         })
-        : 
+        :
         document.querySelector('.profilevehicles').innerHTML = `
             <section class="novehiclerecord">
                 <img src="images/noprofilevehiclebg.png" alt="no vehicle"/>
