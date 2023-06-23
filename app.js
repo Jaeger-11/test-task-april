@@ -927,8 +927,8 @@ let vehiclesData = [
             info: "some information",
             imageUrl: "images/character1.png"
         },
-        color: "",
-        purchasedate: "",
+        color: "Purple",
+        purchasedate: "24/05/07",
         mileage: "14,874 m"
     },
     {
@@ -946,8 +946,8 @@ let vehiclesData = [
             info: "some information",
             imageUrl: ""
         },
-        color: "",
-        purchasedate: "",
+        color: "Red",
+        purchasedate: "12/04/12",
         mileage: "14,874 m"
     },
 ]
@@ -973,7 +973,7 @@ const viewVehicle = (vehicleId) => {
     document.querySelector('.allvehiclescontent').classList.add("hidden");
     document.querySelector('.vehiclecontent').classList.remove('hidden');
     let vehicle = vehiclesData.filter((veh) => veh.id == vehicleId);
-    const { id, name, criminalhistory, warrants, information, lastmodified, imageUrl, owner} = vehicle[0]
+    const { id, name, criminalhistory, warrants, information, lastmodified, imageUrl, owner, purchasedate, color, mileage} = vehicle[0]
     document.querySelector('.vehiclename').innerHTML = name;
     document.querySelector('.vehname').innerHTML = name;
     document.querySelector('.vehicleinfo').innerHTML = information;
@@ -994,12 +994,15 @@ const viewVehicle = (vehicleId) => {
         </div>
         <div class="info-section">
             <p class='suspectname fontmedium'>${owner.name} <span class="fontsmaller grey">ID: ${owner.id}</span></p> 
-            <div class="information bold"> ${owner.info} <p class="dot"></p> ${owner.info} </div>
+            <div class="information bold pt"> ${owner.info} <p class="dot"></p> ${owner.info} </div>
             <section class="status-div">
                 <button class=" funcBtns">OWNER</button>
             </section>
         </div>
     </div>
+    <div class="fontmedium vehicleaddinfo"> <span class=" grey">Purchase date</span> <span class="vl"></span> <span>${purchasedate}</span></div>
+    <div class="fontmedium vehicleaddinfo"> <span class=" grey">Mileage</span> <span class="vl"></span> <span>${mileage}</span></div>
+    <div class="fontmedium vehicleaddinfo"> <span class=" grey">Color</span> <span class="vl"></span> <span class="capitalize">${color}</span></div>
     `
     criminalhistory.length > 0 ?
     criminalhistory.map((history) => {
