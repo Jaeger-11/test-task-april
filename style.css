@@ -857,6 +857,12 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     background: rgba(241, 51, 51, 0.25);
     border: 1px solid rgba(241, 51, 51, 0.35);
 }
+.vehiclecontent .profilemain .secondsection{
+    grid-template-columns: 1fr 1fr 1.4fr;
+}
+.vehiclecontent .profilemain .secondsection .warrant{
+    padding: var(--padmedium);
+}
 
 /* INCIDENTS STYLING */
 .incidentscont, .reportscont{

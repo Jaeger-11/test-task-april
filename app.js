@@ -663,8 +663,8 @@ const selectProfile = (profileId) => {
     let activewarrant = warrants.filter((warr) => warr.active == true);
     document.querySelector('.totalprofilewarrantsactive').innerHTML = activewarrant.length + ' records'
     warrants.length ? 
-    document.querySelector('.totalprofilewarrantsactive').classList.remove('hide') 
-    : document.querySelector('.totalprofilewarrantsactive').classList.add('hide')
+    document.querySelector('.totalprofilewarrantsactive').classList.remove('hidden') 
+    : document.querySelector('.totalprofilewarrantsactive').classList.add('hidden')
     criminalhistory.length > 0 ?
     criminalhistory.map((history) => {
         document.querySelector('.criminalhistory').innerHTML += `
@@ -791,7 +791,8 @@ let vehiclesData = [
         owner: {
             name: "apollo creed",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: "images/character1.png"
         },
         color: "blue",
         purchasedate: "12/04/19",
@@ -807,9 +808,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "john oils",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: "images/character1.png"
         },
         color: "",
         purchasedate: "",
@@ -825,9 +827,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "killerman joe",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: "images/character2.png"
         },
         color: "",
         purchasedate: "",
@@ -843,9 +846,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "asper ovie",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: ""
         },
         color: "",
         purchasedate: "",
@@ -861,9 +865,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "ten hagg",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: "images/character2.png"
         },
         color: "",
         purchasedate: "",
@@ -879,9 +884,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "idris elba",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: ""
         },
         color: "",
         purchasedate: "",
@@ -897,9 +903,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "terry adams",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: "images/character1.png"
         },
         color: "",
         purchasedate: "",
@@ -915,9 +922,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "yvonne eghosa",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: "images/character1.png"
         },
         color: "",
         purchasedate: "",
@@ -933,9 +941,10 @@ let vehiclesData = [
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
-            name: "",
+            name: "trinity bond",
             id: 155,
-            info: "some information"
+            info: "some information",
+            imageUrl: ""
         },
         color: "",
         purchasedate: "",
@@ -964,7 +973,7 @@ const viewVehicle = (vehicleId) => {
     document.querySelector('.allvehiclescontent').classList.add("hidden");
     document.querySelector('.vehiclecontent').classList.remove('hidden');
     let vehicle = vehiclesData.filter((veh) => veh.id == vehicleId);
-    const { id, name, criminalhistory, warrants, information, lastmodified, imageUrl} = vehicle[0]
+    const { id, name, criminalhistory, warrants, information, lastmodified, imageUrl, owner} = vehicle[0]
     document.querySelector('.vehiclename').innerHTML = name;
     document.querySelector('.vehname').innerHTML = name;
     document.querySelector('.vehicleinfo').innerHTML = information;
@@ -974,10 +983,24 @@ const viewVehicle = (vehicleId) => {
     let activewarrant = warrants.filter((warr) => warr.active == true);
     document.querySelector('.totalvehiclewarrantsactive').innerHTML = activewarrant.length + ' records'
     warrants.length ? 
-    document.querySelector('.totalvehiclewarrantsactive').classList.remove('hide') 
-    : document.querySelector('.totalvehiclewarrantsactive').classList.add('hide')
+    document.querySelector('.totalvehiclewarrantsactive').classList.remove('hidden') 
+    : document.querySelector('.totalvehiclewarrantsactive').classList.add('hidden')
     document.getElementById('vehicleimageurl').src = imageUrl ? imageUrl : "images/nophotoblack.png";
     document.querySelector('.vehicle-last-modified').innerHTML = lastmodified + " ago";
+    document.querySelector('.vehicleowner').innerHTML = `
+    <div class="warrant">
+        <div class='imagecont'>
+            <img src="${owner.imageUrl ? owner.imageUrl : 'images/nophotoblack.png'}" alt="profile-image" class="warrant-image">
+        </div>
+        <div class="info-section">
+            <p class='suspectname fontmedium'>${owner.name} <span class="fontsmaller grey">ID: ${owner.id}</span></p> 
+            <div class="information bold"> ${owner.info} <p class="dot"></p> ${owner.info} </div>
+            <section class="status-div">
+                <button class=" funcBtns">OWNER</button>
+            </section>
+        </div>
+    </div>
+    `
     criminalhistory.length > 0 ?
     criminalhistory.map((history) => {
         document.querySelector('.vehiclecriminalhistory').innerHTML += `
