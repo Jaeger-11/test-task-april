@@ -1064,6 +1064,7 @@ pushVehicles(vehiclesData);
 const viewVehicle = (vehicleId) => {
     document.querySelector('.allvehiclescontent').classList.add("hidden");
     document.querySelector('.vehiclecontent').classList.remove('hidden');
+    document.querySelector('.vehiclecriminalhistory').innerHTML = ""
     let vehicle = vehiclesData.filter((veh) => veh.id == vehicleId);
     const { id, name, criminalhistory, warrants, information, lastmodified, imageUrl, owner, purchasedate, color, mileage} = vehicle[0]
     document.querySelector('.vehiclename').innerHTML = name;
