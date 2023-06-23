@@ -785,8 +785,31 @@ let vehiclesData = [
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
         information: 'some information',
-        criminalhistory: [],
-        warrants: [],
+        criminalhistory: [
+            {
+                incidentid: 110,
+                incidentstatus: "suspect"
+            },
+            {
+                incidentid: 142,
+                incidentstatus: "victim"
+            },
+            {
+                incidentid: 124,
+                incidentstatus: "eyewitness"
+            },
+        ],
+        warrants: [
+            {
+                active: true,
+                incidentid: 23571261
+            },
+            {
+                active: false,
+                incidentid: 23465261,
+                closed: "02/05/2022"
+            },
+        ],
         lastmodified: "12 minutes",
         owner: {
             name: "apollo creed",
@@ -805,7 +828,17 @@ let vehiclesData = [
         imageUrl: 'images/vehicleimage.png',
         information: 'some information',
         criminalhistory: [],
-        warrants: [],
+        warrants: [
+            {
+                active: true,
+                incidentid: 23571261
+            },
+            {
+                active: false,
+                incidentid: 23465261,
+                closed: "02/05/2022"
+            },
+        ],
         lastmodified: "12 minutes",
         owner: {
             name: "john oils",
@@ -823,7 +856,20 @@ let vehiclesData = [
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
         information: 'some information',
-        criminalhistory: [],
+        criminalhistory: [
+            {
+                incidentid: 110,
+                incidentstatus: "suspect"
+            },
+            {
+                incidentid: 142,
+                incidentstatus: "victim"
+            },
+            {
+                incidentid: 124,
+                incidentstatus: "eyewitness"
+            },
+        ],
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
@@ -843,7 +889,17 @@ let vehiclesData = [
         imageUrl: '',
         information: 'some information',
         criminalhistory: [],
-        warrants: [],
+        warrants: [
+            {
+                active: true,
+                incidentid: 23571261
+            },
+            {
+                active: false,
+                incidentid: 23465261,
+                closed: "02/05/2022"
+            },
+        ],
         lastmodified: "12 minutes",
         owner: {
             name: "asper ovie",
@@ -861,7 +917,20 @@ let vehiclesData = [
         status: 'clean',
         imageUrl: '',
         information: 'some information',
-        criminalhistory: [],
+        criminalhistory: [
+            {
+                incidentid: 110,
+                incidentstatus: "suspect"
+            },
+            {
+                incidentid: 142,
+                incidentstatus: "victim"
+            },
+            {
+                incidentid: 124,
+                incidentstatus: "eyewitness"
+            },
+        ],
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
@@ -880,7 +949,20 @@ let vehiclesData = [
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
         information: 'some information',
-        criminalhistory: [],
+        criminalhistory: [
+            {
+                incidentid: 110,
+                incidentstatus: "suspect"
+            },
+            {
+                incidentid: 142,
+                incidentstatus: "victim"
+            },
+            {
+                incidentid: 124,
+                incidentstatus: "eyewitness"
+            },
+        ],
         warrants: [],
         lastmodified: "12 minutes",
         owner: {
@@ -919,7 +1001,17 @@ let vehiclesData = [
         imageUrl: 'images/vehicleimage.png',
         information: 'some information',
         criminalhistory: [],
-        warrants: [],
+        warrants: [
+            {
+                active: true,
+                incidentid: 23571261
+            },
+            {
+                active: false,
+                incidentid: 23465261,
+                closed: "02/05/2022"
+            },
+        ],
         lastmodified: "12 minutes",
         owner: {
             name: "yvonne eghosa",
