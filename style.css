@@ -727,7 +727,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     gap: var(--gap);
     margin-right: calc(2 * var(--fontlarge));
 }
-.totalwarrants{
+.totalwarrants, .totalfirstwarrants{
     padding: var(--padmedium);
     color: #65FF90;
     background: rgba(101, 255, 144, 0.07);
@@ -1416,7 +1416,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 .elementhidden{
     opacity: 0 !important;
 }
-.last-modified, .profile-last-modified{
+.last-modified, .profile-last-modified, .vehicle-last-modified{
     position: absolute;
     bottom: 0;
     right: 0;

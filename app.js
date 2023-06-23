@@ -650,11 +650,12 @@ const selectProfile = (profileId) => {
     document.querySelector('.profilevehicles').innerHTML = "";
     document.querySelector('.profilewarrants').innerHTML = "";
     let profile = profilesData.filter((prof) => prof.id == profileId);
-    const { id, name, criminalhistory, warrants, vehicles, information, lastmodified, surname } = profile[0]
+    const { id, name, criminalhistory, warrants, vehicles, information, lastmodified, surname, imageUrl } = profile[0]
     document.querySelector('.profilename').innerHTML = name + ' ' + surname;
     document.querySelector('.profileinfo').innerHTML = information;
     document.querySelector('.profilefirstname').innerHTML = name;
     document.querySelector('.profilesurname').innerHTML = surname;
+    document.getElementById('profileimageurl').src = imageUrl ? imageUrl : "images/nophotoblack.png"
     document.querySelector('.totalwarrants').innerHTML = warrants.length + " WARRANTS";
     document.querySelector('.totalprofilevehicles').innerHTML = vehicles.length ? vehicles.length + ' records' : 'No data'
     document.querySelector('.totalprofilewarrants').innerHTML = warrants.length ? warrants.length + ' records' : 'No data'
@@ -963,9 +964,13 @@ const viewVehicle = (vehicleId) => {
     document.querySelector('.allvehiclescontent').classList.add("hidden");
     document.querySelector('.vehiclecontent').classList.remove('hidden');
     let vehicle = vehiclesData.filter((veh) => veh.id == vehicleId);
-    const { id, name, criminalhistory, warrants, information, lastmodified, } = vehicle[0]
+    const { id, name, criminalhistory, warrants, information, lastmodified, imageUrl} = vehicle[0]
     document.querySelector('.vehiclename').innerHTML = name;
+    document.querySelector('.vehname').innerHTML = name;
     document.querySelector('.vehicleinfo').innerHTML = information;
+    document.querySelector('.totalfirstwarrants').innerHTML = warrants.length + " WARRANTS";
+    document.getElementById('vehicleimageurl').src = imageUrl ? imageUrl : "images/nophotoblack.png";
+    document.querySelector('.vehicle-last-modified').innerHTML = lastmodified + " ago";
 }
 const viewAllVehicles = () => {
     document.querySelector('.allvehiclescontent').classList.remove("hidden");
