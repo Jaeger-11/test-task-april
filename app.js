@@ -783,63 +783,162 @@ let vehiclesData = [
         id: '155',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "apollo creed",
+            id: 155,
+            info: "some information"
+        },
+        color: "blue",
+        purchasedate: "12/04/19",
+        mileage: "14,874 m"
     },
     {
         name: "bugatti",
         id: '156',
         status: 'wanted',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
     {
         name: "tesla",
         id: '157',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
     {
         name: "sedan",
         id: '158',
         status: 'wanted',
         imageUrl: '',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
     {
         name: "mercedes",
         id: '159',
         status: 'clean',
         imageUrl: '',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
     {
         name: "mitsubishi",
         id: '160',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
     {
         name: "chevrolet camaro",
         id: '161',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
     {
         name: "volkswagen",
         id: '162',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
     {
         name: "cadillac",
         id: '163',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information'
+        information: 'some information',
+        criminalhistory: [],
+        warrants: [],
+        lastmodified: "12 minutes",
+        owner: {
+            name: "",
+            id: 155,
+            info: "some information"
+        },
+        color: "",
+        purchasedate: "",
+        mileage: "14,874 m"
     },
 ]
 // FETCH / RENDERS VEHICLES DATA TO SCREEN
@@ -848,7 +947,7 @@ const pushVehicles = (data) => {
     data.map((obj) => {
         const { name, id, status, imageUrl, information } = obj;
         vehiclesContainer.innerHTML += `
-        <section class="${status === 'clean' ? 'warrant' : 'order'}">
+        <section class="${status === 'clean' ? 'warrant' : 'order'}" onclick="viewVehicle(${id})">
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
@@ -860,6 +959,18 @@ const pushVehicles = (data) => {
     })
 }
 pushVehicles(vehiclesData);
+const viewVehicle = (vehicleId) => {
+    document.querySelector('.allvehiclescontent').classList.add("hidden");
+    document.querySelector('.vehiclecontent').classList.remove('hidden');
+    let vehicle = vehiclesData.filter((veh) => veh.id == vehicleId);
+    const { id, name, criminalhistory, warrants, information, lastmodified, } = vehicle[0]
+    document.querySelector('.vehiclename').innerHTML = name;
+    document.querySelector('.vehicleinfo').innerHTML = information;
+}
+const viewAllVehicles = () => {
+    document.querySelector('.allvehiclescontent').classList.remove("hidden");
+    document.querySelector('.vehiclecontent').classList.add('hidden');
+}
 
 let currentvehiclefilter = 'all';
 // SEARCH THROUGH VEHICLES
@@ -1183,6 +1294,8 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        officers: {},
+        citizens: {}
     },
     {
         id: '160',
@@ -1190,6 +1303,61 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        suspect: {
+            name: "john oils",
+            imageUrl: "images/character1.png",
+            description: "Lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id."
+        },
+        maininformation: {
+            title: "Suspect Is An Ex-convict",
+            information: "Apparently has been charged with murder, terrorism and grevious financial crimes"
+        },
+        victim: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        eyewitness: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        evidences: [
+           
+        ],
+        vehicles: [
+            {
+                id: 1,
+                vehiclename: "Audi R8",
+                vehicleid: "PC236127FFI"
+            },
+            {
+                id: 2,
+                vehiclename: "Audi R8",
+                vehicleid: "PC23612678I"
+            },
+        ],
+        officers: {
+            leadingOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "567",
+                    incidentcreator: true
+                },
+            ],
+            otherOfficers: [
+                
+            ]
+        },
+        citizens: [
+            {
+                id: 1,
+                citizenname: "John Doe",
+                citizenid: 156,
+                status: "victim"
+            },
+        ]
     },
     {
         id: '161',
@@ -1392,6 +1560,10 @@ const viewIncident = (incidentId) => {
         </svg>
         ${time} ago
     `
+    document.querySelector('.evidences-records').textContent = evidences.length;
+    document.querySelector('.vehicles-records').textContent = vehicles.length;
+    document.querySelector('.officers-records').textContent = officers.leadingOfficers.length + officers.otherOfficers.length;
+    document.querySelector('.citizens-records').textContent = citizens.length;
 
     secondDetail.map((detail) => {
         detail.addEventListener('click', () => {
@@ -1623,11 +1795,6 @@ const viewIncident = (incidentId) => {
             </section>
         </div>
     `
-
-    document.querySelector('.evidences-records').textContent = evidences.length;
-    document.querySelector('.vehicles-records').textContent = vehicles.length;
-    document.querySelector('.officers-records').textContent = officers.leadingOfficers.length + officers.otherOfficers.length;
-    document.querySelector('.citizens-records').textContent = citizens.length;
 
     document.querySelector('.main-info-title').textContent = maininformation.title;
     document.querySelector('.main-info-text').textContent = maininformation.information;

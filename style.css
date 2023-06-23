@@ -597,13 +597,13 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     height: 100%;
     padding: var(--padlarger) var(--padlarger) 0 var(--padlarger);
 }
-.allprofilescontent, .profilecontent, .vehiclescontent{
+.allprofilescontent, .profilecontent, .vehiclescontent, .allvehiclescontent, .vehiclecontent{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     height: 100%;
 }
-.profilecontent{
+.profilecontent, .vehiclecontent{
     padding-bottom: var(--padlarger);
 }
 .profiles-header, .profiles-header-filtering{
