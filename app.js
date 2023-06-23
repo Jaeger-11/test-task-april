@@ -672,7 +672,7 @@ const selectProfile = (profileId) => {
         `
     })
     :
-        document.querySelector('.criminalhistory').innerHTML += `
+        document.querySelector('.criminalhistory').innerHTML = `
         <section class="novehiclerecord">
             <img src="images/nocriminalhistorybg.png" alt="no vehicle"/>
             <p class="grey fontsmall center">This person haven’t
@@ -969,8 +969,43 @@ const viewVehicle = (vehicleId) => {
     document.querySelector('.vehname').innerHTML = name;
     document.querySelector('.vehicleinfo').innerHTML = information;
     document.querySelector('.totalfirstwarrants').innerHTML = warrants.length + " WARRANTS";
+    document.querySelector('.totalvehiclecriminalhistory').innerHTML = criminalhistory.length ? criminalhistory.length + " records" : "No data"
+    document.querySelector('.totalvehiclewarrants').innerHTML = warrants.length ? warrants.length + " records" : "No data"
+    let activewarrant = warrants.filter((warr) => warr.active == true);
+    document.querySelector('.totalvehiclewarrantsactive').innerHTML = activewarrant.length + ' records'
+    warrants.length ? 
+    document.querySelector('.totalvehiclewarrantsactive').classList.remove('hide') 
+    : document.querySelector('.totalvehiclewarrantsactive').classList.add('hide')
     document.getElementById('vehicleimageurl').src = imageUrl ? imageUrl : "images/nophotoblack.png";
     document.querySelector('.vehicle-last-modified').innerHTML = lastmodified + " ago";
+    criminalhistory.length > 0 ?
+    criminalhistory.map((history) => {
+        document.querySelector('.vehiclecriminalhistory').innerHTML += `
+            <div class="fontsmall flexsmall"> Incident #${history.incidentid} <span class="fontsmall ${history.incidentstatus+'style'}">${history.incidentstatus}</span> </div>
+        `
+    })
+    :
+        document.querySelector('.vehiclecriminalhistory').innerHTML = `
+        <section class="novehiclerecord">
+            <img src="images/nocriminalhistorybg.png" alt="no vehicle"/>
+            <p class="grey fontsmall center">This vehicle haven’t been in
+            any criminal records</p>
+        </section>
+        `
+    warrants.length > 0 ? 
+    warrants.map(( warr) => {
+        document.querySelector('.vehiclewarrants').innerHTML += warr.active ? `
+        <div class="fontsmall flexsmall active">Incident #${warr.incidentid} <span class="fontsmall suspectstyle">Active</span> </div>
+        ` : 
+        `<div class="fontsmall flexsmall">Incident #${warr.incidentid} <span class="fontsmall greybox">Closed ${warr.closed}</span> </div>`
+    }) 
+    :
+    document.querySelector('.vehiclewarrants').innerHTML = `
+    <section class="novehiclerecord">
+        <img src="images/noprofilewarrantsbg.png" alt="no vehicle"/>
+        <p class="grey fontsmall center">This vehicle haven’t any active warrants</p>
+    </section>
+    `
 }
 const viewAllVehicles = () => {
     document.querySelector('.allvehiclescontent').classList.remove("hidden");
