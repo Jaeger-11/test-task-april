@@ -585,7 +585,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     .main-container{
         height: 70vh;
     }
-    .warrants, .orders, .newincident-main, .incidents-main-container, .reports-main, .vehicles-main-container, .profiles-main-container{
+    .warrants, .orders, .incidents-main-container, .reports-main, .vehicles-main-container, .profiles-main-container{
         height: calc(60vh - var(--gap)) !important;
     }
 }
@@ -904,6 +904,27 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
+.newincidentscreen{
+    flex: 2;
+    gap: calc(2 * var(--gaplarge));
+    padding-bottom: var(--padlarge);
+}
+.flexnewincident{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    flex: 1;
+}
+.newincident-main-container, .addcriminalscreen{
+    background: hsla(0, 0%, 100%, 0.02);
+    padding: var(--padmedium);
+    border: 1px solid hsla(0, 0%, 100%, 0.02);
+}
+.addcriminalscreen{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.5 * var(--gap));
+}
 .subsection .header{
     margin-top: 0;
 }
@@ -934,6 +955,13 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .paddedicon img{
     width: var(--fontsmall);
     height: var(--fontsmall);
+}
+.savenewincident{
+    height: calc(3 * var(--padmedium));
+    background: #FFFFFF0D;
+    cursor: pointer;
+    padding: 0 var(--padmedium);
+    margin-right: var(--gap);
 }
 .flexicons{
     display: flex;
@@ -980,7 +1008,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     font-size: var(--fontmedium);
     text-transform: capitalize;
 }
-.newincident-main, .incidents-main-container, .reports-main{
+ .incidents-main-container, .reports-main{
     display: flex;
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
@@ -988,6 +1016,11 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     height: 67vh; 
     overflow-y: scroll;
     overflow-x: hidden;
+}
+.newincident-main{
+    display: flex;
+    flex-direction: column;
+    gap: calc(0.5 * var(--gap));
 }
 .incidents-main{
     gap: calc(0.5 * var(--gap));

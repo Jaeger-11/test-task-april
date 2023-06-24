@@ -650,12 +650,12 @@ const selectProfile = (profileId) => {
     document.querySelector('.profilevehicles').innerHTML = "";
     document.querySelector('.profilewarrants').innerHTML = "";
     let profile = profilesData.filter((prof) => prof.id == profileId);
-    const { id, name, criminalhistory, warrants, vehicles, information, lastmodified, surname, imageUrl } = profile[0]
+    const { id, name, criminalhistory, warrants, vehicles, information, lastmodified, surname, imageUrl, status } = profile[0]
     document.querySelector('.profilename').innerHTML = name + ' ' + surname;
     document.querySelector('.profileinfo').innerHTML = information;
     document.querySelector('.profilefirstname').innerHTML = name;
     document.querySelector('.profilesurname').innerHTML = surname;
-    document.getElementById('profileimageurl').src = imageUrl ? imageUrl : "images/nophotoblack.png"
+    document.getElementById('profileimageurl').src = imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'
     document.querySelector('.totalwarrants').innerHTML = warrants.length + " WARRANTS";
     document.querySelector('.totalprofilevehicles').innerHTML = vehicles.length ? vehicles.length + ' records' : 'No data'
     document.querySelector('.totalprofilewarrants').innerHTML = warrants.length ? warrants.length + ' records' : 'No data'
@@ -1050,7 +1050,7 @@ const pushVehicles = (data) => {
         const { name, id, status, imageUrl, information } = obj;
         vehiclesContainer.innerHTML += `
         <section class="${status === 'clean' ? 'warrant' : 'order'}" onclick="viewVehicle(${id})">
-            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image" class=""></div>
+            <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image"></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
                 <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
@@ -1066,7 +1066,7 @@ const viewVehicle = (vehicleId) => {
     document.querySelector('.vehiclecontent').classList.remove('hidden');
     document.querySelector('.vehiclecriminalhistory').innerHTML = ""
     let vehicle = vehiclesData.filter((veh) => veh.id == vehicleId);
-    const { id, name, criminalhistory, warrants, information, lastmodified, imageUrl, owner, purchasedate, color, mileage} = vehicle[0]
+    const { id, status, name, criminalhistory, warrants, information, lastmodified, imageUrl, owner, purchasedate, color, mileage} = vehicle[0]
     document.querySelector('.vehiclename').innerHTML = name;
     document.querySelector('.vehname').innerHTML = name;
     document.querySelector('.vehicleinfo').innerHTML = information;
@@ -1078,7 +1078,7 @@ const viewVehicle = (vehicleId) => {
     warrants.length ? 
     document.querySelector('.totalvehiclewarrantsactive').classList.remove('hidden') 
     : document.querySelector('.totalvehiclewarrantsactive').classList.add('hidden')
-    document.getElementById('vehicleimageurl').src = imageUrl ? imageUrl : "images/nophotoblack.png";
+    document.getElementById('vehicleimageurl').src = imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'
     document.querySelector('.vehicle-last-modified').innerHTML = lastmodified + " ago";
     document.querySelector('.vehicleowner').innerHTML = `
     <div class="warrant">
