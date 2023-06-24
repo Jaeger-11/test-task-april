@@ -1693,6 +1693,14 @@ const vehicleButtonAdd = () => {
     document.querySelector('#vehiclemodal').classList.add('hide')
 }
 
+// ADD OFFICER TO INCIDENT
+const addOfficer = () => {
+    document.querySelector('#officermodal').classList.remove('hide')
+}
+const cancelOfficer = () => {
+    document.querySelector('#officermodal').classList.add('hide')
+}
+
 // VIEW SINGLE INCIDENT SWITCH
 const incidentEvidences = document.querySelector('.evidences');
 const incidentVehicles = document.querySelector('.vehicles');
