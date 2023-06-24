@@ -946,17 +946,17 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     align-items: center;
     justify-content: center;
 }
-.paddedicon:hover{
+.paddedicon:hover, .savenewincident:hover, .savenewreport:hover{
     background: rgba(255, 255, 255, 0.15);
 }
-.paddedicon:active{
+.paddedicon:active, .savenewincident:active, .savenewreport:active{
     background: rgba(255, 255, 255, 0.3);
 }
 .paddedicon img{
     width: var(--fontsmall);
     height: var(--fontsmall);
 }
-.savenewincident{
+.savenewincident, .savenewreport{
     height: calc(3 * var(--padmedium));
     background: #FFFFFF0D;
     cursor: pointer;
