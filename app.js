@@ -2207,6 +2207,75 @@ cancelreportsperson.addEventListener('click', () => {
 reportspersonfind.addEventListener('click', () => {
     // YET TO WORK
 })
+// ADD OFFICER TO REPORT
+const addOfficerReport = () => {
+    document.querySelector('#reportofficermodal').classList.remove('hide')
+}
+const cancelOfficerReport = () => {
+    document.querySelector('#reportofficermodal').classList.add('hide')
+}
+const officerReportAdd = () => {
+
+}
+
+// DROPDOWN FOR ALL PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
+let allVehicles = [
+    {
+        name: "AUDI R8",
+        vehicleid: "LA123FH39"
+    },
+    {
+        name: "BMW X5",
+        vehicleid: "CA238FK22"
+    },
+    {
+        name: "NOT BMW",
+        vehicleid: "KZ248OK28"
+    },
+    {
+        name: "NOT AUDI",
+        vehicleid: "BY939KJ12"
+    },
+    {
+        name: "Cardillac",
+        vehicleid: "VC56HI7Y9"
+    },
+    {
+        name: "bugatti",
+        vehicleid: "lsfr89h7e"
+    },
+]
+
+const pushEvidenceVehicles = (data) => {
+    document.querySelector('.vehicledropdowncontent').innerHTML = ""
+    data.map((veh) => {
+        const { name, vehicleid } = veh;
+        document.querySelector('.vehicledropdowncontent').innerHTML += `
+            <div class="grey pointer fontmedium smallbold">${vehicleid} - ${name}</div>
+        `
+    })
+}
+
+document.querySelector('#Vehiclename').addEventListener('input', (event) => {
+    document.querySelector('.vehicledropdowncontent').classList.remove('hidden')
+    document.querySelector('.dropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = allVehicles.filter((veh) => veh.name.toLowerCase().includes(val.toLowerCase()) || veh.vehicleid.toLowerCase().includes(val.toLowerCase()))
+    pushEvidenceVehicles(data)
+})
+
+const toggleVehicleDropDown = () => {
+    document.querySelector('.vehicledropdowncontent').innerHTML = ""
+    document.querySelector('#Vehiclename').value = ""
+    if (document.getElementsByName('Vehicle')[0].placeholder === "Enter name for search"){
+        document.getElementsByName('Vehicle')[0].placeholder = "Choose profile";
+    } else {
+        document.getElementsByName('Vehicle')[0].placeholder = "Enter name for search";
+    }
+    document.querySelector('.vehicledropdowncontent').classList.toggle('hidden')
+    document.querySelector('.dropdownicon').classList.toggle('rotate')
+    pushEvidenceVehicles(allVehicles);
+}
 
 // MISC FUNCTIONALITY
 const MINracersvalue = document.querySelector('#MINvalue');
