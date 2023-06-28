@@ -1172,7 +1172,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     padding: 0 var(--padmedium);
     border: 1px #FFFFFF2E solid;
 }
-.vehicledropdowncontent{
+.dropdowncontent{
     position: absolute;
     top: calc( 3.5  * var(--fontlarge));
     width: 100%;
@@ -1182,15 +1182,17 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     flex-direction: column;
     gap: calc(0.25 * var(--gap));
     z-index: 10;
-    background: rgba(0, 0, 0);
+    background: rgba(0, 0, 0, 0.9);
 }
-.vehicledropdowncontent div{
+.dropdowncontent div{
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.02);
-    text-transform: uppercase; 
     padding: var(--padmedium);
 }
-.vehiclesearchpop{
+.uppercase{
+    text-transform: uppercase;
+}
+.searchpop{
     position: absolute;
     right: 25%;
     top: 0;
