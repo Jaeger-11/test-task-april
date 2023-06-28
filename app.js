@@ -2308,32 +2308,59 @@ let allVehicles = [
     },
 ]
 
-let allOfficers = [
+let allPeople = [
     {
         name: "Ahmed Bukar",
-        id: '155'
+        id: '155',
+        officer: true,
+        wanted: false
     },
     {
         name: "young sheldon",
-        id: '156'
+        id: '156',
+        officer: false,
+        wanted: false
     },
     {
         name: "Lose yourself",
-        id: '157'
+        id: '157',
+        officer: true,
+        wanted: false
     },
     {
         name: "Wu Nohs",
-        id: '158'
+        id: '158',
+        officer: false,
+        wanted: false
     },
     {
         name: "John oils",
-        id: '159'
+        id: '159',
+        officer: true,
+        wanted: false
     },
     {
         name: "Anita",
-        id: '160'
+        id: '160',
+        officer: true,
+        wanted: false
+    },
+    {
+        name: "Didier Drogba",
+        id: '161',
+        officer: false,
+        wanted: true
+    },
+    {
+        name: "Anita",
+        id: '160',
+        officer: false,
+        wanted: false
     },
 ]
+
+let allOfficers =  allPeople.filter((i) => i.officer === true)
+let allCitizens = allPeople.filter((i) => i.officer !== true)
 // DROPDOWN FUNCTION FOR NEW INCIDENT ADD VEHICLES
 const pushEvidenceDropData = (data, element) => {
     document.querySelector(element).innerHTML = ""
@@ -2341,14 +2368,24 @@ const pushEvidenceDropData = (data, element) => {
         data.map((veh) => {
             const { name, id } = veh;
             document.querySelector(element).innerHTML += `
-                <div class="grey pointer uppercase fontmedium smallbold">${id} - ${name}</div>
+                <section class="grey pointer uppercase fontmedium smallbold">${id} - ${name}</section>
             `
         })
     } else if ( element === '.officerdropdowncontent' ){
         data.map((off) => {
             const {name, id} = off;
             document.querySelector(element).innerHTML += `
-                <div class="grey pointer capitalize fontmedium smallbold">${name} (${id})</div>
+                <section class="grey pointer capitalize fontmedium smallbold">${name} (${id})</section>
+            `
+        })
+    } else if ( element === '.persondropdowncontent' ){
+        data.map((cit) => {
+            const {name, id, wanted} = cit;
+            document.querySelector(element).innerHTML += `
+                <section class="grey pointer capitalize fontmedium smallbold"> 
+                    <p>${name} (${id})</p>  
+                    <div class="${wanted ? 'civilwanted' : 'civil'} mediumbold fontsmaller flexsmall"> <span></span> CIVIL ${wanted ? '(WANTED)' : ''}</div> 
+                </section>
             `
         })
     }
@@ -2402,7 +2439,28 @@ document.querySelector('#Officername').addEventListener('input', (event) => {
 })
 
 // DROP DOWN FUNCTION FOR NEW INCIDENT ADD PERSON
-
+const togglePersonDropDown = () => {
+    document.querySelector('.personsearchpop').classList.toggle('elementhidden')
+    document.querySelector('.persondropdowncontent').innerHTML = ""
+    document.querySelector('#Personname').value = ""
+    if (document.getElementsByName('Personname')[0].placeholder === "Enter name for search"){
+        document.getElementsByName('Personname')[0].placeholder = "Choose profile";
+    } else {
+        document.getElementsByName('Personname')[0].placeholder = "Enter name for search";
+    }
+    document.querySelector('.persondropdowncontent').classList.toggle('hidden')
+    document.querySelector('.persondropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(allCitizens, '.persondropdowncontent');
+}
+// SEARCH NEW INCIDENT PERSON DROPDOWN LIST
+document.querySelector('#Personname').addEventListener('input', (event) => {
+    document.querySelector('.personsearchpop').classList.remove('elementhidden')
+    document.querySelector('.persondropdowncontent').classList.remove('hidden')
+    document.querySelector('.persondropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    pushEvidenceDropData(data, '.persondropdowncontent')
+})
 
 // MISC FUNCTIONALITY
 const MINracersvalue = document.querySelector('#MINvalue');
