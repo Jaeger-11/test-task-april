@@ -2371,19 +2371,19 @@ const pushEvidenceDropData = (data, element) => {
                 <section class="grey pointer uppercase fontmedium smallbold">${id} - ${name}</section>
             `
         })
-    } else if ( element === '.officerdropdowncontent' ){
+    } else if ( element === '.officerdropdowncontent' || element === '.reportofficerdropdowncontent' ){
         data.map((off) => {
             const {name, id} = off;
             document.querySelector(element).innerHTML += `
-                <section class="grey pointer capitalize fontmedium smallbold">${name} (${id})</section>
+                <section class="grey pointer capitalize fontmedium smallbold">${name} (ID:${id})</section>
             `
         })
-    } else if ( element === '.persondropdowncontent' ){
+    } else if ( element === '.persondropdowncontent' || element === '.reportpersondropdowncontent' ){
         data.map((cit) => {
             const {name, id, wanted} = cit;
             document.querySelector(element).innerHTML += `
                 <section class="grey pointer capitalize fontmedium smallbold"> 
-                    <p>${name} (${id})</p>  
+                    <p>${name} (ID:${id})</p>  
                     <div class="${wanted ? 'civilwanted' : 'civil'} mediumbold fontsmaller flexsmall"> <span></span> CIVIL ${wanted ? '(WANTED)' : ''}</div> 
                 </section>
             `
@@ -2460,6 +2460,53 @@ document.querySelector('#Personname').addEventListener('input', (event) => {
     let val = event.target.value
     let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
     pushEvidenceDropData(data, '.persondropdowncontent')
+})
+
+// DROP DOWN FUNCTION FOR ADD REPORT PERSON
+const toggleReportPersonDropDown = () => {
+    document.querySelector('.reportpersonsearchpop').classList.toggle('elementhidden')
+    document.querySelector('.reportpersondropdowncontent').innerHTML = ""
+    document.querySelector('#reportpersonname').value = ""
+    if (document.getElementsByName('reportpersonname')[0].placeholder === "Enter name for search"){
+        document.getElementsByName('reportpersonname')[0].placeholder = "Choose profile";
+    } else {
+        document.getElementsByName('reportpersonname')[0].placeholder = "Enter name for search";
+    }
+    document.querySelector('.reportpersondropdowncontent').classList.toggle('hidden')
+    document.querySelector('.reportpersondropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(allCitizens, '.reportpersondropdowncontent');
+}
+// SEARCH NEW REPORT PERSON DROPDOWN LIST
+document.querySelector('#reportpersonname').addEventListener('input', (event) => {
+    document.querySelector('.reportpersonsearchpop').classList.remove('elementhidden')
+    document.querySelector('.reportpersondropdowncontent').classList.remove('hidden')
+    document.querySelector('.reportpersondropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    pushEvidenceDropData(data, '.reportpersondropdowncontent')
+})
+// DROP DOWN FUNCTION FOR ADD REPORT OFFICER
+const toggleReportOfficerDropDown = () => {
+    document.querySelector('.reportofficersearchpop').classList.toggle('elementhidden')
+    document.querySelector('.reportofficerdropdowncontent').innerHTML = ""
+    document.querySelector('#reportofficername').value = ""
+    if (document.getElementsByName('reportofficername')[0].placeholder === "Enter name for search"){
+        document.getElementsByName('reportofficername')[0].placeholder = "Choose profile";
+    } else {
+        document.getElementsByName('reportofficername')[0].placeholder = "Enter name for search";
+    }
+    document.querySelector('.reportofficerdropdowncontent').classList.toggle('hidden')
+    document.querySelector('.reportofficerdropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(allCitizens, '.reportofficerdropdowncontent');
+}
+// SEARCH NEW REPORT OFFICER DROPDOWN LIST
+document.querySelector('#reportofficername').addEventListener('input', (event) => {
+    document.querySelector('.reportofficersearchpop').classList.remove('elementhidden')
+    document.querySelector('.reportofficerdropdowncontent').classList.remove('hidden')
+    document.querySelector('.reportofficerdropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    pushEvidenceDropData(data, '.reportofficerdropdowncontent')
 })
 
 // MISC FUNCTIONALITY
