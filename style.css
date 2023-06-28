@@ -1130,7 +1130,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .incidenttextarea:focus, .incidentinputtitle:focus{
     outline: none;
 }
-.incidentvehicles{
+.incidentvehicles, .reportvehicles{
     padding: var(--padmedium);
     background: rgba(255, 255, 255, 0.05);
     display: flex;
@@ -1138,7 +1138,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     gap: calc(0.5 * var(--gap));
     align-items: center;
 }
-.incidentvehicles .addicon{
+.incidentvehicles .addicon, .reportvehicles .addicon{
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .hidevehicle{
@@ -1152,7 +1152,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .addiconactive .addsvg{
     fill: black;
 }
-.incidentvehicle{
+.incidentvehicle, .reportvehicle{
     display: flex;
     align-content: center;
     padding: var(--padmedium);

@@ -2279,6 +2279,21 @@ const cancelOfficerReport = () => {
 const officerReportAdd = () => {
 
 }
+// ADD VEHICLES TO REPORT
+const addReportVehicles = () => {
+    document.querySelector('.reportvehicles').classList.toggle('hidevehicle')
+    document.querySelector('#addreportvehicle').classList.toggle('addiconactive')
+}
+const addReportVehicle = () => {
+    document.querySelector('#reportvehiclemodal').classList.remove('hide')
+}
+const cancelVehicleReport = () => {
+    document.querySelector('#reportvehiclemodal').classList.add('hide')
+}
+const vehicleReportAdd = () => {
+    // YET TO WORK
+    document.querySelector('#reportvehiclemodal').classList.add('hide')
+}
 
 // DROPDOWN FOR ALL PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
 let allVehicles = [
@@ -2364,7 +2379,7 @@ let allCitizens = allPeople.filter((i) => i.officer !== true)
 // DROPDOWN FUNCTION FOR NEW INCIDENT ADD VEHICLES
 const pushEvidenceDropData = (data, element) => {
     document.querySelector(element).innerHTML = ""
-    if ( element === '.vehicledropdowncontent'){
+    if ( element === '.vehicledropdowncontent' || element === '.reportvehicledropdowncontent' ){
         data.map((veh) => {
             const { name, id } = veh;
             document.querySelector(element).innerHTML += `
@@ -2507,6 +2522,29 @@ document.querySelector('#reportofficername').addEventListener('input', (event) =
     let val = event.target.value
     let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
     pushEvidenceDropData(data, '.reportofficerdropdowncontent')
+})
+// DROP DOWN FUNCTION FOR ADD REPORT VEHICLE
+const toggleReportVehicleDropDown = () => {
+    document.querySelector('.reportvehiclesearchpop').classList.toggle('elementhidden')
+    document.querySelector('.reportvehicledropdowncontent').innerHTML = ""
+    document.querySelector('#reportvehiclename').value = ""
+    if (document.getElementsByName('reportvehiclename')[0].placeholder === "Enter name for search"){
+        document.getElementsByName('reportvehiclename')[0].placeholder = "Choose profile";
+    } else {
+        document.getElementsByName('reportvehiclename')[0].placeholder = "Enter name for search";
+    }
+    document.querySelector('.reportvehicledropdowncontent').classList.toggle('hidden')
+    document.querySelector('.reportvehicledropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(allVehicles, '.reportvehicledropdowncontent');
+}
+// SEARCH NEW REPORT VEHICLE DROPDOWN LIST
+document.querySelector('#reportvehiclename').addEventListener('input', (event) => {
+    document.querySelector('.reportvehiclesearchpop').classList.remove('elementhidden')
+    document.querySelector('.reportvehicledropdowncontent').classList.remove('hidden')
+    document.querySelector('.reportvehicledropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = allVehicles.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    pushEvidenceDropData(data, '.reportvehicledropdowncontent')
 })
 
 // MISC FUNCTIONALITY
