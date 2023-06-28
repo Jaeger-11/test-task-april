@@ -1340,8 +1340,8 @@ let incidentsData = [
                 vehicleid: "PC23612678I"
             },
         ],
-        officers: {},
-        citizens: {}
+        officers: [],
+        citizens: []
     },
     {
         id: '157',
@@ -1392,8 +1392,8 @@ let incidentsData = [
                 vehicleid: "PC23612678I"
             },
         ],
-        officers: {},
-        citizens: {}
+        officers: [],
+        citizens: []
     },
     {
         id: '158',
@@ -1444,8 +1444,8 @@ let incidentsData = [
                 vehicleid: "PC23612678I"
             },
         ],
-        officers: {},
-        citizens: {}
+        officers: [],
+        citizens: []
     },
     {
         id: '159',
@@ -1453,8 +1453,10 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
-        officers: {},
-        citizens: {}
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '160',
@@ -1524,6 +1526,10 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '162',
@@ -1531,6 +1537,10 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '163',
@@ -1538,6 +1548,10 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '164',
@@ -1545,6 +1559,10 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '165',
@@ -1552,6 +1570,10 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '166',
@@ -1559,6 +1581,10 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '167',
@@ -1566,6 +1592,10 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '168',
@@ -1573,6 +1603,10 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '169',
@@ -1580,6 +1614,10 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '170',
@@ -1587,6 +1625,10 @@ let incidentsData = [
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '171',
@@ -1594,6 +1636,10 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '172',
@@ -1601,20 +1647,32 @@ let incidentsData = [
         description: 'some information',
         time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '173',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
     {
         id: '174',
         title: '10-90 | Robbery',
         description: 'some information',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: []
     },
 ]
 // FETCH / RENDERS INCIDENTS DATA TO SCREEN
@@ -2130,6 +2188,10 @@ const viewAllIncidents = () => {
     singleincident.classList.remove('show');
     singleincident.classList.add('hidden');
     incidentsview.classList.remove('hidden');
+    document.querySelector('.evidences-records').textContent = "";
+    document.querySelector('.vehicles-records').textContent ="";
+    document.querySelector('.officers-records').textContent = "";
+    document.querySelector('.citizens-records').textContent ="";
 }
 
 // REPORTS FUNCTIONALITIES
@@ -2245,7 +2307,7 @@ let allVehicles = [
         vehicleid: "lsfr89h7e"
     },
 ]
-
+// DROPDOWN FUNCTION FOR NEW INCIDENT ADD VEHICLES
 const pushEvidenceVehicles = (data) => {
     document.querySelector('.vehicledropdowncontent').innerHTML = ""
     data.map((veh) => {
@@ -2257,6 +2319,7 @@ const pushEvidenceVehicles = (data) => {
 }
 
 document.querySelector('#Vehiclename').addEventListener('input', (event) => {
+    document.querySelector('.vehiclesearchpop').classList.remove('elementhidden')
     document.querySelector('.vehicledropdowncontent').classList.remove('hidden')
     document.querySelector('.dropdownicon').classList.add('rotate')
     let val = event.target.value
@@ -2265,6 +2328,7 @@ document.querySelector('#Vehiclename').addEventListener('input', (event) => {
 })
 
 const toggleVehicleDropDown = () => {
+    document.querySelector('.vehiclesearchpop').classList.toggle('elementhidden')
     document.querySelector('.vehicledropdowncontent').innerHTML = ""
     document.querySelector('#Vehiclename').value = ""
     if (document.getElementsByName('Vehicle')[0].placeholder === "Enter name for search"){
@@ -2276,6 +2340,8 @@ const toggleVehicleDropDown = () => {
     document.querySelector('.dropdownicon').classList.toggle('rotate')
     pushEvidenceVehicles(allVehicles);
 }
+
+// DROP DOWN FUNCTION FOR NEW INCIDENT ADD OFFICER
 
 // MISC FUNCTIONALITY
 const MINracersvalue = document.querySelector('#MINvalue');
