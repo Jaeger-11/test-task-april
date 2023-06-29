@@ -1758,6 +1758,20 @@ const addOfficer = () => {
 const cancelOfficer = () => {
     document.querySelector('#officermodal').classList.add('hide')
 }
+const officerAdd = () => {
+    document.querySelector('#officermodal').classList.add('hide')
+}
+
+// ADD CRIMINAL SCUM TO NEW INCIDENT
+const addCriminal = () => {
+    document.querySelector('#criminalmodal').classList.remove('hide')
+}
+const cancelCriminal = () => {
+    document.querySelector('#criminalmodal').classList.add('hide')
+}
+const criminalAdd = () => {
+    document.querySelector('#criminalmodal').classList.add('hide')
+}
 
 // VIEW SINGLE INCIDENT SWITCH
 const incidentEvidences = document.querySelector('.evidences');
@@ -2368,14 +2382,27 @@ let allPeople = [
     },
     {
         name: "Anita",
-        id: '160',
+        id: '162',
         officer: false,
         wanted: false
+    },
+    {
+        name: "Eren Jaeger",
+        id: '163',
+        officer: false,
+        wanted: true
+    },
+    {
+        name: "Kirito",
+        id: '164',
+        officer: false,
+        wanted: true
     },
 ]
 
 let allOfficers =  allPeople.filter((i) => i.officer === true)
 let allCitizens = allPeople.filter((i) => i.officer !== true)
+const allWanted = allPeople.filter((i) => i.wanted === true)
 // DROPDOWN FUNCTION FOR NEW INCIDENT ADD VEHICLES
 const pushEvidenceDropData = (data, element) => {
     document.querySelector(element).innerHTML = ""
@@ -2386,14 +2413,14 @@ const pushEvidenceDropData = (data, element) => {
                 <section class="grey pointer uppercase fontmedium smallbold">${id} - ${name}</section>
             `
         })
-    } else if ( element === '.officerdropdowncontent' || element === '.reportofficerdropdowncontent' ){
+    } else if ( element === '.officerdropdowncontent' || element ===  '.reportofficerdropdowncontent' ){
         data.map((off) => {
             const {name, id} = off;
             document.querySelector(element).innerHTML += `
                 <section class="grey pointer capitalize fontmedium smallbold">${name} (ID:${id})</section>
             `
         })
-    } else if ( element === '.persondropdowncontent' || element === '.reportpersondropdowncontent' ){
+    } else if ( element === '.persondropdowncontent' || element === '.reportpersondropdowncontent' || element === '.criminaldropdowncontent'){
         data.map((cit) => {
             const {name, id, wanted} = cit;
             document.querySelector(element).innerHTML += `
@@ -2475,6 +2502,29 @@ document.querySelector('#Personname').addEventListener('input', (event) => {
     let val = event.target.value
     let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
     pushEvidenceDropData(data, '.persondropdowncontent')
+})
+// DROP DOWN FUNCTION FOR NEW INCIDENT ADD CRIMINAL SCUM
+const toggleCriminalDropDown = () => {
+    document.querySelector('.criminalsearchpop').classList.toggle('elementhidden')
+    document.querySelector('.criminaldropdowncontent').innerHTML = ""
+    document.querySelector('#criminalname').value = ""
+    if (document.getElementsByName('criminalname')[0].placeholder === "Enter name for search"){
+        document.getElementsByName('criminalname')[0].placeholder = "Choose profile";
+    } else {
+        document.getElementsByName('criminalname')[0].placeholder = "Enter name for search";
+    }
+    document.querySelector('.criminaldropdowncontent').classList.toggle('hidden')
+    document.querySelector('.criminaldropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(allWanted, '.criminaldropdowncontent');
+}
+// SEARCH NEW INCIDENT PERSON DROPDOWN LIST
+document.querySelector('#criminalname').addEventListener('input', (event) => {
+    document.querySelector('.criminalsearchpop').classList.remove('elementhidden')
+    document.querySelector('.criminaldropdowncontent').classList.remove('hidden')
+    document.querySelector('.criminaldropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = allWanted.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    pushEvidenceDropData(data, '.criminaldropdowncontent')
 })
 
 // DROP DOWN FUNCTION FOR ADD REPORT PERSON
