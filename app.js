@@ -2291,7 +2291,7 @@ const cancelOfficerReport = () => {
     document.querySelector('#reportofficermodal').classList.add('hide')
 }
 const officerReportAdd = () => {
-
+    document.querySelector('#reportofficermodal').classList.add('hide')
 }
 // ADD VEHICLES TO REPORT
 const addReportVehicles = () => {
@@ -2309,7 +2309,8 @@ const vehicleReportAdd = () => {
     document.querySelector('#reportvehiclemodal').classList.add('hide')
 }
 
-// DROPDOWN FOR ALL PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
+// DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
+let evidenceTypes = [ "Photo", "blood", "video", "bullet", "other" ]
 let allVehicles = [
     {
         name: "AUDI R8",
@@ -2430,6 +2431,12 @@ const pushEvidenceDropData = (data, element) => {
                 </section>
             `
         })
+    } else if ( element === '.evidencedropdowncontent' || element === '.reportevidencedropdowncontent'){
+        data.map((type) => {
+            document.querySelector(element).innerHTML += `
+            <section class="grey pointer capitalize fontmedium smallbold">${type}</section>
+            `
+        })
     }
 }
 // SEARCH VEHICLE DROPDOWN LIST
@@ -2517,7 +2524,7 @@ const toggleCriminalDropDown = () => {
     document.querySelector('.criminaldropdownicon').classList.toggle('rotate')
     pushEvidenceDropData(allWanted, '.criminaldropdowncontent');
 }
-// SEARCH NEW INCIDENT PERSON DROPDOWN LIST
+// SEARCH NEW INCIDENT ADD CRIMINAL SSCUMDROPDOWN LIST
 document.querySelector('#criminalname').addEventListener('input', (event) => {
     document.querySelector('.criminalsearchpop').classList.remove('elementhidden')
     document.querySelector('.criminaldropdowncontent').classList.remove('hidden')
@@ -2526,7 +2533,38 @@ document.querySelector('#criminalname').addEventListener('input', (event) => {
     let data = allWanted.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
     pushEvidenceDropData(data, '.criminaldropdowncontent')
 })
+// DROP DOWN FUNCTION FOR NEW INCIDENT ADD CRIMINAL SCUM
+const toggleEvidenceDropDown = () => {
+    document.querySelector('.evidencedropdowncontent').innerHTML = ""
+    document.querySelector('.evidencedropdowncontent').classList.toggle('hidden')
+    document.querySelector('.evidencedropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(evidenceTypes, '.evidencedropdowncontent');
+}
+// SEARCH NEW INCIDENT ADD CRIMINAL SCUM DROPDOWN LIST
+document.querySelector('#evidencename').addEventListener('input', (event) => {
+    document.querySelector('.evidencedropdowncontent').classList.remove('hidden')
+    document.querySelector('.evidencedropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = evidenceTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
+    pushEvidenceDropData(data, '.evidencedropdowncontent')
+})
 
+// REPORTS MODAL DROPDOWNS
+// DROP DOWN FUNCTION FOR REPORT ADD CRIMINAL SCUM
+const toggleReportEvidenceDropDown = () => {
+    document.querySelector('.reportevidencedropdowncontent').innerHTML = ""
+    document.querySelector('.reportevidencedropdowncontent').classList.toggle('hidden')
+    document.querySelector('.reportevidencedropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(evidenceTypes, '.reportevidencedropdowncontent');
+}
+// SEARCH REPORT ADD CRIMINAL SCUM DROPDOWN LIST
+document.querySelector('#reportevidencename').addEventListener('input', (event) => {
+    document.querySelector('.reportevidencedropdowncontent').classList.remove('hidden')
+    document.querySelector('.reportevidencedropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = evidenceTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
+    pushEvidenceDropData(data, '.reportevidencedropdowncontent')
+})
 // DROP DOWN FUNCTION FOR ADD REPORT PERSON
 const toggleReportPersonDropDown = () => {
     document.querySelector('.reportpersonsearchpop').classList.toggle('elementhidden')
