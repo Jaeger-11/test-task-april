@@ -1633,7 +1633,14 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     margin-bottom: var(--gap);
     padding: var(--padmedium) 0;
 }
-.evidencetypeselect .padleft{
+.reporttypeselect{
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.02);
+}
+.reporttypeselect input{
+    flex: 1;
+}
+.padleft{
     padding-left: var(--padmedium);
 }
 #evidencetype, #reportevidencetype{

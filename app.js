@@ -2310,7 +2310,8 @@ const vehicleReportAdd = () => {
 }
 
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
-let evidenceTypes = [ "Photo", "blood", "video", "bullet", "other" ]
+const evidenceTypes = [ "Photo", "blood", "video", "bullet", "other" ]
+const reportTypes = [ "investigative report", "civilian report", "victim report", "BOLO"]
 let allVehicles = [
     {
         name: "AUDI R8",
@@ -2437,6 +2438,12 @@ const pushEvidenceDropData = (data, element) => {
             <section class="grey pointer capitalize fontmedium smallbold">${type}</section>
             `
         })
+    } else if ( element === '.reportdropdowncontent'){
+        data.map((type) => {
+            document.querySelector(element).innerHTML += `
+            <section class="grey pointer capitalize fontmedium smallbold">${type}</section>
+            `
+        })
     }
 }
 // SEARCH VEHICLE DROPDOWN LIST
@@ -2550,6 +2557,21 @@ document.querySelector('#evidencename').addEventListener('input', (event) => {
 })
 
 // REPORTS MODAL DROPDOWNS
+// DROP DOWN FUNCTION FOR REPORT TYPE
+const toggleReportDropDown = () => {
+    document.querySelector('.reportdropdowncontent').innerHTML = ""
+    document.querySelector('.reportdropdowncontent').classList.toggle('hidden')
+    document.querySelector('.reportdropdownicon').classList.toggle('rotate')
+    pushEvidenceDropData(reportTypes, '.reportdropdowncontent');
+}
+// SEARCH REPORT TYPE
+document.querySelector('#reportname').addEventListener('input', (event) => {
+    document.querySelector('.reportdropdowncontent').classList.remove('hidden')
+    document.querySelector('.reportdropdownicon').classList.add('rotate')
+    let val = event.target.value
+    let data = reportTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
+    pushEvidenceDropData(data, '.reportdropdowncontent')
+})
 // DROP DOWN FUNCTION FOR REPORT ADD CRIMINAL SCUM
 const toggleReportEvidenceDropDown = () => {
     document.querySelector('.reportevidencedropdowncontent').innerHTML = ""
