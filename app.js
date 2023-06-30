@@ -1193,7 +1193,6 @@ const cancelperson = document.querySelector('#cancelperson');
 const findperson = document.querySelector('#personfind');
 const personname = document.querySelector("#personname");
 const incidentsearch = document.querySelector('#incidentsearch');
-const vehiclesevidence = document.querySelector('.vehicleincidents');
 const incidentsview = document.querySelector('.incidentscont');
 const singleincident = document.querySelector('.singleincident');
 
@@ -2264,6 +2263,10 @@ reportsearch.addEventListener('input', () => {
     pushReports(data)
 })
 // REPORTS ADD EVIDENCE FUNCTIONALITIES
+const evidenceReportSub = () => {
+    document.querySelector('.evidencereport').classList.toggle('hidevehicle')
+    document.querySelector('#evidencereporticon').classList.toggle('addiconactive')
+}
 addreportevidence.addEventListener('click', () => {
     reportsevidence.classList.remove('hide')
 })
@@ -2274,6 +2277,10 @@ savereportevidence.addEventListener('click', () => {
     // YET TO WORK
 })
 // REPORTS ADD PERSON FUNCTIONALITY
+const personReportSub = () => {
+    document.querySelector('.personreport').classList.toggle('hidevehicle')
+    document.querySelector('#personreporticon').classList.toggle('addiconactive')
+}
 addreportperson.addEventListener('click', () => {
     reportspersonmodal.classList.remove('hide')
 })
@@ -2284,6 +2291,10 @@ reportspersonfind.addEventListener('click', () => {
     // YET TO WORK
 })
 // ADD OFFICER TO REPORT
+const officerReportSub = () => {
+    document.querySelector('.officerreport').classList.toggle('hidevehicle')
+    document.querySelector('#officerreporticon').classList.toggle('addiconactive')
+}
 const addOfficerReport = () => {
     document.querySelector('#reportofficermodal').classList.remove('hide')
 }
