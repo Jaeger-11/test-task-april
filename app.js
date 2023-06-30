@@ -1711,6 +1711,10 @@ const incidentsAdd = () => {
     document.querySelector('.incidentadd').classList.add('hidden');
 }
 // ADD EVIDENCE FUNCTIONALITY
+const evidenceIncidentSub = () => {
+    document.querySelector('.incidentevidence').classList.toggle('hidevehicle')
+    document.querySelector('.addincidentevidence').classList.toggle('addiconactive') 
+}
 addevidence.addEventListener('click', () => {
     evidencemodal.classList.remove('hide')
 })
@@ -1723,6 +1727,10 @@ saveevidence.addEventListener('click', () => {
 })
 
 // ADD PERSON FUNCTIONALITY
+const personIncidentSub = () => {
+    document.querySelector('.incidentpersons').classList.toggle('hidevehicle')
+    document.querySelector('.addincidentperson').classList.toggle('addiconactive') 
+}
 addperson.addEventListener('click', () => {
     personmodal.classList.remove('hide')
 })
@@ -1751,6 +1759,10 @@ const vehicleButtonAdd = () => {
 }
 
 // ADD OFFICER TO INCIDENT
+const officerIncidentSub = () => {
+    document.querySelector('.incidentofficers').classList.toggle('hidevehicle')
+    document.querySelector('.addincidentofficer').classList.toggle('addiconactive') 
+}
 const addOfficer = () => {
     document.querySelector('#officermodal').classList.remove('hide')
 }
@@ -1762,6 +1774,10 @@ const officerAdd = () => {
 }
 
 // ADD CRIMINAL SCUM TO NEW INCIDENT
+const criminalIncidentSub = () => {
+    document.querySelector('.incidentcriminals').classList.toggle('hidevehicle')
+    document.querySelector('.addincidentcriminal').classList.toggle('addiconactive') 
+}
 const addCriminal = () => {
     document.querySelector('#criminalmodal').classList.remove('hide')
 }

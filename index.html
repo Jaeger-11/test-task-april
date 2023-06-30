@@ -181,19 +181,41 @@
                                     </section>
                                 </div>
     
-                                <div class=' hidden addcriminalscreen'>
-                                    <section class='addcriminal header-text'> 
-                                        <p>Add Criminal Scum </p> 
-                                        <div class="addicon pointer" onclick="addCriminal()">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
-                                                <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
-                                            </svg>
-                                        </div>
-                                    </section>
+                                <div class='hidden addcriminalscreen'>
+                                    <div>
+                                        <section class='addcriminal header-text'> 
+                                            <p>Add Criminal Scum </p> 
+                                            <div class="addicon pointer addincidentcriminal" onclick="criminalIncidentSub()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
+                                                </svg>
+                                            </div>
+                                        </section>
+                                        <section class="incidentcriminals subpicked hidevehicle">
+                                            <section>
+                                                
+                                            </section>
+                                            <div class="addicon pointer incidentadd" onclick="addCriminal()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
+                                                </svg>
+                                            </div>
+                                        </section>
+                                    </div>
                                     <div>
                                         <section class='addcriminal header-text'> 
                                             <p>Evidence </p> 
-                                            <div class="addicon pointer" id="addevidence">
+                                            <div class="addicon pointer addincidentevidence" onclick="evidenceIncidentSub()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
+                                                </svg>
+                                            </div>
+                                        </section>
+                                        <section class="incidentevidence subpicked hidevehicle">
+                                            <section>
+                                                
+                                            </section>
+                                            <div class="addicon pointer incidentadd" id="addevidence">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
                                                     <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
                                                 </svg>
@@ -203,7 +225,17 @@
                                     <div>
                                         <section class='addcriminal header-text'> 
                                             <p>Officers Involved </p> 
-                                            <div class="addicon pointer" onclick="addOfficer()">
+                                            <div class="addicon pointer addincidentofficer" onclick="officerIncidentSub()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
+                                                </svg>
+                                            </div>
+                                        </section>
+                                        <section class="incidentofficers subpicked hidevehicle">
+                                            <section>
+                                                
+                                            </section>
+                                            <div class="addicon pointer incidentadd" onclick="addOfficer()">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
                                                     <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
                                                 </svg>
@@ -213,7 +245,17 @@
                                     <div>
                                         <section class='addcriminal header-text'> 
                                             <p>Person Involved </p> 
-                                            <div class="addicon pointer" id="addperson">
+                                            <div class="addicon pointer addincidentperson" onclick="personIncidentSub()">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
+                                                    <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
+                                                </svg>
+                                            </div>
+                                        </section>
+                                        <section class="incidentpersons subpicked hidevehicle">
+                                            <section>
+                                                
+                                            </section>
+                                            <div class="addicon pointer incidentadd" id="addperson">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
                                                     <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
                                                 </svg>
