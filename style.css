@@ -922,6 +922,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     grid-template-columns: 1fr 1fr;
     gap: var(--gap);
     flex: 1;
+    height: 67vh;
 }
 .newincident-main-container, .addcriminalscreen{
     background: hsla(0, 0%, 100%, 0.02);
@@ -932,6 +933,8 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     display: flex;
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
+    height: 100%;
+    overflow-y: scroll;
 }
 .subsection .header{
     margin-top: 0;
