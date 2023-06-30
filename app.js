@@ -1754,8 +1754,9 @@ const cancelVehicle = () => {
     document.querySelector('#vehiclemodal').classList.add('hide')
 }
 const vehicleButtonAdd = () => {
-    // YET TO WORK
-    document.querySelector('#vehiclemodal').classList.add('hide')
+    if(document.getElementById('selectedvehicle').value){
+        document.querySelector('#vehiclemodal').classList.add('hide')
+    }
 }
 
 // ADD OFFICER TO INCIDENT
@@ -2342,27 +2343,33 @@ const reportTypes = [ "investigative report", "civilian report", "victim report"
 let allVehicles = [
     {
         name: "AUDI R8",
-        id: "LA123FH39"
+        vehicleid: "LA123FH39",
+        id: 1
     },
     {
         name: "BMW X5",
-        id: "CA238FK22"
+        vehicleid: "CA238FK22",
+        id: 2
     },
     {
         name: "NOT BMW",
-        id: "KZ248OK28"
+        vehicleid: "KZ248OK28",
+        id: 3
     },
     {
         name: "NOT AUDI",
-        id: "BY939KJ12"
+        vehicleid: "BY939KJ12",
+        id: 4
     },
     {
         name: "Cardillac",
-        id: "VC56HI7Y9"
+        vehicleid: "VC56HI7Y9",
+        id: 5
     },
     {
         name: "bugatti",
-        id: "lsfr89h7e"
+        vehicleid: "lsfr89h7e",
+        id: 6
     },
 ]
 
@@ -2433,13 +2440,13 @@ let allOfficers =  allPeople.filter((i) => i.officer === true)
 let allCitizens = allPeople.filter((i) => i.officer !== true)
 const allWanted = allPeople.filter((i) => i.wanted === true)
 // DROPDOWN FUNCTION FOR NEW INCIDENT ADD VEHICLES
-const pushEvidenceDropData = (data, element) => {
+const pushEvidenceDropData = (data, element, inputelement) => {
     document.querySelector(element).innerHTML = ""
     if ( element === '.vehicledropdowncontent' || element === '.reportvehicledropdowncontent' ){
         data.map((veh) => {
-            const { name, id } = veh;
+            const { name, id, vehicleid } = veh;
             document.querySelector(element).innerHTML += `
-                <section class="grey pointer uppercase fontmedium smallbold">${id} - ${name}</section>
+                <section class="grey pointer uppercase fontmedium smallbold" onclick="selectVehicleValue(${id})">${vehicleid} - ${name}</section>
             `
         })
     } else if ( element === '.officerdropdowncontent' || element ===  '.reportofficerdropdowncontent' ){
@@ -2473,20 +2480,29 @@ const pushEvidenceDropData = (data, element) => {
         })
     }
 }
+const selectVehicleValue = (id) => {
+    let veh = allVehicles.filter((v) => v.id === id)
+    document.getElementById('selectedvehicle').value = `${veh[0].vehicleid} | ${veh[0].name}`
+    document.getElementById('selectedvehicle').classList.add('uppercase')
+    document.querySelector('.vehiclesearchpop').classList.add('elementhidden')
+    document.querySelector('.vehicledropdowncontent').classList.add('hidden')
+    document.querySelector('.dropdownicon').classList.remove('rotate')
+}
 // SEARCH VEHICLE DROPDOWN LIST
-document.querySelector('#Vehiclename').addEventListener('input', (event) => {
+document.querySelector('#selectedvehicle').addEventListener('input', (event) => {
     document.querySelector('.vehiclesearchpop').classList.remove('elementhidden')
     document.querySelector('.vehicledropdowncontent').classList.remove('hidden')
     document.querySelector('.dropdownicon').classList.add('rotate')
     let val = event.target.value
     let data = allVehicles.filter((veh) => veh.name.toLowerCase().includes(val.toLowerCase()) || veh.id.toLowerCase().includes(val.toLowerCase()))
-    pushEvidenceDropData(data, '.vehicledropdowncontent')
+    pushEvidenceDropData(data, '.vehicledropdowncontent', 'selectedvehicle')
 })
 
 const toggleVehicleDropDown = () => {
     document.querySelector('.vehiclesearchpop').classList.toggle('elementhidden')
     document.querySelector('.vehicledropdowncontent').innerHTML = ""
-    document.querySelector('#Vehiclename').value = ""
+    document.querySelector('#selectedvehicle').value = ""
+    document.querySelector('#selectedvehicle').classList.remove('uppercase')
     if (document.getElementsByName('Vehicle')[0].placeholder === "Enter name for search"){
         document.getElementsByName('Vehicle')[0].placeholder = "Choose profile";
     } else {
@@ -2494,7 +2510,7 @@ const toggleVehicleDropDown = () => {
     }
     document.querySelector('.vehicledropdowncontent').classList.toggle('hidden')
     document.querySelector('.dropdownicon').classList.toggle('rotate')
-    pushEvidenceDropData(allVehicles, '.vehicledropdowncontent');
+    pushEvidenceDropData(allVehicles, '.vehicledropdowncontent', 'selectedvehicle');
 }
 
 // DROP DOWN FUNCTION FOR NEW INCIDENT ADD OFFICER
