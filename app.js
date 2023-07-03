@@ -1729,11 +1729,10 @@ saveevidence.addEventListener('click', () => {
             <p> ${document.querySelector('#selectedevidence').value} </p>
         </div>
         `
-        personmodal.classList.add('hide')
+        evidencemodal.classList.add('hide')
         document.querySelector('#selectedevidence').value = ''
         document.getElementById('selectedevidence').classList.remove('uppercase')
-    }
-    evidencemodal.classList.add('hide')
+    }  
 })
 
 // ADD PERSON FUNCTIONALITY
@@ -2336,7 +2335,17 @@ cancelreportsevidence.addEventListener('click', () => {
     reportsevidence.classList.add('hide')
 })
 savereportevidence.addEventListener('click', () => {
-    // YET TO WORK
+    if(document.querySelector('#selectedreportevidence').value){
+        document.getElementById('addedreportevidences').innerHTML += `
+        <div class="subpickedcontent">
+            <img src="images/vehicle.svg" alt="vehicle icon">
+            <p> ${document.querySelector('#selectedreportevidence').value} </p>
+        </div>
+        `
+        reportsevidence.classList.add('hide')
+        document.querySelector('#selectedevidence').value = ''
+        document.getElementById('selectedevidence').classList.remove('uppercase')
+    }  
 })
 // REPORTS ADD PERSON FUNCTIONALITY
 const personReportSub = () => {
@@ -2556,7 +2565,7 @@ const pushIncidentDropData = (data, element, inputelement) => {
     } else if ( element === '.evidencedropdowncontent' || element === '.reportevidencedropdowncontent'){
         data.map((type) => {
             document.querySelector(element).innerHTML += `
-            <section class="grey pointer capitalize fontmedium smallbold" onclick= "selectNewIncidentEvidence(${type.id})">${type.evidence}</section>
+            <section class="grey pointer capitalize fontmedium smallbold" ${element === '.evidencedropdowncontent' ? `onclick="selectNewIncidentEvidence(${type.id})"` : `onclick="selectNewReportEvidence(${type.id})"`} >${type.evidence}</section>
             `
         })
     } else if ( element === '.reportdropdowncontent'){
@@ -2606,6 +2615,14 @@ const selectNewIncidentEvidence = (id) => {
     document.querySelector('.evidencedropdowncontent').classList.add('hidden')
     document.querySelector('.evidencedropdownicon').classList.remove('rotate')
 }
+const selectNewReportEvidence = (id) => {
+    let evid = evidenceTypes.filter((e) => e.id === id)
+    document.getElementById('selectedreportevidence').value = evid[0].evidence
+    document.querySelector('.reportevidencesearchpop').classList.add('elementhidden')
+    document.querySelector('.reportevidencedropdowncontent').classList.add('hidden')
+    document.querySelector('.reportevidencedropdownicon').classList.remove('rotate')
+}
+
 // SEARCH VEHICLE DROPDOWN LIST
 document.querySelector('#selectedvehicle').addEventListener('input', (event) => {
     document.querySelector('.vehiclesearchpop').classList.remove('elementhidden')
@@ -2695,7 +2712,7 @@ const toggleCriminalDropDown = () => {
     document.querySelector('.criminaldropdownicon').classList.toggle('rotate')
     pushIncidentDropData(allWanted, '.criminaldropdowncontent');
 }
-// SEARCH NEW INCIDENT ADD CRIMINAL SSCUMDROPDOWN LIST
+// SEARCH NEW INCIDENT ADD CRIMINAL SCUMDROPDOWN LIST
 document.querySelector('#selectedcriminal').addEventListener('input', (event) => {
     document.querySelector('.criminalsearchpop').classList.remove('elementhidden')
     document.querySelector('.criminaldropdowncontent').classList.remove('hidden')
@@ -2713,7 +2730,7 @@ const toggleEvidenceDropDown = () => {
     document.querySelector('.evidencedropdownicon').classList.toggle('rotate')
     pushIncidentDropData(evidenceTypes, '.evidencedropdowncontent');
 }
-// SEARCH NEW INCIDENT ADD CRIMINAL SCUM DROPDOWN LIST
+// SEARCH NEW INCIDENT ADD EVIDENCE TYPES
 document.querySelector('#selectedevidence').addEventListener('input', (event) => {
     document.querySelector('.evidencesearchpop').classList.remove('elementhidden')
     document.querySelector('.evidencedropdowncontent').classList.remove('hidden')
@@ -2739,15 +2756,17 @@ document.querySelector('#reportname').addEventListener('input', (event) => {
     let data = reportTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
     pushIncidentDropData(data, '.reportdropdowncontent')
 })
-// DROP DOWN FUNCTION FOR REPORT ADD CRIMINAL SCUM
+// DROP DOWN FUNCTION FOR REPORT ADD EVIDENCE
 const toggleReportEvidenceDropDown = () => {
+    document.querySelector('.reportevidencesearchpop').classList.toggle('elementhidden')
     document.querySelector('.reportevidencedropdowncontent').innerHTML = ""
     document.querySelector('.reportevidencedropdowncontent').classList.toggle('hidden')
     document.querySelector('.reportevidencedropdownicon').classList.toggle('rotate')
     pushIncidentDropData(evidenceTypes, '.reportevidencedropdowncontent');
 }
-// SEARCH REPORT ADD CRIMINAL SCUM DROPDOWN LIST
-document.querySelector('#reportevidencename').addEventListener('input', (event) => {
+// SEARCH REPORT ADD EVIDENCE TYPE
+document.querySelector('#selectedreportevidence').addEventListener('input', (event) => {
+    document.querySelector('.reportevidencesearchpop').classList.remove('elementhidden')
     document.querySelector('.reportevidencedropdowncontent').classList.remove('hidden')
     document.querySelector('.reportevidencedropdownicon').classList.add('rotate')
     let val = event.target.value
