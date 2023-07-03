@@ -1147,10 +1147,14 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     display: flex;
     flex-wrap: wrap;
     gap: calc(0.5 * var(--gap));
-    align-items: center;
 }
 .subpicked .addicon{
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.additioncont{
+    display: flex;
+    gap: calc(0.5 * var(--gap));
+    flex-wrap: wrap;
 }
 .hidevehicle{
     position: absolute;

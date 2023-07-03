@@ -1754,8 +1754,16 @@ const cancelVehicle = () => {
     document.querySelector('#vehiclemodal').classList.add('hide')
 }
 const vehicleButtonAdd = () => {
-    if(document.getElementById('selectedvehicle').value){
+    if(document.querySelector('#selectedvehicle').value){
+        document.getElementById('addedincidentvehicles').innerHTML += `
+        <div class="subpickedcontent">
+            <img src="images/vehicle.svg" alt="vehicle icon">
+            <p> ${document.querySelector('#selectedvehicle').value} </p>
+        </div>
+        `
         document.querySelector('#vehiclemodal').classList.add('hide')
+        document.querySelector('#selectedvehicle').value = ''
+        document.getElementById('selectedvehicle').classList.remove('uppercase')
     }
 }
 
