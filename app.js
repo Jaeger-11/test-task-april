@@ -2359,7 +2359,17 @@ cancelreportsperson.addEventListener('click', () => {
     reportspersonmodal.classList.add('hide')
 })
 reportspersonfind.addEventListener('click', () => {
-    // YET TO WORK
+    if(document.querySelector('#selectedreportperson').value){
+        document.getElementById('addedreportpersons').innerHTML += `
+        <div class="subpickedcontent">
+            <img src="images/vehicle.svg" alt="vehicle icon">
+            <p> ${document.querySelector('#selectedreportperson').value} </p>
+        </div>
+        `
+        reportspersonmodal.classList.add('hide')
+        document.querySelector('#selectedreportperson').value = ''
+        document.getElementById('selectedreportperson').classList.remove('uppercase')
+    }  
 })
 // ADD OFFICER TO REPORT
 const officerReportSub = () => {
@@ -2373,7 +2383,17 @@ const cancelOfficerReport = () => {
     document.querySelector('#reportofficermodal').classList.add('hide')
 }
 const officerReportAdd = () => {
-    document.querySelector('#reportofficermodal').classList.add('hide')
+    if(document.querySelector('#selectedreportofficer').value){
+        document.getElementById('addedreportofficers').innerHTML += `
+        <div class="subpickedcontent">
+            <img src="images/vehicle.svg" alt="vehicle icon">
+            <p> ${document.querySelector('#selectedreportofficer').value} </p>
+        </div>
+        `
+        document.querySelector('#reportofficermodal').classList.add('hide')
+        document.querySelector('#selectedreportofficer').value = ''
+        document.getElementById('selectedreportofficer').classList.remove('uppercase')
+    }  
 }
 // ADD VEHICLES TO REPORT
 const addReportVehicles = () => {
@@ -2387,8 +2407,17 @@ const cancelVehicleReport = () => {
     document.querySelector('#reportvehiclemodal').classList.add('hide')
 }
 const vehicleReportAdd = () => {
-    // YET TO WORK
-    document.querySelector('#reportvehiclemodal').classList.add('hide')
+    if(document.querySelector('#selectedreportvehicle').value){
+        document.getElementById('addedreportvehicles').innerHTML += `
+        <div class="subpickedcontent">
+            <img src="images/vehicle.svg" alt="vehicle icon">
+            <p> ${document.querySelector('#selectedreportvehicle').value} </p>
+        </div>
+        `
+        document.querySelector('#reportvehiclemodal').classList.add('hide')
+        document.querySelector('#selectedreportvehicle').value = ''
+        document.getElementById('selectedreportvehicle').classList.remove('uppercase')
+    }  
 }
 
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
@@ -2538,25 +2567,25 @@ const pushIncidentDropData = (data, element, inputelement) => {
         data.map((veh) => {
             const { name, id, vehicleid } = veh;
             document.querySelector(element).innerHTML += `
-                <section class="grey pointer uppercase fontmedium smallbold" onclick="selectVehicleValue(${id})">${vehicleid} - ${name}</section>
+                <section class="grey pointer uppercase fontmedium smallbold" ${ element === '.vehicledropdowncontent' ? `onclick="selectVehicleValue(${id})"` : `onclick="selectNewReportVehicle(${id})"`}>${vehicleid} - ${name}</section>
             `
         })
     } else if ( element === '.officerdropdowncontent' || element ===  '.reportofficerdropdowncontent' ){
         data.map((off) => {
             const {name, id} = off;
             document.querySelector(element).innerHTML += `
-                <section class="grey pointer capitalize fontmedium smallbold" onclick="selectNewIncidentOfficer(${id})">${name} (ID:${id})</section>
+                <section class="grey pointer capitalize fontmedium smallbold" ${element === '.officerdropdowncontent' ? `onclick="selectNewIncidentOfficer(${id})"` : `onclick="selectNewReportOfficer(${id})"`}>${name} (ID:${id})</section>
             `
         })
     } else if ( element === '.persondropdowncontent' || element === '.reportpersondropdowncontent' || element === '.criminaldropdowncontent'){
         data.map((cit) => {
             let process
-            if (element === '.persondropdowncontent'){process = 'Person'} 
-            else if ( element === '.criminaldropdowncontent' ){ process = 'Criminal' }
+            if (element === '.persondropdowncontent'){process = 'IncidentPerson'} 
+            else if ( element === '.criminaldropdowncontent' ){ process = 'IncidentCriminal' }
             else { process = 'ReportPerson' }
             const {name, id, wanted} = cit;
             document.querySelector(element).innerHTML += `
-                <section class="grey pointer capitalize fontmedium smallbold" onclick="selectNewIncident${process}(${id})"> 
+                <section class="grey pointer capitalize fontmedium smallbold" onclick="selectNew${process}(${id})"> 
                     <p>${name} (ID:${id})</p>  
                     <div class="${wanted ? 'civilwanted' : 'civil'} mediumbold fontsmaller flexsmall"> <span></span> CIVIL ${wanted ? '(WANTED)' : ''}</div> 
                 </section>
@@ -2621,6 +2650,30 @@ const selectNewReportEvidence = (id) => {
     document.querySelector('.reportevidencesearchpop').classList.add('elementhidden')
     document.querySelector('.reportevidencedropdowncontent').classList.add('hidden')
     document.querySelector('.reportevidencedropdownicon').classList.remove('rotate')
+}
+const selectNewReportPerson = (id) => {
+    let cit = allCitizens.filter((c) => c.id === id)
+    document.getElementById('selectedreportperson').classList.add('uppercase')
+    document.getElementById('selectedreportperson').value = `${cit[0].id} | ${cit[0].name}`
+    document.querySelector('.reportpersonsearchpop').classList.add('elementhidden')
+    document.querySelector('.reportpersondropdowncontent').classList.add('hidden')
+    document.querySelector('.reportpersondropdownicon').classList.remove('rotate')
+}
+const selectNewReportOfficer = (id) => {
+    let off = allOfficers.filter((f) => f.id === id)
+    document.getElementById('selectedreportofficer').value = `${off[0].id} | ${off[0].name}`
+    document.getElementById('selectedreportofficer').classList.add('uppercase')
+    document.querySelector('.reportofficersearchpop').classList.add('elementhidden')
+    document.querySelector('.reportofficerdropdowncontent').classList.add('hidden')
+    document.querySelector('.reportofficerdropdownicon').classList.remove('rotate')
+}
+const selectNewReportVehicle = (id) => {
+    let veh = allVehicles.filter((v) => v.id === id)
+    document.getElementById('selectedreportvehicle').value = `${veh[0].vehicleid} | ${veh[0].name}`
+    document.getElementById('selectedreportvehicle').classList.add('uppercase')
+    document.querySelector('.reportvehiclesearchpop').classList.add('elementhidden')
+    document.querySelector('.reportvehicledropdowncontent').classList.add('hidden')
+    document.querySelector('.reportvehicledropdownicon').classList.remove('rotate')
 }
 
 // SEARCH VEHICLE DROPDOWN LIST
@@ -2777,7 +2830,8 @@ document.querySelector('#selectedreportevidence').addEventListener('input', (eve
 const toggleReportPersonDropDown = () => {
     document.querySelector('.reportpersonsearchpop').classList.toggle('elementhidden')
     document.querySelector('.reportpersondropdowncontent').innerHTML = ""
-    document.querySelector('#reportpersonname').value = ""
+    document.querySelector('#selectedreportperson').value = ""
+    document.querySelector('#selectedreportperson').classList.remove('uppercase')
     if (document.getElementsByName('reportpersonname')[0].placeholder === "Enter name for search"){
         document.getElementsByName('reportpersonname')[0].placeholder = "Choose profile";
     } else {
@@ -2788,7 +2842,7 @@ const toggleReportPersonDropDown = () => {
     pushIncidentDropData(allCitizens, '.reportpersondropdowncontent');
 }
 // SEARCH NEW REPORT PERSON DROPDOWN LIST
-document.querySelector('#reportpersonname').addEventListener('input', (event) => {
+document.querySelector('#selectedreportperson').addEventListener('input', (event) => {
     document.querySelector('.reportpersonsearchpop').classList.remove('elementhidden')
     document.querySelector('.reportpersondropdowncontent').classList.remove('hidden')
     document.querySelector('.reportpersondropdownicon').classList.add('rotate')
@@ -2798,9 +2852,10 @@ document.querySelector('#reportpersonname').addEventListener('input', (event) =>
 })
 // DROP DOWN FUNCTION FOR ADD REPORT OFFICER
 const toggleReportOfficerDropDown = () => {
+    document.getElementById('selectedreportofficer').classList.remove('uppercase')
     document.querySelector('.reportofficersearchpop').classList.toggle('elementhidden')
     document.querySelector('.reportofficerdropdowncontent').innerHTML = ""
-    document.querySelector('#reportofficername').value = ""
+    document.querySelector('#selectedreportofficer').value = ""
     if (document.getElementsByName('reportofficername')[0].placeholder === "Enter name for search"){
         document.getElementsByName('reportofficername')[0].placeholder = "Choose profile";
     } else {
@@ -2808,10 +2863,10 @@ const toggleReportOfficerDropDown = () => {
     }
     document.querySelector('.reportofficerdropdowncontent').classList.toggle('hidden')
     document.querySelector('.reportofficerdropdownicon').classList.toggle('rotate')
-    pushIncidentDropData(allCitizens, '.reportofficerdropdowncontent');
+    pushIncidentDropData(allOfficers, '.reportofficerdropdowncontent');
 }
 // SEARCH NEW REPORT OFFICER DROPDOWN LIST
-document.querySelector('#reportofficername').addEventListener('input', (event) => {
+document.querySelector('#selectedreportofficer').addEventListener('input', (event) => {
     document.querySelector('.reportofficersearchpop').classList.remove('elementhidden')
     document.querySelector('.reportofficerdropdowncontent').classList.remove('hidden')
     document.querySelector('.reportofficerdropdownicon').classList.add('rotate')
@@ -2821,9 +2876,10 @@ document.querySelector('#reportofficername').addEventListener('input', (event) =
 })
 // DROP DOWN FUNCTION FOR ADD REPORT VEHICLE
 const toggleReportVehicleDropDown = () => {
+    document.getElementById('selectedreportvehicle').classList.remove('uppercase')
     document.querySelector('.reportvehiclesearchpop').classList.toggle('elementhidden')
     document.querySelector('.reportvehicledropdowncontent').innerHTML = ""
-    document.querySelector('#reportvehiclename').value = ""
+    document.querySelector('#selectedreportvehicle').value = ""
     if (document.getElementsByName('reportvehiclename')[0].placeholder === "Enter name for search"){
         document.getElementsByName('reportvehiclename')[0].placeholder = "Choose profile";
     } else {
@@ -2834,7 +2890,7 @@ const toggleReportVehicleDropDown = () => {
     pushIncidentDropData(allVehicles, '.reportvehicledropdowncontent');
 }
 // SEARCH NEW REPORT VEHICLE DROPDOWN LIST
-document.querySelector('#reportvehiclename').addEventListener('input', (event) => {
+document.querySelector('#selectedreportvehicle').addEventListener('input', (event) => {
     document.querySelector('.reportvehiclesearchpop').classList.remove('elementhidden')
     document.querySelector('.reportvehicledropdowncontent').classList.remove('hidden')
     document.querySelector('.reportvehicledropdownicon').classList.add('rotate')
