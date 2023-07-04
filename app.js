@@ -788,7 +788,7 @@ let vehiclesData = [
         id: '155',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information',
+        information: 'Low Budget',
         criminalhistory: [
             {
                 incidentid: 110,
@@ -830,7 +830,7 @@ let vehiclesData = [
         id: '156',
         status: 'wanted',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information',
+        information: 'Faster than a Cheetah',
         criminalhistory: [],
         warrants: [
             {
@@ -859,7 +859,7 @@ let vehiclesData = [
         id: '157',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information',
+        information: 'I bring the lightning..',
         criminalhistory: [
             {
                 incidentid: 110,
@@ -920,7 +920,7 @@ let vehiclesData = [
         id: '159',
         status: 'clean',
         imageUrl: '',
-        information: 'some information',
+        information: 'Chilllll....',
         criminalhistory: [
             {
                 incidentid: 110,
@@ -952,7 +952,7 @@ let vehiclesData = [
         id: '160',
         status: 'clean',
         imageUrl: 'images/vehicleimage.png',
-        information: 'some information',
+        information: 'Just races...',
         criminalhistory: [
             {
                 incidentid: 110,
@@ -1039,7 +1039,7 @@ let vehiclesData = [
         owner: {
             name: "trinity bond",
             id: 155,
-            info: "some information",
+            info: "I really don't know",
             imageUrl: ""
         },
         color: "Red",
@@ -1057,7 +1057,7 @@ const pushVehicles = (data) => {
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image"></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
-                <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
+                <div class="information"> ${information} <p class="dot"></p> id.${id} </div>
                 <button class="${status === 'clean' ? 'green' : 'red'} funcBtns">${status}</button>
             </div>
         </section>
@@ -1149,7 +1149,7 @@ vehiclesearch.addEventListener('input', (e) => {
     } else {
         searchdata = vehiclesData.filter((item) => item.status.includes(currentvehiclefilter))
     }
-    searchdata = searchdata.filter((profile) => profile.name.toLowerCase().includes(searchvalue.toLowerCase()));
+    searchdata = searchdata.filter((profile) => profile.name.toLowerCase().includes(searchvalue.toLowerCase()) || profile.information.toLowerCase().includes(searchvalue.toLowerCase()) || profile.id.toString().includes(searchvalue));
     pushVehicles(searchdata);
 })
 // FILTERS VEHICLES BASED ON STATUS (WANTED, CLEAN AND ALL)
