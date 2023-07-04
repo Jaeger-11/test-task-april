@@ -211,9 +211,16 @@ let ordersData = [
     {
         name: "John Oils",
         id: '154',
-        status: 'pending ',
+        status: 'pending',
         imageUrl: '',
-        information: 'some information'
+        information: 'nice one'
+    },
+    {
+        name: "Killua Zoldyck",
+        id: '155',
+        status: 'pending',
+        imageUrl: 'images/character2.png',
+        information: 'Commits crime for fun'
     },
 ]
 // FETCHES & PUSHES WARRANT DATA TO SCREEN
@@ -309,7 +316,7 @@ warrantsearch.addEventListener('input', () => {
 ordersearch.addEventListener('input', (e) => {
     let searchvalue = ordersearch.value
     if (!searchvalue) pushOrder(ordersData)
-    let data = ordersData.filter((order) => order.name.toLowerCase().includes(searchvalue.toLowerCase()));
+    let data = ordersData.filter((order) => order.name.toLowerCase().includes(searchvalue.toLowerCase()) || order.information.toLowerCase().includes(searchvalue.toLowerCase()) || order.id.toString().includes(searchvalue));
     pushOrder(data)
 })
 
