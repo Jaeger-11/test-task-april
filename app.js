@@ -1723,10 +1723,14 @@ cancelevidence.addEventListener('click', () => {
 })
 saveevidence.addEventListener('click', () => {
     if(document.querySelector('#selectedevidence').value){
+        let values = {
+            profile: document.querySelector('#selectedevidence').value,
+            description : document.querySelector("#evidence-description").value
+        }
         document.getElementById('addedincidentevidences').innerHTML += `
         <div class="subpickedcontent">
             <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${document.querySelector('#selectedevidence').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         evidencemodal.classList.add('hide')
@@ -1748,10 +1752,14 @@ cancelperson.addEventListener('click', () => {
 })
 findperson.addEventListener('click', () => {
     if(document.querySelector('#selectedperson').value){
+        let values = {
+            profile: document.querySelector('#selectedperson').value,
+            description : document.querySelector("#person-description").value
+        }
         document.getElementById('addedincidentpersons').innerHTML += `
         <div class="subpickedcontent">
             <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${document.querySelector('#selectedperson').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         personmodal.classList.add('hide')
@@ -1773,10 +1781,14 @@ const cancelVehicle = () => {
 }
 const vehicleButtonAdd = () => {
     if(document.querySelector('#selectedvehicle').value){
+        let values = {
+            profile: document.querySelector('#selectedvehicle').value,
+            description : document.querySelector("#vehicle-description").value
+        }
         document.getElementById('addedincidentvehicles').innerHTML += `
         <div class="subpickedcontent">
             <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${document.querySelector('#selectedvehicle').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         document.querySelector('#vehiclemodal').classList.add('hide')
@@ -1798,9 +1810,13 @@ const cancelOfficer = () => {
 }
 const officerAdd = () => {
     if(document.querySelector('#selectedofficer').value){
+        let values = {
+            profile: document.querySelector('#selectedofficer').value,
+            description : document.querySelector("#officer-description").value
+        }
         document.getElementById('addedincidentofficers').innerHTML += `
         <div class="subpickedcontent">
-            <p> ${document.querySelector('#selectedofficer').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         document.querySelector('#officermodal').classList.add('hide')
@@ -1822,9 +1838,13 @@ const cancelCriminal = () => {
 }
 const criminalAdd = () => {
     if(document.querySelector('#selectedcriminal').value){
+        let values = {
+            profile: document.querySelector('#selectedcriminal').value,
+            description : document.querySelector("#criminal-description").value
+        }
         document.getElementById('addedincidentcriminals').innerHTML += `
         <div class="subpickedcontent">
-            <p> ${document.querySelector('#selectedcriminal').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         document.querySelector('#criminalmodal').classList.add('hide')
@@ -2336,10 +2356,14 @@ cancelreportsevidence.addEventListener('click', () => {
 })
 savereportevidence.addEventListener('click', () => {
     if(document.querySelector('#selectedreportevidence').value){
+        let values = {
+            evidencetype: document.querySelector('#selectedreportevidence').value,
+            description : document.querySelector("#reportevidence-description").value
+        }
         document.getElementById('addedreportevidences').innerHTML += `
         <div class="subpickedcontent">
             <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${document.querySelector('#selectedreportevidence').value} </p>
+            <p> ${values.evidencetype} </p>
         </div>
         `
         reportsevidence.classList.add('hide')
@@ -2360,10 +2384,14 @@ cancelreportsperson.addEventListener('click', () => {
 })
 reportspersonfind.addEventListener('click', () => {
     if(document.querySelector('#selectedreportperson').value){
+        let values = {
+            profile: document.querySelector('#selectedreportperson').value,
+            description : document.querySelector("#reportperson-description").value
+        }
         document.getElementById('addedreportpersons').innerHTML += `
         <div class="subpickedcontent">
             <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${document.querySelector('#selectedreportperson').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         reportspersonmodal.classList.add('hide')
@@ -2384,10 +2412,14 @@ const cancelOfficerReport = () => {
 }
 const officerReportAdd = () => {
     if(document.querySelector('#selectedreportofficer').value){
+        let values = {
+            profile: document.querySelector('#selectedreportofficer').value,
+            description : document.querySelector("#reportofficer-description").value
+        }
         document.getElementById('addedreportofficers').innerHTML += `
         <div class="subpickedcontent">
             <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${document.querySelector('#selectedreportofficer').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         document.querySelector('#reportofficermodal').classList.add('hide')
@@ -2408,10 +2440,14 @@ const cancelVehicleReport = () => {
 }
 const vehicleReportAdd = () => {
     if(document.querySelector('#selectedreportvehicle').value){
+        let values = {
+            profile: document.querySelector('#selectedreportvehicle').value,
+            description : document.querySelector("#reportvehicle-description").value
+        }
         document.getElementById('addedreportvehicles').innerHTML += `
         <div class="subpickedcontent">
             <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${document.querySelector('#selectedreportvehicle').value} </p>
+            <p> ${values.profile} </p>
         </div>
         `
         document.querySelector('#reportvehiclemodal').classList.add('hide')
