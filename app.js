@@ -139,7 +139,7 @@ let warrantsData = [
         status: 'pending',
         imageUrl: 'images/character1.png',
         expires: '6',
-        information: 'some information'
+        information: 'Aggravated assault and slander'
     },
     {
         name: "james bond",
@@ -147,7 +147,7 @@ let warrantsData = [
         status: 'rejected',
         imageUrl: 'images/character.svg',
         expires: '3',
-        information: 'some information'
+        information: 'Dangerous'
     },
     {
         name: "oliver twist",
@@ -163,7 +163,7 @@ let warrantsData = [
         status: 'rejected',
         imageUrl: '',
         expires: '6',
-        information: 'some information'
+        information: 'lovely'
     },
     {
         name: "stoney christon",
@@ -171,7 +171,7 @@ let warrantsData = [
         status: 'rejected',
         imageUrl: 'images/character1.png',
         expires: '6',
-        information: 'some information'
+        information: 'I will look for you..'
     },
     {
         name: "daniel greals",
@@ -179,7 +179,7 @@ let warrantsData = [
         status: 'pending',
         imageUrl: 'images/character.svg',
         expires: '5',
-        information: 'some information'
+        information: 'I will find you...'
     },
     {
         name: "josh kennedy",
@@ -187,7 +187,7 @@ let warrantsData = [
         status: 'pending',
         imageUrl: 'images/character2.png',
         expires: '6',
-        information: 'some information'
+        information: '...and i will kill you'
     },
     {
         name: "jerry sheamus",
@@ -240,7 +240,7 @@ const pushWarrant = (warrantData) => {
                 </div>
                 <div class="info-section">
                     <p class='suspectname'>${name}</p>
-                    <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
+                    <div class="information"> ${information}  <p class="dot"></p> id.${id} </div>
                     <section class="status-div">
                         <button class="${statusClass} funcBtns">${content}</button>
                         <div>
@@ -264,7 +264,7 @@ const pushOrder = (ordersData) => {
             <div class='imagecont'><img src="${imageUrl ? imageUrl : 'images/nophotored.png'}" alt="profile-image" class="order-image"></div>
             <div class="info-section">
                 <p class='suspectname'>${name}</p>
-                <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
+                <div class="information"> ${information} <p class="dot"></p> id.${id} </div>
                 <button class="red funcBtns">WANTED</button>
             </div>
         </div>
@@ -278,7 +278,7 @@ const applyCurrentSearchFilter = () => {
     if (currentwarrantsearchfilter === "") {
         data = warrantsData;
     } else {
-        data = warrantsData.filter((item) => item.name.includes(currentwarrantsearchfilter));
+        data = warrantsData.filter((item) => item.name.includes(currentwarrantsearchfilter) || item.information.includes(currentwarrantsearchfilter) || item.id.toString().includes(currentwarrantsearchfilter));
     }
     pushWarrant(data);
 };
@@ -303,10 +303,7 @@ pushOrder(ordersData);
 // SEARCH THROUGH WARRANTS
 warrantsearch.addEventListener('input', () => {
     currentwarrantsearchfilter = warrantsearch.value.toLowerCase()
-    let searchvalue = warrantsearch.value
-    if (!searchvalue) pushWarrant(warrantsData)
-    let data = warrantsData.filter((warrant) => warrant.name.toLowerCase().includes(searchvalue.toLowerCase()));
-    applyCurrentSearchFilter(data)
+    applyCurrentSearchFilter()
 })
 // SEARCH THROUGH ORDERS
 ordersearch.addEventListener('input', (e) => {
