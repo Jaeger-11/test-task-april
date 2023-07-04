@@ -336,7 +336,7 @@ let profilesData = [
         id: 155,
         status: 'clean',
         imageUrl: 'images/character1.png',
-        information: 'some information',
+        information: 'bruv really',
         warrants: [
             {
                 active: true,
@@ -406,7 +406,7 @@ let profilesData = [
         id: 156,
         status: 'wanted',
         imageUrl: 'images/character.svg',
-        information: 'some information',
+        information: 'spiderman spiderman',
         warrants: [
             {
                 active: true,
@@ -450,7 +450,7 @@ let profilesData = [
         id: 157,
         status: 'clean',
         imageUrl: 'images/character2.png',
-        information: 'some information',
+        information: 'bad, baddo, baddest',
         warrants: [],
         criminalhistory: [
             {
@@ -524,7 +524,7 @@ let profilesData = [
         id: 160,
         status: 'wanted',
         imageUrl: '',
-        information: 'some information',
+        information: 'principalities and powers',
         warrants: [],
         criminalhistory: [
             {
@@ -583,7 +583,7 @@ let profilesData = [
         id: 162,
         status: 'clean',
         imageUrl: 'images/character.svg',
-        information: 'some information',
+        information: 'all in your name',
         warrants: [],
         criminalhistory: [
             {
@@ -638,7 +638,7 @@ const pushProfiles = (data) => {
             <div class='imagecont'><img src="${imageUrl ? imageUrl : status === 'clean' ? 'images/nophotoblack.png' : 'images/nophotored.png'}" alt="profile-image" class=""></div>
             <div class="info-section">
                 <p class='suspectname'>${name} ${surname}</p>
-                <div class="information"> ${information} <p class="dot"></p> ${information} <p class="dot"></p> id.${id} </div>
+                <div class="information"> ${information} <p class="dot"></p> id.${id} </div>
                 <button class="${status === 'clean' ? 'green' : 'red'} funcBtns">${status}</button>
             </div>
         </section>
@@ -740,7 +740,7 @@ profilesearch.addEventListener('input', (e) => {
     } else {
         searchdata = profilesData.filter((item) => item.status.includes(currentprofilefilter))
     }
-    searchdata = searchdata.filter((profile) => profile.name.toLowerCase().includes(searchvalue.toLowerCase()));
+    searchdata = searchdata.filter((profile) => profile.name.toLowerCase().includes(searchvalue.toLowerCase()) || profile.information.toLowerCase().includes(searchvalue.toLowerCase()) || profile.surname.toLowerCase().includes(searchvalue.toLowerCase()) || profile.id.toString().includes(searchvalue));
     pushProfiles(searchdata);
 })
 // FILTERS PROFILE BASED ON STATUS (WANTED, CLEAN AND ALL)
