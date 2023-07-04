@@ -1137,17 +1137,20 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .subpicked{
     padding: var(--padmedium);
     background: rgba(255, 255, 255, 0.05);
-    display: flex;
+    /* display: flex; */
     flex-wrap: wrap;
     gap: calc(0.5 * var(--gap));
 }
 .subpicked .addicon{
+    margin-top: calc(0.5 * var(--gap));
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .additioncont{
     display: flex;
     gap: calc(0.5 * var(--gap));
     flex-wrap: wrap;
+    max-height: calc( 2.7 * var(--fontlarge) );
+    overflow-y: scroll;
 }
 .hidevehicle{
     position: absolute;
@@ -1518,7 +1521,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.25);
 }
 .leadingofficersdetails, .officersdetails{
-    max-height: calc( 2.7 * var(--fontlarge)  );
+    max-height: calc( 3 * var(--fontlarge)  );
     overflow-y: scroll;
     padding-right: var(--padlittle);
     gap: calc( 0.5 * var(--gap)) ;
