@@ -2601,7 +2601,7 @@ let allOfficers =  allPeople.filter((i) => i.officer === true)
 let allCitizens = allPeople.filter((i) => i.officer !== true)
 const allWanted = allPeople.filter((i) => i.wanted === true)
 // DROPDOWN FUNCTION FOR NEW INCIDENT ADD VEHICLES
-const pushIncidentDropData = (data, element, inputelement) => {
+const pushIncidentDropData = (data, element) => {
     document.querySelector(element).innerHTML = ""
     if ( element === '.vehicledropdowncontent' || element === '.reportvehicledropdowncontent' ){
         data.map((veh) => {
@@ -2729,7 +2729,7 @@ document.querySelector('#selectedvehicle').addEventListener('input', (event) => 
     document.querySelector('.vehicledropdowncontent').classList.remove('hidden')
     document.querySelector('.dropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = allVehicles.filter((veh) => veh.name.toLowerCase().includes(val.toLowerCase()) || veh.id.toLowerCase().includes(val.toLowerCase()))
+    let data = allVehicles.filter((veh) => veh.name.toLowerCase().includes(val.toLowerCase()) || veh.vehicleid.toLowerCase().includes(val.toLowerCase()))
     pushIncidentDropData(data, '.vehicledropdowncontent', 'selectedvehicle')
 })
 
@@ -2769,7 +2769,7 @@ document.querySelector('#selectedofficer').addEventListener('input', (event) => 
     document.querySelector('.officerdropdowncontent').classList.remove('hidden')
     document.querySelector('.officerdropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = allOfficers.filter((off) => off.name.toLowerCase().includes(val.toLowerCase()) || off.id.toLowerCase().includes(val.toLowerCase()))
+    let data = allOfficers.filter((off) => off.name.toLowerCase().includes(val.toLowerCase()) || off.id.toString().includes(val.toLowerCase()))
     pushIncidentDropData(data, '.officerdropdowncontent')
 })
 
@@ -2794,7 +2794,8 @@ document.querySelector('#selectedperson').addEventListener('input', (event) => {
     document.querySelector('.persondropdowncontent').classList.remove('hidden')
     document.querySelector('.persondropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    console.log(val);
+    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toString().includes(val.toLowerCase()))
     pushIncidentDropData(data, '.persondropdowncontent')
 })
 // DROP DOWN FUNCTION FOR NEW INCIDENT ADD CRIMINAL SCUM
@@ -2818,7 +2819,7 @@ document.querySelector('#selectedcriminal').addEventListener('input', (event) =>
     document.querySelector('.criminaldropdowncontent').classList.remove('hidden')
     document.querySelector('.criminaldropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = allWanted.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    let data = allWanted.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toString().includes(val.toLowerCase()))
     pushIncidentDropData(data, '.criminaldropdowncontent')
 })
 // DROP DOWN FUNCTION FOR NEW INCIDENT ADD EVIDENCE
@@ -2836,7 +2837,7 @@ document.querySelector('#selectedevidence').addEventListener('input', (event) =>
     document.querySelector('.evidencedropdowncontent').classList.remove('hidden')
     document.querySelector('.evidencedropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = evidenceTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
+    let data = evidenceTypes.filter((type) => type.evidence.toLowerCase().includes(val.toLowerCase()) )
     pushIncidentDropData(data, '.evidencedropdowncontent')
 })
 
@@ -2855,7 +2856,7 @@ document.querySelector('#selectedreport').addEventListener('input', (event) => {
     documIncidentySelector('.reportdropdownicon').classList.add('rotate')
     document.querySelector('.reportsearchpop').classList.add('elementhidden')
     let val = event.target.value
-    let data = reportTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
+    let data = reportTypes.filter((type) => type.report.toLowerCase().includes(val.toLowerCase()) )
     pushIncidentDropData(data, '.reportdropdowncontent')
 })
 // DROP DOWN FUNCTION FOR REPORT ADD EVIDENCE
@@ -2872,7 +2873,7 @@ document.querySelector('#selectedreportevidence').addEventListener('input', (eve
     document.querySelector('.reportevidencedropdowncontent').classList.remove('hidden')
     document.querySelector('.reportevidencedropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = evidenceTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
+    let data = evidenceTypes.filter((type) => type.evidence.toLowerCase().includes(val.toLowerCase()) )
     pushIncidentDropData(data, '.reportevidencedropdowncontent')
 })
 // DROP DOWN FUNCTION FOR ADD REPORT PERSON
@@ -2896,7 +2897,7 @@ document.querySelector('#selectedreportperson').addEventListener('input', (event
     document.querySelector('.reportpersondropdowncontent').classList.remove('hidden')
     document.querySelector('.reportpersondropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toString().includes(val.toLowerCase()))
     pushIncidentDropData(data, '.reportpersondropdowncontent')
 })
 // DROP DOWN FUNCTION FOR ADD REPORT OFFICER
@@ -2920,7 +2921,7 @@ document.querySelector('#selectedreportofficer').addEventListener('input', (even
     document.querySelector('.reportofficerdropdowncontent').classList.remove('hidden')
     document.querySelector('.reportofficerdropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    let data = allCitizens.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toString().includes(val.toLowerCase()))
     pushIncidentDropData(data, '.reportofficerdropdowncontent')
 })
 // DROP DOWN FUNCTION FOR ADD REPORT VEHICLE
@@ -2944,7 +2945,7 @@ document.querySelector('#selectedreportvehicle').addEventListener('input', (even
     document.querySelector('.reportvehicledropdowncontent').classList.remove('hidden')
     document.querySelector('.reportvehicledropdownicon').classList.add('rotate')
     let val = event.target.value
-    let data = allVehicles.filter((cit) => cit.name.toLowerCase().includes(val.toLowerCase()) || cit.id.toLowerCase().includes(val.toLowerCase()))
+    let data = allVehicles.filter((veh) => veh.name.toLowerCase().includes(val.toLowerCase()) || veh.vehicleid.toLowerCase().includes(val.toLowerCase()))
     pushIncidentDropData(data, '.reportvehicledropdowncontent')
 })
 
