@@ -2600,7 +2600,7 @@ const pushIncidentDropData = (data, element, inputelement) => {
     } else if ( element === '.reportdropdowncontent'){
         data.map((type) => {
             document.querySelector(element).innerHTML += `
-            <section class="grey pointer capitalize fontmedium smallbold">${type.report}</section>
+            <section class="grey pointer capitalize fontmedium smallbold" onclick="selectNewReport(${type.id})">${type.report}</section>
             `
         })
     }
@@ -2674,6 +2674,13 @@ const selectNewReportVehicle = (id) => {
     document.querySelector('.reportvehiclesearchpop').classList.add('elementhidden')
     document.querySelector('.reportvehicledropdowncontent').classList.add('hidden')
     document.querySelector('.reportvehicledropdownicon').classList.remove('rotate')
+}
+const selectNewReport = (id) => {
+    let type = reportTypes.filter((typ) => typ.id === id)
+    document.querySelector('.reportsearchpop').classList.add('elementhidden')
+    document.getElementById('selectedreport').value = type[0].report
+    document.querySelector('.reportdropdowncontent').classList.add('hidden')
+    document.querySelector('.reportdropdownicon').classList.remove('rotate')
 }
 
 // SEARCH VEHICLE DROPDOWN LIST
@@ -2797,14 +2804,16 @@ document.querySelector('#selectedevidence').addEventListener('input', (event) =>
 // DROP DOWN FUNCTION FOR REPORT TYPE
 const toggleReportDropDown = () => {
     document.querySelector('.reportdropdowncontent').innerHTML = ""
+    document.querySelector('.reportsearchpop').classList.toggle('elementhidden')
     document.querySelector('.reportdropdowncontent').classList.toggle('hidden')
     document.querySelector('.reportdropdownicon').classList.toggle('rotate')
     pushIncidentDropData(reportTypes, '.reportdropdowncontent');
 }
 // SEARCH REPORT TYPE
-document.querySelector('#reportname').addEventListener('input', (event) => {
+document.querySelector('#selectedreport').addEventListener('input', (event) => {
     document.querySelector('.reportdropdowncontent').classList.remove('hidden')
     documIncidentySelector('.reportdropdownicon').classList.add('rotate')
+    document.querySelector('.reportsearchpop').classList.add('elementhidden')
     let val = event.target.value
     let data = reportTypes.filter((type) => type.toLowerCase().includes(val.toLowerCase()) )
     pushIncidentDropData(data, '.reportdropdowncontent')
