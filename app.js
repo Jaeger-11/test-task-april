@@ -2343,8 +2343,8 @@ savereportevidence.addEventListener('click', () => {
         </div>
         `
         reportsevidence.classList.add('hide')
-        document.querySelector('#selectedevidence').value = ''
-        document.getElementById('selectedevidence').classList.remove('uppercase')
+        document.querySelector('#selectedreportevidence').value = ''
+        document.getElementById('selectedreportevidence').classList.remove('uppercase')
     }  
 })
 // REPORTS ADD PERSON FUNCTIONALITY
