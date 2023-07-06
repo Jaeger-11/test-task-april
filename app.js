@@ -1716,6 +1716,8 @@ const incidentsAdd = () => {
 }
 // ADD EVIDENCE FUNCTIONALITY
 const evidenceIncidentSub = () => {
+    document.querySelector('.incidentevidenceheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusincidentevidence').classList.toggle('opacity-0')
     document.querySelector('.incidentevidence').classList.toggle('hidevehicle')
     document.querySelector('.addincidentevidence').classList.toggle('addiconactive') 
 }
@@ -1733,7 +1735,9 @@ saveevidence.addEventListener('click', () => {
         }
         document.getElementById('addedincidentevidences').innerHTML += `
         <div class="subpickedcontent">
-            <img src="images/vehicle.svg" alt="vehicle icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M1.1665 1.75H12.8332V4.08333H1.1665V1.75ZM11.0832 4.66667H1.74984V11.0833C1.74984 11.3928 1.87275 11.6895 2.09155 11.9083C2.31034 12.1271 2.60708 12.25 2.9165 12.25H11.0832C11.3926 12.25 11.6893 12.1271 11.9081 11.9083C12.1269 11.6895 12.2498 11.3928 12.2498 11.0833V4.66667H11.0832ZM9.33317 8.16667H4.6665V7H9.33317V8.16667Z" fill="white"/>
+            </svg>            
             <p> ${values.profile} </p>
         </div>
         `
@@ -1745,6 +1749,8 @@ saveevidence.addEventListener('click', () => {
 
 // ADD PERSON FUNCTIONALITY
 const personIncidentSub = () => {
+    document.querySelector('.incidentpersonheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusincidentperson').classList.toggle('opacity-0')
     document.querySelector('.incidentpersons').classList.toggle('hidevehicle')
     document.querySelector('.addincidentperson').classList.toggle('addiconactive') 
 }
@@ -1762,8 +1768,18 @@ findperson.addEventListener('click', () => {
         }
         document.getElementById('addedincidentpersons').innerHTML += `
         <div class="subpickedcontent">
-            <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${values.profile} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <g clip-path="url(#clip0_9628_62454)">
+                <path d="M11.9038 9.53594C11.2789 8.85889 10.5206 8.31857 9.67659 7.94901C8.83261 7.57946 7.92124 7.38867 6.99989 7.38867C6.07854 7.38867 5.16718 7.57946 4.32319 7.94901C3.47921 8.31857 2.72089 8.85889 2.096 9.53594C1.99953 9.64262 1.94556 9.781 1.94434 9.92483V12.2582C1.94638 12.4115 2.00874 12.5579 2.11792 12.6656C2.22709 12.7733 2.3743 12.8337 2.52767 12.8337H11.4721C11.6268 12.8337 11.7752 12.7723 11.8846 12.6629C11.994 12.5535 12.0554 12.4051 12.0554 12.2504V9.91705C12.0523 9.77591 11.9985 9.64062 11.9038 9.53594Z" fill="white"/>
+                <path d="M7.00005 6.61144C8.5035 6.61144 9.72228 5.39266 9.72228 3.88921C9.72228 2.38577 8.5035 1.16699 7.00005 1.16699C5.49661 1.16699 4.27783 2.38577 4.27783 3.88921C4.27783 5.39266 5.49661 6.61144 7.00005 6.61144Z" fill="white"/>
+            </g>
+            <defs>
+                <clipPath id="clip0_9628_62454">
+                    <rect width="14" height="14" fill="white"/>
+                </clipPath>
+            </defs>
+        </svg>               
+        <p> ${values.profile} </p>
         </div>
         `
         personmodal.classList.add('hide')
@@ -1774,6 +1790,8 @@ findperson.addEventListener('click', () => {
 
 // ADD VEHICLE TO INCIDENT
 const addIncidentVehicle = () => {
+    document.querySelector('.incidentvehicleheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusincidentvehicle').classList.toggle('opacity-0')
     document.querySelector('.incidentvehicles').classList.toggle('hidevehicle')
     document.querySelector('#addincidentvehicle').classList.toggle('addiconactive')
 }
@@ -1803,6 +1821,8 @@ const vehicleButtonAdd = () => {
 
 // ADD OFFICER TO INCIDENT
 const officerIncidentSub = () => {
+    document.querySelector('.incidentofficerheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusincidentofficer').classList.toggle('opacity-0')
     document.querySelector('.incidentofficers').classList.toggle('hidevehicle')
     document.querySelector('.addincidentofficer').classList.toggle('addiconactive') 
 }
@@ -1820,6 +1840,9 @@ const officerAdd = () => {
         }
         document.getElementById('addedincidentofficers').innerHTML += `
         <div class="subpickedcontent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M8.45833 7.34384L8.82583 8.93634C8.88417 9.18717 8.61 9.38551 8.38833 9.25134L7 8.41134L5.60583 9.25134C5.55669 9.28116 5.49986 9.29585 5.44242 9.29359C5.38499 9.29132 5.32949 9.27221 5.28284 9.23862C5.23619 9.20504 5.20046 9.15847 5.1801 9.10471C5.15974 9.05096 5.15565 8.9924 5.16833 8.93634L5.54167 7.34967L4.31667 6.29384C4.27265 6.25663 4.24065 6.20722 4.2247 6.15184C4.20874 6.09646 4.20956 6.03759 4.22703 5.98267C4.24451 5.92775 4.27786 5.87924 4.32288 5.84326C4.36791 5.80728 4.42258 5.78544 4.48 5.78051L6.10167 5.64051L6.73167 4.14717C6.83083 3.90801 7.16917 3.90801 7.26833 4.14717L7.89833 5.63467L9.52 5.77467C9.57742 5.77961 9.63209 5.80144 9.67712 5.83742C9.72214 5.8734 9.75549 5.92192 9.77297 5.97684C9.79044 6.03176 9.79125 6.09062 9.7753 6.146C9.75935 6.20139 9.72735 6.2508 9.68333 6.28801L8.45833 7.34384ZM2.44417 2.60717C2.02417 2.79384 1.75 3.21384 1.75 3.67467V6.41634C1.75 9.65384 3.99 12.6813 7 13.4163C10.01 12.6813 12.25 9.65384 12.25 6.41634V3.67467C12.25 3.21384 11.9758 2.79384 11.5558 2.60717L7.4725 0.793008C7.16917 0.658841 6.825 0.658841 6.5275 0.793008L2.44417 2.60717Z" fill="white"/>
+            </svg>  
             <p> ${values.profile} </p>
         </div>
         `
@@ -1831,6 +1854,8 @@ const officerAdd = () => {
 
 // ADD CRIMINAL SCUM TO NEW INCIDENT
 const criminalIncidentSub = () => {
+    document.querySelector('.incidentcriminalheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusincidentcriminal').classList.toggle('opacity-0')
     document.querySelector('.incidentcriminals').classList.toggle('hidevehicle')
     document.querySelector('.addincidentcriminal').classList.toggle('addiconactive') 
 }
@@ -1848,6 +1873,18 @@ const criminalAdd = () => {
         }
         document.getElementById('addedincidentcriminals').innerHTML += `
         <div class="subpickedcontent">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <g clip-path="url(#clip0_9628_62460)">
+                <path d="M11.9038 9.53594C11.2789 8.85889 10.5206 8.31857 9.67659 7.94901C8.83261 7.57946 7.92124 7.38867 6.99989 7.38867C6.07854 7.38867 5.16718 7.57946 4.32319 7.94901C3.47921 8.31857 2.72089 8.85889 2.096 9.53594C1.99953 9.64262 1.94556 9.781 1.94434 9.92483V12.2582C1.94638 12.4115 2.00874 12.5579 2.11792 12.6656C2.22709 12.7733 2.3743 12.8337 2.52767 12.8337H11.4721C11.6268 12.8337 11.7752 12.7723 11.8846 12.6629C11.994 12.5535 12.0554 12.4051 12.0554 12.2504V9.91705C12.0523 9.77591 11.9985 9.64062 11.9038 9.53594Z" fill="#FFF3F3"/>
+                <path d="M7.00003 6.61143C7.62475 6.6114 8.23044 6.39651 8.71549 6.00281C9.20053 5.60911 9.53541 5.06056 9.66392 4.4492C9.31363 4.12234 9.05048 3.71319 8.89836 3.25886C8.74624 2.80454 8.70996 2.31943 8.79281 1.84754C8.46222 1.55599 8.06577 1.34907 7.63755 1.24458C7.20933 1.14009 6.76214 1.14115 6.33441 1.24767C5.90669 1.35419 5.51123 1.56298 5.18202 1.85609C4.85282 2.1492 4.59971 2.51787 4.44446 2.93042C4.28921 3.34296 4.23646 3.78703 4.29074 4.22446C4.34503 4.66189 4.50472 5.0796 4.7561 5.44168C5.00747 5.80376 5.34302 6.09938 5.73388 6.30314C6.12475 6.50689 6.55925 6.61269 7.00003 6.61143Z" fill="#FFF3F3"/>
+                <path d="M11.6666 4.27756C12.7405 4.27756 13.6111 3.407 13.6111 2.33312C13.6111 1.25923 12.7405 0.388672 11.6666 0.388672C10.5927 0.388672 9.72217 1.25923 9.72217 2.33312C9.72217 3.407 10.5927 4.27756 11.6666 4.27756Z" fill="#FF4848"/>
+            </g>
+            <defs>
+                <clipPath id="clip0_9628_62460">
+                <rect width="14" height="14" fill="white"/>
+                </clipPath>
+            </defs>
+            </svg>
             <p> ${values.profile} </p>
         </div>
         `
@@ -2349,6 +2386,8 @@ reportsearch.addEventListener('input', () => {
 })
 // REPORTS ADD EVIDENCE FUNCTIONALITIES
 const evidenceReportSub = () => {
+    document.querySelector('.reportevidenceheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusreportevidence').classList.toggle('opacity-0')
     document.querySelector('.evidencereport').classList.toggle('hidevehicle')
     document.querySelector('#evidencereporticon').classList.toggle('addiconactive')
 }
@@ -2366,7 +2405,9 @@ savereportevidence.addEventListener('click', () => {
         }
         document.getElementById('addedreportevidences').innerHTML += `
         <div class="subpickedcontent">
-            <img src="images/vehicle.svg" alt="vehicle icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M1.1665 1.75H12.8332V4.08333H1.1665V1.75ZM11.0832 4.66667H1.74984V11.0833C1.74984 11.3928 1.87275 11.6895 2.09155 11.9083C2.31034 12.1271 2.60708 12.25 2.9165 12.25H11.0832C11.3926 12.25 11.6893 12.1271 11.9081 11.9083C12.1269 11.6895 12.2498 11.3928 12.2498 11.0833V4.66667H11.0832ZM9.33317 8.16667H4.6665V7H9.33317V8.16667Z" fill="white"/>
+            </svg>
             <p> ${values.evidencetype} </p>
         </div>
         `
@@ -2377,6 +2418,8 @@ savereportevidence.addEventListener('click', () => {
 })
 // REPORTS ADD PERSON FUNCTIONALITY
 const personReportSub = () => {
+    document.querySelector('.reportpersonheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusreportperson').classList.toggle('opacity-0')
     document.querySelector('.personreport').classList.toggle('hidevehicle')
     document.querySelector('#personreporticon').classList.toggle('addiconactive')
 }
@@ -2394,8 +2437,18 @@ reportspersonfind.addEventListener('click', () => {
         }
         document.getElementById('addedreportpersons').innerHTML += `
         <div class="subpickedcontent">
-            <img src="images/vehicle.svg" alt="vehicle icon">
-            <p> ${values.profile} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <g clip-path="url(#clip0_9628_62454)">
+                    <path d="M11.9038 9.53594C11.2789 8.85889 10.5206 8.31857 9.67659 7.94901C8.83261 7.57946 7.92124 7.38867 6.99989 7.38867C6.07854 7.38867 5.16718 7.57946 4.32319 7.94901C3.47921 8.31857 2.72089 8.85889 2.096 9.53594C1.99953 9.64262 1.94556 9.781 1.94434 9.92483V12.2582C1.94638 12.4115 2.00874 12.5579 2.11792 12.6656C2.22709 12.7733 2.3743 12.8337 2.52767 12.8337H11.4721C11.6268 12.8337 11.7752 12.7723 11.8846 12.6629C11.994 12.5535 12.0554 12.4051 12.0554 12.2504V9.91705C12.0523 9.77591 11.9985 9.64062 11.9038 9.53594Z" fill="white"/>
+                    <path d="M7.00005 6.61144C8.5035 6.61144 9.72228 5.39266 9.72228 3.88921C9.72228 2.38577 8.5035 1.16699 7.00005 1.16699C5.49661 1.16699 4.27783 2.38577 4.27783 3.88921C4.27783 5.39266 5.49661 6.61144 7.00005 6.61144Z" fill="white"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_9628_62454">
+                        <rect width="14" height="14" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>            
+        <p> ${values.profile} </p>
         </div>
         `
         reportspersonmodal.classList.add('hide')
@@ -2405,6 +2458,8 @@ reportspersonfind.addEventListener('click', () => {
 })
 // ADD OFFICER TO REPORT
 const officerReportSub = () => {
+    document.querySelector('.reportofficerheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusreportofficer').classList.toggle('opacity-0')
     document.querySelector('.officerreport').classList.toggle('hidevehicle')
     document.querySelector('#officerreporticon').classList.toggle('addiconactive')
 }
@@ -2422,7 +2477,9 @@ const officerReportAdd = () => {
         }
         document.getElementById('addedreportofficers').innerHTML += `
         <div class="subpickedcontent">
-            <img src="images/vehicle.svg" alt="vehicle icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M8.45833 7.34384L8.82583 8.93634C8.88417 9.18717 8.61 9.38551 8.38833 9.25134L7 8.41134L5.60583 9.25134C5.55669 9.28116 5.49986 9.29585 5.44242 9.29359C5.38499 9.29132 5.32949 9.27221 5.28284 9.23862C5.23619 9.20504 5.20046 9.15847 5.1801 9.10471C5.15974 9.05096 5.15565 8.9924 5.16833 8.93634L5.54167 7.34967L4.31667 6.29384C4.27265 6.25663 4.24065 6.20722 4.2247 6.15184C4.20874 6.09646 4.20956 6.03759 4.22703 5.98267C4.24451 5.92775 4.27786 5.87924 4.32288 5.84326C4.36791 5.80728 4.42258 5.78544 4.48 5.78051L6.10167 5.64051L6.73167 4.14717C6.83083 3.90801 7.16917 3.90801 7.26833 4.14717L7.89833 5.63467L9.52 5.77467C9.57742 5.77961 9.63209 5.80144 9.67712 5.83742C9.72214 5.8734 9.75549 5.92192 9.77297 5.97684C9.79044 6.03176 9.79125 6.09062 9.7753 6.146C9.75935 6.20139 9.72735 6.2508 9.68333 6.28801L8.45833 7.34384ZM2.44417 2.60717C2.02417 2.79384 1.75 3.21384 1.75 3.67467V6.41634C1.75 9.65384 3.99 12.6813 7 13.4163C10.01 12.6813 12.25 9.65384 12.25 6.41634V3.67467C12.25 3.21384 11.9758 2.79384 11.5558 2.60717L7.4725 0.793008C7.16917 0.658841 6.825 0.658841 6.5275 0.793008L2.44417 2.60717Z" fill="white"/>
+            </svg>            
             <p> ${values.profile} </p>
         </div>
         `
@@ -2433,6 +2490,8 @@ const officerReportAdd = () => {
 }
 // ADD VEHICLES TO REPORT
 const addReportVehicles = () => {
+    document.querySelector('.reportvehicleheader').classList.toggle('addcriminalactive')
+    document.querySelector('.plusreportvehicle').classList.toggle('opacity-0')
     document.querySelector('.reportvehicles').classList.toggle('hidevehicle')
     document.querySelector('#addreportvehicle').classList.toggle('addiconactive')
 }
