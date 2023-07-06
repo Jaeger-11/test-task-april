@@ -140,10 +140,6 @@ body{
     pointer-events: none;
     position: absolute;
 }
-.opacity-0{
-    opacity: 0;
-    pointer-events: none;
-}
 .show{
     position: absolute;
     opacity: 1;
@@ -1562,6 +1558,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .elementhidden{
     opacity: 0 !important;
+    pointer-events: none;
 }
 .last-modified, .profile-last-modified, .vehicle-last-modified{
     position: absolute;
