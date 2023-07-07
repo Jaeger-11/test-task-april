@@ -84,6 +84,10 @@ clickLinks.map((link) => {
             document.querySelector('.incidents-main').classList.add('incidents-grid');
             document.querySelector('.incidentadd').classList.remove('hidden');
             maincontainer.classList.remove('main-container-reverse');
+        } else if (link.tab == reports) {
+            document.querySelector('.newreportscreen').classList.add('hidden');
+            document.querySelector('.reportadd').classList.remove('hidden');
+            document.querySelector('.reports-main').classList.add('reports-grid');
         }
         else {
             maincontainer.classList.remove('main-container-reverse');
@@ -2395,6 +2399,12 @@ reportsearch.addEventListener('input', () => {
     let data = reportsData.filter((report) => report.title.toLowerCase().includes(searchvalue.toLowerCase()) || report.description.toLowerCase().includes(searchvalue.toLowerCase()) || report.name.toLowerCase().includes(searchvalue.toLowerCase()) || report.id.toString().includes(searchvalue));
     pushReports(data)
 })
+// VIEW ALL REPORTS
+const reportsAdd = () => {
+    document.querySelector('.reports-main').classList.remove('reports-grid');
+    document.querySelector('.newreportscreen').classList.remove('hidden');
+    document.querySelector('.reportadd').classList.add('hidden');
+}
 // REPORTS ADD EVIDENCE FUNCTIONALITIES
 const evidenceReportSub = () => {
     document.querySelector('.reportevidenceheader').classList.toggle('addcriminalactive')

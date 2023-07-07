@@ -586,7 +586,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     .main-container{
         height: 70vh;
     }
-    .warrants, .orders, .incidents-main-container, .reports-main, .vehicles-main-container, .profiles-main-container{
+    .warrants, .orders, .incidents-main-container, .vehicles-main-container, .profiles-main-container, .reports-main-container{
         height: calc(60vh - var(--gap)) !important;
     }
 }
@@ -905,7 +905,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
-.newincidentscreen{
+.newincidentscreen, .newreportscreen{
     flex: 2;
     gap: calc(2 * var(--gaplarge));
     padding-bottom: var(--padlarge);
@@ -1015,7 +1015,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     font-size: var(--fontmedium);
     text-transform: capitalize;
 }
- .incidents-main-container, .reports-main{
+ .incidents-main-container, .reports-main-container{
     display: flex;
     flex-direction: column;
     gap: calc(0.5 * var(--gap));
@@ -1030,7 +1030,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     gap: calc(0.5 * var(--gap));
     overflow-x: hidden;
 }
-.incidents-main{
+.incidents-main, .reports-main{
     gap: calc(0.5 * var(--gap));
     display: flex;
     flex-direction: column;
@@ -1046,7 +1046,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .incidents-search-add .search-input{
     flex: 1;
 }
-.incidents-grid{
+.incidents-grid, .reports-grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: fit-content(100);

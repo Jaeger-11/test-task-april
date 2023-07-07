@@ -965,20 +965,27 @@
                                         <p class="bold">REPORTS <br> <span class="small">REPORTS</span></p>     
                                     </div>
                                 </section>
-                                <section class="search-input incidents-search-input">
-                                    <img src="images/search.svg" alt="search">
-                                    <input type="text" name="search" id="reportsearch" placeholder="Search">
-                                </section>
+                                <div class="incidents-search-add">
+                                    <section class="search-input incidents-search-input">
+                                        <img src="images/search.svg" alt="search">
+                                        <input type="text" name="search" id="reportsearch" placeholder="Search">
+                                    </section>
+                                    <div class="addicon pointer reportadd" onclick="reportsAdd()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="smallsvg" viewBox="0 0 12 12" fill="none">
+                                            <path d="M11.8333 6.83171H6.83332V11.8317H5.16666V6.83171H0.166656V5.16504H5.16666V0.165039H6.83332V5.16504H11.8333V6.83171Z" class="addsvg"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="reports-main-container">
-                                <section class="reports-main">
+                                <section class="reports-main reports-grid">
                                    
                                 </section>
                             </div>
                         </div>
 
-                        <div class="subsection newincidentscreen">
+                        <div class="subsection newreportscreen hidden">
                             <div class="header">
                                 <section class="header-text">
                                     <div class="paddedicon"><img src="images/Vectoraddincident.svg" alt="incident icon" ></div>
