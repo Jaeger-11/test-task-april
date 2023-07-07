@@ -1894,6 +1894,17 @@ const criminalAdd = () => {
     }
 }
 
+// REFRESH NEW INCIDENT FORM
+const refreshIncidentForm = () => {
+    document.getElementById('addedincidentvehicles').innerHTML = ""
+    document.getElementById('addedincidentofficers').innerHTML = ""
+    document.getElementById('addedincidentpersons').innerHTML = ""
+    document.getElementById('addedincidentevidences').innerHTML = ""
+    document.getElementById('addedincidentcriminals').innerHTML = ""
+    document.getElementById('newincidenttitle').value = ""
+    document.getElementById('newincidentdescription').value = ""
+}
+
 // VIEW SINGLE INCIDENT SWITCH
 const incidentEvidences = document.querySelector('.evidences');
 const incidentVehicles = document.querySelector('.vehicles');
@@ -2517,6 +2528,16 @@ const vehicleReportAdd = () => {
         document.querySelector('#selectedreportvehicle').value = ''
         document.getElementById('selectedreportvehicle').classList.remove('uppercase')
     }  
+}
+// REFRESH NEW REPORT FORM
+const refreshReportForm = () => {
+    document.getElementById('addedreportvehicles').innerHTML = ""
+    document.getElementById('addedreportofficers').innerHTML = ""
+    document.getElementById('addedreportpersons').innerHTML = ""
+    document.getElementById('addedreportevidences').innerHTML = ""
+    document.getElementById('newreporttitle').value = ""
+    document.getElementById('newreportdescription').value = ""
+    document.getElementById('selectedreport').value = ""
 }
 
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL

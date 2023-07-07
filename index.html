@@ -161,7 +161,7 @@
                                             <path d="M15.105 5.12125L10.8787 0.895C10.3869 0.402576 9.71971 0.125613 9.02375 0.125H6.25V5.375H10.625C10.8571 5.375 11.0796 5.46719 11.2437 5.63128C11.4078 5.79538 11.5 6.01794 11.5 6.25C11.5 6.48206 11.4078 6.70462 11.2437 6.86872C11.0796 7.03281 10.8571 7.125 10.625 7.125H5.375C5.14294 7.125 4.92038 7.03281 4.75628 6.86872C4.59219 6.70462 4.5 6.48206 4.5 6.25V0.125H2.75C2.05381 0.125 1.38613 0.401562 0.893845 0.893845C0.401562 1.38613 0.125 2.05381 0.125 2.75V13.25C0.125 13.9462 0.401562 14.6139 0.893845 15.1062C1.38613 15.5984 2.05381 15.875 2.75 15.875H4.5V12.375C4.5 11.9109 4.68437 11.4658 5.01256 11.1376C5.34075 10.8094 5.78587 10.625 6.25 10.625H9.75C10.2141 10.625 10.6592 10.8094 10.9874 11.1376C11.3156 11.4658 11.5 11.9109 11.5 12.375V15.875H13.25C13.9462 15.875 14.6139 15.5984 15.1062 15.1062C15.5984 14.6139 15.875 13.9462 15.875 13.25V6.97625C15.8744 6.28029 15.5974 5.61306 15.105 5.12125Z" fill="white" fill-opacity="0.65"/>
                                             </svg>
                                         SAVE</div>
-                                    <span class="paddedicon pointer"><img src="images/anticlockwise.svg" alt="incident icon"></span>
+                                    <span class="paddedicon pointer" onclick="refreshIncidentForm()"><img src="images/anticlockwise.svg" alt="incident icon"></span>
                                     <span class="paddedicon pointer"><img src="images/edit.svg" alt="incident icon" ></span>
                                     <span class="paddedicon pointer"><img src="images/trash.svg" alt="incident icon" ></span>
                                 </section>
@@ -176,7 +176,7 @@
                                         </div>
                                         <div class="incidentinputbox inputtwo">
                                             <img src="images/greyedit.svg" alt="edit" class="editabsolute">
-                                            <textarea name="" id="" cols="30" rows="10"  placeholder="Your Description" class="incidenttextarea"></textarea>
+                                            <textarea name="" id="newincidentdescription" cols="30" rows="10"  placeholder="Your Description" class="incidenttextarea"></textarea>
                                         </div>
                                     </section>
                                 </div>
@@ -993,7 +993,7 @@
                                             <path d="M15.105 5.12125L10.8787 0.895C10.3869 0.402576 9.71971 0.125613 9.02375 0.125H6.25V5.375H10.625C10.8571 5.375 11.0796 5.46719 11.2437 5.63128C11.4078 5.79538 11.5 6.01794 11.5 6.25C11.5 6.48206 11.4078 6.70462 11.2437 6.86872C11.0796 7.03281 10.8571 7.125 10.625 7.125H5.375C5.14294 7.125 4.92038 7.03281 4.75628 6.86872C4.59219 6.70462 4.5 6.48206 4.5 6.25V0.125H2.75C2.05381 0.125 1.38613 0.401562 0.893845 0.893845C0.401562 1.38613 0.125 2.05381 0.125 2.75V13.25C0.125 13.9462 0.401562 14.6139 0.893845 15.1062C1.38613 15.5984 2.05381 15.875 2.75 15.875H4.5V12.375C4.5 11.9109 4.68437 11.4658 5.01256 11.1376C5.34075 10.8094 5.78587 10.625 6.25 10.625H9.75C10.2141 10.625 10.6592 10.8094 10.9874 11.1376C11.3156 11.4658 11.5 11.9109 11.5 12.375V15.875H13.25C13.9462 15.875 14.6139 15.5984 15.1062 15.1062C15.5984 14.6139 15.875 13.9462 15.875 13.25V6.97625C15.8744 6.28029 15.5974 5.61306 15.105 5.12125Z" fill="white" fill-opacity="0.65"/>
                                             </svg>
                                         SAVE</div>
-                                    <div class="paddedicon pointer"><img src="images/anticlockwise.svg" alt="incident icon"></div>
+                                    <div class="paddedicon pointer" onclick="refreshReportForm()"><img src="images/anticlockwise.svg" alt="incident icon"></div>
                                     <div class="paddedicon pointer"><img src="images/edit.svg" alt="incident icon" ></div>
                                     <div class="paddedicon pointer"><img src="images/trash.svg" alt="incident icon" ></div>
                                 </section>
@@ -1018,11 +1018,11 @@
                                     </div>
                                     <div class="incidentinputbox inputone">
                                         <img src="images/greyedit.svg" alt="edit" class="editabsolute">
-                                        <input type="text" name="title" id="newincidenttitle" placeholder="Title" class="incidentinputtitle">
+                                        <input type="text" name="title" id="newreporttitle" placeholder="Title" class="incidentinputtitle">
                                     </div>
                                     <div class="incidentinputbox inputtwo">
                                         <img src="images/greyedit.svg" alt="edit" class="editabsolute">
-                                        <textarea name="" id="" cols="30" rows="10"  placeholder="Your Description" class="incidenttextarea"></textarea>
+                                        <textarea name="" id="newreportdescription" cols="30" rows="10"  placeholder="Your Description" class="incidenttextarea"></textarea>
                                     </div>
                                 </section>
                             </div>
