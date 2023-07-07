@@ -932,6 +932,9 @@ border: 1px solid rgba(255, 101, 101, 0.75);
 .subsection .header{
     margin-top: 0;
 }
+.reportscont .header .header-text{
+    margin-right: var(--gaplarge);
+}
 .padfirst{
     display: flex;
     justify-content: center;
