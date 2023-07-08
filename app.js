@@ -88,6 +88,7 @@ clickLinks.map((link) => {
             document.querySelector('.newreportscreen').classList.add('hidden');
             document.querySelector('.reportadd').classList.remove('hidden');
             document.querySelector('.reports-main').classList.add('reports-grid');
+            maincontainer.classList.remove('main-container-reverse');
         }
         else {
             maincontainer.classList.remove('main-container-reverse');
@@ -1348,7 +1349,20 @@ let incidentsData = [
             },
         ],
         officers: [],
-        citizens: []
+        citizens: [
+            {
+                id: 1,
+                citizenname: "John Doe",
+                citizenid: 156,
+                status: "victim"
+            },
+            {
+                id: 2,
+                citizenname: "Jane Doe",
+                citizenid: 157,
+                status: "eyewitness"
+            },
+        ]
     },
     {
         id: '157',
