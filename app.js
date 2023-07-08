@@ -2572,7 +2572,8 @@ const saveNewReport = () => {
         time: '2 minutes ago',
         name: 'Daniel Kim'
     })
-    pushReports(reportsData)
+    pushReports(reportsData);
+    refreshReportForm();
 }
 
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
