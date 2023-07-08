@@ -2358,14 +2358,14 @@ const reportsearch = document.querySelector('#reportsearch');
 // REPORTS DATA
 let reportsData = [
     {
-        id: '155',
+        id: 155,
         title: '10-90 | Robbery',
         description: 'Caucasian Male',
         time: '13 minutes ago',
         name: 'alexa death',
     },
     {
-        id: '156',
+        id: 156,
         title: '10-90 | Assault',
         description: 'Madman',
         time: '15 minutes ago',
@@ -2548,6 +2548,17 @@ const refreshReportForm = () => {
     document.getElementById('newreporttitle').value = ""
     document.getElementById('newreportdescription').value = ""
     document.getElementById('selectedreport').value = ""
+}
+// SAVE AND ADD NEW REPORT
+const saveNewReport = () => {
+    reportsData.push({
+        id: reportsData[reportsData.length - 1].id + 1,
+        title: document.getElementById('newreporttitle').value,
+        description: document.getElementById('newreportdescription').value,
+        time: '2 minutes ago',
+        name: 'Daniel Kim'
+    })
+    pushReports(reportsData)
 }
 
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
