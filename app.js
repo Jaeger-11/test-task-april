@@ -1208,7 +1208,7 @@ const singleincident = document.querySelector('.singleincident');
 // INCIDENTS DATA
 let incidentsData = [
     {
-        id: '155',
+        id: 155,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '13 minutes',
@@ -1300,7 +1300,7 @@ let incidentsData = [
         ]
     },
     {
-        id: '156',
+        id: 156,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '15 minutes',
@@ -1348,7 +1348,23 @@ let incidentsData = [
                 vehicleid: "PC23612678I"
             },
         ],
-        officers: [],
+        officers: {
+            leadingOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "567",
+                    incidentcreator: true
+                },
+            ],
+            otherOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "545",
+                },
+            ]
+        },
         citizens: [
             {
                 id: 1,
@@ -1365,7 +1381,7 @@ let incidentsData = [
         ]
     },
     {
-        id: '157',
+        id: 157,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '13 minutes',
@@ -1413,11 +1429,18 @@ let incidentsData = [
                 vehicleid: "PC23612678I"
             },
         ],
-        officers: [],
+        officers: {
+            leadingOfficers: [
+                
+            ],
+            otherOfficers: [
+                
+            ]
+        },
         citizens: []
     },
     {
-        id: '158',
+        id: 158,
         title: 'Robbery',
         description: 'some information',
         time: '15 minutes',
@@ -1465,22 +1488,62 @@ let incidentsData = [
                 vehicleid: "PC23612678I"
             },
         ],
-        officers: [],
+        officers: {
+            leadingOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "567",
+                    incidentcreator: true
+                },
+            ],
+            otherOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "545",
+                },
+                {
+                    id: 2,
+                    officername: "adams ressler",
+                    officerid : "548",
+                },
+            ]
+        },
         citizens: []
     },
     {
-        id: '159',
+        id: 159,
         title: 'Theft',
         description: 'some information',
         time: '13 minutes',
         name: 'alexa death',
+        suspect: {
+            name: "",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "John Looker",
+            imageUrl: "images/character.png",
+            description: "lorem ipsum in jusbt time"
+        },
         officers: [],
         citizens: [],
         vehicles: [],
         evidences: []
     },
     {
-        id: '160',
+        id: 160,
         title: 'Assault',
         description: 'some information',
         time: '15 minutes',
@@ -1542,7 +1605,7 @@ let incidentsData = [
         ]
     },
     {
-        id: '161',
+        id: 161,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '13 minutes',
@@ -1550,10 +1613,25 @@ let incidentsData = [
         officers: [],
         citizens: [],
         vehicles: [],
-        evidences: []
+        evidences: [],
+        suspect: {
+            name: "",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+           
+        },
+        eyewitness: {
+            
+        },
     },
     {
-        id: '162',
+        id: 162,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '15 minutes',
@@ -1561,10 +1639,29 @@ let incidentsData = [
         officers: [],
         citizens: [],
         vehicles: [],
-        evidences: []
+        evidences: [],
+        suspect: {
+            name: "",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "John Looker",
+            imageUrl: "images/character.png",
+            description: "lorem ipsum in jusbt time"
+        },
     },
     {
-        id: '163',
+        id: 163,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '13 minutes',
@@ -1572,10 +1669,29 @@ let incidentsData = [
         officers: [],
         citizens: [],
         vehicles: [],
-        evidences: []
+        evidences: [],
+        suspect: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "John Looker",
+            imageUrl: "images/character.png",
+            description: "lorem ipsum in jusbt time"
+        },
     },
     {
-        id: '164',
+        id: 164,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '15 minutes',
@@ -1583,10 +1699,29 @@ let incidentsData = [
         officers: [],
         citizens: [],
         vehicles: [],
-        evidences: []
+        evidences: [],
+        suspect: {
+            name: "",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "John Looker",
+            imageUrl: "images/character.png",
+            description: "lorem ipsum in jusbt time"
+        },
     },
     {
-        id: '165',
+        id: 165,
         title: '10-90 | Robbery',
         description: 'some information',
         time: '13 minutes',
@@ -1594,106 +1729,26 @@ let incidentsData = [
         officers: [],
         citizens: [],
         vehicles: [],
-        evidences: []
-    },
-    {
-        id: '166',
-        title: '10-90 | Robbery',
-        description: 'some information',
-        time: '15 minutes',
-        name: 'texda death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '167',
-        title: '10-90 | Robbery',
-        description: 'some information',
-        time: '13 minutes',
-        name: 'alexa death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '168',
-        title: '10-90 | Robbery',
-        description: 'some information',
-        time: '15 minutes',
-        name: 'texda death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '169',
-        title: '10-90 | Robbery',
-        description: 'some information',
-        time: '15 minutes',
-        name: 'texda death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '170',
-        title: 'Attempted Murder',
-        description: 'some information',
-        time: '13 minutes',
-        name: 'alexa death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '171',
-        title: 'Murder',
-        description: 'some information',
-        time: '15 minutes',
-        name: 'texda death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '172',
-        title: '10-90 | Robbery',
-        description: 'some information',
-        time: '15 minutes',
-        name: 'texda death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '173',
-        title: '10-90 | Robbery',
-        description: 'some information',
-        time: '13 minutes',
-        name: 'alexa death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
-    },
-    {
-        id: '174',
-        title: '10-90 | Robbery',
-        description: 'some information',
-        time: '15 minutes',
-        name: 'texda death',
-        officers: [],
-        citizens: [],
-        vehicles: [],
-        evidences: []
+        evidences: [],
+        suspect: {
+            name: "nice beset",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "OMOOO",
+            information: "I TRY"
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "John Looker",
+            imageUrl: "images/character.png",
+            description: "lorem ipsum in jusbt time"
+        },
     },
 ]
 // FETCH / RENDERS INCIDENTS DATA TO SCREEN
@@ -1932,261 +1987,255 @@ const incidentCitizens = document.querySelector('.citizens');
 const secondDetail = [ incidentCitizens,incidentEvidences, incidentVehicles, incidentOfficers ];
 let currentIncident;
 const viewIncident = (incidentId) => {
-    currentIncident = incidentId
-    document.querySelector('.suspectbox').innerHTML = ''
-    document.querySelector('.victimbox').innerHTML = ''
-    document.querySelector('.eyewitnessbox').innerHTML = ''
+    let incident = incidentsData.filter((incd) => incd.id === incidentId);
+    currentIncident = incidentId;
     singleincident.classList.add('show');
     singleincident.classList.remove('hidden');
     incidentsview.classList.add('hidden');
-    let incident = incidentsData.filter((incd) => incd.id == incidentId);
-    const { id, description, time, vehicles, victim, evidences, eyewitness, citizens, suspect, officers, maininformation } = incident[0]
-    document.querySelector('.incidentId').textContent = id;
-    document.querySelector('.incidentInfo').textContent = description;
-    document.querySelector('.last-modified').innerHTML = `
-        <svg  xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
-            <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />
-        </svg>
-        ${time} ago
-    `
-    document.querySelector('.evidences-records').textContent = evidences.length;
-    document.querySelector('.vehicles-records').textContent = vehicles.length;
-    document.querySelector('.officers-records').textContent = officers.leadingOfficers.length + officers.otherOfficers.length;
-    document.querySelector('.citizens-records').textContent = citizens.length;
+    if (incident) {
+        const { id, description, time, vehicles, victim, evidences, eyewitness, citizens, suspect, officers, maininformation } = incident[0]
+        document.querySelector('.incidentId').textContent = id;
+        document.querySelector('.incidentInfo').textContent = description;
+        document.querySelector('.last-modified-span').innerHTML = ` ${time} ago `
+        document.querySelector('.evidences-records').textContent = evidences.length;
+        document.querySelector('.vehicles-records').textContent = vehicles.length;
+        document.querySelector('.officers-records').textContent = officers.otherOfficers ?  officers.leadingOfficers.length + officers.otherOfficers.length : 0;
+        document.querySelector('.citizens-records').textContent = citizens.length;
 
-    secondDetail.map((detail) => {
-        detail.addEventListener('click', () => {
-            detail.classList.add('detailactive');
-            let restDetails = secondDetail.filter((item) => item !== detail);
-            restDetails.map((item) => item.classList.remove('detailactive'));
-            document.querySelector('.main-info').classList.add('hidden');
-            document.querySelector('.detail-records').classList.remove('hidden');
-            document.querySelector('.backtomaininfo').classList.remove('elementhidden');
-            document.querySelector('.details').innerHTML = ''
-            if ( detail == incidentEvidences ){
-                document.querySelector('.main-title').textContent = `Involved Evidences List`;
-                document.querySelector('.detail-records').innerHTML = `
-                    <div class="details"></div>
-                    <div class="flexsmall grey pointer addnew" onclick="addEvidenceToIncident()">
-                        <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-                        </svg>
-                        Add new
-                    </div>
-                `
-                evidences.map((evid) => {
-                    const { evidencename, count, id } = evid;
-                    document.querySelector('.details').innerHTML += `
-                        <section class='detail ${'evidence'+id}'>
-                            <div class='flexsmall'>
-                                ${evidencename}
-                                <p> ${count}x </p>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
-                                    <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
-                                </svg>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteEvidenceFromIncident(${id})">
-                                    <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
-                                </svg>
-                            </div>
-                        </section>
-                    `
-                })
-            } else if( detail == incidentVehicles ){
-                document.querySelector('.main-title').textContent = `Involved Vehicles List`;
-                document.querySelector('.detail-records').innerHTML = `
-                    <div class="details"></div>
-                    <div class="flexsmall grey pointer addnew" onclick="addVehicleToIncident()">
-                        <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-                        </svg>
-                        Add new
-                    </div>
-                `
-                vehicles.map((vehic) => {
-                    const { vehiclename, vehicleid, id } = vehic;
-                    document.querySelector('.details').innerHTML += `
-                        <section class='detail ${'vehicle'+id}'>
-                            <div class='flexsmall'>
-                                ${vehiclename}
-                                <p> ${vehicleid} </p>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
-                                    <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
-                                </svg>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteVehicleFromIncident(${id})">
-                                    <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
-                                </svg>
-                            </div>
-                        </section>
-                    `
-                })
-            } else if ( detail == incidentCitizens ){
-                document.querySelector('.main-title').textContent = `Involved Citizens List`;
-                document.querySelector('.detail-records').innerHTML = `
-                    <div class="details"></div>
-                    <div class="flexsmall grey pointer addnew" onclick="addCitizenToIncident()">
-                        <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-                        </svg>
-                        Add new
-                    </div>
-                `
-                citizens.map((citizen) => {
-                    const { citizenname, citizenid, id, status } = citizen;
-                    document.querySelector('.details').innerHTML += `
-                        <section class='detail ${'citizen'+id}'>
-                            <div class='flexsmall'>
-                                ${citizenname}
-                                <span> (ID:${citizenid}) </span>
-                                <span class='${status}style allstyle'> ${status} </span>
-                            </div>
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
-                                    <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
-                                </svg>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteCitizenFromIncident(${id})">
-                                    <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
-                                </svg>
-                            </div>
-                        </section>
-                    `
-                })
-            } else if ( detail == incidentOfficers ){
-                document.querySelector('.main-title').textContent = `Involved Officers List`;
-                document.querySelector('.detail-records').innerHTML = `
-                    <div class="details flexfull">
-                        <section class="flexdivs">
-                            <div class="flexheading">
-                                <p>Leading Officers</p>
-                                <div class="flexheading-div"></div>
-                            </div>
-                            <div class="leadingofficersdetails"></div>
-                            <div class="flexsmall grey pointer addnew" onclick="addLeadingOfficerToIncident()">
-                                <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-                                </svg>
-                                Add new
-                            </div>
-                        </section>
-                        <section class="flexdivs">
-                            <div class="flexheading" >
-                                <p>Officers</p>
-                                <div class="flexheading-div"></div>
-                            </div>
-                            <div class="officersdetails"></div>
-                            <div class="flexsmall grey pointer addnew" onclick="addOfficerToIncident()">
-                                <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-                                </svg>
-                                Add new
-                            </div>
-                        </section>
-                    </div>
-                `
-                officers.leadingOfficers.map((officer) => {
-                    const { officername, officerid, id } = officer;
-                    document.querySelector('.leadingofficersdetails').innerHTML += `
-                        <section class='detail ${'leadingofficer'+id}'>
-                            <div class='flexsmall'>
-                                ${officername}
-                                <span> (ID:${officerid}) </span>
-                                ${ officer.incidentcreator && `<div class="incidentcreator">Incident Creator</div>` }
-                            </div>
-                            <div>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteLeadingOfficerFromIncident(${id})">
-                                    <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
-                                </svg>
-                            </div>
-                        </section>
-                    `
-                })
-                officers.otherOfficers.map((officer) => {
-                    const { officername, officerid, id } = officer;
-                    document.querySelector('.officersdetails').innerHTML += `
-                        <section class='detail ${'officer'+id}'>
-                            <div class='flexsmall'>
-                                ${officername}
-                                <span> (ID:${officerid}) </span>
-                            </div>
-                            <div>
-                                <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromIncident(${id})">
-                                    <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
-                                </svg>
-                            </div>
-                        </section>
-                    `
-                })
-            }
-        })
-    })
-
-    // SUSPECT DATA PUSH   
-    document.querySelector('.suspectbox').innerHTML = `
-    ${suspect.name ? 
-        `<div class='imagecont'>
-            <img src=${suspect.imageUrl ? suspect.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
-        </div>` :
-        `<div class='addsuspect'  onclick="addSuspect()">
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-            </svg>
-        </div>`
-    }
-        <div class=""> 
-            <p class='suspectname'>${suspect.name ? suspect.name : 'empty'}</p>
-            <div class="information"> ${suspect.description ? suspect.description : 'You can add person from list by click on plus near'}</div>
-            <section class="status-div">
-                <button class="suspectbtn funcBtns">suspect</button>
-            </section>
-        </div>
-    `
-    // VICTIM DATA PUSH
-    document.querySelector('.victimbox').innerHTML = `
-    ${victim.name ? 
-        `<div class='imagecont'>
-            <img src=${victim.imageUrl ? victim.imageUrl : 'images/nophotoblack.png'} alt="victim-image" class="warrant-image"></img>  
-        </div>` :
-        `<div class='addvictim' onclick="addVictim()">
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
-            </svg>
-        </div>`
-    }
-        <div class="">
-            <p class='suspectname'>${victim.name ? victim.name : 'empty'}</p>
-            <div class="information"> ${victim.description ? victim.description : 'You can add person from list by click on plus near'} </div>
-            <section class="status-div">
-                <button class="victimbtn funcBtns">victim</button>
-            </section>
-        </div>
-    `
-    // EYEWITNESS DATA PUSH
-    document.querySelector('.eyewitnessbox').innerHTML = `
-        ${eyewitness.name ? 
+        // SUSPECT DATA PUSH   
+        document.querySelector('.suspectbox').innerHTML = `
+        ${suspect.name ? 
             `<div class='imagecont'>
-                <img src=${eyewitness.imageUrl ? eyewitness.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
+                <img src=${suspect.imageUrl ? suspect.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
             </div>` :
-            `<div class='addeyewitness' onclick="addWitness()">
+            `<div class='addsuspect'  onclick="addSuspect()">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
                 </svg>
             </div>`
         }
-        
-        <div class="">
-            <p class='suspectname'>${eyewitness.name ? eyewitness.name : 'empty'}</p>
-            <div class="information"> ${eyewitness.description ? eyewitness.description : 'You can add person from list by click on plus near'}  </div>
-            <section class="status-div">
-                <button class="eyewitnessbtn funcBtns">eyewitness</button>
-            </section>
-        </div>
-    `
+            <div class=""> 
+                <p class='suspectname'>${suspect.name ? suspect.name : 'empty'}</p>
+                <div class="information"> ${suspect.description ? suspect.description.slice(0, 50) + '....' : 'You can add person from list by click on plus near'}</div>
+                <section class="status-div">
+                    <button class="suspectbtn funcBtns">suspect</button>
+                </section>
+            </div>
+        `
+        // VICTIM DATA PUSH
+        document.querySelector('.victimbox').innerHTML = `
+        ${victim.name ? 
+            `<div class='imagecont'>
+                <img src=${victim.imageUrl ? victim.imageUrl : 'images/nophotoblack.png'} alt="victim-image" class="warrant-image"></img>  
+            </div>` :
+            `<div class='addvictim' onclick="addVictim()">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                </svg>
+            </div>`
+        }
+            <div class="">
+                <p class='suspectname'>${victim.name ? victim.name : 'empty'}</p>
+                <div class="information"> ${victim.description ? victim.description.slice(0, 50) : 'You can add person from list by click on plus near'} </div>
+                <section class="status-div">
+                    <button class="victimbtn funcBtns">victim</button>
+                </section>
+            </div>
+        `
+        // EYEWITNESS DATA PUSH
+        document.querySelector('.eyewitnessbox').innerHTML = `
+            ${eyewitness.name ? 
+                `<div class='imagecont'>
+                    <img src=${eyewitness.imageUrl ? eyewitness.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
+                </div>` :
+                `<div class='addeyewitness' onclick="addWitness()">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                    </svg>
+                </div>`
+            }
+            
+            <div class="">
+                <p class='suspectname'>${eyewitness.name ? eyewitness.name : 'empty'}</p>
+                <div class="information"> ${eyewitness.description ? eyewitness.description.slice(0, 50) : 'You can add person from list by click on plus near'}  </div>
+                <section class="status-div">
+                    <button class="eyewitnessbtn funcBtns">eyewitness</button>
+                </section>
+            </div>
+        `
+        secondDetail.map((detail) => {
+            detail.addEventListener('click', () => {
+                detail.classList.add('detailactive');
+                let restDetails = secondDetail.filter((item) => item !== detail);
+                restDetails.map((item) => item.classList.remove('detailactive'));
+                document.querySelector('.main-info').classList.add('hidden');
+                document.querySelector('.detail-records').classList.remove('hidden');
+                document.querySelector('.backtomaininfo').classList.remove('elementhidden');
+                document.querySelector('.details').innerHTML = ''
+                if ( detail == incidentEvidences ){
+                    document.querySelector('.main-title').textContent = `Involved Evidences List`;
+                    document.querySelector('.detail-records').innerHTML = `
+                        <div class="details"></div>
+                        <div class="flexsmall grey pointer addnew" onclick="addEvidenceToIncident()">
+                            <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                            </svg>
+                            Add new
+                        </div>
+                    `
+                    evidences.map((evid) => {
+                        const { evidencename, count, id } = evid;
+                        document.querySelector('.details').innerHTML += `
+                            <section class='detail ${'evidence'+id}'>
+                                <div class='flexsmall'>
+                                    ${evidencename}
+                                    <p> ${count}x </p>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
+                                        <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteEvidenceFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                } else if( detail == incidentVehicles ){
+                    document.querySelector('.main-title').textContent = `Involved Vehicles List`;
+                    document.querySelector('.detail-records').innerHTML = `
+                        <div class="details"></div>
+                        <div class="flexsmall grey pointer addnew" onclick="addVehicleToIncident()">
+                            <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                            </svg>
+                            Add new
+                        </div>
+                    `
+                    vehicles.map((vehic) => {
+                        const { vehiclename, vehicleid, id } = vehic;
+                        document.querySelector('.details').innerHTML += `
+                            <section class='detail ${'vehicle'+id}'>
+                                <div class='flexsmall'>
+                                    ${vehiclename}
+                                    <p> ${vehicleid} </p>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
+                                        <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteVehicleFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                } else if ( detail == incidentCitizens ){
+                    document.querySelector('.main-title').textContent = `Involved Citizens List`;
+                    document.querySelector('.detail-records').innerHTML = `
+                        <div class="details"></div>
+                        <div class="flexsmall grey pointer addnew" onclick="addCitizenToIncident()">
+                            <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                            </svg>
+                            Add new
+                        </div>
+                    `
+                    citizens.map((citizen) => {
+                        const { citizenname, citizenid, id, status } = citizen;
+                        document.querySelector('.details').innerHTML += `
+                            <section class='detail ${'citizen'+id}'>
+                                <div class='flexsmall'>
+                                    ${citizenname}
+                                    <span> (ID:${citizenid}) </span>
+                                    <span class='${status}style allstyle'> ${status} </span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
+                                        <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteCitizenFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                } else if ( detail == incidentOfficers ){
+                    document.querySelector('.main-title').textContent = `Involved Officers List`;
+                    document.querySelector('.detail-records').innerHTML = `
+                        <div class="details flexfull">
+                            <section class="flexdivs">
+                                <div class="flexheading">
+                                    <p>Leading Officers</p>
+                                    <div class="flexheading-div"></div>
+                                </div>
+                                <div class="leadingofficersdetails"></div>
+                                <div class="flexsmall grey pointer addnew" onclick="addLeadingOfficerToIncident()">
+                                    <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    Add new
+                                </div>
+                            </section>
+                            <section class="flexdivs">
+                                <div class="flexheading" >
+                                    <p>Officers</p>
+                                    <div class="flexheading-div"></div>
+                                </div>
+                                <div class="officersdetails"></div>
+                                <div class="flexsmall grey pointer addnew" onclick="addOfficerToIncident()">
+                                    <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    Add new
+                                </div>
+                            </section>
+                        </div>
+                    `
+                    officers.leadingOfficers.map((officer) => {
+                        const { officername, officerid, id } = officer;
+                        document.querySelector('.leadingofficersdetails').innerHTML += `
+                            <section class='detail ${'leadingofficer'+id}'>
+                                <div class='flexsmall'>
+                                    ${officername}
+                                    <span> (ID:${officerid}) </span>
+                                    ${ officer.incidentcreator && `<div class="incidentcreator">Incident Creator</div>` }
+                                </div>
+                                <div>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteLeadingOfficerFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                    officers.otherOfficers.map((officer) => {
+                        const { officername, officerid, id } = officer;
+                        document.querySelector('.officersdetails').innerHTML += `
+                            <section class='detail ${'officer'+id}'>
+                                <div class='flexsmall'>
+                                    ${officername}
+                                    <span> (ID:${officerid}) </span>
+                                </div>
+                                <div>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                }
+            })
+        })
+    
+        document.querySelector('.main-info-title').textContent = maininformation ? maininformation.title : "";
+        document.querySelector('.main-info-text').textContent = maininformation ? maininformation.information : "";    
+    }
 
-    document.querySelector('.main-info-title').textContent = maininformation.title;
-    document.querySelector('.main-info-text').textContent = maininformation.information;
 }
 
 const backToMainInfo = () => {
@@ -2197,6 +2246,13 @@ const backToMainInfo = () => {
     secondDetail.map((detail) => {
         detail.classList.remove('detailactive')
     })
+}
+
+const viewAllIncidents = () => {
+    singleincident.classList.remove('show');
+    singleincident.classList.add('hidden');
+    incidentsview.classList.remove('hidden');
+    backToMainInfo();
 }
 
 // DELETE INCIDENT FUNCTIONS
@@ -2346,16 +2402,6 @@ const deleteCitizenFromIncident = (id) => {
     })
     pushIncidents(incidentsData)
     viewIncident(currentIncident)
-}
-
-const viewAllIncidents = () => {
-    singleincident.classList.remove('show');
-    singleincident.classList.add('hidden');
-    incidentsview.classList.remove('hidden');
-    document.querySelector('.evidences-records').textContent = "";
-    document.querySelector('.vehicles-records').textContent ="";
-    document.querySelector('.officers-records').textContent = "";
-    document.querySelector('.citizens-records').textContent ="";
 }
 
 // REPORTS FUNCTIONALITIES
