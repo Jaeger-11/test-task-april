@@ -1754,7 +1754,7 @@ let incidentsData = [
 // FETCH / RENDERS INCIDENTS DATA TO SCREEN
 const pushIncidents = (data) => {
     incidentsmain.innerHTML = '';
-    data.map((item) => {
+    data.reverse().map((item) => {
         const { id, title, description, time, name } = item;
         incidentsmain.innerHTML += `
         <section class="incident">
@@ -1976,6 +1976,18 @@ const refreshIncidentForm = () => {
     document.getElementById('addedincidentcriminals').innerHTML = ""
     document.getElementById('newincidenttitle').value = ""
     document.getElementById('newincidentdescription').value = ""
+}
+
+// SAVE NEW INCIDENT
+const saveNewIncident = () => {
+    incidentsData.push({
+        id: incidentsData[incidentsData.length - 1].id + 1,
+        title: document.getElementById('newincidenttitle').value,
+        description: document.getElementById('newincidentdescription').value,
+        time: '3 minutes',
+        name: 'testing'
+    })
+    pushIncidents(incidentsData)
 }
 
 // VIEW SINGLE INCIDENT SWITCH
@@ -2435,7 +2447,7 @@ let reportsData = [
 // FETCH / RENDERS DATA TO HTML
 const pushReports = (data) => {
     reportsmain.innerHTML = '';
-    data.map((item) => {
+    data.reverse().map((item) => {
         const { id, title, description, time, name } = item;
         reportsmain.innerHTML += `
         <section  class="incident">
