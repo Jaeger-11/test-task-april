@@ -1988,6 +1988,7 @@ const saveNewIncident = () => {
         name: 'testing'
     })
     pushIncidents(incidentsData)
+    refreshIncidentForm()
 }
 
 // VIEW SINGLE INCIDENT SWITCH
