@@ -887,7 +887,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     gap: var(--gap);
     position: relative;
 }
-.singleincident{
+.singleincident, .singlereport{
     padding: var(--padlarge);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1294,7 +1294,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     font-size: var(--fontmedium);
     color: #FFFFFFA6;
 }
-.incidentdetailscont{
+.incidentdetailscont, .reportdetailscont{
     display: grid;
     grid-template-columns: 2fr 1.5fr 2fr;
     gap: var(--gap);
