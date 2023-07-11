@@ -2021,7 +2021,7 @@ const viewIncident = (incidentId) => {
         document.querySelector('.citizens-records').textContent = citizens.length;
 
         // SUSPECT DATA PUSH   
-        document.querySelector('.suspectbox').innerHTML = `
+        document.querySelector('.incidentsuspectbox').innerHTML = `
         ${suspect.name ? 
             `<div class='imagecont'>
                 <img src=${suspect.imageUrl ? suspect.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
@@ -2041,7 +2041,7 @@ const viewIncident = (incidentId) => {
             </div>
         `
         // VICTIM DATA PUSH
-        document.querySelector('.victimbox').innerHTML = `
+        document.querySelector('.incidentvictimbox').innerHTML = `
         ${victim.name ? 
             `<div class='imagecont'>
                 <img src=${victim.imageUrl ? victim.imageUrl : 'images/nophotoblack.png'} alt="victim-image" class="warrant-image"></img>  
@@ -2061,7 +2061,7 @@ const viewIncident = (incidentId) => {
             </div>
         `
         // EYEWITNESS DATA PUSH
-        document.querySelector('.eyewitnessbox').innerHTML = `
+        document.querySelector('.incidenteyewitnessbox').innerHTML = `
             ${eyewitness.name ? 
                 `<div class='imagecont'>
                     <img src=${eyewitness.imageUrl ? eyewitness.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
@@ -2439,15 +2439,123 @@ let reportsData = [
         id: 155,
         title: '10-90 | Robbery',
         description: 'Caucasian Male',
-        time: '13 minutes ago',
+        time: '13 minutes',
         name: 'alexa death',
+        officers: [],
+        citizens: [],
+        vehicles: [],
+        evidences: [],
+        suspect: {
+            name: "",
+            imageUrl: "images/character1.png",
+            description: ""
+        },
+        maininformation: {
+            title: "",
+            information: ""
+        },
+        victim: {
+            name: "Tiana June",
+            imageUrl: "images/character2.png",
+            description: "that dude killed me"
+        },
+        eyewitness: {
+            name: "John Looker",
+            imageUrl: "images/character.png",
+            description: "lorem ipsum in jusbt time"
+        },
     },
     {
         id: 156,
         title: '10-90 | Assault',
         description: 'Madman',
-        time: '15 minutes ago',
+        time: '15 minutes',
         name: 'texda death',
+        suspect: {
+            name: "john oils",
+            imageUrl: "images/character1.png",
+            description: "Lorem ipsum dolor sit amet consectetur. Nec vivamus blandit a morbi potenti nulla nam accumsan id."
+        },
+        maininformation: {
+            title: "Suspect Is An Ex-convict",
+            information: "Apparently has been charged with murder, terrorism and grevious financial crimes"
+        },
+        victim: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        eyewitness: {
+            name: "",
+            imageUrl: "",
+            description: ""
+        },
+        evidences: [
+            {
+                evidencename: 'cucumber',
+                count: 5,
+                id: 1
+            },
+            {
+                evidencename: 'gun',
+                count: 1,
+                id: 2 
+            }
+        ],
+        vehicles: [
+            {
+                id: 1,
+                vehiclename: "Audi R8",
+                vehicleid: "PC236127FFI"
+            },
+            {
+                id: 2,
+                vehiclename: "Audi R8",
+                vehicleid: "PC23612678I"
+            },
+        ],
+        officers: {
+            leadingOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "567",
+                    incidentcreator: true
+                },
+            ],
+            otherOfficers: [
+                {
+                    id: 1,
+                    officername: "adams ressler",
+                    officerid : "545",
+                },
+                {
+                    id: 2,
+                    officername: "adams ressler",
+                    officerid : "548",
+                },
+            ]
+        },
+        citizens: [
+            {
+                id: 1,
+                citizenname: "John Doe",
+                citizenid: 156,
+                status: "victim"
+            },
+            {
+                id: 2,
+                citizenname: "Jane Doe",
+                citizenid: 157,
+                status: "eyewitness"
+            },
+            {
+                id: 3,
+                citizenname: "Achmaad",
+                citizenid: 267,
+                status: "suspect"
+            }
+        ]
     },
 ].reverse()
 // FETCH / RENDERS DATA TO HTML
@@ -2463,7 +2571,7 @@ const pushReports = (data) => {
             <svg  xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
                 <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />
             </svg>
-                <p> ${name} - ${time} </p> 
+                <p> ${name} - ${time} ago </p> 
             </div>
         </section>
         `
@@ -2591,7 +2699,7 @@ const officerReportAdd = () => {
 const addReportVehicles = () => {
     document.querySelector('.reportvehicleheader').classList.toggle('addcriminalactive')
     document.querySelector('.plusreportvehicle').classList.toggle('elementhidden')
-    document.querySelector('.reportvehicles').classList.toggle('hidevehicle')
+    document.querySelector('.vehiclesreport').classList.toggle('hidevehicle')
     document.querySelector('#addreportvehicle').classList.toggle('addiconactive')
 }
 const addReportVehicle = () => {
@@ -2629,7 +2737,7 @@ const refreshReportForm = () => {
 }
 // SAVE AND ADD NEW REPORT
 const saveNewReport = () => {
-    reportsData.push({
+    reportsData.unshift({
         id: reportsData[0].id + 1,
         title: document.getElementById('newreporttitle').value,
         description: document.getElementById('newreportdescription').value,
@@ -2642,6 +2750,12 @@ const saveNewReport = () => {
 // VIEW SINGLE REPORT
 const singlereport = document.querySelector('.singlereport')
 const reportsview = document.querySelector('.reportscont')
+const reportEvidences = document.querySelector('.reportevidences');
+const reportVehicles = document.querySelector('.reportvehicles');
+const reportOfficers = document.querySelector('.reportofficers');
+const reportCitizens = document.querySelector('.reportcitizens');
+const secondReportDetail = [ reportCitizens,reportEvidences, reportVehicles, reportOfficers ];
+
 let currentReport;
 const viewReport = (reportId) => {
     let report = reportsData.filter((rep) => rep.id === reportId);
@@ -2649,6 +2763,248 @@ const viewReport = (reportId) => {
     singlereport.classList.add('show');
     singlereport.classList.remove('hidden');
     reportsview.classList.add('hidden');
+    if (report) {
+        const { id, description, time, suspect, eyewitness, victim, officers, citizens, evidences, vehicles} = report[0];
+        document.querySelector('.reportId').textContent = id;
+        document.querySelector('.reportInfo').textContent = description;
+        document.querySelector('.reportlast-modified-span').innerHTML = ` ${time} ago `;
+        document.querySelector('.reportevidences-records').textContent = evidences.length;
+        document.querySelector('.reportvehicles-records').textContent = vehicles.length;
+        document.querySelector('.reportofficers-records').textContent = officers.otherOfficers ?  officers.leadingOfficers.length + officers.otherOfficers.length : 0;
+        document.querySelector('.reportcitizens-records').textContent = citizens.length;
+
+        // SUSPECT DATA PUSH   
+        document.querySelector('.reportsuspectbox').innerHTML = `
+        ${suspect.name ? 
+            `<div class='imagecont'>
+                <img src=${suspect.imageUrl ? suspect.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
+            </div>` :
+            `<div class='addsuspect'  onclick="addReportSuspect()">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                </svg>
+            </div>`
+        }
+            <div class=""> 
+                <p class='suspectname'>${suspect.name ? suspect.name : 'empty'}</p>
+                <div class="information"> ${suspect.description ? suspect.description.slice(0, 50) + '....' : 'You can add person from list by click on plus near'}</div>
+                <section class="status-div">
+                    <button class="suspectbtn funcBtns">suspect</button>
+                </section>
+            </div>
+        `
+        // VICTIM DATA PUSH
+        document.querySelector('.reportvictimbox').innerHTML = `
+        ${victim.name ? 
+            `<div class='imagecont'>
+                <img src=${victim.imageUrl ? victim.imageUrl : 'images/nophotoblack.png'} alt="victim-image" class="warrant-image"></img>  
+            </div>` :
+            `<div class='addvictim' onclick="addReportVictim()">
+                <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                </svg>
+            </div>`
+        }
+            <div class="">
+                <p class='suspectname'>${victim.name ? victim.name : 'empty'}</p>
+                <div class="information"> ${victim.description ? victim.description.slice(0, 50) : 'You can add person from list by click on plus near'} </div>
+                <section class="status-div">
+                    <button class="victimbtn funcBtns">victim</button>
+                </section>
+            </div>
+        `
+        // EYEWITNESS DATA PUSH
+        document.querySelector('.reporteyewitnessbox').innerHTML = `
+            ${eyewitness.name ? 
+                `<div class='imagecont'>
+                    <img src=${eyewitness.imageUrl ? eyewitness.imageUrl : 'images/nophotoblack.png'} alt="suspect-image" class="warrant-image"></img>  
+                </div>` :
+                `<div class='addeyewitness' onclick="addReportWitness()">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                    </svg>
+                </div>`
+            }
+            
+            <div class="">
+                <p class='suspectname'>${eyewitness.name ? eyewitness.name : 'empty'}</p>
+                <div class="information"> ${eyewitness.description ? eyewitness.description.slice(0, 50) : 'You can add person from list by click on plus near'}  </div>
+                <section class="status-div">
+                    <button class="eyewitnessbtn funcBtns">eyewitness</button>
+                </section>
+            </div>
+        `
+        secondReportDetail.map((detail) => {
+            detail.addEventListener('click', () => {
+                detail.classList.add('detailactive');
+                let restDetails = secondReportDetail.filter((item) => item !== detail);
+                restDetails.map((item) => item.classList.remove('detailactive'));
+                document.querySelector('.reportmain-info').classList.add('hidden');
+                document.querySelector('.reportdetail-records').classList.remove('hidden');
+                document.querySelector('.reportbacktomaininfo').classList.remove('elementhidden');
+                document.querySelector('.reportdetails').innerHTML = ''
+                if ( detail == reportEvidences ){
+                    document.querySelector('.reportmain-title').textContent = `Involved Evidences List`;
+                    document.querySelector('.reportdetail-records').innerHTML = `
+                        <div class="details"></div>
+                        <div class="flexsmall grey pointer addnew" onclick="addEvidenceToIncident()">
+                            <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                            </svg>
+                            Add new
+                        </div>
+                    `
+                    evidences.map((evid) => {
+                        const { evidencename, count, id } = evid;
+                        document.querySelector('.details').innerHTML += `
+                            <section class='detail ${'evidence'+id}'>
+                                <div class='flexsmall'>
+                                    ${evidencename}
+                                    <p> ${count}x </p>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
+                                        <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteEvidenceFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                } else if( detail == reportVehicles ){
+                    document.querySelector('.main-title').textContent = `Involved Vehicles List`;
+                    document.querySelector('.detail-records').innerHTML = `
+                        <div class="details"></div>
+                        <div class="flexsmall grey pointer addnew" onclick="addVehicleToIncident()">
+                            <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                            </svg>
+                            Add new
+                        </div>
+                    `
+                    vehicles.map((vehic) => {
+                        const { vehiclename, vehicleid, id } = vehic;
+                        document.querySelector('.details').innerHTML += `
+                            <section class='detail ${'vehicle'+id}'>
+                                <div class='flexsmall'>
+                                    ${vehiclename}
+                                    <p> ${vehicleid} </p>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
+                                        <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteVehicleFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                } else if ( detail == reportCitizens ){
+                    document.querySelector('.main-title').textContent = `Involved Citizens List`;
+                    document.querySelector('.detail-records').innerHTML = `
+                        <div class="details"></div>
+                        <div class="flexsmall grey pointer addnew" onclick="addCitizenToIncident()">
+                            <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                            </svg>
+                            Add new
+                        </div>
+                    `
+                    citizens.map((citizen) => {
+                        const { citizenname, citizenid, id, status } = citizen;
+                        document.querySelector('.details').innerHTML += `
+                            <section class='detail ${'citizen'+id}'>
+                                <div class='flexsmall'>
+                                    ${citizenname}
+                                    <span> (ID:${citizenid}) </span>
+                                    <span class='${status}style allstyle'> ${status} </span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
+                                        <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteCitizenFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                } else if ( detail == reportOfficers ){
+                    document.querySelector('.main-title').textContent = `Involved Officers List`;
+                    document.querySelector('.detail-records').innerHTML = `
+                        <div class="details flexfull">
+                            <section class="flexdivs">
+                                <div class="flexheading">
+                                    <p>Leading Officers</p>
+                                    <div class="flexheading-div"></div>
+                                </div>
+                                <div class="leadingofficersdetails"></div>
+                                <div class="flexsmall grey pointer addnew" onclick="addLeadingOfficerToIncident()">
+                                    <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    Add new
+                                </div>
+                            </section>
+                            <section class="flexdivs">
+                                <div class="flexheading" >
+                                    <p>Officers</p>
+                                    <div class="flexheading-div"></div>
+                                </div>
+                                <div class="officersdetails"></div>
+                                <div class="flexsmall grey pointer addnew" onclick="addOfficerToIncident()">
+                                    <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                                    </svg>
+                                    Add new
+                                </div>
+                            </section>
+                        </div>
+                    `
+                    officers.leadingOfficers.map((officer) => {
+                        const { officername, officerid, id } = officer;
+                        document.querySelector('.leadingofficersdetails').innerHTML += `
+                            <section class='detail ${'leadingofficer'+id}'>
+                                <div class='flexsmall'>
+                                    ${officername}
+                                    <span> (ID:${officerid}) </span>
+                                    ${ officer.incidentcreator && `<div class="incidentcreator">Incident Creator</div>` }
+                                </div>
+                                <div>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteLeadingOfficerFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                    officers.otherOfficers.map((officer) => {
+                        const { officername, officerid, id } = officer;
+                        document.querySelector('.officersdetails').innerHTML += `
+                            <section class='detail ${'officer'+id}'>
+                                <div class='flexsmall'>
+                                    ${officername}
+                                    <span> (ID:${officerid}) </span>
+                                </div>
+                                <div>
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromIncident(${id})">
+                                        <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                    </svg>
+                                </div>
+                            </section>
+                        `
+                    })
+                }
+            })
+        })
+        document.querySelector('.report-main-info-title').textContent = maininformation ? maininformation.title : "";
+        document.querySelector('.report-main-info-text').textContent = maininformation ? maininformation.information : "";    
+    }
 }
 
 const viewAllReports = () => {

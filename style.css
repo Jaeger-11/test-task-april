@@ -892,7 +892,7 @@ border: 1px solid rgba(255, 101, 101, 0.75);
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-direction: column;
     gap: calc(1.1 * var(--gaplarge));
 }
@@ -1332,8 +1332,8 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     text-transform: none;
 }
 .first-detail .warrant .imagecont, .addeyewitness, .addsuspect, .addvictim{
-    min-width: 30%;
-    max-width: 30%;
+    min-width: 27%;
+    max-width: 27%;
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 .addeyewitness, .addsuspect, .addvictim{
@@ -1458,7 +1458,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     flex: 1;
     gap: var(--gap);
 }
-.third-detail .main-info-title{
+.third-detail .main-info-title, .report-main-info-title{
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: var(--padlarge);
@@ -1466,7 +1466,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     font-size: var(--fontmedium);
     font-weight: 500;
 }
-.third-detail .main-info-text{
+.third-detail .main-info-text, .report-main-info-text{
     padding: var(--padlarge);
     color: rgba(255, 255, 255, 0.65);
     font-size: var(--fontsmall);

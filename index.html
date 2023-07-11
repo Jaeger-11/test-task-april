@@ -462,9 +462,9 @@
                             </div>
                             <div class="incidentdetailscont">
                                 <section class="first-detail">
-                                    <div class="warrant suspectbox"></div>
-                                    <div class="warrant victimbox"></div>
-                                    <div class="warrant eyewitnessbox"></div>
+                                    <div class="warrant suspectbox incidentsuspectbox"></div>
+                                    <div class="warrant victimbox incidentvictimbox"></div>
+                                    <div class="warrant eyewitnessbox incidenteyewitnessbox"></div>
                                 </section>
 
                                 <section class="second-detail">
@@ -1120,7 +1120,7 @@
                                                 </svg>
                                             </div>
                                         </section>
-                                        <section class="reportvehicles subpicked hidevehicle">
+                                        <section class="vehiclesreport subpicked hidevehicle">
                                             <section class="additioncont" id="addedreportvehicles">
                                                 
                                             </section>
@@ -1266,12 +1266,90 @@
                             </section>
                             <section class="flexsmall incidentbackbox pointer" onclick="viewAllReports()">
                                 <img src="images/arrow-back.svg" class="smallsvg" alt="">
-                                <p class="incidentback grey">Go back to incidents list</p>
+                                <p class="incidentback grey">Go back to reports list</p>
                             </section>
                         </div>
-                    </div>
-                    <div class="reportdetailscont">
-
+                        <div class="reportdetailscont">
+                            <section class="first-detail">
+                                <div class="warrant suspectbox reportsuspectbox"></div>
+                                <div class="warrant victimbox reportvictimbox"></div>
+                                <div class="warrant eyewitnessbox reporteyewitnessbox"></div>
+                            </section>
+                            <section class="second-detail">
+                                <div class="reportevidences">
+                                    <h4>Evidences</h4>
+                                    <p><span class="reportevidences-records"></span> records</p>
+                                    <svg viewBox="0 0 144 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M59.8 8.0625C59.8 2.50416 64.2938 -2 69.825 -2H135.975C141.506 -2 146 2.50416 146 8.0625V103.938C146 109.496 141.506 114 135.975 114H88.9086C89.1036 113.131 89.2 112.23 89.2 111.312V56.0605C93.51 54.2281 96.55 49.9365 96.55 44.9375V37.5625C96.55 30.906 91.1672 25.5 84.525 25.5H59.8V8.0625ZM131.929 77.7477C133.742 75.9285 133.742 72.9465 131.929 71.1273L117.229 56.3773C115.414 54.5563 112.436 54.5563 110.621 56.3773L95.9212 71.1273C94.1082 72.9465 94.1082 75.9285 95.9212 77.7477C97.7361 79.5687 100.714 79.5687 102.529 77.7477L109.25 71.0036V96.5625C109.25 99.1397 111.348 101.25 113.925 101.25C116.502 101.25 118.6 99.1397 118.6 96.5625V71.0036L125.321 77.7477C127.136 79.5687 130.114 79.5687 131.929 77.7477ZM1 37.5625C1 36.0835 2.20923 34.875 3.675 34.875H84.525C85.9908 34.875 87.2 36.0835 87.2 37.5625V44.9375C87.2 46.4165 85.9908 47.625 84.525 47.625H3.675C2.20923 47.625 1 46.4165 1 44.9375V37.5625ZM79.85 57V107.625C79.85 111.155 77.01 114 73.5 114H14.7C11.19 114 8.35 111.155 8.35 107.625V57H79.85ZM33.075 69.75C30.4983 69.75 28.4 71.8603 28.4 74.4375C28.4 77.0147 30.4983 79.125 33.075 79.125H55.125C57.7017 79.125 59.8 77.0147 59.8 74.4375C59.8 71.8603 57.7017 69.75 55.125 69.75H33.075Z"/>
+                                    </svg>
+                                </div>
+                                <div class="reportvehicles">
+                                    <h4>Vehicles</h4>
+                                    <p><span class="reportvehicles-records"></span> records</p>
+                                    <svg viewBox="0 0 128 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M106.75 -21.958C87.315 -21.958 71.5417 -6.18467 71.5417 13.2503C71.5417 32.6853 87.315 48.4587 106.75 48.4587C126.185 48.4587 141.958 32.6853 141.958 13.2503C141.958 -6.18467 126.185 -21.958 106.75 -21.958ZM110.271 20.292H103.229V-7.87467H110.271V20.292ZM110.271 27.3337V34.3753H103.229V27.3337H110.271ZM106.116 62.542C106.539 63.6687 106.75 64.8657 106.75 66.0628C106.75 71.9074 102.032 76.6253 96.1875 76.6253C90.3429 76.6253 85.625 71.9074 85.625 66.0628C85.625 63.3166 86.6813 60.852 88.3713 58.9507C76.898 54.3114 67.5778 45.544 62.2467 34.3753H20.9121L28.2354 13.2503H57.4583C57.4583 8.39158 58.1625 3.60324 59.5004 -0.833007H18.0954L1.125 48.4587V111.834H22.25V97.7503H106.75V111.834H127.875V57.7537C120.481 61.3449 112.665 62.6124 106.116 62.542ZM32.8125 76.6253C26.9679 76.6253 22.25 71.9074 22.25 66.0628C22.25 60.2182 26.9679 55.5003 32.8125 55.5003C38.6571 55.5003 43.375 60.2182 43.375 66.0628C43.375 71.9074 38.6571 76.6253 32.8125 76.6253Z"/>
+                                    </svg>
+                                </div>
+                                <div class="reportofficers">
+                                    <h4>Officers</h4>
+                                    <p><span class="reportofficers-records"></span> records</p>
+                                    <svg viewBox="0 0 141 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M80.5166 113.864L79.9999 113.552L79.4832 113.864L32.5872 142.169L45.0321 88.8227L45.1692 88.2349L44.713 87.8397L3.27942 51.9457L57.8386 47.3169L58.4395 47.266L58.6748 46.7107L79.9999 -3.6044L101.325 46.7107L101.56 47.266L102.161 47.3169L156.72 51.9457L115.287 87.8397L114.831 88.2349L114.968 88.8227L127.413 142.169L80.5166 113.864Z"/>
+                                    </svg>
+                                </div>
+                                <div class="reportcitizens">
+                                    <h4>Citizens</h4>
+                                    <p><span class="reportcitizens-records"></span> records</p>
+                                    <svg viewBox="0 0 144 111" fill="none" class="second-detail-svg" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M84.3125 34.0781C84.3125 48.6705 72.483 60.5 57.8906 60.5C43.2982 60.5 31.4688 48.6705 31.4688 34.0781C31.4688 19.4857 43.2982 7.65625 57.8906 7.65625C72.483 7.65625 84.3125 19.4857 84.3125 34.0781Z"/>
+                                        <path d="M57.8906 70.1172C65.9423 70.1172 76.8047 72.0258 86.8905 76.758C80.2935 80.2696 74.8499 84.4833 70.8512 89.0226C65.3864 95.2213 62.2227 102.704 62.2227 110.223V115.344H7.09375V100.348C7.09375 90.5577 15.2986 83.0002 26.0585 77.827C36.7529 72.6853 49.5543 70.1172 57.8906 70.1172Z" />
+                                        <path d="M71.0781 110.25C71.0781 98.6979 80.4947 89.8105 92.7906 83.7479C105.03 77.7132 119.732 74.6875 129.492 74.6875C139.252 74.6875 153.954 77.7132 166.194 83.7479C178.49 89.8105 187.906 98.6979 187.906 110.25V127.531H71.0781V110.25Z"/>
+                                        <path d="M162.008 27.9844C162.008 45.9423 147.45 60.5 129.492 60.5C111.534 60.5 96.9766 45.9423 96.9766 27.9844C96.9766 10.0265 111.534 -4.53125 129.492 -4.53125C147.45 -4.53125 162.008 10.0265 162.008 27.9844Z" />
+                                    </svg>
+                                </div>
+                            </section>
+                            <section class="third-detail">
+                                <div class="main-information">
+                                    <div class="main-info-header">  
+                                       <h4 class="main-title">Main Information</h4> 
+                                       <p class="pointer backtomaininfo elementhidden" onclick="backToMainInfo()">Back to main info</p>
+                                    </div>
+                                    <article class="main-info">
+                                        <div class="report-main-info-title"></div>
+                                        <div class="report-main-info-text fontsmall"></div>
+                                    </article>
+                                    <article class="detail-records hidden">
+                                        <div class="details">
+    
+                                        </div>
+                                        <div class="flexsmall grey pointer addnew">
+                                            <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
+                                            </svg>
+                                            Add new
+                                        </div>
+                                    </article>
+                                </div>
+                            </section>
+                        </div>
+                        <div class="flexsmall incident-funcs">
+                            <div class="incident-save pointer">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.5 5.83333V15.8333C17.5 16.2917 17.3367 16.6842 17.01 17.0108C16.6833 17.3375 16.2911 17.5006 15.8333 17.5H4.16667C3.70833 17.5 3.31583 17.3367 2.98917 17.01C2.6625 16.6833 2.49945 16.2911 2.5 15.8333V4.16667C2.5 3.70833 2.66333 3.31583 2.99 2.98917C3.31667 2.6625 3.70889 2.49945 4.16667 2.5H14.1667L17.5 5.83333ZM10 15C10.6944 15 11.2847 14.7569 11.7708 14.2708C12.2569 13.7847 12.5 13.1944 12.5 12.5C12.5 11.8056 12.2569 11.2153 11.7708 10.7292C11.2847 10.2431 10.6944 10 10 10C9.30556 10 8.71528 10.2431 8.22917 10.7292C7.74306 11.2153 7.5 11.8056 7.5 12.5C7.5 13.1944 7.74306 13.7847 8.22917 14.2708C8.71528 14.7569 9.30556 15 10 15ZM5 8.33333H12.5V5H5V8.33333Z" fill="white" fill-opacity="0.65"/>
+                                </svg>
+                            </div>
+                            <div class="incident-trash pointer" onclick="openReportDelete()">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flexsmall last-modified">
+                            <svg  xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
+                                <path class="smalledit" d="M8.65 3.4625L6.525 1.3625L7.225 0.6625C7.41667 0.470833 7.65217 0.375 7.9315 0.375C8.21083 0.375 8.44617 0.470833 8.6375 0.6625L9.3375 1.3625C9.52917 1.55417 9.62917 1.7855 9.6375 2.0565C9.64583 2.3275 9.55417 2.55867 9.3625 2.75L8.65 3.4625ZM7.925 4.2L2.625 9.5H0.5V7.375L5.8 2.075L7.925 4.2Z" />
+                            </svg> 
+                            <span class="reportlast-modified-span"> </span>
+                        </div>
                     </div>
                 </section>
 
