@@ -2847,7 +2847,7 @@ const viewReport = (reportId) => {
                     document.querySelector('.report-main-title').textContent = `Involved Evidences List`;
                     document.querySelector('.report-detail-records').innerHTML = `
                         <div class="report-details"></div>
-                        <div class="flexsmall grey pointer addnew" onclick="addEvidenceToIncident()">
+                        <div class="flexsmall grey pointer addnew" onclick="addEvidenceToReport()">
                             <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
                             </svg>
@@ -2866,7 +2866,7 @@ const viewReport = (reportId) => {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
                                         <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
                                     </svg>
-                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteEvidenceFromIncident(${id})">
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteEvidenceFromReport(${id})">
                                         <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                     </svg>
                                 </div>
@@ -2877,7 +2877,7 @@ const viewReport = (reportId) => {
                     document.querySelector('.report-main-title').textContent = `Involved Vehicles List`;
                     document.querySelector('.report-detail-records').innerHTML = `
                         <div class="report-details"></div>
-                        <div class="flexsmall grey pointer addnew" onclick="addVehicleToIncident()">
+                        <div class="flexsmall grey pointer addnew" onclick="addVehicleToReport()">
                             <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
                             </svg>
@@ -2896,7 +2896,7 @@ const viewReport = (reportId) => {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
                                         <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
                                     </svg>
-                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteVehicleFromIncident(${id})">
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteVehicleFromReport(${id})">
                                         <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                     </svg>
                                 </div>
@@ -2907,7 +2907,7 @@ const viewReport = (reportId) => {
                     document.querySelector('.report-main-title').textContent = `Involved Citizens List`;
                     document.querySelector('.report-detail-records').innerHTML = `
                         <div class="report-details"></div>
-                        <div class="flexsmall grey pointer addnew" onclick="addCitizenToIncident()">
+                        <div class="flexsmall grey pointer addnew" onclick="addCitizenToReport()">
                             <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
                             </svg>
@@ -2927,7 +2927,7 @@ const viewReport = (reportId) => {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none">
                                         <path d="M15.4863 7.73699L12.2307 4.51507L13.3031 3.4411C13.5968 3.14703 13.9576 3 14.3855 3C14.8135 3 15.174 3.14703 15.4671 3.4411L16.5396 4.51507C16.8332 4.80913 16.9864 5.16405 16.9992 5.57984C17.012 5.99562 16.8715 6.35028 16.5779 6.64384L15.4863 7.73699ZM14.3755 8.86849L6.25563 17H3V13.7397L11.1199 5.60822L14.3755 8.86849Z" fill="white" fill-opacity="0.65"/>
                                     </svg>
-                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteCitizenFromIncident(${id})">
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteCitizenFromReport(${id})">
                                         <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                     </svg>
                                 </div>
@@ -2944,7 +2944,7 @@ const viewReport = (reportId) => {
                                     <div class="flexheading-div"></div>
                                 </div>
                                 <div class="leadingofficersdetails"></div>
-                                <div class="flexsmall grey pointer addnew" onclick="addLeadingOfficerToIncident()">
+                                <div class="flexsmall grey pointer addnew" onclick="addLeadingOfficerToReport()">
                                     <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
                                     </svg>
@@ -2957,7 +2957,7 @@ const viewReport = (reportId) => {
                                     <div class="flexheading-div"></div>
                                 </div>
                                 <div class="officersdetails"></div>
-                                <div class="flexsmall grey pointer addnew" onclick="addOfficerToIncident()">
+                                <div class="flexsmall grey pointer addnew" onclick="addOfficerToReport()">
                                     <svg width="24" height="24" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M24.2188 6.25C24.8404 6.25 25.4365 6.49693 25.876 6.93647C26.3156 7.37601 26.5625 7.97215 26.5625 8.59375V21.875H39.8438C40.4654 21.875 41.0615 22.1219 41.501 22.5615C41.9406 23.001 42.1875 23.5971 42.1875 24.2188C42.1875 24.8404 41.9406 25.4365 41.501 25.876C41.0615 26.3156 40.4654 26.5625 39.8438 26.5625H26.5625V39.8438C26.5625 40.4654 26.3156 41.0615 25.876 41.501C25.4365 41.9406 24.8404 42.1875 24.2188 42.1875C23.5971 42.1875 23.001 41.9406 22.5615 41.501C22.1219 41.0615 21.875 40.4654 21.875 39.8438V26.5625H8.59375C7.97215 26.5625 7.37601 26.3156 6.93647 25.876C6.49693 25.4365 6.25 24.8404 6.25 24.2188C6.25 23.5971 6.49693 23.001 6.93647 22.5615C7.37601 22.1219 7.97215 21.875 8.59375 21.875H21.875V8.59375C21.875 7.97215 22.1219 7.37601 22.5615 6.93647C23.001 6.49693 23.5971 6.25 24.2188 6.25Z" fill="white" fill-opacity="0.65"/>
                                     </svg>
@@ -2976,7 +2976,7 @@ const viewReport = (reportId) => {
                                     ${ officer.incidentcreator && `<div class="incidentcreator">Incident Creator</div>` }
                                 </div>
                                 <div>
-                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteLeadingOfficerFromIncident(${id})">
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteLeadingOfficerFromReport(${id})">
                                         <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                     </svg>
                                 </div>
@@ -2992,7 +2992,7 @@ const viewReport = (reportId) => {
                                     <span> (ID:${officerid}) </span>
                                 </div>
                                 <div>
-                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromIncident(${id})">
+                                    <svg width="20" height="20" class="pointer" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="deleteOfficerFromReport(${id})">
                                         <path d="M15.8334 3.33333H12.9167L12.0834 2.5H7.91675L7.08341 3.33333H4.16675V5H15.8334M5.00008 15.8333C5.00008 16.2754 5.17568 16.6993 5.48824 17.0118C5.8008 17.3244 6.22472 17.5 6.66675 17.5H13.3334C13.7754 17.5 14.1994 17.3244 14.5119 17.0118C14.8245 16.6993 15.0001 16.2754 15.0001 15.8333V5.83333H5.00008V15.8333Z" fill="#F13333" fill-opacity="0.65"/>
                                     </svg>
                                 </div>
@@ -3059,7 +3059,6 @@ const cancelReportWitness = () => {
 const reportWitnessAdd = () => {
     document.querySelector('#reportwitnessmodal').classList.add('hide')
 }
-
 // ADD SUSPECT TO INCIDENT
 const addReportSuspect = () => {
     document.querySelector('#reportsuspectmodal').classList.remove('hide')
@@ -3069,6 +3068,105 @@ const cancelReportSuspect = () => {
 }
 const reportSuspectAdd = () => {
     document.querySelector('#reportsuspectmodal').classList.add('hide')
+}
+// EVIDENCE ADD/DELETE/EDIT 
+const addEvidenceToReport = () => {
+    document.querySelector('.reportevidencemodal').classList.remove('hide')
+}
+const cancelReportEvidenceModal = () => {
+    document.querySelector('.reportevidencemodal').classList.add('hide')
+}
+const deleteEvidenceFromReport = (id) => {
+    document.querySelector(`.evidence${id}`).classList.add('hidden')
+    incidentsData = incidentsData.map((incd) => {
+        if (incd.id == currentIncident){
+            let newincd = incd.evidences.filter((evid) => evid.id  !== id)
+            return {...incd, evidences:newincd}
+        } else{
+            return {...incd}
+        }
+    })
+    pushIncidents(incidentsData)
+    viewIncident(currentIncident)
+}
+// VEHICLE ADD/DELETE/EDIT 
+const addVehicleToReport = () => {
+    document.querySelector('.reportvehiclemodal').classList.remove('hide')
+}
+const cancelReportVehicleModal = () => {
+    document.querySelector('.reportvehiclemodal').classList.add('hide')
+}
+const deleteVehicleFromReport = (id) => {
+    document.querySelector(`.vehicle${id}`).classList.add('hidden')
+    incidentsData = incidentsData.map((incd) => {
+        if (incd.id == currentIncident){
+            let newincd = incd.vehicles.filter((veh) => veh.id != id)
+            return {...incd, vehicles:newincd}
+        } else{
+            return {...incd}
+        }
+    })
+    pushIncidents(incidentsData)
+    viewIncident(currentIncident)
+}
+// OFFICER ADD/DELETE/EDIT 
+const addOfficerToReport = () => {
+    document.querySelector('.reportofficermodal').classList.remove('hide')
+}
+const addLeadingOfficerToReport = () => {
+    document.querySelector('.reportofficermodal').classList.remove('hide')
+}
+const cancelReportOfficerModal = () => {
+    document.querySelector('.reportofficermodal').classList.add('hide')
+}
+const deleteLeadingOfficerFromReport = (id) => {
+    document.querySelector(`.leadingofficer${id}`).classList.add('hidden');
+    incidentsData = incidentsData.map((incd) => {
+        if (incd.id == currentIncident) {
+            let incdofficer = incd.officers
+            let newincd = incd.officers.leadingOfficers.filter((i) => i.id != id);
+            return {...incd, officers:{...incdofficer, leadingOfficers: newincd}}
+        } else{
+            return {...incd}
+        }
+    })
+    console.log(incidentsData)
+    pushIncidents(incidentsData)
+    viewIncident(currentIncident)
+}
+const deleteOfficerFromReport = (id) => {
+    document.querySelector(`.officer${id}`).classList.add('hidden');
+    incidentsData = incidentsData.map((incd) => {
+        if (incd.id == currentIncident){
+            let incdofficer = incd.officers
+            let newincd = incd.officers.otherOfficers.filter((veh) => veh.id != id)
+            return {...incd, officers: {...incdofficer, otherOfficers: newincd} }
+        } else{
+            return {...incd}
+        }
+    })
+    pushIncidents(incidentsData)
+    viewIncident(currentIncident)
+}
+// CITIZEN ADD/DELETE/EDIT 
+const addCitizenToReport = () => {
+    document.querySelector('.reportcitizenmodal').classList.remove('hide')
+}
+const cancelReportCitizenModal = () => {
+    document.querySelector('.reportcitizenmodal').classList.add('hide')
+}
+const deleteCitizenFromReport = (id) => {
+    document.querySelector(`.citizen${id}`).classList.add('hidden')
+    incidentsData = incidentsData.map((incd) => {
+        if (incd.id == currentIncident){
+            let newincd = incd.citizens.filter((veh) => veh.id != id)
+            return {...incd, citizens:newincd}
+        } else{
+            return {...incd}
+        }
+    })
+    pushIncidents(incidentsData)
+    viewIncident(currentIncident)
 }
 
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
