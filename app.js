@@ -3024,6 +3024,22 @@ const viewAllReports = () => {
     backToMainInfoReport();
 }
 
+// DELETE REPORT
+const deleteReport = () => {
+    reportsData = reportsData.filter((report) => report.id != currentReport)
+    pushReports(reportsData);
+    singlereport.classList.remove('show');
+    singlereport.classList.add('hidden');
+    reportsview.classList.remove('hidden');
+    document.querySelector('#reportdeletemodal').classList.add('hide')
+}
+const cancelReportDelete = () => {
+    document.querySelector('#reportdeletemodal').classList.add('hide')
+}
+const openReportDelete = () => {
+    document.querySelector('#reportdeletemodal').classList.remove('hide')
+}
+
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
 const evidenceTypes = [ 
     {

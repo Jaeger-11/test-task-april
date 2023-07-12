@@ -1351,6 +1351,25 @@
                             <span class="reportlast-modified-span"> </span>
                         </div>
                     </div>
+                     <!-- SINGLE REPORT MODALS -->
+                        <!-- DELETE MODAL -->
+                        <div class="hide modalbody" id="reportdeletemodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Delete Confirmation </p> 
+                                    <div class="cancelicon pointer" onclick="cancelReportDelete()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <p class="fontmedium center">Are you sure you want to delete the incident?</p>
+                                    <div class="btnscontainer">
+                                        <button class="incident-delete pointer suspectbtn" onclick="deleteReport()">DELETE</button>
+                                        <button class="incident-cancel pointer" onclick="cancelReportDelete()">CANCEL</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
                 </section>
 
                     <!-- MISC CONTENT -->
