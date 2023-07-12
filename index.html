@@ -1370,6 +1370,81 @@
                                 </section>
                             </section>
                         </div>
+                        <!-- ADD VICTIM -->
+                        <div class="hide modalbody" id="reportvictimmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Victim </p> 
+                                    <div class="cancelicon pointer" onclick="cancelReportVictim()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="choosevehiclecont flexsmall">
+                                        <input type="text" name="reportvictim" id="selectedreportvictim" placeholder="Choose profile">
+                                        <div class="addicon pointer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                                <path d="M8.75 12.5L15 18.75L21.25 12.5H8.75Z" fill="white" fill-opacity="0.45"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <textarea name="description" id="report-victim-description" rows="8" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton" onclick="reportVictimAdd()">ADD</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        <!-- ADD EYEWITNESS -->
+                        <div class="hide modalbody" id="reportwitnessmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Eyewitness </p> 
+                                    <div class="cancelicon pointer" onclick="cancelReportWitness()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="choosevehiclecont flexsmall">
+                                        <input type="text" name="reportwitness" id="selectedreportwitness" placeholder="Choose profile">
+                                        <div class="addicon pointer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                                <path d="M8.75 12.5L15 18.75L21.25 12.5H8.75Z" fill="white" fill-opacity="0.45"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <textarea name="description" id="witness-description" rows="8" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton" onclick="reportWitnessAdd()">ADD</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
+                        <!-- ADD SUSPECT -->
+                        <div class="hide modalbody" id="reportsuspectmodal">
+                            <section class="addevidencemodal ">
+                                <img src="images/evidencevectorup.svg" alt="vector up" class="vectorup">
+                                <img src="images/evidencevectordown.svg" alt="vector down" class="vectordown">
+                                <section class='header'> 
+                                    <p>Add Suspect </p> 
+                                    <div class="cancelicon pointer" onclick="cancelReportSuspect()"><img src="images/greyclose.svg" alt="cancel icon" ></div>
+                                </section>
+                                <section class="content">
+                                    <div class="choosevehiclecont flexsmall">
+                                        <input type="text" name="reportsuspect" id="selectedreportsuspect" placeholder="Choose profile">
+                                        <div class="addicon pointer">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
+                                                <path d="M8.75 12.5L15 18.75L21.25 12.5H8.75Z" fill="white" fill-opacity="0.45"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <textarea name="description" id="report-suspect-description" rows="8" placeholder="Description"></textarea>
+                                    <div class="center">
+                                        <button class="pointer incidentbutton savebutton" onclick="reportSuspectAdd()">ADD</button>
+                                    </div>
+                                </section>
+                            </section>
+                        </div>
                 </section>
 
                     <!-- MISC CONTENT -->

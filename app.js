@@ -2738,10 +2738,10 @@ const refreshReportForm = () => {
 // SAVE AND ADD NEW REPORT
 const saveNewReport = () => {
     reportsData.unshift({
-        id: reportsData[0].id + 1,
+        id: reportsData.length > 0 && reportsData[0].id + 1,
         title: document.getElementById('newreporttitle').value,
         description: document.getElementById('newreportdescription').value,
-        time: '2 minutes ago',
+        time: '2 minutes',
         name: 'Daniel Kim'
     })
     pushReports(reportsData);
@@ -3038,6 +3038,37 @@ const cancelReportDelete = () => {
 }
 const openReportDelete = () => {
     document.querySelector('#reportdeletemodal').classList.remove('hide')
+}
+// ADD VICTIM TO REPORT
+const addReportVictim = () => {
+    document.querySelector('#reportvictimmodal').classList.remove('hide')
+}
+const cancelReportVictim = () => {
+    document.querySelector('#reportvictimmodal').classList.add('hide')
+}
+const reportVictimAdd = () => {
+    document.querySelector('#reportvictimmodal').classList.add('hide')
+}
+// ADD EYEWITNESS TO INCIDENT
+const addReportWitness = () => {
+    document.querySelector('#reportwitnessmodal').classList.remove('hide')
+}
+const cancelReportWitness = () => {
+    document.querySelector('#reportwitnessmodal').classList.add('hide')
+}
+const reportWitnessAdd = () => {
+    document.querySelector('#reportwitnessmodal').classList.add('hide')
+}
+
+// ADD SUSPECT TO INCIDENT
+const addReportSuspect = () => {
+    document.querySelector('#reportsuspectmodal').classList.remove('hide')
+}
+const cancelReportSuspect = () => {
+    document.querySelector('#reportsuspectmodal').classList.add('hide')
+}
+const reportSuspectAdd = () => {
+    document.querySelector('#reportsuspectmodal').classList.add('hide')
 }
 
 // DROPDOWN FOR ALL EVIDENCE, PERSON, CITIZENS, OFFICERS AND VEHICLES MODAL
