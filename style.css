@@ -1450,7 +1450,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
 .third-detail .main-info-header p:hover{
     background: rgba(255, 255, 255, 0.12);
 }
-.third-detail .main-info, .detail-records{
+.third-detail .main-info, .detail-records,.report-detail-records, .report-main-info{
     background: rgba(255, 255, 255, 0.01);
     padding: var(--padmedium);
     display: flex;
@@ -1476,10 +1476,10 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.1);
     flex: 1;
 }
-.third-detail .main-info-text::first-letter{
+.third-detail .main-info-text::first-letter, .report-main-info-text::first-letter{
     text-transform: capitalize;
 }
-.third-detail .detail-records .addnew{
+.third-detail .detail-records .addnew, .report-detail-records .addnew{
     background: rgba(255, 255, 255, 0.01);
     border: 1px dashed rgba(255, 255, 255, 0.25);
     width: 100%;
@@ -1487,7 +1487,7 @@ border: 1px solid rgba(255, 255, 255, 0.15);
     padding: var(--padmedium);
     font-size: var(--fontsmall);
 }
-.third-detail .details{
+.third-detail .details, .report-details{
     display: flex;
     flex-direction: column;
     gap: var(--gap);
